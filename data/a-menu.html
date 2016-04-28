@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>RCS Reports - Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/material/bootstrap-material-design.css" rel="stylesheet" type="text/css">
+  <link href="../css/material/ripples.css" rel="stylesheet" type="text/css">
+
+  <!-- Fav and touch icons -->
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/database.js"></script>
+
+    <script type="text/javascript" src="../js/material/material.min.js"></script>
+    <script type="text/javascript" src="../js/material/ripples.min.js"></script>
+
+    <!-- TAG LENGUAGES -->
+    <script type="text/javascript" src="../js/constant-es.js"></script>
+
+    <script  type="text/javascript">
+
+        $(window).load(function(){
+            onInit();
+            updateHideReports();
+            //pone el titulo  
+            //Title_Company();
+            deteclenguage();
+        });
+
+        function addID(abc){
+            $('#ServersList').css('z-index','1030');
+            $("#txtvalue").val(abc);
+        }        
+
+        function addIDDelete(id){
+            $('#ServersList').css('z-index','1030');
+            $("#txtvaluedelete").val(id);
+        }
+
+        function ocultaMiModal(){
+            var id = $("#txtvalue").val();
+            updateStateURL(id);
+        }
+
+        function ocultaMiModalDelete(){
+            var id = $("#txtvaluedelete").val();
+            deleteServer(id);
+        }
+
+
+        function newInfoServer(){
+            window.location.href = "../index.html?variable=1";
+        }
+
+  
+        document.addEventListener('deviceready', onDeviceReady, false);
+        
+        function onDeviceReady() {
+              document.addEventListener("backbutton", onBackKeyDown, false);            
+        }
+
+       function onBackKeyDown() {
+            navigator.app.exitApp();
+       }
+    
+           
+        function openReport1(){
+              window.location.href = "report1.html";
+              return false;        
+        }
+        
+        function openReport2(){
+            window.location.href = "report2.html";
+            return false;
+        }
+        function openReport3(){
+            window.location.href = "report3.html";
+            return false;
+        }
+        function openReport4(){
+            showDialogStore();
+            return false;
+        }
+        function passReport4(){
+            window.location.href = "report4.html";
+            return false;
+        }
+        function openReport5(){
+            showDialogStore5();
+            return false;
+        }
+         function passReport5(){
+            window.location.href = "report5.html";
+            return false;
+        }
+        function openReport6(){
+            showDialogStore6();
+            return false;
+        }
+        function passReport6(){
+            window.location.href = "report6.html";
+            return false;
+        }
+    </script>
+
+</head>
+
+<body>
+  
+
+    
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/design.js"></script>
+
+</body>
+
+</html>
