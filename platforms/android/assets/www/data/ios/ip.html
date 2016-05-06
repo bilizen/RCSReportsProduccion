@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>RCS Reports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- Fav and touch icons -->
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/scripts.js"></script>
+    <script type="text/javascript" src="../../js/design.js"></script>
+    <script type="text/javascript" src="../../js/database.js"></script>
+    <script type="text/javascript" src="../../js/ip.js"></script>
+
+    <!-- TAG LENGUAGES -->
+    <script type="text/javascript" src="../../js/constant-es.js"></script>
+
+
+</head>
+
+<body>
+    <div class="hybrid_container hybrid_bg">
+        <header class="transparent">
+            <div id="top_bar_space"></div>
+            <div class="options_bar_space">
+                <div id="txt_title"></div>
+                <div id="btn_right"><button></button></div>
+            </div>  
+            <div id="btn_left" hidden="true" class="arrow white"><button onclick="window.location.href='menu.html';" id="txtpreferences_index" class="white">Return</button></div>
+        </header>
+
+        <div id="content" class="indexSection">
+
+            <div class="logo-name"><img src="../../img/iconLogo.svg"/></div>
+            <p class="welcome">Welcome</p>
+            <form action="#">
+                <div class="form-group text-center">
+                    <label id="lblmsg1">Enter IP Address</label>
+                </div>
+                <div class="form-group text-center ip">
+                    <input type="number" id="ip_1" name="ip_1" />
+                    <span>.</span>
+                    <input type="number" id="ip_2" name="ip_2" />
+                    <span>.</span>
+                    <input type="number" id="ip_3" name="ip_3" />
+                    <span>.</span>
+                    <input type="number" id="ip_4" name="ip_4" />
+                </div>
+                <div class="form-group input_effect">          
+                    <input type="number" id="port" name="port"> 
+                    <label id="lblmsg2">Port</label>                    
+                </div>
+                <div class="form-group input_effect">          
+                    <input type="text" id="aliastext" name="aliastext">  
+                    <label id="lblmsg3">Alias</label>                 
+                </div>
+                <div class="form-group input_effect">          
+                    <input type="text" id="sitetext" name="sitetext"> 
+                    <label id="lblmsg4">Site</label>           
+                </div>
+                <div class="form-group input_effect">
+                    <input type="button" name="btnenter" id="btnenter" value="Ok" class="btn btn_only1"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="show_loading" >
+        <div class="modal-dialog">
+            <div class="text-center loading">
+                <div></div>
+                <div></div>
+            </div>
+            <!-- <div class="text-center"><p name="txtloading" id="txtloading"></p></div> -->
+            <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
+        </div>
+    </div>
+
+    <div class="modal fade" id="show_alias">
+        <div class="modal-dialog">
+            <div class="modal-content">                              
+                <div class="modal-body text-center">     
+                    <p class="title-alert titleMessage">Message</p>                 
+                    <p class="text-center textgeneral"></p>              
+                </div>
+                <div class="modal-footer info">
+                    <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
