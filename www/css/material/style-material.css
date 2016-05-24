@@ -1,0 +1,71 @@
+.modal-header .close{
+	margin-top: -20px;
+	font-size: 14px;
+}
+.item{
+	width: 100%;
+}
+.item_title{
+	display: block;
+	text-align: left;
+
+	font-size: 24px;
+}
+.item_subtitle{
+	display: block;
+	text-align: left;
+
+	font-size: 14px;
+}
+.item_title,
+.item_subtitle{
+	padding: 1px 6px;
+}
+.item{
+	padding: 0;
+}
+.form-group{
+	margin-top: 0;
+}
+
+.iconReport{
+	display: block;	
+	width: 100%;
+
+	height: 80px;
+}
+
+.icon-bar{
+	border-color: #f1f1f1 !important;
+}
+
+.report1 .iconReport{
+  background: rgba(136,58,209);
+  background: url('../../img/iconReport1-white.svg') center center no-repeat, url('../../img/bg_report1.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report2 .iconReport{
+  background: #c62828;
+  background: url('../../img/iconReport2-white.svg') center center no-repeat, url('../../img/bg_report2.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report3 .iconReport{
+	background: #6a1b9a;
+  background: url('../../img/iconReport3-white.svg') center center no-repeat, url('../../img/bg_report3.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report4 .iconReport{
+  background: #6a1b9a;
+  background: url('../../img/iconReport4-white.svg') center center no-repeat, url('../../img/bg_report4.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report5 .iconReport{
+  background: #6a1b9a;
+  background: url('../../img/iconReport5-white.svg') center center no-repeat, url('../../img/bg_report5.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report6 .iconReport{
+  background: #6a1b9a;
+  background: url('../../img/iconReport6-white.svg') center center no-repeat, url('../../img/bg_report6.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
