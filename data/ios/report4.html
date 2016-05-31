@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Report 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--import CSS-->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/style4.css" rel="stylesheet">
+    
+    <link href="../../css/datepicker.css" rel="stylesheet">
+    <link rel="shortcut icon" href="">
+
+    <!--import javascript-->
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    
+
+    <script type="text/javascript" src="../../js/database.js"></script>
+    <script type="text/javascript" src="../../js/database_report4.js"></script>
+
+    <!-- TAG LENGUAGES -->
+    <script type="text/javascript" src="../../js/constant-es.js"></script>
+    <!-- TAG DRAW GRAPHIC-->
+    <script type="text/javascript" src="../../js/amcharts.js"></script>
+    <script type="text/javascript" src="../../js/serial.js"></script>
+    <script type="text/javascript" src="../../js/amcharts_mGraphics.js"></script>
+
+
+</head>
+
+<body>
+    <div class="hybrid_container">
+        <header>
+            <div class="top_bar_space"></div>
+            <div class="options_bar_space">
+                <div id="btn_left" class="arrow"><button onclick="menu();" id="txtpreferences_r4">Return</button></div>
+                <div id="txt_title" class="titleTopBar">
+                    <span class="dateStartSection">
+                        <span id="lblDateStart_r4">Date Start</span>
+                        <span id="dateStartTitle">fecha 1</span>
+                    </span>
+                    <span class="nameStore" onclick="refresh();">Store Name</span>
+                    <span class="dateEndSection">
+                        <span id="lblDateEnd_r4">Date End</span>
+                        <span id="dateEndTitle">fecha 2</span>
+                    </span>
+                </div>
+                   <!--
+                   <div id="btn_right" class="side storeIcon" onclick="showDialogStore();"><button ></button></div>
+               -->                    
+               <div id="btn_right" class="config" onclick="moveToLeft(2);existDataDate();"><button></button></div>
+           </div>      
+       </header>
+
+       <div id="content">
+        <div class="section">
+            <div class="section_content">
+                <div id="chartdiv"></div>
+            </div>
+        </div> 
+
+    </div>       
+</div>
+
+
+
+<!--swiper -->
+<div id="floatWindow" >
+
+    <header>
+        <div class="top_bar_space"></div>
+        <div class="options_bar_space">
+            <div id="btn_left" class="arrow"><button onclick="moveToRight();
+                downloadReportGraphic();" id="lblBack">Back</button></div>
+                <div id="lbl_Options" class="titleTopBar">Options</div>
+                <div id="btn_right"></div>
+            </div>      
+        </header>
+
+        <div class="wrapper visualization">
+            <div class="section">
+                <span>None</span>
+                <div class="section_content">
+                </div>                
+            </div>
+        </div> 
+
+
+
+        <div class="wrapper date">
+            <!-- calendar -->
+            <div class="section">
+                <span id="lblChooseRange">Choose Date Range</span>
+                <div class="section_content">
+                    <div class="select-calendar">
+                        <div class="item" onclick="showCalendar(1);
+                        mostrarCalendar();">
+                        <div id="lbldateStartR4">Date Start</div>
+                        <div id="dateStart" class="date"></div>
+                    </div>
+                    <hr>
+                    <div class="item"  onclick="showCalendar(2);
+                    mostrarCalendar();">
+                    <div id="lbldateEndR4">Date End</div>
+                    <div id="dateEnd" class="date"></div>
+                </div>
+            </div> 
+        </div>                
+    </div>
+    <!-- value -->
+    <div class="section">
+        <span id="lblChooseMargen">Choose Margin Percent</span>
+        <div class="section_content item" onclick="showModalMargen();">
+            <div class="buttonItem" id="lblMargenNumber">50</div>
+            <button>%</button>
+        </div>                
+    </div>
+    
+    <!-- Elegir tienda-->
+    <div class="section">
+        <span class="title_store_r4">Choose Store</span>
+        <div class="section_content item" onclick="showDialogStore4();">                    
+            <div class="buttonItem nameStore">Store</div>
+            <button class="storeIcon"></button>
+        </div>                
+    </div>
+</div> 
+</div>  
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="show_loading" >
+    <div class="modal-dialog">
+        <div class="text-center loading">
+            <div></div>
+            <div></div>
+        </div>
+        <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
+    </div>
+</div>
+
+<!--Modal Store-->
+<div class="modal fade" id="show_modalStore">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div  class="modal-header text-center title_store_r4">Choose Store</div>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">Close</button>
+            <div class="list_store list_r4"></div>
+                    <!--
+                    <button id="btn_ok_r4" onclick="writeStore();" class="btn btn-modal" data-dismiss="modal" aria-hidden="true">Ok</button> 
+                -->
+            </div>
+        </div>
+    </div>
+
+    <!--Calendar-->
+    <div class="modal fade" id="show_calendar" >
+        <input type="hidden" name="txtvalue" id="txtvalue" value="0">
+        <div class="modal-dialog">
+            <div class="modal-content" id="dinamicContent">   
+                <div class="modal-body">      
+
+                </div>
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-modal left" data-dismiss="modal" aria-hidden="true" onclick="BtnCancel4();">Cancel</button>
+                    <button type="button" class="btn btn-modal right" data-dismiss="modal" aria-hidden="true" onclick="updaTableCustomDate4();">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Margen-->
+    <div class="modal fade" id="show_magen" >
+        <div class="modal-dialog">
+            <div class="modal-content"> 
+                <div class="modal-header text-center">                        
+                    <h4 class="modal-title" id="lblEnterMargen">
+                        Enter the Margen
+                    </h4>
+                </div>  
+                <div class="modal-body">
+                    <div class="form-group input_effect">          
+                        <input type="text" id="MargenValue" />  
+                        <label id="lblMargenValue">Margen Value</label>                 
+                    </div>
+                </div>
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-modal left" data-dismiss="modal" aria-hidden="true" id="lblCancel">Cancel</button>
+                    <button type="button" class="btn btn-modal right" data-dismiss="modal" aria-hidden="true" onclick="updatePointBalance();" id="lblOk">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- rotate screen -->
+    <div class="modal fade" id="miModal4">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center title_rotateScreen_R4">Message</div>
+                <div class="textRotateScreen">Please Rotate to Landscape Position</div>
+                <div class="iconRotate"><img src="../../img/iconRotate.svg"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Modal of CONECTION -->
+    <div class="modal fade" id="show_alias">
+      <div class="modal-dialog">
+          <div class="modal-content">                              
+              <div class="modal-body text-center">     
+                  <p class="title-alert titleMessage">Message</p>                 
+                  <p class="text-center textgeneral"></p>              
+              </div>
+              <div class="modal-footer info">
+                  <button type="button" class="btn btn-modal btnok" name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- no connection -->
+  <div class="modal fade" id="no_connection" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">                              
+        <div class="modal-body text-center">     
+          <p class="title-alert titleMessage">Message</p>                 
+          <p class="text-center textNoConnection">No Connection</p>              
+        </div>
+        <div class="modal-footer info">
+            <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+  <script type="text/javascript" src="../../js/scripts.js"></script>
+  <script type="text/javascript" src="../../js/design.js"></script>  
+  
+</body>
+</html>

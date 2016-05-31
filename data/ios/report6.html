@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Report 6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/style6.css" rel="stylesheet">
+    <link rel="shortcut icon" href="">
+
+    <!-- Fav and touch icons -->
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="../../js/database.js"></script>
+    <script type="text/javascript" src="../../js/database_report6.js"></script>
+
+    <!-- AmCharts-->
+    <script type="text/javascript" src="../../js/amcharts.js"></script>
+    <script type="text/javascript" src="../../js/amcharts_mGraphics.js" ></script>
+    <script type="text/javascript" src="../../js/serial.js"></script>
+    <!-- TAG LENGUAGES -->
+    <script type="text/javascript" src="../../js/constant-es.js"></script>
+
+
+</head>
+
+<body >
+    <div class="hybrid_container">
+
+        <header>
+            <div class="top_bar_space"></div>
+            <div class="options_bar_space">
+                <div id="btn_left" class="arrow"><button onclick="menu();" id="txtpreferences_r6">Return</button></div>
+                <div id="txt_title" class="titleTopBar"></div>
+                <div id="btn_right" class="config" onclick="moveToLeft(2);"><button ></button></div>
+            </div>      
+        </header>
+        
+        
+        <div id="content">
+            <div class="section">
+                <div class="section_content">
+                    <div id="chartdiv6">
+                    </div>              
+                </div>
+            </div>
+
+        </div>        
+
+    </div>
+
+    <!--- swiper -->
+    <div id="floatWindow">
+        <header>
+            <div class="top_bar_space"></div>
+            <div class="options_bar_space">
+                <div id="btn_left" class="arrow"><button onclick="moveToRight();
+                    refresh6();" id="lblBack">Back</button></div>
+                    <div id="txt_title" class="txt_options titleTopBarOpt">Options</div>
+                    <div id="btn_right"></div>
+                </div>      
+            </header>
+
+
+            <div class="wrapper visualization">
+                <div class="section">
+                    <span>None</span>
+                    <div class="section_content">
+                    </div>                
+                </div>
+            </div> 
+
+
+
+            <div class="wrapper date">
+               <!--  calendar -->
+               <div class="section">
+                <span class="title_Date_r6">Choose Date</span>
+                <div class="section_content item" onclick="showDialogDate6();">                    
+                    <div class="buttonItem nameDate">Week to Date</div>
+                    <button class="calendar"></button>
+                </div>                
+            </div>
+            
+            <!-- Elegir tienda-->
+            <div class="section">
+                <span class="title_store_r6">Choose Store</span>
+                <div class="section_content item" onclick="showDialogStore6();">                    
+                    <div class="buttonItem nameStore">Store</div>
+                    <button class="storeIcon"></button>
+                </div>                
+            </div>
+
+
+
+        </div> 
+
+    </div>  
+
+    <!-- rotate screen -->
+    <div class="modal fade" id="miModal6">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center title_rotateScreen_R6">Message</div>
+                <div class="textRotateScreen">Please Rotate to Landscape Position</div>
+                <div class="iconRotate"><img src="../../img/iconRotate.svg"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Store-->
+    <div class="modal fade" id="show_modalStore">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center title_store_r6">Choose Store</div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">Close</button>
+                <div class="list_store list_r6" >No Store</div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--Modal Date-->
+    <div class="modal fade" id="show_modaldate6">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center title_Date_r6">Choose Date</div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">Close</button>
+                <div class="list_store list_date" >
+                    <h1 class='date-3 active' data-value='3'  onclick="writeDate(3);" >Week to Date</h1>
+                    <h1 class='date-4' data-value='4'  onclick="writeDate(4);" >Month to Date</h1>
+                    <h1 class='date-5' data-value='5'  onclick="writeDate(5);" >Year to Date</h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="show_loading" >
+        <div class="modal-dialog">
+            <div class="text-center loading">
+                <div></div>
+                <div></div>
+            </div>
+            <!-- <div class="text-center"><p name="txtloading" id="txtloading"></p></div> -->
+            <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
+        </div>
+    </div>
+
+
+    <!--Modal of CONECTION -->
+    <div class="modal fade" id="show_alias">
+        <div class="modal-dialog">
+            <div class="modal-content">                              
+                <div class="modal-body text-center">     
+                    <p class="title-alert titleMessage">Message</p>                 
+                    <p class="text-center textgeneral"></p>              
+                </div>
+                <div class="modal-footer info">
+                    <button type="button" class="btn btn-modal btnok" name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- no connection -->
+  <div class="modal fade" id="no_connection" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">                              
+        <div class="modal-body text-center">     
+          <p class="title-alert titleMessage">Message</p>                 
+          <p class="text-center textNoConnection">No Connection</p>              
+        </div>
+        <div class="modal-footer info">
+            <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <script type="text/javascript" src="../../js/scripts.js"></script>
+    <script type="text/javascript" src="../../js/design.js"></script>
+    
+</body>
+</html>
