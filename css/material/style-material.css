@@ -117,8 +117,7 @@ hr{
 	margin-bottom: 10px;
 }
 hr:last-child{
-	margin-top: 0px;
-	margin-bottom: 0px;
+	display: none;
 }
 .modal-footer{
 	margin-top: 0;
@@ -256,4 +255,7 @@ ul .item{
 .collection .collection-item{
 	padding-top: 0px;
 	padding-bottom: 0px; 
+}
+.collection .collection-item.avatar{
+	min-height: 72px;
 }

@@ -769,7 +769,7 @@ function downloadByStore(actual_, global_) {
 
                             mostrar += "<div onclick=\"storeWitdhGraphic('-" + indice + "')\" class='store waves-effect waves-light'>";
                             mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
-                            mostrar += "<div class='lastConexion'><div class='lblLastConexion'>Last Conn.: </div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
+                            mostrar += "<div class='lastConexion'><div class='lblLastConexion'>Last sale: </div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
                             // mostrar += "<div>";
 
                             if (actual == 1) {

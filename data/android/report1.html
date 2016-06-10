@@ -42,7 +42,7 @@
   <!-- Navbar -->
   <div class="bs-docs-section clearfix">
     <div class="bs-component navbar-fixed">
-      <nav class="navbar navbar-default  green darken-4">
+      <nav class="navbar navbar-default green darken-4">
         <div class="container-fluid">
           <div class="navbar-header">
 
@@ -73,7 +73,7 @@
               <li class="divider"></li>
               <li class="collection-item avatar" onclick="mostrarInfo();">                  
                 <a href="#">
-                  <i class="material-icons circle">Aa</i>
+                  <i class="material-icons circle green darken-4">Aa</i>
                   <label class="buttonItem dictionary">Show Dictionary</label>
                 </a>
               </li>
@@ -88,76 +88,72 @@
 
   <div class="container">
 
-    <div class="content">
+    <div class="section combo">
+      <div class="select-general">
+        <div data-value="3" class="init item innerLi dropdown-button btn" data-activates='dpGeneral' id="lbl_By_Store">By Store</div>
+      </div> 
+      <ul class="select-general dropdown-content" id="dpGeneral">
+        <div data-value="1" class="item " id="lbl_By_company">By Company</div>
+        <div data-value="2" class="item" id="lbl_By_region">By Region</div>
+        <div data-value="3" class="item selected lbl_By_Store"  id="lbl_By_Store">By Store</div>
+      </ul>              
+    </div>
 
-      <div class="section combo">
-        <div class="select-general">
-          <div data-value="3" class="init item innerLi dropdown-button btn" data-activates='dpGeneral' id="lbl_By_Store">By Store</div>
-        </div> 
-        <ul class="select-general dropdown-content" id="dpGeneral">
-          <div data-value="1" class="item " id="lbl_By_company">By Company</div>
-          <div data-value="2" class="item" id="lbl_By_region">By Region</div>
-          <div data-value="3" class="item selected lbl_By_Store"  id="lbl_By_Store">By Store</div>
-        </ul>              
-      </div>
-
-      <div class="section combo">
-        <div class="select-dateP">
-          <div data-value="1" class="init item innerLi dropdown-button btn" data-activates='dpDate'>
-            <span id="lblTodayP">Today</span>
-            <div id="time"></div>
-          </div>
-        </div>
-        <ul class="select-date dropdown-content" id="dpDate">
-          <div data-value="1" class="item selected"  >
-            <div id="lblToday">Today</div>
-            <div id="today" class="date"></div>
-          </div>
-          <div data-value="2" class="item">
-            <div id="lblYesterday">Yesterday</div>
-            <div id="yesterday" class="date"></div>
-          </div>
-          <div data-value="3" class="item">
-            <div id="lblWeek">Week to Date</div>
-            <div id="week" class="date"></div>
-          </div>
-          <div data-value="4" class="item">
-            <div id="lblMonth">Month to Date</div>
-            <div id="month" class="date"></div>
-          </div>
-          <div data-value="5" class="item">
-            <div id="lblYear">Year to Date</div>
-            <div id="year" class="date"></div>
-          </div>
-        </ul>                 
-      </div>
-
-      <div class="section combo">
-        <div class="section_content" id="divRegion">
-          <div class="item select-region dropdown-button btn" id="selectRegion" data-activates='dpRegion'>
-            <!--<div data-value="R-1" class="init item innerLi" onclick="moveToLeft(4);">Select a Region</div>-->
-          </div>
-        </div>        
-        <ul class="dropdown-content" id="dpRegion">
-          <div class="region">
-            <div class="section_content">
-              <div class="select-region">
-                  <!-- combo -->
-              </div> 
-            </div>                
-          </div>
-        </ul> 
-
-      </div>
-
-      <div class="section list">
-        <div class="section_content">
-          <div class="stores" id="items">
-          </div>              
+    <div class="section combo">
+      <div class="select-dateP">
+        <div data-value="1" class="init item innerLi dropdown-button btn" data-activates='dpDate'>
+          <span id="lblTodayP">Today</span>
+          <div id="time"></div>
         </div>
       </div>
+      <ul class="select-date dropdown-content" id="dpDate">
+        <div data-value="1" class="item selected"  >
+          <div id="lblToday">Today</div>
+          <div id="today" class="date"></div>
+        </div>
+        <div data-value="2" class="item">
+          <div id="lblYesterday">Yesterday</div>
+          <div id="yesterday" class="date"></div>
+        </div>
+        <div data-value="3" class="item">
+          <div id="lblWeek">Week to Date</div>
+          <div id="week" class="date"></div>
+        </div>
+        <div data-value="4" class="item">
+          <div id="lblMonth">Month to Date</div>
+          <div id="month" class="date"></div>
+        </div>
+        <div data-value="5" class="item">
+          <div id="lblYear">Year to Date</div>
+          <div id="year" class="date"></div>
+        </div>
+      </ul>                 
+    </div>
 
-    </div>        
+    <div class="section combo">
+      <div class="section_content" id="divRegion">
+        <div class="item select-region dropdown-button btn" id="selectRegion" data-activates='dpRegion'>
+          <!--<div data-value="R-1" class="init item innerLi" onclick="moveToLeft(4);">Select a Region</div>-->
+        </div>
+      </div>        
+      <ul class="dropdown-content" id="dpRegion">
+        <div class="region">
+          <div class="section_content">
+            <div class="select-region">
+                <!-- combo -->
+            </div> 
+          </div>                
+        </div>
+      </ul> 
+
+    </div>
+
+    <div class="section list">
+      <div class="section_content">
+        <div class="stores" id="items">
+        </div>              
+      </div>
+    </div>     
 
   </div>
     

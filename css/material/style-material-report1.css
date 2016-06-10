@@ -35,6 +35,7 @@ div[class^="chartdiv-"]{
     width: 54%;
 }
 .lblLastConexion,.dataLastConexion{
+    font-size: 12px;
     line-height: 20pt;
     display: inline-block;
 }
