@@ -34,27 +34,6 @@
   <!-- TAG LENGUAGES -->
   <script type="text/javascript" src="../../js/constant-es.js"></script>
 
-  <script  type="text/javascript">
-  function addID(abc){
-    $("#txtvalue").val(abc);
-  }
-
-  function addIDDelete(id){
-    $("#txtvaluedelete").val(id);
-  }
-
-  function ocultaMiModal(){
-    var id = $("#txtvalue").val();
-    console.log("id presionado: "+id);
-    updateStateURL(id);
-  }
-
-  function ocultaMiModalDelete(){
-    var id = $("#txtvaluedelete").val();
-    console.log("id presionado: "+id);
-    deleteServer(id);
-  }
-  </script>
 
 </head>
 
@@ -62,39 +41,44 @@
 
   <!-- Navbar -->
   <div class="bs-docs-section clearfix">
-    <div class="bs-component">
+    <div class="bs-component navbar-fixed">
       <nav class="navbar navbar-default  green darken-4">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="btn navbar-toggle config dropdown-button" onclick="showOptions()" id="btn_right" data-activates='dropdown1'>
-              <!-- Dropdown Structure -->
-              <ul id='dropdown1' class='dropdown-content collection'>
-                <li>
-                  <a href="#">
-                    <input type="checkbox" class="filled-in" id="check_actual" onclick = "updateActual()" checked>
-                    <label class="text-checkbox current" for="check_actual">Show Current</label>
-                  </a>
-                <li>
-                  <a href="#">
-                  <input type="checkbox" class="filled-in" id="check_global" onclick="updateGlobal()" checked>
-                  <label class="text-checkbox global" for="check_global">Show Global</label></a></li>
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li class="collection-item avatar" onclick="mostrarInfo();">                  
-                  <a href="#">
-                    <i class="material-icons circle">Aa</i>
-                    <p class="buttonItem dictionary">Show Dictionary</p>
-                  </a>
-                </li>
-              </ul>
-              <div >
+
+            <a class="navbar-brand" href="javascript:void(0)" id="txt_title" onclick="refresh();">Goals vs Sales</a>
+
+            <button type="button" class="btn-right navbar-toggle config dropdown-button" data-activates='dropdown1'>
+              <div class="btn icon-menu waves-effect waves-light">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </div>              
             </button>
-            <a class="navbar-brand titleTopBar" href="javascript:void(0)" id="txt_title" onclick="refresh();">Goals vs Sales</a>
+
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content collection'>
+              <li>
+                <a href="#">
+                  <input type="checkbox" class="filled-in" id="check_actual" onclick = "updateActual()" checked>
+                  <label class="text-checkbox current" for="check_actual">Show Current</label>
+                </a>
+              </li>
+              <li>  
+                <a href="#">
+                  <input type="checkbox" class="filled-in" id="check_global" onclick="updateGlobal()" checked>
+                  <label class="text-checkbox global" for="check_global">Show Global</label>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li class="collection-item avatar" onclick="mostrarInfo();">                  
+                <a href="#">
+                  <i class="material-icons circle">Aa</i>
+                  <label class="buttonItem dictionary">Show Dictionary</label>
+                </a>
+              </li>
+            </ul>
+
           </div>
         </div>
       </nav>
@@ -114,7 +98,7 @@
           <div data-value="1" class="item " id="lbl_By_company">By Company</div>
           <div data-value="2" class="item" id="lbl_By_region">By Region</div>
           <div data-value="3" class="item selected lbl_By_Store"  id="lbl_By_Store">By Store</div>
-        </div>              
+        </ul>              
       </div>
 
       <div class="section combo">
@@ -154,7 +138,7 @@
             <!--<div data-value="R-1" class="init item innerLi" onclick="moveToLeft(4);">Select a Region</div>-->
           </div>
         </div>        
-        <ul class="select-region dropdown-content" id="dpRegion">
+        <ul class="dropdown-content" id="dpRegion">
           <div class="region">
             <div class="section_content">
               <div class="select-region">
@@ -176,91 +160,13 @@
     </div>        
 
   </div>
-
-  <div id="floatWindow">
-
-
-    <div class="wrapper general">
-      <div class="section">
-        <span id="section_header">Choose Filter</span>
-        <!-- <div class="section_content">
-          <div class="select-general">
-            <div data-value="1" class="item " id="lbl_By_company">By Company</div>
-            <hr>
-            <div data-value="2" class="item" id="lbl_By_region">By Region</div>
-            <hr>
-            <div data-value="3" class="item selected lbl_By_Store"  id="lbl_By_Store">By Store</div>
-          </div> 
-        </div> -->
-      </div>
-    </div>
-
-    <div class="wrapper date">
-      <div class="section">
-        <span id="lblChooseDate">Choose Date</span>
-        <div class="section_content">
-<!--           <div class="select-date">
-            <div data-value="1" class="item selected"  >
-              <div id="lblToday">Today</div>
-              <div id="today" class="date"></div>
-            </div>
-            <hr>
-            <div data-value="2" class="item">
-              <div id="lblYesterday">Yesterday</div>
-              <div id="yesterday" class="date"></div>
-            </div>
-            <hr>
-            <div data-value="3" class="item">
-              <div id="lblWeek">Week to Date</div>
-              <div id="week" class="date"></div>
-            </div>
-            <hr>
-            <div data-value="4" class="item">
-              <div id="lblMonth">Month to Date</div>
-              <div id="month" class="date"></div>
-            </div>
-            <hr>
-            <div data-value="5" class="item">
-              <div id="lblYear">Year to Date</div>
-              <div id="year" class="date"></div>
-            </div>
-          </div> --> 
-        </div>                
-      </div>
-    </div>
-    <div class="wrapper region">
-      <div class="section">
-        <span>Choose Region</span>
-        <!-- <div class="section_content">
-          <div class="select-region">
-           
-          </div> 
-        </div>  -->               
-      </div>
-    </div>
-
-  </div>      
-
-  <!-- Modal -->
-
-  <div class="modal fade" id="show_loading" >
-    <div class="modal-dialog">
-      <div class="text-center loading">
-        <div></div>
-        <div></div>
-      </div>
-      <!-- <div class="text-center"><p name="txtloading" id="txtloading"></p></div> -->
-      <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
-    </div>
-  </div>
+    
 
   <!-- Information -->
   <div class="modal fade" id="show_info" >
-    <input type="hidden" name="txtvalue" id="txtvalue" value="0">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header text-center">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">Close</button>
           <h4 class="modal-title lblmodaldicc">
             Dictionary
           </h4>
@@ -296,7 +202,9 @@
             <i id="CompleteYerSale">CS:</i><span id="report1CS">Complete Year Sale</span>
           </div>
         </div>
-
+        <div class="modal-footer">
+          <button type="button" class="btn btnclose" data-dismiss="modal" aria-hidden="true" id="btnclose">Close</button>
+        </div>  
       </div>
     </div>
   </div>
@@ -305,15 +213,55 @@
   <!--Modal of CONECTION -->
   <div class="modal fade" id="show_alias">
     <div class="modal-dialog">
+      <div class="modal-content"> 
+        <div class="modal-header text-center">
+          <h4 class="modal-title titleMessage">
+            Message
+          </h4>          
+        </div>                             
+        <div class="modal-body text-center">                   
+          <h4 class="textgeneral red-text"></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-modal btnok" data-dismiss="modal" aria-hidden="true">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- no connection -->
+  <div class="modal fade" id="no_connection" data-backdrop="static">
+    <div class="modal-dialog">
       <div class="modal-content">                              
         <div class="modal-body text-center">     
           <p class="title-alert titleMessage">Message</p>                 
-          <p class="text-center textgeneral"></p>              
+          <p class="text-center textNoConnection">No Connection</p>              
         </div>
         <div class="modal-footer info">
-          <button type="button" class="btn btn-modal btnok" name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+            <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  
+  <!-- Loader -->
+  <div class="modal fade" id="show_loading" >
+    <div class="modal-dialog">
+      <div class="text-center">
+        <div class="preloader-wrapper active">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
     </div>
   </div>
 

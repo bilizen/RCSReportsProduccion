@@ -263,3 +263,10 @@ function validData(pin, check) {
     }
 }
 
+
+
+
+//Go to IP.HTML
+function goIp() {
+    window.location.href = "ip.html";
+}

@@ -150,32 +150,110 @@ hr:last-child{
 .navbar{
 	margin-bottom: 5px;
 }
-/*Report1 by Store*/
-.showGraphic {
-    opacity: 1 !important;
-    height: 144px !important;
+
+.navbar .navbar-brand{
+	z-index: 300;
 }
-div[class^="chartdiv-"]{
-    width: 70%;
-    height: 100px;
-    display: inline-block;
-    float: left;
-    
+.btn-right{
+	position: absolute;
+	z-index: 600;
+	top: 0;
+	right: 0;
+	width: 180px;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	height: 50px;
 }
+.btn-right .btn{
+	padding-top: 6px;
+}
+
 .section{
 	padding-top: 0;
+}
+.combo{
+	padding-bottom: 5px;
+}
+
+div[class^="select-"] .item{
+	position: relative;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
 }
 .section .item{
 	margin-bottom: 0;
 }
+.store h1{
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;    
+    line-height: 1.6em;
+    white-space: pre-line;
+    color: rgba(0,0,0, 0.87);
+}
+.store h1{
+	margin: 2px 0;
+}
 
-.stores{
+.stores,#divClasification,.storeGraphic{
 	background-color: white;
 	padding: 0 5px;
 }
-.store{
-	display: block;
+
+.item.selected{
+	font-weight: bold;
+	box-shadow: none;
 }
-.combo{
-	padding-bottom: 5px;
+ul .item{
+	box-shadow: none;
+}
+.dropdown-content li>a *, .dropdown-content li>span,
+.chkTax label{
+    font-size: 16px;
+    color: #26a69a;
+}
+.chkTax label{
+	line-height: initial;
+}
+.close{
+	opacity: 1;
+}
+.dropdown-content label{
+	margin-bottom: 0px;
+}
+
+/*list of stores in Modal*/
+.list_store{
+	height: 240px;
+	overflow-y: auto;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.list_store h1{
+	font-size: 16px;
+	margin: 0;
+	font-weight: bold;
+	height: 44px;
+	text-align: center;
+	line-height: 44px;
+	border-bottom: 1px solid #e0e0e0;
+}
+.list_store .active{
+	background-color: rgba(0,0,0,.06);
+}
+
+.list_store h1:last-child{
+	border-bottom: none;
+}
+
+
+/*Dropdown*/
+.collection .collection-item{
+	padding-top: 0px;
+	padding-bottom: 0px; 
 }

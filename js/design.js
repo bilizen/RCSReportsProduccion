@@ -326,14 +326,7 @@ function showCalendar(valor) {
 }
 
 
-//Go to Menu
-function goBack() {
-    window.location.href = "menu.html";
-}
-//Go to Index
-function goIndex() {
-    window.location.href = "../index.html";
-}
+
 
 //animations
 $('.menu button').each(function (index, value) {

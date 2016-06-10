@@ -1,13 +1,20 @@
-.store h1{
-    width: 100%;
-    font-size: 20px;
-    font-weight: bold;    
-    line-height: 1.6em;
-    white-space: pre-line;
-    color: rgba(0,0,0, 0.87);
+.showGraphic {
+    opacity: 1 !important;
+    height: 144px !important;
 }
-.store h1.storeNameR1{
-	margin: 2px 0;
+div[class^="chartdiv-"]{
+    width: 70%;
+    height: 100px;
+    display: inline-block;
+    float: left;
+    
+}
+.store{
+	display: block;
+}
+
+
+.store h1{
     width: 77%;
     display: inline-block;
 }
@@ -22,14 +29,14 @@
     color: #CE291E;
 }
 .lblLastConexion{
-    width: 100%;
+    width: 45%;
 }
 .dataLastConexion{
-    width: 100%;
+    width: 54%;
 }
 .lblLastConexion,.dataLastConexion{
     line-height: 20pt;
-    display: block;
+    display: inline-block;
 }
 .actual p,.global p,
 .actual i,.global i,
@@ -98,19 +105,40 @@ div[class^="graphic-"]
 	margin: 0;
 }
 
-.select-date .item,
-.select-general .item,
-.select-region .item{
-	position: relative;
-	height: 36px;
-	line-height: 36px;
-	text-align: center;
+
+div[class^="chartdiv-"]{
+    width: 70%;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    
+}
+div[class^="detalle-"]{
+    width: 30%;
+    height: 100%;
+    display: inline-block;
+    float: right;
+}.
+year, .quantity{
+    font-size: 12px;
+}
+.year , div[class^="detalle-"] i {float: left; width: 40%;}
+.quantity, div[class^="detalle-"] span{float: right; width: 60%; text-align: right;}
+div[class^="detalle-"] i,
+div[class^="detalle-"] span{
+    margin: 0;
+    padding: 0;
 }
 
-.item.selected{
-	font-weight: bold;
-	box-shadow: none;
+
+.infoReport1{display: block; width: 100%; margin-bottom: 10px;}
+.infoReport1 i,
+.infoReport1 span{
+    display: inline-block;
 }
-ul .item{
-	box-shadow: none;
+.infoReport1 i{width: 19%; color: #0000CD;}
+.infoReport1 span{
+    width: 30%;
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: baseline-middle;
 }

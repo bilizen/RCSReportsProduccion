@@ -21,7 +21,7 @@ $(window).load(function(){
         if (current_lang=='es'){
             $('.titleMessage').text('Mensaje');
             $('.textNoConnection').text('No hay conexion de red');
-            
+            $('.btngeneral').text('Aceptar');
         }else{
            //modal para no conexcion
         }

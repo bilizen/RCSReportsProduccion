@@ -3,22 +3,22 @@ $(document).ready(function () {
 
     function onDeviceReady() {
         //document.addEventListener("backbutton", onBackKeyDown, true);
-         if(checkNetConnection()==true){
-        var variablEE = obtenerVariables("variable");
-        //-1 si si ingresa por primera vez o mata aplicacion
+        if(checkNetConnection()==true){
+            var variablEE = obtenerVariables("variable");
+            //-1 si si ingresa por primera vez o mata aplicacion
             if(variablEE == -1){
-                existsData();
+            existsData();
             }else{   
                 //camibar el nombre del boton de ingresar --> agregar
                 MSG_GO_ADD();
                 $("#btn_left").removeAttr("hidden");
-                }
+            }
         }else{
             $('#no_connection').modal('show');
             if (current_lang == 'es'){
                 $('.titleMessage').text('Mensaje');
                 $('.textNoConnection').text('No hay conexion de red');
-                
+                $('.btngeneral').text('Aceptar');
             }else{
                //modal para no conexcion
             }
@@ -155,28 +155,9 @@ $(window).load(function(){
             }
         }
     });
-/*
-        if(checkNetConnection()==true){
-        var variablEE = obtenerVariables("variable");
-        //-1 si si ingresa por primera vez o mata aplicacion
-            if(variablEE == -1){
-                existsData();
-            }else{   
-                //camibar el nombre del boton de ingresar --> agregar
-                MSG_GO_ADD();
-                $("#btn_left").removeAttr("hidden");
-                }
-        }else{
-            $('#no_connection').modal('show');
-            if (current_lang == 'es'){
-                $('.titleMessage').text('Mensaje');
-                $('.textNoConnection').text('No Conexión');
-                $('.btngeneral').text('Aceptar');
-            }else{
-               //modal para no conexcion
-            }
-        }
-        */
+
+    
+
 });
 
 
@@ -329,3 +310,5 @@ function firstServer(ip, port, urlbase, alias, activo, site, variable) {
             "&site=" + site +
             "&variable=" + variable;
 }
+
+
