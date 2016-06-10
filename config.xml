@@ -3,7 +3,7 @@
                 xmlns:gap = "http://phonegap.com/ns/1.0"
                 id        = "com.retailcustomsolutions.reports"
                 versionCode="19"
-                version   ="3.1.2">
+                version   ="3.1.3">
     <name>RCS Reports</name>
     <description>RCS Reports</description>
     <author href="http://retailcs.com/" email="devmobile@realcs.com">
