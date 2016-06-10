@@ -265,6 +265,9 @@ function showLoading() {
         "keyboard": true,
         "show": true                     // garantizar el modal se muestra inmediatamente
     });
+
+
+    $('.loading').append(loading);
 }
 
 function hideLoading() {
