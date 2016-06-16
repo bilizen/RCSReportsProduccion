@@ -7,7 +7,7 @@ $(document).ready(function () {
             var variablEE = obtenerVariables("variable");
             //-1 si si ingresa por primera vez o mata aplicacion
             if(variablEE == -1){
-            existsData();
+                existsData();
             }else{   
                 //camibar el nombre del boton de ingresar --> agregar
                 MSG_GO_ADD();

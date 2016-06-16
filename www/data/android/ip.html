@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>RCS Reports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="../../css/material/materialize.css" rel="stylesheet" type="text/css">
+  <link href="../../css/material/bootstrap-material-design.css" rel="stylesheet" type="text/css">
+  <link href="../../css/material/ripples.css" rel="stylesheet" type="text/css">
+
+  <link href="../../css/material/style-material.css" rel="stylesheet" type="text/css">
+  <!-- Fav and touch icons -->
+
+  <script type="text/javascript" src="../../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../cordova.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="../../js/material/materialize.js"></script>
+  <script type="text/javascript" src="../../js/material/ripples.min.js"></script>
+  <script type="text/javascript" src="../../js/material/material.min.js"></script>
+
+  <script type="text/javascript" src="../../js/scripts.js"></script>
+  <script type="text/javascript" src="../../js/scripts-android.js"></script>
+  <script type="text/javascript" src="../../js/design.js"></script>
+
+  <script type="text/javascript" src="../../js/database.js" ></script>
+  <script type="text/javascript" src="../../js/ip.js" ></script>
+
+
+  <!-- TAG LENGUAGES -->
+  <script type="text/javascript" src="../../js/constant-es.js"></script>
+
+  
+</head>
+
+<body class="bg-material">  
+
+  <div class="container vertical-center">
+
+    <div class="well bs-component">
+
+      <form class="form-horizontal ">
+
+        <div class="form-group logo-name">
+          <img src="../../img/iconLogo.svg" class="col-xs-6 col-xs-offset-3"/>
+        </div>
+
+        <p class="welcome text-center ">Welcome</p>
+        <div class="form-group text-center ">
+          <label id="lblmsg1" class="">Enter IP Address</label>
+        </div>
+
+        <div class="form-group ip">        
+          <div class="form-group col-xs-3 ip-val">
+            <label class="control-label pull-left">&nbsp;</label>
+            <div class="col-xs-12">
+              <input type="number" id="ip_1" class="form-control text-center"/>
+            </div>
+          </div> 
+          <div class="form-group col-xs-3 ip-val">       
+            <label class="control-label pull-left">.</label>
+            <div class="col-xs-12">
+              <input type="number" id="ip_2" class="form-control text-center"/>
+            </div>
+          </div> 
+          <div class="form-group col-xs-3 ip-val">
+            <label class="control-label pull-left">.</label>
+            <div class="col-xs-12 ">
+              <input type="number" id="ip_3" class="form-control text-center"/>
+            </div>
+          </div> 
+          <div class="form-group col-xs-3 ip-val">
+            <label class="control-label pull-left">.</label>
+            <div class="col-xs-12">
+              <input type="number" id="ip_4" class="form-control text-center"/>
+            </div>
+          </div>
+        </div>            
+
+        <div class="form-group">  
+          <label id="lblmsg2" class="col-xs-2 control-label ">Port</label>  
+          <div class="col-xs-10">
+            <input type="number" id="port" class="form-control ">          
+          </div>                
+        </div>
+        <div class="form-group">   
+          <label id="lblmsg3" class="col-xs-2 control-label ">Alias</label>  
+          <div class="col-xs-10">           
+            <input type="text" id="aliastext" class="form-control">  
+          </div>           
+        </div>
+        <div class="form-group">  
+          <label id="lblmsg4" class="col-xs-2 control-label ">Site</label>
+          <div class="col-xs-10">           
+            <input type="text" id="sitetext" class="form-control"> 
+          </div>       
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-6 col-xs-offset-6">
+            <button type="button" id="btnenter" value="Ok" class="btn btn-primary btn-raised pull-right">
+              Ok
+            </button>
+          </div>       
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+    
+
+    <div class="modal fade" id="show_loading" >
+      <div class="modal-dialog">
+        <div class="text-center loading">
+          <div></div>
+          <div></div>
+        </div>
+        <!-- <div class="text-center"><p name="txtloading" id="txtloading"></p></div> -->
+        <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
+      </div>
+    </div>
+
+    <div class="modal fade" id="show_alias">
+      <div class="modal-dialog">
+        <div class="modal-content">  
+          <div class="modal-header">
+            <h4 class="modal-title titleMessage">Message</h4>
+          </div>                            
+          <div class="modal-body text-center">   
+            <p class="text-center textgeneral"></p>              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btnok" data-dismiss="modal" aria-hidden="true">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+.menu .item{
+	margin-top: 10px;
+}
+.report1 .iconReport{
+  background: rgba(136,58,209);
+  background: url('../../img/iconReport1-white.svg') center center no-repeat, url('../../img/bg_report1.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report2 .iconReport{
+  background: #c62828;
+  background: url('../../img/iconReport2-white.svg') center center no-repeat, url('../../img/bg_report2.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report3 .iconReport{
+	background: #6a1b9a;
+  background: url('../../img/iconReport3-white.svg') center center no-repeat, url('../../img/bg_report3.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report4 .iconReport{
+  background: #6a1b9a;
+  background: url('../../img/iconReport4-white.svg') center center no-repeat, url('../../img/bg_report4.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report5 .iconReport{
+  background: #6a1b9a;
+  background: url('../../img/iconReport5-white.svg') center center no-repeat, url('../../img/bg_report5.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+.report6 .iconReport{
+  background: #6a1b9a;
+  background: url('../../img/iconReport6-white.svg') center center no-repeat, url('../../img/bg_report6.jpg') center center no-repeat;
+  background-size: 80px, 100%;
+}
+
+/*Nexus 10*/
+@media all and (min-width: 800px){
+
+  .menu .iconReport{
+  	height: 160px;
+  	background-size: 140px, 100%;
+  }
+  .item_title{
+  	font-size: 34px;
+  }
+  .item_subtitle{
+  	font-size: 22px;
+  }
+  .item_title, .item_subtitle {
+    padding: 4px 15px;
+	}
+
+}
+
+/*Samsung tab 8*/
+@media all and (min-width: 768px){
+
+  .menu .iconReport{
+  	height: 140px;
+  	background-size: 120px, 100%;
+  }
+	.item_title{
+  	font-size: 30px;
+  }
+  .item_subtitle{
+  	font-size: 20px;
+  }
+  .item_title, .item_subtitle {
+    padding: 2px 10px;
+	}
+
+}

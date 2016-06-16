@@ -1,0 +1,184 @@
+g *{
+    font-family: 'Roboto';
+}
+.showGraphic {
+    opacity: 1 !important;
+    height: 144px !important;
+}
+div[class^="chartdiv-"]{
+    width: 70%;
+    height: 100px;
+    display: inline-block;
+    float: left;
+    
+}
+.store{
+	display: block;
+}
+
+
+.store h1{
+    width: 75%;
+    display: inline-block;
+}
+.lastConexion {
+    display: inline-block;
+    width: 25%;
+    vertical-align: middle;
+    color: #CE291E;
+}
+.lblLastConexion{
+    width: 45%;
+    white-space: nowrap;
+
+    font-weight: bold;
+    font-size: 10px;
+}
+.dataLastConexion{
+    width: 54%;
+
+    font-size: 12px;
+}
+.lblLastConexion,.dataLastConexion{    
+    
+    display: inline-block;
+}
+.actual p,.global p,
+.actual i,.global i,
+.actual span,.global span{
+    display: inline-block;
+}
+.actual i,.global i{
+    width: 12%;
+    font-size: 16px;
+    font-style: normal;
+    color: #0000CD;
+}
+.actual p,.global p{
+    width: 25.5%;
+    font-size: 16px;
+    text-align: left;
+}
+.actual span,.global span{
+    width: 25%;
+    padding-right: 0;
+    padding-top: 4pt;
+    padding-bottom: 4pt;
+    text-align: right;
+    font-size: 16px;
+    text-align: center;
+    color: white !important;
+}
+.actual span.red, .global span.red{
+    background-color: #CE291E;
+    border-radius: 2px;
+} 
+.actual span.green, .global span.green {
+    background-color: #55982E;
+    border-radius: 2px;
+}
+.actual span.ambar, .global span.ambar {
+    background-color: #FF8C00;
+    border-radius: 2px;
+}
+div[class^="graphic-"]
+{
+    height: 0;
+    width: 100%;
+    overflow-y: auto;
+    opacity: 0;
+    -webkit-transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+    transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+}
+#time,
+#yesterday, #today, #week, #yesterday, #month, #year{
+	display: block !important;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 10px;
+    height: 20px;
+}
+.select-region .item{
+	background-color: transparent;
+	box-shadow: none;
+}
+.select-region hr{
+	height: 0;
+	margin: 0;
+}
+
+
+div[class^="chartdiv-"]{
+    width: 70%;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    
+}
+div[class^="detalle-"]{
+    width: 30%;
+    height: 100%;
+    display: inline-block;
+    float: right;
+    margin: 10px 0;
+    padding: 0 5px;
+}
+.year, .quantity{
+    font-size: 12px;
+    font-weight: bold;
+    color: #a9a9a9;
+    font-style: italic;
+}
+.year , div[class^="detalle-"] i {float: left; width: 40%;}
+.quantity, div[class^="detalle-"] span{float: right; width: 60%; text-align: right;}
+div[class^="detalle-"] i,
+div[class^="detalle-"] span{
+    margin: 0;
+    padding: 0;
+}
+
+
+.infoReport1{display: block; width: 100%; margin-bottom: 10px;}
+.infoReport1 i,
+.infoReport1 span{
+    display: inline-block;
+}
+.infoReport1 i{width: 19%; color: #0000CD;}
+.infoReport1 span{
+    width: 30%;
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: baseline-middle;
+}
+
+/*Nexus 10*/
+@media all and (min-width: 800px){
+
+    div[class^="select-"] .item{
+        height: 55px;
+        line-height: 55px;
+        font-size: 22px;
+    }    
+    #time, #yesterday, #today, #week, #yesterday, #month, #year{
+        bottom: 14px;
+        font-size: 14px;
+    }
+    .lblLastConexion, .dataLastConexion{
+        font-size: 14px;
+    }
+    .store h1{
+        font-size: 22px;
+    }
+    .actual p, .global p,
+    .actual i, .global i,
+    .actual span, .global span,
+    .year, .quantity,
+    div[class^="detalle-"]{
+        font-size: 20px;
+    }
+    .showGraphic {
+        height: 184px !important;
+    }
+}
