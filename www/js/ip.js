@@ -6,6 +6,8 @@ $(document).ready(function () {
         if(checkNetConnection()==true){
             var variablEE = obtenerVariables("variable");
             //-1 si si ingresa por primera vez o mata aplicacion
+            onInit();
+            deteclenguage();
             if(variablEE == -1){
                 existsData();
             }else{   
@@ -18,17 +20,16 @@ $(document).ready(function () {
             if (current_lang == 'es'){
                 $('.titleMessage').text('Mensaje');
                 $('.textNoConnection').text('No hay conexion de red');
-                $('.btngeneral').text('Aceptar');
+                $('.btnok').text('Aceptar');
             }else{
                //modal para no conexcion
             }
         }
     }
+
 });
 
 $(window).load(function(){
-    onInit();
-    deteclenguage();
     /*esta funcion ocurre despues de que ya cargo toda la pagina*/
     var lang = navigator.language.split("-");
     var current_lang = (lang[0]);
@@ -156,7 +157,6 @@ $(window).load(function(){
         }
     });
 
-    
 
 });
 
@@ -200,7 +200,6 @@ function validIP(ip, port, _url, alias, use, site, variable) {
 
         },
         error: function (xhr, ajaxOptions, thrownError) {
-
             console.log(xhr.status);
             console.log(xhr.statusText);
             console.log(xhr.responseText);
@@ -217,6 +216,26 @@ function validIP(ip, port, _url, alias, use, site, variable) {
 
 
 function newServer(ip, port, urlbase, alias, activo, site, variable) {
+    
+
+    try {
+        window.location.href = "login.html?" +
+                                    "ip=" + ip +
+                                    "&port=" + port +
+                                    "&urlbase=" + urlbase +
+                                    "&alias=" + alias +
+                                    "&activo=1" +
+                                    "&site=" + site +
+                                    "&variable=" + variable;
+    } catch (e) {
+        console.log("Error updateState " + e + ".");
+    }
+
+
+
+    /*
+
+
     try {
         var query1 = "SELECT " + KEY_PIN + " FROM " + TABLE_CONFIGURATION;
         localDB.transaction(function (transaction) {
@@ -293,6 +312,10 @@ function newServer(ip, port, urlbase, alias, activo, site, variable) {
     } catch (e) {
         console.log("Error updateState " + e + ".");
     }
+
+
+*/
+
 }
 
 

@@ -85,14 +85,24 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">Close</button>
             </div>                
             <div class="modal-footer add">  
-                <button class="btn btn-modal actual_server" data-dismiss="modal" onclick="showActualServer();">Current Server</button>                   
+                <button class="btn btn-modal actual_server" data-dismiss="modal" onclick="showActualServer();">Current Server</button>    
+
                 <button class="btn btn-modal landBtnLeft" data-dismiss="modal" id="servers_list" onclick="mostrarModal();">Servers</button> 
+
                 <button class="btn btn-modal landBtnRight" data-dismiss="modal" id="add_alias" onclick="newInfoServer();delTables();">Add Server</button> 
+
                 <button class="btn btn-modal" data-dismiss="modal" id="hide_reports" onclick="showReports()">Hide/Show Reports</button>
+
                 <div class="btn-modal chkTax">
-                    <input type="checkbox" class="check_tax" onclick ="checkTax();" checked>
-                    <label class="text-checkbox tax">V.A.T.</label>
+
+                  <div class="checkbox_wrapper checked small_item check_tax" onclick ="checkTax();">   
+                    <span class="switch"></span>
+                    <div class="input-checkbox"></div>
+                    <label id="checktext" class="tax">V.A.T.</label>            
+                  </div>                     
+
                 </div>  
+
                 <button class="btn btn-modal danger" data-dismiss="modal" id="btnSignOut">Sign out</button>             
             </div>
         </div>

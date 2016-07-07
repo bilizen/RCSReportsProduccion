@@ -52,7 +52,7 @@ div[class^="chartdiv-"]{
     width: 12%;
     font-size: 16px;
     font-style: normal;
-    color: #0000CD;
+    color: #666666;
 }
 .actual p,.global p{
     width: 25.5%;
@@ -130,7 +130,6 @@ div[class^="detalle-"]{
     font-size: 12px;
     font-weight: bold;
     color: #a9a9a9;
-    font-style: italic;
 }
 .year , div[class^="detalle-"] i {float: left; width: 40%;}
 .quantity, div[class^="detalle-"] span{float: right; width: 60%; text-align: right;}
@@ -146,7 +145,7 @@ div[class^="detalle-"] span{
 .infoReport1 span{
     display: inline-block;
 }
-.infoReport1 i{width: 19%; color: #0000CD;}
+.infoReport1 i{width: 19%; color: #666666;}
 .infoReport1 span{
     width: 30%;
     vertical-align: -webkit-baseline-middle;
@@ -177,6 +176,37 @@ div[class^="detalle-"] span{
     .year, .quantity,
     div[class^="detalle-"]{
         font-size: 20px;
+    }
+    .showGraphic {
+        height: 184px !important;
+    }
+}
+
+/*Samsung tab 8*/
+@media all and (min-width: 768px){
+
+    div[class^="select-"] .item{
+        height: 55px;
+        line-height: 55px;
+        font-size: 22px;
+        text-transform: uppercase;
+    }    
+    #time, #yesterday, #today, #week, #yesterday, #month, #year{
+        bottom: 14px;
+        font-size: 14px;
+    }
+    .lblLastConexion, .dataLastConexion{
+        font-size: 14px;
+    }
+    .store h1{
+        font-size: 24px;
+    }
+    .actual p, .global p,
+    .actual i, .global i,
+    .actual span, .global span,
+    .year, .quantity,
+    div[class^="detalle-"]{
+        font-size: 22px;
     }
     .showGraphic {
         height: 184px !important;

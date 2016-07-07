@@ -1,61 +1,61 @@
 .dateStartSection,
 .dateEndSection{
-    position: relative;
-    width: 64px;
-    height: 43px;
-    display: inline-flex;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
-    opacity: 0;
+  position: relative;
+  width: 64px;
+  height: 43px;
+  display: inline-flex;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  opacity: 0;
 }
 #txt_title{
-    width: inherit;
+  width: inherit;
 }
 #nameStore5 {
-    padding-left: 10px;
-    padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 #btn_right.storeIcon{
-    background-image: url(../img/iconStore.svg);
-    background-position: center;
-    background-size: 34px 34px;
-    background-repeat: no-repeat;
+  background-image: url(../img/iconStore.svg);
+  background-position: center;
+  background-size: 34px 34px;
+  background-repeat: no-repeat;
 }
 
 #lblDateStart,
 #lblDateEnd{
-    font-size: 11px;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    -webkit-transform: translate3D(0,-10px,0);
-    transform: translate3D(0,-10px,0);
+  font-size: 11px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  -webkit-transform: translate3D(0,-10px,0);
+  transform: translate3D(0,-10px,0);
 }
 #dateStartTitle,
 #dateEndTitle{
-    font-size: 12px;
-    -webkit-transform: translate3D(0,10px,0);
-    transform: translate3D(0,10px,0);
+  font-size: 12px;
+  -webkit-transform: translate3D(0,10px,0);
+  transform: translate3D(0,10px,0);
 }
 #lblDateStart,#lblDateEnd,
 .item #lbldateStart,
 .item #lbldateEnd{
-    display: inline-block;
+  display: inline-block;
 }
 
 #btn_right.storeIcon,
 .storeIcon{
-    background-image: url(../img/iconStore.svg);
-    background-position: center;
-    background-size: 34px 34px;
-    background-repeat: no-repeat;
+  background-image: url(../img/iconStore.svg);
+  background-position: center;
+  background-size: 34px 34px;
+  background-repeat: no-repeat;
 }
 
 .table thead th{
-    text-align: center;
-    font-size: 16px;
-    color: white;
-    background-color: #43B580;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  background-color: #43B580;
 }
 #list-empleados tr td{
 	font-size: 14px;
@@ -66,125 +66,131 @@
 }
 #list-empleados tr td:nth-child(5){
 	color: white;
-    background-color: #436FB5;
-    border-radius: 8pt;
+  background-color: #436FB5;
+  border-radius: 8pt;
 }
 #list-empleados td{
-    font-size: 12pt;
+  font-size: 12pt;
 }
 #list-empleados tr td:first-child{
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .table {
-    width: 100%;
-    margin-bottom: 0px;
+  width: 100%;
+  margin-bottom: 0px;
 }
 
 .iconRotate{
-    padding: 5pt 5pt 10pt;
+  padding: 5pt 5pt 10pt;
 }
 .iconRotate img{
-    text-align: center;
-    display: block;
-    -webkit-animation-name: rotationIcon; 
-    -webkit-animation-duration: 1.25s;
-    animation-name: rotationIcon;
-    animation-duration: 1.25s;
-    -webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
-    animation-delay: 1s;
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
-    -webkit-animation-fill-mode: backwards; /* Chrome, Safari, Opera */
-    animation-fill-mode: backwards;
-    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-    animation-iteration-count: infinite;
-    -webkit-animation-timing-function: ease-in-out; 
-    animation-timing-function: ease-in-out;
+  text-align: center;
+  display: block;
+  -webkit-animation-name: rotationIcon; 
+  -webkit-animation-duration: 1.25s;
+  animation-name: rotationIcon;
+  animation-duration: 1.25s;
+  -webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
+  animation-delay: 1s;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-animation-fill-mode: backwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: backwards;
+  -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out; 
+  animation-timing-function: ease-in-out;
 }
-.iconRotate img{
-    width: 44px;
-    margin: auto;
-}
+
 @-webkit-keyframes rotationIcon {
-    0% {
-        -webkit-transform:  rotateZ(0deg);
-    }
-    100%{
-        -webkit-transform:  rotateZ(90deg);
-    }
+  0% {
+    -webkit-transform:  rotateZ(0deg);
+  }
+  100%{
+    -webkit-transform:  rotateZ(90deg);
+  }
 }
 
 @keyframes rotationIcon {
-    0% {
-        transform:  rotateZ(0deg);
-    }
-    100%{
-        transform: rotateZ(90deg);
-    }
+  0% {
+    transform:  rotateZ(0deg);
+  }
+  100%{
+    transform: rotateZ(90deg);
+  }
 }
 
 
 
 
 @media only screen and (orientation: portrait) { 
-    .dateStartSection{
-        transition: all 0.2s;
-        opacity: 0;
-    }
-    .dateEndSection{
-        transition: all 0.2s;
-        opacity: 0;
-    }
+
+  #miModal5{
+    visibility: visible;
+  }
+  .dateStartSection{
+    transition: all 0.2s;
+    opacity: 0;
+  }
+  .dateEndSection{
+    transition: all 0.2s;
+    opacity: 0;
+  }
 }
 @media only screen and (orientation: landscape) { 
-    .dateStartSection{
-        transition: all 0.2s;
-        opacity: 1;
-    }
-    .dateEndSection{
-        transition: all 0.2s;
-        opacity: 1;
-    }
+
+  #miModal5{
+    visibility: hidden;
+  }
+
+  .dateStartSection{
+    transition: all 0.2s;
+    opacity: 1;
+  }
+  .dateEndSection{
+    transition: all 0.2s;
+    opacity: 1;
+  }
 }
 /* iPad in portrait & landscape */
 @media only screen and (min-width : 768px) and (max-width : 1024px)  {
 
-    #lblDateStart, #lblDateEnd{
-        font-size: 11pt;
-    }
-    #lblDateStart_r4, #lblDateEnd_r4{
-        font-size: 11pt;
-    }
-    #dateStartTitle, #dateEndTitle{
-        font-size: 11pt;
-        width: 100%;
-    }
-    .dateStartSection, .dateEndSection{
-        width: 90px;
-    }
-    .table thead th {
-        font-size: 16pt;
-    }
-    #list-empleados td{
-        font-size: 14pt !important;
-    }    
+  #lblDateStart, #lblDateEnd{
+    font-size: 11pt;
+  }
+  #lblDateStart_r4, #lblDateEnd_r4{
+    font-size: 11pt;
+  }
+  #dateStartTitle, #dateEndTitle{
+    font-size: 11pt;
+    width: 100%;
+  }
+  .dateStartSection, .dateEndSection{
+    width: 90px;
+  }
+  .table thead th {
+    font-size: 16pt;
+  }
+  #list-empleados td{
+    font-size: 14pt !important;
+  }    
 }
 /*iPhone 6 in portrait & landscape*/
 @media only screen and (min-width : 375px) and (max-width : 667px) { 
-    #list-empleados tr td:nth-child(5){
-        border-radius: 4pt;
-    }
+  #list-empleados tr td:nth-child(5){
+    border-radius: 4pt;
+  }
 }
 
 @media only screen and (min-width : 320px) and (max-width : 568px) { 
-    .table thead th{
-        font-size: 10pt;
-    }
-    #list-empleados tr td {
-        font-size: 10pt;
-    }
-    .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
-        padding:8px;
-    }
+  .table thead th{
+    font-size: 10pt;
+  }
+  #list-empleados tr td {
+    font-size: 10pt;
+  }
+  .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+    padding:8px;
+  }
 }

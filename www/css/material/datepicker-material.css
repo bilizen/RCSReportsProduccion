@@ -1,12 +1,15 @@
 .calendar-material{
-    padding: 0 0 16px !important;
+    padding: 0px !important;
 }
 .ui-datepicker-header{
 	position: relative;	
 }
+.ui-datepicker-title span{
+  font-weight: 500;
+}
 td.ui-datepicker-current-day {
-    height: 30px;
-    width: 30px;
+/*    height: 30px;
+    width: 30px;*/
     padding: 0;
     border-radius: 2px;
 }
@@ -18,7 +21,6 @@ td.ui-datepicker-current-day {
 .ui-datepicker-title{
     text-align: center;    
     padding: 10px 0;
-    font-size: 24px;
     color: white;
 }
 table.ui-datepicker-calendar {
@@ -29,7 +31,7 @@ table.ui-datepicker-calendar {
 }
 td {
     text-align: center;
-    height: 30px;
+    /*height: 30px;*/
     width: 30px;
 }
 td a{
@@ -40,14 +42,13 @@ td a{
 td.ui-datepicker-current-day a,
 td.ui-datepicker-current-day a:active,
 td.ui-datepicker-current-day a:hover{    
-    width: 65%;
-    height: 65%;
-    border-radius: 50%;
-    line-height: 220%;
-    margin: auto;
-    color: #fff;
-    background-color: black;
-    text-decoration: none !important;   
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  line-height: 50px;
+  margin: auto;
+  color: #fff;
+  text-decoration: none !important;   
 }
 a.ui-datepicker-prev, a.ui-datepicker-next{
     position: absolute;
@@ -55,14 +56,93 @@ a.ui-datepicker-prev, a.ui-datepicker-next{
     bottom: 0;
     margin: auto;
     text-align: center;
-    height: 60px;
-    line-height: 60px;
-    width: 100px;
+    height: 54px;
+    line-height: 54px;
+    width: 80px;
+    font-weight: 500;
     color: white;
 }
 a.ui-datepicker-prev.ui-corner-all{
-    left: 0;
+    left: -8px;
 }
 a.ui-datepicker-next.ui-corner-all{
-	right: 0;
+	right: -8px;
+}
+
+@media all and (orientation: landscape){
+  #dinamicContent {
+    width: 380px;
+    margin: auto;
+  }
+}
+
+
+/*small devices*/
+@media all and (min-width: 320px){
+  .ui-datepicker-title span{
+    font-size: 20px;
+  }
+  td{
+    padding: 5px 5px;
+  }
+  #show_calendar .modal-dialog{
+    padding: 24px;
+  }
+  td.ui-datepicker-current-day a,
+  td.ui-datepicker-current-day a:active,
+  td.ui-datepicker-current-day a:hover{    
+    line-height: 30px;
+  }
+}
+/* Galaxy S5*/
+@media all and (min-width: 360px){
+  .ui-datepicker-title span{
+    font-size: 24px;
+  }
+  td{
+    padding: 8px 5px;
+  }
+  #show_calendar .modal-dialog{
+      padding: 54px;
+  }
+  td.ui-datepicker-current-day a,
+  td.ui-datepicker-current-day a:active,
+  td.ui-datepicker-current-day a:hover{    
+    line-height: 34px;
+  }
+}
+/*medium devices*/
+@media all and (min-width: 600px){
+  .ui-datepicker-title span{
+    font-size: 32px;
+  }
+  td{
+    padding: 18px 5px;
+  }
+  #show_calendar .modal-dialog{
+      padding: 64px;
+  }
+  .ui-datepicker-title{
+    padding: 20px 0;
+  }
+  a.ui-datepicker-prev.ui-corner-all{
+    left: 0;
+  }
+  a.ui-datepicker-next.ui-corner-all{
+    right: 0;
+  }
+}
+
+/*Samsung tab 8*/
+@media all and (min-width: 768px){
+  td.ui-datepicker-current-day a,
+  td.ui-datepicker-current-day a:active,
+  td.ui-datepicker-current-day a:hover{    
+    line-height: 50px;
+  }
+}
+
+/*Nexus 10*/
+@media all and (min-width: 800px){
+
 }

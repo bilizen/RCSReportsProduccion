@@ -32,6 +32,18 @@
   <!-- TAG LENGUAGES -->
   <script type="text/javascript" src="../../js/constant-es.js"></script>
 
+  <script>
+    $(window).load(function(){
+
+      var options = [
+        { selector: '#staggered-test', offset: 400 }
+      ];
+      Materialize.showStaggeredList(options);
+
+
+    });
+  </script>
+
 
 </head>
 
@@ -47,7 +59,7 @@
 
               <a class="navbar-brand" href="javascript:void(0)">RCS Reports</a>
 
-              <button type="button" class="btn btn-right navbar-toggle" onclick="showOptions()">
+              <button type="button" class="btn-right navbar-toggle" onclick="showOptions()">
                 <div class="btn icon-menu waves-effect waves-light">
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
@@ -60,14 +72,16 @@
         </nav>
       </div>
     </div>
-  </header><!-- /header -->  
+  </header><!-- /header --> 
+
+  <!-- /Navbar --> 
 
   <div class="container">
-    <div class="menu">
+    <ul class="menu" id="staggered-test">
         <!--
         buttons with the reports
       -->
-    </div>
+    </ul>
   </div>
 
   <!--Modal OF CONECTION -->
@@ -116,26 +130,28 @@
           <h4 class="modal-title" id="lblToolsTitle">
             Settings
           </h4>
-        </div>              
-        
-        <div class="form-horizontal text-center">
-          <button class="btn btn-modal btn-info actual_server" data-dismiss="modal" onclick="showActualServer();">Current Server</button> 
-        </div>
-        <div class="form-horizontal text-center">                    
-          <button class="btn btn-modal btn-primary" data-dismiss="modal" id="servers_list" onclick="mostrarModal();">Servers</button> 
-          <button class="btn btn-modal btn-primary" data-dismiss="modal" id="add_alias" onclick="newInfoServer();delTables();">Add Server</button>
-        </div>
-        <div class="form-horizontal text-center"> 
-          <button class="btn btn-modal btn-success" data-dismiss="modal" id="hide_reports" onclick="showReports()">Hide/Show Reports</button>
-          <button class="btn btn-modal btn-danger" data-dismiss="modal" id="btnSignOut">Sign out</button>
-        </div>
-        <div class="form-horizontal text-center"> 
-          <div class="btn-modal chkTax">
-            <input type="checkbox" class="filled-in check_tax" id="check_actual" onclick ="checkTax();" checked>
-            <label class="text-checkbox tax" for="check_actual">V.A.T.</label>
-          </div> 
-        </div>
+        </div>   
 
+        <div class="modal-body">
+          <div class="form-horizontal text-center">
+            <button class="btn  btn-info actual_server" data-dismiss="modal" onclick="showActualServer();">Current Server</button> 
+          </div>
+          <div class="form-horizontal text-center">                    
+            <button class="btn  btn-primary" data-dismiss="modal" id="servers_list" onclick="mostrarModal();">Servers</button> 
+            <button class="btn  btn-primary" data-dismiss="modal" id="add_alias" onclick="newInfoServer();delTables();">Add Server</button>
+          </div>
+          <div class="form-horizontal text-center"> 
+            <button class="btn  btn-success" data-dismiss="modal" id="hide_reports" onclick="showReports()">Hide/Show Reports</button>
+            <button class="btn  btn-danger" data-dismiss="modal" id="btnSignOut">Sign out</button>
+          </div>
+          <div class="form-horizontal text-center"> 
+            <div class=" chkTax">
+              <input type="checkbox" class="filled-in check_tax checked" id="check_actual" onclick="checkTax();" checked>
+              <label class="text-checkbox tax" for="check_actual">V.A.T.</label>
+            </div> 
+          </div>         
+        </div>           
+ 
         <div class="modal-footer">
           <button class="btn close" data-dismiss="modal" aria-hidden="true" id="btnclose">Ok</button>
         </div> 
@@ -216,12 +232,14 @@
 
         <div class="modal-body">
           <div class="select-alias divlistadoReports">
-            <div id="list_reports" class="switch"></div>
+            <div id="list_reports" class="switch">
+
+            </div>
           </div>
         </div>
 
         <div class="modal-footer add">
-          <button onclick="buttonOkReports()" class="btn btn-modal btnok" data-dismiss="modal" >Ok</button> 
+          <button onclick="buttonOkReports()" class="btn  btnok" data-dismiss="modal" >Ok</button> 
           <button class="btn close back" data-dismiss="modal" aria-hidden="true" onclick="showOptions()">Back</button>
         </div>               
       </div>
@@ -239,8 +257,8 @@
           </h4>
         </div>
         <div class="modal-footer add">
-          <button type="button" class="btn btn-modal left" id="btnsi" name="btnsi" data-dismiss="modal" aria-hidden="true" onclick="delTables();ocultaMiModal();">Yes</button>
-          <button type="button" class="btn btn-modal right nostrong" id="btnno" name="btnno" data-dismiss="modal" aria-hidden="true">No</button>
+          <button type="button" class="btn  left" id="btnsi" name="btnsi" data-dismiss="modal" aria-hidden="true" onclick="delTables();ocultaMiModal();">Yes</button>
+          <button type="button" class="btn  right nostrong" id="btnno" name="btnno" data-dismiss="modal" aria-hidden="true">No</button>
         </div>
       </div>
     </div>
@@ -256,12 +274,14 @@
           </h4>          
         </div>
 
-        <div class="list_store list_r4 collection">
-          <!-- store list -->
-        </div>
+        <div class="modal-body">
+          <div class="list_store list_r4 collection">
+            <!-- store list -->
+          </div>
+        </div>          
 
         <div class="modal-footer">
-          <button onclick="passReport4();" class="btn btn-modal right btnok" data-dismiss="modal" >Ok</button> 
+          <button onclick="passReport4();" class="btn right btnok" data-dismiss="modal" >Ok</button> 
         </div>        
       </div>
     </div>
@@ -277,12 +297,14 @@
           </h4>          
         </div>
 
-        <div class="list_store list_r5 collection">
-          <!-- store list -->
+        <div class="modal-body">
+          <div class="list_store list_r5 collection">
+            <!-- store list -->
+          </div>
         </div>
         
         <div class="modal-footer">
-          <button onclick="passReport5();" class="btn btn-modal btnok" data-dismiss="modal" >Ok</button> 
+          <button onclick="passReport5();" class="btn  btnok" data-dismiss="modal" >Ok</button> 
         </div>
       </div>
     </div>
@@ -299,12 +321,14 @@
           </h4>          
         </div>
 
-        <div class="list_store list_r6 collection">
-          <!-- store list -->
+        <div class="modal-body">
+          <div class="list_store list_r6 collection">
+            <!-- store list -->
+          </div>
         </div>
-        
+
         <div class="modal-footer">
-          <button onclick="passReport6();" class="btn btn-modal btnok" data-dismiss="modal" >Ok</button> 
+          <button onclick="passReport6();" class="btn  btnok" data-dismiss="modal" >Ok</button> 
         </div>
       </div>
     </div>
@@ -323,8 +347,8 @@
           </h4>
         </div>
         <div class="modal-footer add">
-          <button type="button" class="btn btn-modal left danger" id="btnsidelete" name="btnsi" data-dismiss="modal" aria-hidden="true" onclick="ocultaMiModalDelete()">Yes</button>
-          <button type="button" class="btn btn-modal right" id="btnnodelete" name="btnno" data-dismiss="modal" aria-hidden="true">No</button>
+          <button type="button" class="btn  left danger" id="btnsidelete" name="btnsi" data-dismiss="modal" aria-hidden="true" onclick="ocultaMiModalDelete()">Yes</button>
+          <button type="button" class="btn  right" id="btnnodelete" name="btnno" data-dismiss="modal" aria-hidden="true">No</button>
         </div>
       </div>
     </div>
@@ -341,8 +365,8 @@
           </h4>
         </div>
         <div class="modal-footer add">
-          <button type="button" class="btn btn-modal left danger" id="btnYesSignOut" name="btnYesSignOut" data-dismiss="modal" aria-hidden="true" onclick="confirmSignOut()">Yes</button>
-          <button type="button" class="btn btn-modal right" id="btnnoSignOut" name="btnno" data-dismiss="modal" aria-hidden="true">No</button>
+          <button type="button" class="btn  left danger" id="btnYesSignOut" name="btnYesSignOut" data-dismiss="modal" aria-hidden="true" onclick="confirmSignOut()">Yes</button>
+          <button type="button" class="btn  right" id="btnnoSignOut" name="btnno" data-dismiss="modal" aria-hidden="true">No</button>
         </div>
       </div>
     </div>

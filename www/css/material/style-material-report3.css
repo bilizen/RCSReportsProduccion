@@ -3,47 +3,47 @@
 	opacity: 0;
 }
 #contentReport3 {
-    margin-bottom: 35px;
+  margin-bottom: 35px;
 }
 .progressByStore i, .progressByStore p, .progressByStore span{
 	display: inline-block;
 }
 .progressByStore i{
 	width: 9%;
-    font-size: 16px;
-    font-style: normal;
-    text-align: center;
-    color: #0000CD;
+  font-size: 16px;
+  font-style: normal;
+  text-align: center;
+  color: #666666;
 }
 .progressByStore i.T{
-    width: 7%;
+  width: 7%;
 }
 .progressByStore p{
 	width: 21%;
-    font-size: 16px;
-    text-align: left;
+  font-size: 16px;
+  text-align: left;
 }
 p.clasification:first-of-type{
-    font-weight: bold;
-    width: 36%;
+  font-weight: bold;
+  width: 36%;
 }
 .progressByStore span{
 	width: 18%;
-    padding: 0;
-    text-align: right;
-    font-size: 16px;
+  padding: 0;
+  text-align: right;
+  font-size: 16px;
 }
 
 #lbldateStart ,#lbldateEnd,#lbldateToCompare{
-    display: inline-block;
+  display: inline-block;
 }
 #lblTotalAll{
 	text-align: left;
-    color: white;
+  color: white;
 }
 #totalpromedio{
-    color: #fff;
-    font-weight: bold;
+  color: #fff;
+  font-weight: bold;
 }
 .colorAcumulateSale{
 	height: 15px;
@@ -51,10 +51,10 @@ p.clasification:first-of-type{
 }
 #PercentGoal,#totalGoalPercentage{
 	color: #fff;
-    background-color: #0073FF;
-    border-radius: 2px;
-    padding: 5px 4pt;
-    text-align: center;
+  background-color: #0073FF;
+  border-radius: 2px;
+  padding: 5px 4pt;
+  text-align: center;
 }
 .colorAcumulateGoal{
 	height: 15px;
@@ -62,10 +62,10 @@ p.clasification:first-of-type{
 }
 #PercentSale,#totalSalePercentage{
 	color: #fff;
-    background-color: #4C9850;
-    border-radius: 2px;
-    padding: 5px 4pt;
-    text-align: center;
+  background-color: #4C9850;
+  border-radius: 2px;
+  padding: 5px 4pt;
+  text-align: center;
 }
 .infoReport3 {
 	width: 100%;
@@ -74,10 +74,10 @@ p.clasification:first-of-type{
 }
 .infoReport3 span{
 	width: 88%;
-    padding-left: 4pt;
-	text-align: justify;
-	display: inline-block;
-    font-size: 10pt;
+  padding-left: 4pt;
+  text-align: justify;
+  display: inline-block;
+
 }
 .infoReport3 i{
 	width: 12%;
@@ -85,37 +85,34 @@ p.clasification:first-of-type{
 	font-size: 16px;
 	border-radius: 2px;
 	display: inline-block;
-	color: #0000CD;
+	color: #666666;
 }
 
 .heightSection{
-    overflow: auto;
+  overflow: auto;
 }
 
 
 .leyend {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 49px;
-    text-align: center;
-    background-color: #222;
-    border: none;
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
-    background-position: top center;
-    z-index: 100;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #222;
+  border: none;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  z-index: 100;
 }
+
 .leyend button {
-    display: inline;
-    height: 100%;
-    text-align: center;
-    font-size: 20px;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background-color: transparent;
-    color: #fafafa;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  color: #fafafa;
 }
 
 .leyend .navBtn1{ width: 45%; white-space: nowrap; text-align: left;}
@@ -128,5 +125,32 @@ p.clasification:first-of-type{
 td.ui-datepicker-current-day a,
 td.ui-datepicker-current-day a:active,
 td.ui-datepicker-current-day a:hover{
-    background-color: #673ab7 !important;
+  background-color: #673ab7 !important;
+}
+
+
+/*Samsung tab 8*/
+@media all and (min-width: 768px){
+  div[class^="select-"] .item {
+    height: 55px;
+    line-height: 55px;
+    font-size: 22px;
+  }
+  .store h1{
+    font-size: 24px;
+  }
+  .progressByStore i, p.clasification,
+  #PercentSale, #totalSalePercentage,
+  #lblTotalAll,#totalpromedio,
+  #PercentGoal, #totalGoalPercentage{
+    font-size: 22px;
+  }
+  #totalGoalPercentage,#totalSalePercentage{
+    padding: 5px 20pt;
+  }
+}
+
+/*Nexus 10*/
+@media all and (min-width: 800px){
+
 }

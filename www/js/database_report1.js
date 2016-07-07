@@ -11,7 +11,8 @@ $(window).load(function(){
    onInit();    
    deteclenguage();
    hideCombo();
-   loadComboRegions("1","1");
+   checktaxDefaultActualGlobal();
+   loadComboRegions(localStorage.getItem("check_tax_actual_report1"),localStorage.getItem("check_tax_global_report1"));
 });
 
 

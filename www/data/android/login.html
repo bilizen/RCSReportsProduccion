@@ -62,7 +62,7 @@
             <div class="col-xs-10 col-xs-offset-2">
               <div class="togglebutton">
                 <label>
-                  <input type="checkbox" name="chkremember" id="chkremember" checked="checked"> <span id="checktext">Remember Pin</span>
+                  <input type="checkbox" name="chkremember" id="chkremember" class="chkremember" checked> <span id="checktext" onclick="changePinRemember();">Remember Pin</span>
                 </label>
               </div>
             </div>
@@ -85,19 +85,7 @@
   </div>
 
 
-  <div class="modal fade" id="show_loading" >
-      <div class="modal-dialog">
-          <div class="text-center loading">
-              <div></div>
-              <div></div>
-          </div>
-          <!-- <div class="text-center"><p name="txtloading" id="txtloading"></p></div> -->
-          <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
-      </div>
-  </div>
-
-
-  <!--Modal of CONECTION -->
+  <!--Modal of errors -->
   <div class="modal fade" id="show_alias">
     <div class="modal-dialog">
       <div class="modal-content">  
@@ -111,6 +99,41 @@
           <button type="button" class="btn btnok" data-dismiss="modal" aria-hidden="true">Ok</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- no connection -->
+  <div class="modal fade" id="no_connection" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">                              
+        <div class="modal-body text-center">     
+          <p class="title-alert titleMessage">Message</p>                 
+          <p class="text-center textNoConnection">No Connection</p>              
+        </div>
+        <div class="modal-footer info">
+            <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div class="modal fade" id="show_loading" >
+    <div class="modal-dialog">
+      <div class="text-center">
+        <div class="preloader-wrapper active">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
     </div>
   </div>
 

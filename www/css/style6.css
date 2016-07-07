@@ -7,3 +7,18 @@
 #txt_title {
     width: inherit;
 }
+
+@media only screen and (orientation: portrait) { 
+
+  #miModal6{
+    visibility: visible;
+  }
+
+}
+@media only screen and (orientation: landscape) { 
+
+  #miModal6{
+    visibility: hidden;
+  }
+  
+}

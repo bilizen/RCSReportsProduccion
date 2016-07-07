@@ -1,5 +1,19 @@
 .menu .item{
 	margin-top: 10px;
+
+/*  opacity: 0;*/
+}
+.item_title, .item_subtitle{
+  font-weight: 500;
+}
+button:focus{
+  background-color: white;
+}
+.delete{
+  border-radius: 2px !important;
+}
+.text-report{
+  color: #2e2e2e;
 }
 .report1 .iconReport{
   background: rgba(136,58,209);
@@ -32,6 +46,70 @@
   background-size: 80px, 100%;
 }
 
+/*small devices*/
+@media all and (min-width: 320px){
+  .delete.btn{
+    height: 18px ;
+    width: 18px ;
+    min-width: 18px ;
+  }
+  .delete.btn::before {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  #divlistado{
+    max-height: 180px;
+    overflow-y: auto; 
+  }
+  #divlistado .collection-item{
+    height: 30px;
+    line-height: 30px;
+  }
+}
+/* Galaxy S5*/
+@media all and (min-width: 360px){
+
+}
+/*medium devices*/
+@media all and (min-width: 600px){
+
+}
+
+/*Samsung tab 8*/
+@media all and (min-width: 768px){
+
+  .menu .iconReport{
+    height: 140px;
+    background-size: 120px, 100%;
+  }
+  .item_title{
+    font-size: 30px;
+  }
+  .item_subtitle{
+    font-size: 20px;
+  }
+  .item_title, .item_subtitle {
+    padding: 2px 10px;
+  }  
+  .delete.btn{
+    height: 18px ;
+    width: 18px ;
+    min-width: 18px ;
+  }
+  .delete.btn::before {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  #divlistado{
+    max-height: 264px;
+    overflow-y: auto; 
+  }
+  #divlistado .collection-item{
+    height: 44px;
+    line-height: 44px;
+  }
+}
+
 /*Nexus 10*/
 @media all and (min-width: 800px){
 
@@ -47,25 +125,6 @@
   }
   .item_title, .item_subtitle {
     padding: 4px 15px;
-	}
-
-}
-
-/*Samsung tab 8*/
-@media all and (min-width: 768px){
-
-  .menu .iconReport{
-  	height: 140px;
-  	background-size: 120px, 100%;
-  }
-	.item_title{
-  	font-size: 30px;
-  }
-  .item_subtitle{
-  	font-size: 20px;
-  }
-  .item_title, .item_subtitle {
-    padding: 2px 10px;
-	}
+	}  
 
 }

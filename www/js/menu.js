@@ -1,8 +1,25 @@
 $(document).ready(function () {
     document.addEventListener("deviceready", onDeviceReady, false);
+
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
+        if(checkNetConnection()==true){
+        onInit();
+        updateHideReports();
+        checktaxDefault();
+        deteclenguage();
+        }else{
+            $('#no_connection').modal('show');
+            if (current_lang=='es'){
+                $('.titleMessage').text('Mensaje');
+                $('.textNoConnection').text('No hay conexion de red');
+                $('.btnok').text('Aceptar');
+            }else{
+               //modal para no conexion
+            }
+        }
     }
+
     function onBackKeyDown() {
         navigator.app.exitApp();     
     }
@@ -10,23 +27,6 @@ $(document).ready(function () {
 
 
 $(window).load(function(){
-    if(checkNetConnection()==true){
-    onInit();
-    updateHideReports();
-    checktaxDefault();
-    deteclenguage();
-    //localStorage.clear();
-    }else{
-        $('#no_connection').modal('show');
-        if (current_lang=='es'){
-            $('.titleMessage').text('Mensaje');
-            $('.textNoConnection').text('No hay conexion de red');
-            $('.btngeneral').text('Aceptar');
-        }else{
-           //modal para no conexcion
-        }
-    }
-
 });
 
 
@@ -44,7 +44,6 @@ function mostrarModal() {
     });
 
     getAllData();
-    //getDataInUse();
 
 }
 
@@ -84,6 +83,7 @@ var titleReport6 = "";
 
 //Actualizar vistas de reportes
 function updateHideReports() {
+
     try {
         var query1 = "SELECT * FROM " + TABLE_URL + " WHERE  " + KEY_USE + " = '1'";
         localDB.transaction(function (transaction) {
@@ -91,6 +91,7 @@ function updateHideReports() {
                 var c_ip = results.rows.item(0).ip;
                 var c_port = results.rows.item(0).port;
                 var c_site = results.rows.item(0).site;
+                //var c_pin= results.rows.item(0).pin;
 
                 var query2 = "SELECT " + KEY_PIN + " FROM " + TABLE_CONFIGURATION;
                 localDB.transaction(function (transaction) {
@@ -101,6 +102,7 @@ function updateHideReports() {
                             transaction.executeSql(query3, [], function (transaction, results) {
                                 var yurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/login/session/post';
                                 var array = {Pin: pin};
+
                                 $.ajax({
                                     url: yurl,
                                     timeout: 15000,
@@ -170,6 +172,7 @@ function updateHideReports() {
                                             if (arrReport.length == igual) {
                                                 //pinta los reportes en el menu.html                  
                                                 selectReports();
+                                                writeHideShowModal();
                                             } else {
                                                 //delete from Reports
                                                 delTable_Reports();
@@ -242,16 +245,16 @@ function updateHideReports() {
                                         }
                                     }
                                 });
-});
-});
-});
-});
-});
-});
-
-} catch (e) {
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    } catch (e) {
     console.log("Error updateState " + e + ".");
-}
+    }
+
 }
 
 
@@ -277,7 +280,7 @@ function selectReports() {
 
                         if (report == 2402) {
                             $('.menu').append(
-                                "<button class ='item report1 " + save + "' onclick ='openReport1();'>" +
+                                "<button class ='waves-effect waves-light  item report1 " + save + "' onclick ='openReport1();'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport1 + "</span>" +
@@ -288,7 +291,7 @@ function selectReports() {
                         }
                         if (report == 2403) {
                             $('.menu').append(
-                                "<button class ='item report2 " + save + "' onclick ='openReport2();'>" +
+                                "<button class ='waves-effect waves-light  item report2 " + save + "' onclick ='openReport2();'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport2 + "</span>" +
@@ -299,7 +302,7 @@ function selectReports() {
                         }
                         if (report == 2404) {
                             $('.menu').append(
-                                "<button class ='item report3 " + save + "' onclick ='openReport3();'>" +
+                                "<button class ='waves-effect waves-light  item report3 " + save + "' onclick ='openReport3();'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport3 + "</span>" +
@@ -310,7 +313,7 @@ function selectReports() {
                         }
                         if (report == 2405) {
                             $('.menu').append(
-                                "<button class ='item report4 " + save + "' onclick ='openReport4();' data-value='report4'>" +
+                                "<button class ='waves-effect waves-light  item report4 " + save + "' onclick ='openReport4();' data-value='report4'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport4 + "</span>" +
@@ -321,7 +324,7 @@ function selectReports() {
                         }
                         if (report == 2406) {
                             $('.menu').append(
-                                "<button class ='item report5 " + save + "' onclick ='openReport5();' data-value='report5'>" +
+                                "<button class ='waves-effect waves-light  item report5 " + save + "' onclick ='openReport5();' data-value='report5'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport5 + "</span>" +
@@ -332,7 +335,7 @@ function selectReports() {
                         }
                         if (report == 2407) {
                             $('.menu').append(
-                                "<button class ='item report6 " + save + "' onclick ='openReport6();' data-value='report6'>" +
+                                "<button class ='waves-effect waves-light  item report6 " + save + "' onclick ='openReport6();' data-value='report6'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport6 + "</span>" +
@@ -345,7 +348,7 @@ function selectReports() {
 
                         if (report == 2402) {
                             $('.menu').append(
-                                "<button class ='item report1 " + save + "' onclick ='openReport1();'>" +
+                                "<button class ='waves-effect waves-light  item report1 " + save + "' onclick ='openReport1();'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport1 + "</span>" +
@@ -356,7 +359,7 @@ function selectReports() {
                         }
                         if (report == 2403) {
                             $('.menu').append(
-                                "<button class ='item report2 " + save + "' onclick ='openReport2();'>" +
+                                "<button class ='waves-effect waves-light  item report2 " + save + "' onclick ='openReport2();'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport2 + "</span>" +
@@ -367,7 +370,7 @@ function selectReports() {
                         }
                         if (report == 2404) {
                             $('.menu').append(
-                                "<button class ='item report3 " + save + "' onclick ='openReport3();'>" +
+                                "<button class ='waves-effect waves-light  item report3 " + save + "' onclick ='openReport3();'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport3 + "</span>" +
@@ -378,7 +381,7 @@ function selectReports() {
                         }
                         if (report == 2405) {
                             $('.menu').append(
-                                "<button class ='item report4 " + save + "' onclick ='openReport4();' data-value='report4'>" +
+                                "<button class ='waves-effect waves-light  item report4 " + save + "' onclick ='openReport4();' data-value='report4'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport4 + "</span>" +
@@ -389,7 +392,7 @@ function selectReports() {
                         }
                         if (report == 2406) {
                             $('.menu').append(
-                                "<button class ='item report5 " + save + "' onclick ='openReport5();' data-value='report5'>" +
+                                "<button class ='waves-effect waves-light  item report5 " + save + "' onclick ='openReport5();' data-value='report5'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport5 + "</span>" +
@@ -400,7 +403,7 @@ function selectReports() {
                         }
                         if (report == 2407) {
                             $('.menu').append(
-                                "<button class ='item report6 " + save + "' onclick ='openReport6();' data-value='report6'>" +
+                                "<button class ='waves-effect waves-light  item report6 " + save + "' onclick ='openReport6();' data-value='report6'>" +
                                 "<span class ='box' >" +
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport6 + "</span>" +
@@ -426,8 +429,15 @@ function selectReports() {
 
 function showReports() {
     $('#ModalReportsOption').modal('show');
+    writeHideShowModal();
+   
+}
 
-    try {
+
+
+
+function writeHideShowModal(){
+     try {
         var query1 = "SELECT * FROM " + TABLE_REPORTS;
         var report = "";
         var check = "";
@@ -447,49 +457,61 @@ function showReports() {
 
                     if (report == 2402) {
                         $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
                             "<input type='checkbox' id='chkr1' class='filled-in check_report1' " + check + ">" +
                             "<label for='chkr1' class='text-report'>" + titleReport1 + "</label>" +
+                            "</div>"+
                             "<hr>");
                     }
                     if (report == 2403) {
                         $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
                             "<input type='checkbox' id='chkr2' class='filled-in check_report2' " + check + ">" +
                             "<label for='chkr2' class='text-report'>" + titleReport2 + "</label>" +
+                            "</div>"+
                             "<hr>");
                     }
                     if (report == 2404) {
                         $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
                             "<input type='checkbox' id='chkr3' class='filled-in check_report3' " + check + ">" +
                             "<label for='chkr3' class='text-report'>" + titleReport3 + "</label>" +
+                            "</div>"+
                             "<hr>");
 
 
                     }
                     if (report == 2405) {
                         $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
                             "<input type='checkbox' id='chkr4' class='filled-in check_report4' " + check + ">" +
                             "<label for='chkr4' class='text-report'>" + titleReport4 + "</label>" +
+                            "</div>"+
                             "<hr>");
 
                     }
                     if (report == 2406) {
                         $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
                             "<input type='checkbox' id='chkr5' class='filled-in check_report5' " + check + ">" +
                             "<label for='chkr5' class='text-report'>" + titleReport5 + "</label>" +
+                            "</div>"+
                             "<hr>");
                     }
                     if (report == 2407) {
                         $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
                             "<input type='checkbox' id='chkr6' class='filled-in check_report6' " + check + ">" +
-                            "<label for='chkr6' class='text-report'>" + titleReport6 + "</label>");
+                            "<label for='chkr6' class='text-report'>" + titleReport6 + "</label>"+
+                            "</div>"
+                            );
                     }
                 }
             });
-});
-} catch (e) {
+        });
+    } catch (e) {
     console.log("error: " + e);
-}
-
+    }
 }
 
 
@@ -833,10 +855,12 @@ function downloadStore5() {
                             console.log(xhr.statusText);
                             console.log(xhr.responseText);
                             //hideLoading();
-                            if (current_lang == 'es')
+                            if (current_lang == 'es'){
                                 mostrarModalGeneral("Error de Conexión");
-                            else
+                            }
+                            else{
                                 mostrarModalGeneral("No Connection");
+                            }
                         }
                     });
                 });
@@ -999,10 +1023,12 @@ function downloadStore6() {
                             console.log(xhr.statusText);
                             console.log(xhr.responseText);
                             //hideLoading();
-                            if (current_lang == 'es')
+                            if (current_lang == 'es'){
                                 mostrarModalGeneral("Error de Conexión");
-                            else
+                            }
+                            else{
                                 mostrarModalGeneral("No Connection");
+                            }
                         }
                     });
                 });
@@ -1110,21 +1136,44 @@ function updateStateURL(id) {
 
     var query2 = "UPDATE " + TABLE_URL + " SET " + KEY_USE + " = '1' WHERE " + KEY_ID + " = ? ";
     console.log("query2 " + query2);
-
     try {
         localDB.transaction(function (transaction) {
             transaction.executeSql(query2, [id], function (transaction, results) {
                 if (!results.rowsAffected) {
                     console.log("Error updateState");
                 } else {
+                    
                     console.log("Update realizado:" + results.rowsAffected);
-                    location.reload();
+                    
                 }
             }, errorHandler);
         });
     } catch (e) {
         console.log("Error updateState " + e + ".");
     }
+
+
+
+    
+    try {
+        var query3 = "SELECT * FROM  " +TABLE_URL + " WHERE " + KEY_USE + "='1'";
+        localDB.transaction(function (transaction) {
+            transaction.executeSql(query3,[], function (transaction, results) {
+                var pin=results.rows.item(0).pin;
+                
+                var query4="UPDATE "+TABLE_CONFIGURATION+" SET "+KEY_PIN+"='"+pin+"'";
+                  localDB.transaction(function (transaction) {
+                    transaction.executeSql(query4, [], function (transaction, results) {
+                        location.reload();
+                    });
+                });
+            });
+        });
+    } catch (e) {
+        console.log("Error updateState " + e + ".");
+    }
+
+
 }
 
 
@@ -1211,14 +1260,7 @@ function getDataInUse() {
                 console.log("ip: " + ip + " - alias: " + alias);
                 $("#txtIP").text(ip);
                 $("#txtServer").text(alias);
-
-                
-                if(localStorage.getItem("check_tax")=="1"){
-                    $('.check_tax').prop("checked",true);
-                }else{
-                    $('.check_tax').prop("checked",false);
-                }
-                
+                checktaxDefault();
             }, function (transaction, error) {
                 console.log("Error: " + error.code + "<br>Mensage: " + error.message);
             });
@@ -1228,28 +1270,28 @@ function getDataInUse() {
     }
 }
 
+
 function checktaxDefault(){
     if(null==localStorage.getItem("check_tax")){
-        $('.check_tax').prop("checked",true);
+        $('.check_tax').addClass("checked");
         localStorage.setItem("check_tax","1");
     }else{
         if(localStorage.getItem("check_tax")=="1"){
-            $('.check_tax').prop("checked",true);
+            $('.check_tax').addClass("checked");
         }else{
-            $('.check_tax').prop("checked",false);
+            $('.check_tax').removeClass("checked");
         }
     }
-
 }
-
 
 
 //function del check impuesto
 function checkTax(){
-    if($('.check_tax').is(':checked')){
-        localStorage.setItem("check_tax","1");     
+    if($('.check_tax').hasClass('checked')){
+        $('.check_tax').removeClass('checked');
+        localStorage.setItem("check_tax","0");     
     }else{
-        localStorage.setItem("check_tax","0");
+        $('.check_tax').addClass('checked');
+        localStorage.setItem("check_tax","1");
     }
 }
-

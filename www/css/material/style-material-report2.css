@@ -8,7 +8,7 @@
     font-size: 16px;
     font-style: normal;
     text-align: center;
-    color: #0000CD;
+    color: #666666;
 }
 .clasification p{
     width: 44%;
@@ -103,7 +103,6 @@
 }
 
 .clasificationRow .clasName{
-    font-size: 14px;
     font-weight: bold;
 }
 .clasificationRow .rangeMax,
@@ -117,6 +116,56 @@
 }
 
 .ui-datepicker-header,
-td.ui-datepicker-current-day{
+td.ui-datepicker-current-day a,
+td.ui-datepicker-current-day a:active,
+td.ui-datepicker-current-day a:hover{
     background-color: #B71C1C !important;
+}
+
+
+/*small devices*/
+@media all and (min-width: 320px){
+  .clasificationRow{
+    height: 34px;
+  }
+}
+/* Galaxy S5*/
+@media all and (min-width: 360px){
+
+}
+/*medium devices*/
+@media all and (min-width: 600px){
+  .clasificationRow{
+    height: 44px;
+  }
+}
+/*Samsung tab 8*/
+@media all and (min-width: 768px){
+  div[class^="select-"] .item {
+    height: 55px;
+    line-height: 55px;
+    font-size: 22px;
+  }
+  .store h1{
+    font-size: 24px;
+  }
+  .clasification p,
+  .clasification i,
+  .clasification span{
+    font-size: 22px;
+  }
+  .clasificationRow{
+    height: 54px;
+  }
+}
+
+/*Nexus 10*/
+@media all and (min-width: 800px){
+
+}
+
+@media all and (min-width: 480px) and (orientation: landscape){
+  .clasificationRow{
+    height: 34px;
+  }
 }

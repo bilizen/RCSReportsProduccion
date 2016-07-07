@@ -10,7 +10,6 @@
   <link rel="shortcut icon" href="">
 
   <!-- Fav and touch icons -->
-
   <script type="text/javascript" src="../../js/jquery.min.js"></script>
   <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../../js/jquery-ui.js"></script>
@@ -100,11 +99,23 @@
         <div class="section">
             <span id="lblVisualization">Visualization</span>
             <div class="section_content">
-                <input type="checkbox" name="check_actual" id="check_actual" onclick = "updateActual()" checked>
-                <label class="text-checkbox current">Show Current</label>
+                <div class="checkbox_wrapper checked check_actual" onclick ="updateActual();">   
+                    <div class="switch"></div>
+                    <div class="input-checkbox"></div>
+                    <label id="checktext" class="current">Show Current</label>            
+                </div> 
+
+                <!-- <input type="checkbox" name="check_actual" id="check_actual" onclick = "updateActual()" checked>
+                <label class="text-checkbox current">Show Current</label> -->
                 <hr>
-                <input type="checkbox" name="check_global" id="check_global" onclick="updateGlobal()" checked>
-                <label class="text-checkbox global">Show Global</label>
+                <div class="checkbox_wrapper checked check_global" onclick ="updateGlobal();">   
+                    <div class="switch"></div>
+                    <div class="input-checkbox"></div>
+                    <label id="checktext" class="global">Show Global</label>            
+                </div>
+
+               <!--  <input type="checkbox" name="check_global" id="check_global" onclick="updateGlobal()" checked>
+                <label class="text-checkbox global">Show Global</label> -->
             </div>  
         </div>
 

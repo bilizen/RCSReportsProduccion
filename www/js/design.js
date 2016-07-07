@@ -81,7 +81,7 @@ $(document).ready(function () {
         console.log(changeinput);
         $('.clasRange6').val(changeinput);
     });
-    $('#miModal4').css("margin-top", Math.max(0, ($(window).height() - 58 - $('#miModal4').find('.modal-dialog').height()) / 4));
+    $('#miModal4').css("top", Math.max(0, ($(window).height() - $('#miModal4').find('.modal-dialog').height()) / 4));
     // Centrado de los modales al centro de la pantalla
     $(function () {
         function reposition() {

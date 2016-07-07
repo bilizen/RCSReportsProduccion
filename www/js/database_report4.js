@@ -16,21 +16,7 @@ $(document).ready(function () {
         document.getElementById('content').style.display = 'block';
         $('#chartdiv').height($(window).height() - $('header').height());
     }
-    if (window.orientation == 180) {
-        document.getElementById('content').style.display = 'none';
-        $('#miModal4').modal({backdrop: 'static', keyboard: false});
-    }
-    $(window).on("orientationchange", function (event) {
-        if (window.orientation == 90 || window.orientation == -90) {
-            $('#miModal4').modal('hide');
-            document.getElementById('content').style.display = 'block';
-            $('#chartdiv').height($(window).height() - $('header').height());
-        }
-        if (window.orientation == 180 || window.orientation == 0) {
-            document.getElementById('content').style.display = 'none';
-            $('#miModal4').modal({backdrop: 'static', keyboard: false});
-        }
-    });
+  
 });
 
 

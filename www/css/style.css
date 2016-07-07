@@ -146,9 +146,9 @@ header button,
     padding-left: 4px;
     font-weight: 300;
     text-overflow: ellipsis !important;
-    max-width: 92px;
-    min-width: 44px;
-    height: 44px;
+    max-width: 64px;
+    min-width: 34px;
+    height: 34px;
 }
 header button:active{
     opacity: 0.3;
@@ -162,7 +162,7 @@ header button:active{
     display: inline-block;
 }
 .titleLogo {
-    height: 24pt;
+    /*height: 24pt;*/
     vertical-align: middle;
 }
 #btn_left{
@@ -179,10 +179,10 @@ header button:active{
         animation-delay: 0.2s;
 }
 #btn_left.arrow {
-    padding-left: 23px;
+    padding-left: 24px;
     background-image: url(../img/backBtn.svg);
-    background-position: left bottom;
-    background-size: 24px 46px;
+    background-position: -25px 0px;
+    background-size: 65px 44px;
     background-repeat: no-repeat;
 }
 #btn_left.arrow.white{
@@ -207,7 +207,7 @@ header button:active{
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 44px;
+    height: 34px;
     padding-right: 0px;
     opacity: 0;
     -webkit-animation: fadeRightToLeft .4s forwards;
@@ -219,26 +219,26 @@ header button:active{
 .calendar{
     background-image: url(../img/iconCalendar.svg);
     background-position: 6px;
-    background-size: 32px 32px;
+    background-size: 32px;
     background-repeat: no-repeat;
 }
 #btn_right.config{
     background-image: url(../img/iconItems.svg);
     background-position: center;
-    background-size: 30px 30px;
+    background-size: 36px;
     background-repeat: no-repeat;
 }
 #btn_right.configuration{
     background-image: url(../img/iconConfig.svg);
     background-position: 4px;
-    background-size: 31px 31px;
+    background-size: 31px;
     background-repeat: no-repeat;
 }
 #btn_right.storeIcon,
 .storeIcon{
     background-image: url(../img/iconStore.svg);
     background-position: center;
-    background-size: 34px 34px;
+    background-size: 34px;
     background-repeat: no-repeat;
 }
 #btn_right.side {
@@ -362,30 +362,102 @@ header button:active{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.checkbox_wrapper{height: 44px;}
+.checkbox_wrapper{
+    position: relative;
+    height: 34px;
+    line-height: 34px;
+    width: 88%;
+    margin: auto;
+}
+.text-checkbox{
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    width: initial;
+    left: 0;
+}
+.input-checkbox{
+    display: inline-block;
+    position: absolute;
+    z-index: 20;
+    right: 0;
+    top: 0px;
+    width: 54px;
+    height: 34px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.checked .input-checkbox{    
+    background: #4BD863;
+}
+.switch{
+    position: absolute;
+    z-index: 30;
+    display: block;
+    right: 3px;
+    top: 2px;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-transform: translate3D(-20px,0,0);
+    transform: translate3D(-20px,0,0);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.35);
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.checked .switch{
+    -webkit-transform: translate3d(0px,0,0);
+    transform: translate3d(0px,0,0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.35);
+
+}
+.small_item .input-checkbox{
+    top: 8px;
+    width: 44px;
+    height: 24px;
+    border-radius: 20px;
+}
+.small_item .switch{
+    top: 10px;
+    width: 19px;
+    height: 19px;
+}
+/*only for Hide/Show Reports*/
+.hideShowOpt{
+    position: relative;
+    height: 58px;
+    width: 100%;
+}
 input[type="checkbox"]{
     display: block;
+    position: absolute;    
+    z-index: 90;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 58px;
+    height: 100%;
     margin: 0;
-    position: relative;
-    z-index: 20;
     opacity: 0;
 }
 input[type="checkbox"]+ label {
-    position: relative;
-    padding: 0px 0 0 0px;
-    line-height: 1.75em;
-    font-size: 17.5px;
-    height: 0;
-    -webkit-transform: translate3D(0,-44px,0);
-    transform: translate3D(0,-44px,0);
+    position: absolute;
+    z-index: 0;
+    top: 14px;
+    left: 6%;
+    padding: 0px;
+    line-height: 17px;
+    font-size: 17px;
+    /*height: 0;*/
 }
 input[type="checkbox"] + label:before {
     content: "";
     position: absolute;
     display: block;
-    right: 0;
+    right: -5px;
     top: -2px;
     width: 54px;
     height: 34px;
@@ -399,7 +471,7 @@ input[type="checkbox"] + label:after {
     content: "";
     position: absolute;
     display: block;
-    right: 3px;
+    right: -2px;
     top: 0px;
     width: 29px;
     height: 29px;
@@ -423,11 +495,10 @@ input[type="checkbox"]:checked + label:before {
     background: #4BD863;
 }
 
-
 /*Menu */
 .menu {
     width: 100%;
-    /*height: 100%;*/
+    font-size: 0;
     overflow-y: auto;
     padding-top: 11px;
     background-image: url('../img/Bottom-Waves-1024.png');
@@ -535,7 +606,7 @@ input[type="checkbox"]:checked + label:before {
     position: absolute;
     width: 60px;
     height: 60px;
-    left: 0;
+    left: 12px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -551,7 +622,7 @@ input[type="checkbox"]:checked + label:before {
     background: url('../img/iconReport1.svg') center center no-repeat;
     background: url('../img/iconReport1.svg') center center no-repeat;
     background: url('../img/iconReport1.svg') center center no-repeat;
-    background-size: 80%, cover;
+    background-size: 100%, cover;
 }
 .report2 .iconReport{
     background: rgba(0,183,255,1);
@@ -561,7 +632,7 @@ input[type="checkbox"]:checked + label:before {
     background: url('../img/iconReport2.svg') center center no-repeat;
     background: url('../img/iconReport2.svg') center center no-repeat;
     background: url('../img/iconReport2.svg') center center no-repeat;
-    background-size: 80%, cover;
+    background-size: 100%, cover;
 }
 .report3 .iconReport{
    background: rgba(0,183,255,1);
@@ -571,7 +642,7 @@ input[type="checkbox"]:checked + label:before {
     background: url('../img/iconReport3.svg') center center no-repeat;
     background: url('../img/iconReport3.svg') center center no-repeat;
     background: url('../img/iconReport3.svg') center center no-repeat;
-    background-size: 80%, cover;
+    background-size: 100%, cover;
 }
 .report4 .iconReport{
    background: rgba(0,183,255,1);
@@ -581,7 +652,7 @@ input[type="checkbox"]:checked + label:before {
     background: url('../img/iconReport4.svg') center center no-repeat;
     background: url('../img/iconReport4.svg') center center no-repeat;
     background: url('../img/iconReport4.svg') center center no-repeat;
-    background-size: 80%, cover;
+    background-size: 100%, cover;
 }
 .report5 .iconReport{
     background: rgba(0,183,255,1);
@@ -591,7 +662,7 @@ input[type="checkbox"]:checked + label:before {
     background: url('../img/iconReport5.svg') center center no-repeat;
     background: url('../img/iconReport5.svg') center center no-repeat;
     background: url('../img/iconReport5.svg') center center no-repeat;
-    background-size: 80%, cover;
+    background-size: 100%, cover;
 }
 .report6 .iconReport{
     background: rgba(0,183,255,1);
@@ -601,7 +672,7 @@ input[type="checkbox"]:checked + label:before {
     background: url('../img/iconReport6.svg') center center no-repeat;
     background: url('../img/iconReport6.svg') center center no-repeat;
     background: url('../img/iconReport6.svg') center center no-repeat;
-    background-size: 80%, cover;
+    background-size: 100%, cover;
 }
 
 .list_store{
@@ -661,7 +732,7 @@ hr {
     float: right;
     height: 44px;
     font-size: 14px;
-    padding-right: 2%;
+    padding-right: 4%;
     line-height: 3.3em;
     color: rgb(88,88,88);
 }
@@ -1091,8 +1162,8 @@ button.delete{
     position: absolute;
     left: 0;
     top: 0;
-    height: 33px;
-    width: 33px;
+    height: 28px;
+    width: 24px;
     background-image: url(../img/iconDelete.svg);
     background-color: transparent;
     background-size: 22px;
@@ -1155,16 +1226,7 @@ button.delete{
 .chkTax label{
     text-align: center;
 }
-.chkTax input[type="checkbox"] + label:before{
-    top: 2px;
-    width: 45px;
-    height: 25px;
-}
-.chkTax input[type="checkbox"] + label:after{
-    top: 4px;
-    width: 19px;
-    height: 19px;
-}
+
 .title-alert{
     
     font-size: 20px;
@@ -1224,6 +1286,23 @@ button.delete{
   position: relative;
   left: -2px;
   top: -2px;
+}
+
+.modal-rotate .modal-dialog{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 185px;
+    margin: auto !important;
+}
+.bg-rotate{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1040;    
+    background-color: rgba(0,0,0,.3);    
 }
 
 @media only screen and (min-width : 320px) and (max-width : 568px) { 
@@ -1444,21 +1523,32 @@ table th, table td{
 text{
     font-family: 'Helvetica Neue';
 }
+.modal-rotate{
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
 .textRotateScreen{
     text-align: center;
+    font-size: 18px;
+    line-height: 24px;
 }
 .iconRotate{
-    padding: 5pt 5pt 10pt;
+    height: 60px;
+    padding: 5pt 2pt 5pt;
+    margin: 10px 0;
 }
+
 .iconRotate img{
+    height: 44px;
     text-align: center;
     display: block;
+    margin: auto;
     -webkit-animation-name: rotationIcon; 
-    -webkit-animation-duration: 1.25s;
+    -webkit-animation-duration: 1.8s;
     animation-name: rotationIcon;
-    animation-duration: 1.25s;
-    -webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
-    animation-delay: 1s;
+    animation-duration: 1.8s;
+    -webkit-animation-delay: 0.8s; /* Chrome, Safari, Opera */
+    animation-delay: 0.8s;
     -webkit-transform-origin: center center;
     transform-origin: center center;
     -webkit-animation-fill-mode: backwards; /* Chrome, Safari, Opera */
@@ -1468,16 +1558,23 @@ text{
     -webkit-animation-timing-function: ease-in-out; 
     animation-timing-function: ease-in-out;
 }
-.iconRotate img{
-    width: 44px;
-    margin: auto;
-}
+
+
 @-webkit-keyframes rotationIcon {
     0% {
         -webkit-transform:  rotateZ(0deg);
     }
+    10% {
+        -webkit-transform:  rotateZ(0deg);
+    }
+    50%{
+        -webkit-transform:  rotateZ(90deg);
+    }
+    70%{
+        -webkit-transform:  rotateZ(90deg);
+    }
     100%{
-        -webkit-transform:  rotateZ(-90deg);
+        -webkit-transform:  rotateZ(0deg);
     }
 }
 
@@ -1485,8 +1582,17 @@ text{
     0% {
         transform:  rotateZ(0deg);
     }
+    10% {
+        transform:  rotateZ(0deg);
+    }
+    50%{
+        transform:  rotateZ(90deg);
+    }
+    60%{
+        transform:  rotateZ(90deg);
+    }
     100%{
-        transform: rotateZ(-90deg);
+        transform: rotateZ(0deg);
     }
 }
 
@@ -1651,7 +1757,7 @@ text{
         font-size: 16pt;
     }
     .titleLogo {
-        height: 31pt;
+        /*height: 31pt;*/
         vertical-align: middle;
     }
     .img_logotitle {
@@ -1741,13 +1847,13 @@ text{
         background-image: url('../img/background_568.jpg') !important;    
     }
     .titleLogo {
-        height: 20pt;
+        /*height: 20pt;*/
     }
     .list .item, .menu .item{
         height: 90px;
     }
     .item .box, .menu .box{
-        padding-left: 60px;
+        padding-left: 80px;
     }
     .actual i, .global i {
         width: 13%;

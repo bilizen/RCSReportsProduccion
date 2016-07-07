@@ -7,32 +7,7 @@ $(document).ready(function () {
     onInit();
     //por defecto que salga la semana de ventas
     graphicReport6(3);
-    
-     //////
-    if (window.orientation == 0) {
-                document.getElementById('content').style.display = 'none';
-                $('#miModal6').modal({backdrop: 'static', keyboard: false});
-            }
-            if (window.orientation == 90 || window.orientation == -90) {
-                $('#miModal6').modal('hide');
-                document.getElementById('content').style.display = 'block';
-            }
-            if (window.orientation == 180) {
-
-                document.getElementById('content').style.display = 'none';
-                $('#miModal6').modal({backdrop: 'static', keyboard: false});
-            }
-            $(window).on("orientationchange", function (event) {
-                if (window.orientation == 90 || window.orientation == -90) {
-                    $('#miModal6').modal('hide');
-                    document.getElementById('content').style.display = 'block';
-                }
-                if (window.orientation == 180 || window.orientation == 0) {
-                    document.getElementById('content').style.display = 'none';
-                    $('#miModal6').modal({backdrop: 'static', keyboard: false});
-                }
-            });
-    
+  
 });
 
 $(window).load(function () {

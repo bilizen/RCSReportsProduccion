@@ -3,8 +3,36 @@
     padding-left: 5px;
 }
 
+/*ip.html*/
+.form-group .checkbox label, .form-group .radio label, .form-group label,
+.form-group label.control-label{
+	color: #3c3c3c;
+}
+body .well.ip-form{
+	margin-bottom: 0;
+}
+/*end ip*/
+
+/*clear: Clean some styles for a better use*/
+.btn.btn-fab, .input-group-btn .btn.btn-fab{
+	height: inherit;
+	width: inherit;
+	min-width: inherit;
+}
+
+/*end clear*/
+
 header{
 	height: initial !important;
+}
+body, html{
+	width: 100%;
+	height: 100%;
+}
+body .container .well, body .container-fluid .well, body .container .jumbotron, body .container-fluid .jumbotron{
+	margin-bottom: 0;
+	padding: 19px 19px 0px;
+
 }
 .modal-header .close{
 	margin-top: -20px;
@@ -98,9 +126,8 @@ hr:last-child{
 .delete {
   position: absolute !important;
   right: 10px;
-  width: 26px !important;
-  height: 26px !important;
-  min-width: 26px !important;
+  height: 26px;
+  min-width: 26px;
   line-height: 0px !important;
   top: 0;
   bottom: 0;
@@ -125,6 +152,8 @@ hr:last-child{
 
 .navbar .navbar-brand{
 	z-index: 300;
+	font-weight: 500;
+	font-size: 20px;
 }
 .btn-right{
 	position: absolute;
@@ -153,9 +182,14 @@ div[class^="select-"] .item{
 	height: 36px;
 	line-height: 36px;
 	text-align: center;
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: capitalize;
 }
 .section .item{
 	margin-bottom: 0;
+	margin-left: 0;
+  margin-right: 0;
 }
 .store h1{
     width: 100%;
@@ -175,8 +209,9 @@ div[class^="select-"] .item{
 }
 
 .item.selected{
-	font-weight: bold;
+	font-weight: bold !important;
 	box-shadow: none;
+	background-color: rgba(0,0,0,.06);
 }
 ul .item{
 	box-shadow: none;
@@ -185,6 +220,10 @@ ul .item{
 .chkTax label{
     font-size: 16px;
     color: #26a69a;
+}
+.dropdown-content li>a:active,.dropdown-content li>a:hover,
+.chkTax label:active,.chkTax label:hover{
+	text-decoration: none;
 }
 .chkTax label{
 	line-height: initial;
@@ -199,9 +238,9 @@ ul .item{
 
 /*list of stores in Modal*/
 .list_store{
-	height: 240px;
+	height: 264px;
 	overflow-y: auto;
-	margin-top: 0 !important;
+	margin-top: 8px !important;
 	margin-bottom: 0 !important;
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
@@ -236,15 +275,199 @@ ul .item{
 .collection-item a{
 	padding-left: 0px !important;
 }
+.collection .collection-item.avatar .circle{
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
 
+
+/*small devices*/
+@media all and (min-width: 320px){
+	.form-group .checkbox label, .form-group .radio label, .form-group label{
+		font-size: 13px;
+	}
+
+	/*modal choose store*/
+	.list_store{
+		height: 180px;
+	}
+	.list_store h1{
+		font-size: 13px;
+  	height: 30px;
+  	line-height: 30px;
+  }
+  /*end modal choose store*/
+
+  .modal-content .modal-header{
+  	padding-top: 16px;
+  }
+  .modal .modal-footer{
+  	height: 42px; 
+    padding: 2px 10px;   
+  }
+  .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat{
+  	margin: 3px 0;
+  }
+  /*dropdown*/
+  .btn-right{
+  	width: 145px;
+  }
+  .dropdown-content li>a *, .dropdown-content li>span, .chkTax label{
+  	font-size: 14px;
+  }
+  .dropdown-content li > a, .dropdown-content li > span{
+  	padding: 8px 13px;
+  }
+  .collection .collection-item.avatar{
+  	min-height: 56px;
+  }
+  /*end dropdown*/
+
+  /*modal general*/
+  .modal-content .modal-body{
+    padding-top: 12px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  /*end modal general*/
+}
+
+/* Galaxy S5*/
+@media all and (min-width: 360px){
+	.form-group .checkbox label, .form-group .radio label, .form-group label,
+	input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
+		font-size: 14px;
+	}
+	/*dropdown*/
+  .btn-right{
+  	width: 185px;
+  }
+  .dropdown-content li>a *, .dropdown-content li>span, .chkTax label{
+  	font-size: 16px;
+  }
+  .dropdown-content li > a, .dropdown-content li > span{
+  	padding: 12px 15px;
+  }
+  .collection .collection-item.avatar{
+  	min-height: 64px;
+  }
+  /*end dropdown*/
+}
+/*medium devices*/
+@media all and (min-width: 600px){
+	nav,
+	.navbar-fixed{
+		height: 50px;
+		line-height: 50px;
+	}
+}
+
+/*Samsung tab 8*/
+@media all and (min-width: 768px){
+	p {
+	  margin: 0 0 20px;
+	}
+	nav, .navbar-fixed {
+	    height: 64px;
+	    line-height: 64px;
+	}
+	.navbar .navbar-brand{
+    height: 64px;
+    line-height: 55px;
+    font-size: 30px;
+	}
+	.navbar-toggle{
+		display: block;
+		height: 64px;
+	}
+	.navbar .navbar-toggle .icon-bar{
+		width: 6px;
+		height: 6px;
+		margin-top: 3px;
+	}
+	.form-group .checkbox label, .form-group .radio label, .form-group label{
+		font-size: 18px;
+	}
+	.form-group label.control-label{
+		font-size: 16px;
+	}
+	.btn-right{
+		width: 220px;
+	}
+	.btn-right .btn{
+		padding-top: 8px;
+	}
+	.btn, .btn-large, .btn-flat{
+		height: 44px;
+		margin: 12px 6px;
+	}
+
+  /*modal general*/
+  .modal-title{
+  	font-size: 24px;
+  }
+  .modal-body *,
+  .btn, .modal-footer .btn,
+  .modal-body input,
+  [type="checkbox"] + label{ 
+  	font-size: 20px;
+  }
+  .modal-content .modal-header{
+  	padding-top: 24px;
+  }
+  .modal .modal-footer{
+  	height: 56px;    
+  }
+  .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat{
+  	margin: 10px 6px;
+  }
+  .stores, #divClasification, .storeGraphic{
+  	padding: 0 15px;
+  }
+  .modal-content .modal-body{
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+  /*end modal general*/
+
+  /*modal choose store*/
+  .list_store{
+		height: 264px;
+	}
+  .list_store h1{
+  	font-size: 16px;
+  	height: 44px;
+  	line-height: 44px;
+  }
+  /*end modal choose store*/
+
+  /*dropdown*/
+
+  .dropdown-content li>a *, .dropdown-content li>span, .chkTax label{
+  	font-size: 20px;
+  }
+  .dropdown-content li > a, .dropdown-content li > span{
+  	padding: 20px 18px;
+  }
+  .collection .collection-item.avatar{
+  	min-height: 68px;
+  }
+  .collection .collection-item.avatar i.circle{
+  	line-height: 48px;
+  	width: 48px;
+  	height: 48px;
+  }
+  /*end dropdown*/
+}
 
 /*Nexus 10*/
 @media all and (min-width: 800px){
 
   .navbar .navbar-brand{
     height: 64px;
-    line-height: 55px;
-    font-size: 26px;
+    font-size: 30px;
 	}
 	.navbar-toggle{
 		display: block;
@@ -255,18 +478,39 @@ ul .item{
 		height: 6px;
 		margin-top: 3px;
 	}
+
+	.btn, .input-group-btn .btn{
+		border-radius: 4px;
+	}
 	.btn-right{
-		width: 220px;
+		width: 240px;
 	}
 	.btn-right .btn{
-		padding-top: 4px;
+		padding-top: 9px;
+	}
+	.btn:not(.navbar-toggle),.btn:not(.btn.icon-menu), .modal-footer .btn {
+    margin: 12px 3px;
+    padding: 0 30px;
 	}
   .dropdown-content li > a, .dropdown-content li > span{
   	line-height: 55px;
+  	padding: 19px 14px;
   }
   .dropdown-content li>a *, .dropdown-content li>span, .chkTax label{
-  	font-size: 20px;
+  	font-size: 23px;
+  	font-weight: 500;
   }
+
+  /*modal choose store*/
+  .list_store{
+		height: 288px;
+	}
+  .list_store h1{
+  	font-size: 18px;
+  	height: 48px;
+  	line-height: 48px;
+  }
+  /*end modal choose store*/
 
   /*modales*/
   .modal-title{
@@ -274,54 +518,60 @@ ul .item{
   }
   .modal-body *,
   .btn, .modal-footer .btn{ 
-  	font-size: 20px;
+  	font-size: 24px;
   }
+  .modal .modal-footer {
+	  height: 64px;
+    padding: 8px 16px;
+	}
+	.btn:not(.navbar-toggle), .btn-large, .btn-flat{
+		height: 44px;
+		line-height: 44px;
+	}
   .stores, #divClasification, .storeGraphic{
   	padding: 0 15px;
   }
+	.collection .collection-item{
+		line-height: 2.5rem;
+	}
 
 }
 
-/*Samsung tab 8*/
-@media all and (min-width: 768px){
+@media all and (min-width: 480px) and (orientation: landscape){
+	.modal-dialog{
+		width: 320px;
+	}
+	.modal-header{
+		padding-top: 14px;
+	}
+}
 
-	.navbar .navbar-brand{
-    height: 64px;
-    line-height: 55px;
-    font-size: 26px;
+@media all and (min-width: 640px) and (orientation: landscape){
+	.modal-dialog{
+		width: 380px;
 	}
-	.navbar-toggle{
-		display: block;
-		height: 64px;
+	.modal-header{
+		padding-top: 18px;
 	}
-	.navbar .navbar-toggle .icon-bar{
-		width: 6px;
-		height: 6px;
-		margin-top: 3px;
-	}
-	.btn-right{
-		width: 220px;
-	}
-	.btn-right .btn{
-		padding-top: 4px;
-	}
-  .dropdown-content li > a, .dropdown-content li > span{
-  	line-height: 55px;
-  }
-  .dropdown-content li>a *, .dropdown-content li>span, .chkTax label{
-  	font-size: 20px;
-  }
+}
 
-  /*modales*/
-  .modal-title{
-  	font-size: 24px;
+@media all and (min-width: 768px) and (orientation: landscape){
+	.modal-dialog{
+		width: 600px;
+	}
+	.modal-header{
+		padding-top: 24px;
+	}
+
+	/*modal choose store*/
+  .list_store{
+		height: 288px;
+	}
+  .list_store h1{
+  	font-size: 18px;
+  	height: 48px;
+  	line-height: 48px;
   }
-  .modal-body *,
-  .btn, .modal-footer .btn{ 
-  	font-size: 20px;
-  }
-  .stores, #divClasification, .storeGraphic{
-  	padding: 0 15px;
-  }
+  /*end modal choose store*/
 
 }

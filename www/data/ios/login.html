@@ -48,9 +48,10 @@
           </div>                   
         </div>
         <div class="form-group">
-          <div class="checkbox_wrapper">    
-            <input type="checkbox" name="chkremember" id="chkremember" checked="checked">      
-            <label class="text-checkbox" id="checktext">Remember Pin</label>           
+          <div class="checkbox_wrapper checked chkremember" onclick="changePinRemember();">   
+            <span class="switch"></span>
+            <div class="input-checkbox"></div>
+            <label id="checktext" class="text-checkbox">Remember Pin</label>            
           </div>                     
         </div>
         <div class="form-group ">
@@ -71,7 +72,7 @@
     </div>
   </div>
 
-  <!--Modal of CONECTION -->
+  <!--Modal of errors -->
   <div class="modal fade" id="show_alias">
     <div class="modal-dialog">
       <div class="modal-content">                              

@@ -7,30 +7,6 @@ $(document).ready(function () {/*** caraga elemento de la estructura html y esti
     onInit();/**verificamos la base de datos**/
     existDataDate_report5();/**lleanmos tabla CustomRangeDate**/
 
-    //////
-    if (window.orientation == 0) {
-        document.getElementById('content').style.display = 'none';
-        $('#miModal5').modal({backdrop: 'static', keyboard: false});
-    }
-    if (window.orientation == 90 || window.orientation == -90) {
-        $('#miModal5').modal('hide');
-        document.getElementById('content').style.display = 'block';
-    }
-    if (window.orientation == 180) {
-
-        document.getElementById('content').style.display = 'none';
-        $('#miModal5').modal({backdrop: 'static', keyboard: false});
-    }
-    $(window).on("orientationchange", function (event) {
-        if (window.orientation == 90 || window.orientation == -90) {
-            $('#miModal5').modal('hide');
-            document.getElementById('content').style.display = 'block';
-        }
-        if (window.orientation == 180 || window.orientation == 0) {
-            document.getElementById('content').style.display = 'none';
-            $('#miModal5').modal({backdrop: 'static', keyboard: false});
-        }
-    });
 });
 
 $(window).load(function () {/***asegura que la pagina ya esta cargada**/
