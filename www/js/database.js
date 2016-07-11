@@ -1104,7 +1104,7 @@ function deteclenguage() {
 
 		//Preferences
 		BTN_BACK();
-		MSGS_VISUALIZATION();
+		
 		MSGS_ORDER();
 
 		//Modal Report 4 menu

@@ -3,6 +3,7 @@ $(document).ready(function () {
 
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
+        
         if(checkNetConnection()==true){
         onInit();
         updateHideReports();
@@ -18,6 +19,7 @@ $(document).ready(function () {
                //modal para no conexion
             }
         }
+        
     }
 
     function onBackKeyDown() {
@@ -27,6 +29,7 @@ $(document).ready(function () {
 
 
 $(window).load(function(){
+    
 });
 
 

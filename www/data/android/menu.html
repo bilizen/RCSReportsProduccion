@@ -18,7 +18,7 @@
 
   <script type="text/javascript" src="../../js/jquery.min.js"></script>
   <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="../../cordova.js"></script>
   <script type="text/javascript" src="../../js/database.js"></script>
   <script type="text/javascript" src="../../js/menu.js"></script>
   
@@ -387,7 +387,22 @@
     </div>
   </div>
   
-
+<!-- no connection -->
+  <div class="modal fade" id="no_connection" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">                              
+        <div class="modal-body text-center">     
+          <p class="title-alert titleMessage">Message</p>                 
+          <p class="text-center textNoConnection">No network connection</p>              
+        </div>
+        <div class="modal-footer info">
+            <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true"
+            onclick="buttonExitApp();">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <script type="text/javascript" src="../../js/scripts.js"></script>
   <script type="text/javascript" src="../../js/design.js"></script>
 

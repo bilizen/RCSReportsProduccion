@@ -6,16 +6,6 @@ $(document).ready(function () {
 
     onInit();
     existDataDate();
-    ////////////////
-    if (window.orientation == 0) {
-        document.getElementById('content').style.display = 'none';
-        $('#miModal4').modal({backdrop: 'static', keyboard: false});
-    }
-    if (window.orientation == 90 || window.orientation == -90) {
-        $('#miModal4').modal('hide');
-        document.getElementById('content').style.display = 'block';
-        $('#chartdiv').height($(window).height() - $('header').height());
-    }
   
 });
 

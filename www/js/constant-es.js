@@ -151,7 +151,7 @@ function MSG_LBL_CHANGE_ALIAS_SETTINGS(){
 
 /**********STORES************/
 function BTN_PREFERENCES_TXT() {
-    $('#txtpreferences').html("Retornar");
+    $('#txtpreferences').html("Regresar");
     $('#txtpreferences_title').html("Preferencias");
 }
 function BTN_REFRESH() {
@@ -179,11 +179,7 @@ function OPT_COMBO_STORES() {
 function BTN_BACK() {
     $('#exit span').html("Regresar");
 }
-function MSGS_VISUALIZATION() {
-    $('.changeView span').html("Visualización");
-    $('.checkbox_view .current').html("Mostrar Actual");
-    $('.checkbox_view .global').html("Mostrar Global");
-}
+
 function MSGS_ORDER() {
     $('.changeOrden span').html("Ordenar por");
     $('.checkbox_view #txtchksales').html("Ventas");
@@ -355,7 +351,7 @@ function MSG_TODAYP_1(){
 
 
 function MSG_RETURN_2() {
-    $("#txtReturn").text("Retornar");
+    $("#txtReturn").text("Regresar");
 }
 
 function MSG_TITLE_OPTIONS_22() {
@@ -462,7 +458,7 @@ function MSG_VERY_CRITICAL_2() {
 
 
 function MSG_RETURN_3() {
-    $("#txtpreferences").text("Retornar");
+    $("#txtpreferences").text("Regresar");
 }
 
 function MSG_BACK_3() {
@@ -589,7 +585,7 @@ function MSG_OK_R5() {
 /******************MENU REPORT 4**********************/
 
 function MSG_LBL_RETURN_R4() {
-    $("#txtpreferences_r4").html("Retornar");
+    $("#txtpreferences_r4").html("Regresar");
 }
 
 function MSG_DATE_START_R4() {
@@ -692,8 +688,8 @@ function MODAL_ORIENTATION_R4(){
 
 // Opciones de Actual Global
 function MSGS_TEXT_OPTIONS(){
-     $(".text-checkbox.current").text("Mostral Actual");
-     $(".text-checkbox.global").text("Mostrar Global");
+     $(".txtCurrent").text("Mostral Actual");
+     $(".txtGlobal").text("Mostrar Global");
 }
 
 function MSG_ALL_REGION(){
@@ -739,7 +735,7 @@ function changeLanguage5(){
         $('#lbldateEnd').text('Fecha fin');
         $('#lbldateStart').text('Fecha inicio');
         $('.txt_options').text("Opciones");
-        $('#txtBack').text("Retornar");
+        $('#txtBack').text("Atrás");
         
         $('.titleMessage').text('Mensaje');
         $('.btnok').text('Aceptar');
@@ -750,7 +746,7 @@ function changeLanguage5(){
 
 //Language6
 function changeLanguage6(){
-    $('#txtpreferences_r6').text('Retornar');
+    $('#txtpreferences_r6').text('Regresar');
     $('#lblBack').text('Atrás');
     $('.title_Date_r6').text('Elegir Fecha');
     $('.title_store_r6').text('Elegir Tienda');
