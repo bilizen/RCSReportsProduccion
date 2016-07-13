@@ -11,6 +11,7 @@ $(document).ready(function () {
 
 
 $(window).load(function () {
+    defaultValuePercent();
     downloadReportGraphic();
     deteclenguage_R4();
 });
@@ -281,7 +282,8 @@ function downloadReportGraphic() {
 
 
                                         //captura valor de punto de equilibrio
-                                        var MargenValue = $('#MargenValue').val();
+                                        //var MargenValue = $('#MargenValue').val();
+                                        var MargenValue =localStorage.getItem("valuePercent_report4");
                                         if (MargenValue == 0) {
                                             MargenValue = 0.5;
                                         } else {
@@ -526,10 +528,12 @@ function updatePointBalance() {
         if (principal > 0) {
             $('#lblMargenNumber').empty();
             $('#lblMargenNumber').append(principal);
+            localStorage.setItem("valuePercent_report4",principal);
         } else {
             principal = 50;
             $('#lblMargenNumber').empty();
             $('#lblMargenNumber').append(principal);
+            localStorage.setItem("valuePercent_report4",principal);
         }
 
     } catch (e) {
@@ -545,6 +549,15 @@ function showModalMargen() {
     $('#MargenValue').val(principal);
 }
 
+
+function defaultValuePercent(){
+     if(null==localStorage.getItem("valuePercent_report4")){
+        $('#lblMargenNumber').append(50);
+        localStorage.setItem("valuePercent_report4",50);
+    }else{
+        $('#lblMargenNumber').append(localStorage.getItem("valuePercent_report4"));
+    }
+}
 
 function focusToactiveStore() {
     var list = $('.list_store');

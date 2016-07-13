@@ -3,7 +3,6 @@ $(document).ready(function () {
 
     function onDeviceReady() {
         //document.addEventListener("backbutton", onBackKeyDown, true);
-        
         if(checkNetConnection()==true){
             var variablEE = obtenerVariables("variable");
             //-1 si si ingresa por primera vez o mata aplicacion
@@ -23,16 +22,13 @@ $(document).ready(function () {
                 $('.textNoConnection').text('No hay conexion de red');
                 $('.btnok').text('Aceptar');
             }else{
-               //modal para no conexcion
+               //modal para no conexion
             }
-        }
+        }  
     }
 });
 
 $(window).load(function(){
-    
-
-    
     /*esta funcion ocurre despues de que ya cargo toda la pagina*/
     var lang = navigator.language.split("-");
     var current_lang = (lang[0]);
@@ -193,11 +189,9 @@ function validIP(ip, port, _url, alias, use, site, variable) {
             console.log('url ' + _url + " - xurl: " + xurl);
             console.log("COMPLETADO ... COMPLETADO");
             //entra al ejecutar el APP
-            if (variable == -1) {
-                
+            if (variable == -1) {   
                 firstServer(ip, port, xurl, alias, use, site, variable);
             } else {
-                
                 newServer(ip, port, xurl, alias, use, site, variable);
             }
 
@@ -219,8 +213,6 @@ function validIP(ip, port, _url, alias, use, site, variable) {
 
 
 function newServer(ip, port, urlbase, alias, activo, site, variable) {
-    
-
     try {
         window.location.href = "login.html?" +
                                     "ip=" + ip +
@@ -233,92 +225,6 @@ function newServer(ip, port, urlbase, alias, activo, site, variable) {
     } catch (e) {
         console.log("Error updateState " + e + ".");
     }
-
-
-
-    /*
-
-
-    try {
-        var query1 = "SELECT " + KEY_PIN + " FROM " + TABLE_CONFIGURATION;
-        localDB.transaction(function (transaction) {
-            transaction.executeSql(query1, [], function (transaction, results) {
-                var pin = results.rows.item(0).pin;
-                var yurl = 'http://' + ip + ':' + port + '/' + site + '/login/session/post';
-                var array = {Pin: pin};
-                $.ajax({
-                    url: yurl,
-                    timeout: 15000,
-                    type: 'POST',
-                    data: JSON.stringify(array),
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    async: true,
-                    crossdomain: true,
-                    beforeSend: function () {
-                        showLoading();
-                    },
-                    complete: function () {
-                        hideLoading();
-                    },
-                    success: function (data, textStatus, XMLHttpRequest) {
-                        //verifica que el pin es correcto
-                        if (data.successful == 1) {
-                            //UPDATE  a la TABLE_URL  1  a 0
-                            updateState();
-                            //insert en la TABLE_URL
-                            //addData(ip, port, urlbase, alias, activo, site);
-                            //window.location.href = "data/menu.html";
-                            try {
-                                var query = "INSERT INTO " + TABLE_URL + " ( " + KEY_IP + " , " + KEY_PORT
-                                        + " , " + KEY_URLBASE + ", " + KEY_ALIAS + " , " + KEY_USE + ", " + KEY_SITE + ") VALUES (?,?,?,?,?,?);";
-                                localDB.transaction(function (transaction) {
-                                    transaction.executeSql(query, [ip, port, urlbase, alias, activo, site], function (transaction, results) {
-                                       
-                                        //direcciona al MENU.html
-                                        window.location.href = "menu.html";
-                                    }, errorHandler);
-                                });
-                            } catch (e) {
-                                console.log("Error addData " + e + ".");
-                            }
-                        } else {
-                            if (current_lang == 'es') {
-                                mostrarModalGeneral("PIN Invalido");
-                            } else {
-                                mostrarModalGeneral("Invalid PIN");
-                            }
-                            window.location.href = "login.html?" +
-                                    "ip=" + ip +
-                                    "&port=" + port +
-                                    "&urlbase=" + urlbase +
-                                    "&alias=" + alias +
-                                    "&activo=1" +
-                                    "&site=" + site +
-                                    "&variable=" + variable;
-                        }
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        console.log(xhr.status);
-                        console.log(xhr.statusText);
-                        console.log(xhr.responseText);
-                        hideLoading();
-                        if (current_lang == 'es'){
-                            mostrarModalGeneral("Error de Conexión");
-                        }else{
-                            mostrarModalGeneral("No Connection");
-                        }
-                    }
-                });
-            }, errorHandler);
-        });
-    } catch (e) {
-        console.log("Error updateState " + e + ".");
-    }
-
-
-*/
-
 }
 
 
