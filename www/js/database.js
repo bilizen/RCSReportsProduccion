@@ -377,6 +377,26 @@ function existsData() {
 	} catch (e) {
 		console.log("Error existsData " + e + ".");
 	}
+
+
+	// var url = "";
+	// var query = "SELECT COUNT(" + KEY_URLBASE + ") AS urlBase FROM " + TABLE_URL;
+	// try {
+	// 	localDB.transaction(function (transaction) {
+	// 		transaction.executeSql(query, [], function (transaction, results) {
+	// 			url = results.rows.item(0).urlBase;
+	// 			if (url > 0) {
+	// 				//function verific if vista menu.html or login.html 
+	// 				getRemenberPinTableUrl();
+	// 			}
+	// 		}, function (transaction, error) {
+	// 			console.log("Error: " + error.code + "<br>Mensage: " + error.message);
+	// 		});
+	// 	});
+	// } catch (e) {
+	// 	console.log("Error existsData " + e + ".");
+	// }
+
 }
 
 function Title_Company() {
@@ -464,7 +484,7 @@ function getRemenberPinTableUrl() {
 //function para insertar el pin en la tabla urltable
 function updatePinTableUrl(pin){
 	try {
-		var query = "UPDATE " + TABLE_URL + " SET  " + KEY_PIN + "=  '"+pin +"' WHERE "+KEY_USE+"='1'";
+		var query = "UPDATE " + TABLE_URL + " SET  " + KEY_PIN + "='"+pin+"' WHERE "+KEY_USE+"='1'";
 		localDB.transaction(function (transaction) {
 			transaction.executeSql(query, [], function (transaction, results) {
 				//direcciona al MENU.html
