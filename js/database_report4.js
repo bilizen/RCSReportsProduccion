@@ -549,6 +549,7 @@ function showModalMargen() {
     $('#MargenValue').val(principal);
 }
 
+
 function defaultValuePercent(){
      if(null==localStorage.getItem("valuePercent_report4")){
         $('#lblMargenNumber').append(50);
@@ -557,7 +558,6 @@ function defaultValuePercent(){
         $('#lblMargenNumber').append(localStorage.getItem("valuePercent_report4"));
     }
 }
-
 
 function focusToactiveStore() {
     var list = $('.list_store');
