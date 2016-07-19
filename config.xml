@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.realcs.report"
-    versionCode="22" 
-    version="3.1.6" 
+    versionCode="23" 
+    version="3.1.7" 
     xmlns="http://www.w3.org/ns/widgets" 
     xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>RCS Reports</name>
