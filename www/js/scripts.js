@@ -23,22 +23,11 @@ $(document).ready(function () {
             (('' + month2).length < 2 ? '0' : '') + month2 + '/' +
             d2.getFullYear();
 
-    /* STAR WEEKEND*/
-    var o_today2 = d1.getFullYear() + '-' +
-            (('' + month1).length < 2 ? '0' : '') + month1 + '-' +
-            (('' + day1).length < 2 ? '0' : '') + day1;
 
-    var d = new Date('' + o_today2);
-    var day = d.getDay(),
-            diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday       
-    var ASU = new Date(d.setDate(diff));
-    var convertido = ASU;
-    var dia = ASU.getDate();
-    var mes = ASU.getMonth() + 1;
-    var año = ASU.getFullYear();
-    var porfin = (('' + dia).length < 2 ? '0' : '') + dia + '/' +
-            (('' + mes).length < 2 ? '0' : '') + mes + '/' +
-            año;
+
+    /* STAR WEEKEND*/
+    var starWeek= weekToDay();
+
 
     /* Week to Date */
     var d3 = new Date();
@@ -60,7 +49,7 @@ $(document).ready(function () {
         var yesterday=o_yesterday.split("/");
         $('#yesterday').text(yesterday[1]+"/"+yesterday[0]+"/"+yesterday[2]);
         
-        var por_fin=porfin.split("/");
+        var por_fin=starWeek.split("/");
         $('#week').text(por_fin[1]+"/"+por_fin[0]+"/"+por_fin[2]);
         
         var month=o_month.split("/");
@@ -73,7 +62,7 @@ $(document).ready(function () {
         $('#time').text(o_today);
         $('#today').text(o_today);
         $('#yesterday').text(o_yesterday);
-        $('#week').text(porfin);
+        $('#week').text(starWeek);
         $('#month').text(o_month);
         $('#year').text(o_year);
     }
@@ -442,4 +431,50 @@ function prueba(detalle) {
 
 function showActualServer(){
     $('.show_actual_server').modal('show');
+}
+
+
+
+function weekToDay(){
+    var d1 = new Date();
+    var days=d1.getDay();
+    var n=0
+    if(days==0){
+        n=6;
+    }
+    if(days==1){
+        n=0;
+    }
+    if(days==2){
+        n=1;
+    }
+    if(days==3){
+        n=2;
+    }
+    if(days==4){
+        n=3;
+    }
+    if(days==5){
+        n=4;
+    }
+    if(days==6){
+        n=5;
+    }
+    var d2 = new Date(new Date()-((n)*24*60*60*1000));
+    var day = d2.getDate();
+    var month = d2.getMonth() + 1;
+    var year=d2.getFullYear();
+
+    var date_n = ( (''+day).length< 2 ? '0' : '') + day + '/' +
+    (('' + month).length < 2 ? '0' : '') + month + '/' +year;
+    
+    return date_n;
+}
+
+function todayreport1(){
+    var d1 = new Date();
+    var month1 = d1.getMonth() + 1;
+    var day1 = d1.getDate();
+    var o_today =d1.getFullYear()+'-'+ (('' + month1).length < 2 ? '0' : '') + month1 + '-' +(('' + day1).length < 2 ? '0' : '') + day1 ;
+    return o_today;
 }

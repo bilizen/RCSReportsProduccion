@@ -33,7 +33,6 @@ function downloadByCompany(actual_, global_) {
 
     //verifica si esta con impuestos
     var impuesto=localStorage.getItem("check_tax");
-   
 
     localDB.transaction(function (tx) {
         tx.executeSql('SELECT * FROM ' + TABLE_URL + ' WHERE  ' + KEY_USE + ' = 1', [], function (tx, results) {
@@ -45,7 +44,8 @@ function downloadByCompany(actual_, global_) {
             //******************* captura los datos del report1.html *************************//
             var principal = $(".select-general div:first-child()").attr("data-value");
             var option = $(".select-dateP .init").attr("data-value");
-            var array = {Principal: principal, Option: option, Tax:impuesto};
+            var day=todayreport1();
+            var array = {Day:day, Option: option, Tax:impuesto};
 
             var actual = actual_;
             var global = global_;
@@ -272,7 +272,8 @@ function downloadByRegion(actual_, global_) {
 
             var byRegion = $(".select-general div:first-child()").attr("data-value");
             var option = $(".select-dateP .init").attr("data-value");
-            var array = {ByRegion: byRegion, Option: option,Tax: impuesto};
+            var day=todayreport1();
+            var array = {Day:day, Option: option,Tax: impuesto};
             var actual = actual_;
             var global = global_;
 
@@ -593,7 +594,9 @@ function downloadByStore(actual_, global_) {
         regionCode = "";
     }
 
-    var array = {Option: option, RegionCode: regionCode,Tax: impuesto};
+    var day=todayreport1();
+
+    var array = {Option: option, RegionCode: regionCode,Tax: impuesto,Day:day};
 
     var actual = actual_;
     var global = global_;
