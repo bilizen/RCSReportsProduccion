@@ -190,12 +190,7 @@ function onInit() {
 		} else { 
 			initDB();
 			alterTableUrl();
-			// localDB.changeVersion("2.0", "3.0", function(t){
-			// 	t.executeSql("ALTER TABLE "+TABLE_URL+" ADD COLUMN "+KEY_PIN+" TEXT");
-			// });   
 			createTables();
-			//validationPinTableUrl();
-
 		}
 	} catch (e) {
 		if (e == 2) {
@@ -221,35 +216,6 @@ function alterTableUrl(){
 }
 
 
-//validacion al  insertar en el pín en la tabla url 
-function validationPinTableUrl(){
-	try {
-	 	var query1="SELECT * FROM "+TABLE_URL +" WHERE "+KEY_USE+"='1'";
-	 	localDB.transaction(function (transaction) {
-            transaction.executeSql(query1,[], function (transaction, results) {
-                var pin=results.rows.item(0).pin;
-                alert(pin);
-                if(pin==null){
-                	var query2 = "SELECT * FROM  " +TABLE_CONFIGURATION;
-			        localDB.transaction(function (transaction) {
-			            transaction.executeSql(query2,[], function (transaction, results) {
-			                var c_pin=results.rows.item(0).pin;
-			                alert(c_pin);
-			                var query3="UPDATE "+TABLE_URL+" SET "+KEY_PIN+"='"+c_pin+"' WHERE "+KEY_USE+"='1'";
-			                  localDB.transaction(function (transaction) {
-			                    transaction.executeSql(query3, [], function (transaction, results) {
-			                    	alert("update table url con el pin");
-			                    });
-			                });
-			            });
-			        });
-                }
-            });
-		});
-    }catch (e){
-        console.log("Error updateState " + e + ".");
-    }
-}
 
 
 //button exip app
@@ -377,26 +343,6 @@ function existsData() {
 	} catch (e) {
 		console.log("Error existsData " + e + ".");
 	}
-
-
-	// var url = "";
-	// var query = "SELECT COUNT(" + KEY_URLBASE + ") AS urlBase FROM " + TABLE_URL;
-	// try {
-	// 	localDB.transaction(function (transaction) {
-	// 		transaction.executeSql(query, [], function (transaction, results) {
-	// 			url = results.rows.item(0).urlBase;
-	// 			if (url > 0) {
-	// 				//function verific if vista menu.html or login.html 
-	// 				getRemenberPinTableUrl();
-	// 			}
-	// 		}, function (transaction, error) {
-	// 			console.log("Error: " + error.code + "<br>Mensage: " + error.message);
-	// 		});
-	// 	});
-	// } catch (e) {
-	// 	console.log("Error existsData " + e + ".");
-	// }
-
 }
 
 function Title_Company() {
@@ -421,7 +367,7 @@ function Title_Company() {
 //function verifica si vista se dirige a menu.html or login.html 
 function getRemenberPinTableUrl() {
 	var query = "SELECT * FROM " + TABLE_URL + " WHERE " + KEY_USE + "='1'";
-	alert("getRemenberPinTableUrl");
+	
 	var c_ip ="";
 	var c_port ="";
 	var c_site = "";
@@ -433,7 +379,7 @@ function getRemenberPinTableUrl() {
 				var c_port = results.rows.item(0).port;
 				var c_site = results.rows.item(0).site;
 				var c_pin= results.rows.item(0).pin;
-				alert("getRemenberPinTableUrl pin="+c_pin);
+				
 				var yurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/login/session/post';
 				var array = {Pin: c_pin};
 				$.ajax({
