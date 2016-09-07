@@ -3,11 +3,12 @@ $(document).ready(function () {
 
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
+        
         if(checkNetConnection()==true){
-            onInit();
-            updateHideReports();
-            checktaxDefault();
-            deteclenguage();
+        onInit();
+        updateHideReports();
+        checktaxDefault();
+        deteclenguage();
         }else{
             $('#no_connection').modal('show');
             if (current_lang=='es'){
@@ -28,8 +29,7 @@ $(document).ready(function () {
 
 
 $(window).load(function(){
-    
-    
+  
 });
 
 
