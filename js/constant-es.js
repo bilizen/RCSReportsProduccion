@@ -151,7 +151,7 @@ function MSG_LBL_CHANGE_ALIAS_SETTINGS(){
 
 /**********STORES************/
 function BTN_PREFERENCES_TXT() {
-    $('#txtpreferences').html("Atrás");
+    $('#txtpreferences').html("Regresar");
     $('#txtpreferences_title').html("Preferencias");
 }
 function BTN_REFRESH() {
@@ -351,7 +351,7 @@ function MSG_TODAYP_1(){
 
 
 function MSG_RETURN_2() {
-    $("#txtReturn").text("Atrás");
+    $("#txtReturn").text("Regresar");
 }
 
 function MSG_TITLE_OPTIONS_22() {
@@ -458,7 +458,7 @@ function MSG_VERY_CRITICAL_2() {
 
 
 function MSG_RETURN_3() {
-    $("#txtpreferences").text("Atrás");
+    $("#txtpreferences").text("Regresar");
 }
 
 function MSG_BACK_3() {
@@ -585,7 +585,7 @@ function MSG_OK_R5() {
 /******************MENU REPORT 4**********************/
 
 function MSG_LBL_RETURN_R4() {
-    $("#txtpreferences_r4").html("Atrás");
+    $("#txtpreferences_r4").html("Regresar");
 }
 
 function MSG_DATE_START_R4() {
@@ -717,7 +717,7 @@ function MSG_TITLE_DIALOGSTORE_R6(){
 //Language5
 function changeLanguage5(){
      //head
-        $('#txtReturn').text('Atrás');
+        $('#txtReturn').text('Regresar');
         $('#lblDateEnd').text('Fecha fin');
         $('#lblDateStart').text('Fecha inicio');
         //tabla head
@@ -746,7 +746,7 @@ function changeLanguage5(){
 
 //Language6
 function changeLanguage6(){
-    $('#txtpreferences_r6').text('Atrás');
+    $('#txtpreferences_r6').text('Regresar');
     $('#lblBack').text('Atrás');
     $('.title_Date_r6').text('Elegir Fecha');
     $('.title_store_r6').text('Elegir Tienda');
@@ -759,5 +759,7 @@ function changeLanguage6(){
     $('.titleMessage').text('Mensaje');
     $('.titleTopBarOpt').text('Opciones');
     $(".textRotateScreen").text("Por favor, Gire a la Posición Horizontal");
-    $(".title_rotateScreen_R6").text("Mensaje"); 
+    $(".title_rotateScreen_R6").text("Mensaje");
+    
+    
 }

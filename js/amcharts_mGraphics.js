@@ -6,44 +6,39 @@ function drawGraphicByStore(var1, var2, var3, var4, _sizeRange, _dateStart) {
     var array3;
     var array4;
     var sizeRange;
-    var arrayDateStart;
 
-    // array1 = var1.slice();
-    // array2 = var2.slice();
-    // array3 = var3.slice();
-    // array4 = var4.slice();
-    // sizeRange = _sizeRange;
-    array1 = var1;
-    array2 = var2;
-    array3 = var3;
-    array4 = var4;
+    array1 = var1.slice();
+    array2 = var2.slice();
+    array3 = var3.slice();
+    array4 = var4.slice();
     sizeRange = _sizeRange;
-    arrayDateStart = _dateStart;
-    //var arrayDateStart = _dateStart.split("-");
-    
+
+    var arrayDateStart = _dateStart.split("-");
+
     function generateChartData() {
-        //var dss = new Date(arrayDateStart[1]+"-"+arrayDateStart[2]+"-"+arrayDateStart[0]);
+//var dss = new Date(arrayDateStart[1]+"-"+arrayDateStart[2]+"-"+arrayDateStart[0]);
         var chartData = [];
         //var firstDate = new Date();
         //firstDate.setDate(firstDate.getDate() - 100);
-        var cadena="";
-        var newDate;
+
         for (var i = 0; i < sizeRange; i++) {
+            // we create date objects here. In your data, you can have date strings
+            // and then set format of your dates using chart.dataDateFormat property,
+            // however when possible, use date objects, as this will speed up chart rendering.
             // ne naegador safari al mes de se le quita 1 yaque safari lo aumenta en el mes .
-            // var newDate = new Date(arrayDateStart[0], arrayDateStart[1] - 1, arrayDateStart[2]);
-            // newDate.setDate(newDate.getDate() + i);
-            cadena=arrayDateStart[i];
-            newDate = new Date(cadena);
-            newDate.setDate(newDate.getDate()+1);
+            var newDate = new Date(arrayDateStart[0], arrayDateStart[1] - 1, arrayDateStart[2]);
+            newDate.setDate(newDate.getDate() + i);
+
             chartData.push({
-            date: newDate,
-            visits: array1[i],
-            hits: array2[i],
-            views: array3[i],
-            totalGoal: array4[i]
+                date: newDate,
+                visits: array1[i],
+                hits: array2[i],
+                views: array3[i],
+                totalGoal: array4[i]
+
             });
+
         }
-        
         return chartData;
     }
 

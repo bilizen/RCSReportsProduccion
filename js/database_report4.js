@@ -276,7 +276,8 @@ function downloadReportGraphic() {
                                         var arrayGoal = [];
                                         var arrayBreakEven = [];
                                         var arrayTotalGoal = [];
-                                        var arrayDateStart=[];
+                                        var dateStart;
+                                        var dateEnd;
                                         var FixedCost = 0.00;
 
 
@@ -298,16 +299,16 @@ function downloadReportGraphic() {
                                             AcumulateGoal = parseFloat(value.AcumulateGoal);
                                             MonthGoalStore = parseFloat(value.MonthGoalStore);
                                             FixedCost = (parseFloat(value.FixedCost) / MargenValue);
+                                            dateStart = value.dateStart;
+                                            dateEnd = value.dateEnd;
 
-                                            
-                                            arrayDateStart[index]= value.dtDay;//date of day
                                             arraySale[index] = AcumulateSale.toFixed(2);/**sale*/
                                             arrayGoal[index] = AcumulateGoal.toFixed(2);/**goal**/
                                             arrayBreakEven[index] = FixedCost;/**breakeven**/
                                             arrayTotalGoal[index] = MonthGoalStore.toFixed(2);/**totalgoal**/
                                         });
 
-                                        drawGraphicByStore(arraySale, arrayGoal, arrayBreakEven, arrayTotalGoal, data.successful, arrayDateStart);
+                                        drawGraphicByStore(arraySale, arrayGoal, arrayBreakEven, arrayTotalGoal, data.successful, dateStart);
                                         $('#chartdiv').height($(window).height() - $('header').height());
                                     }else{
                                         if (current_lang == 'es') {
@@ -548,6 +549,7 @@ function showModalMargen() {
     $('#MargenValue').val(principal);
 }
 
+
 function defaultValuePercent(){
      if(null==localStorage.getItem("valuePercent_report4")){
         $('#lblMargenNumber').append(50);
@@ -556,7 +558,6 @@ function defaultValuePercent(){
         $('#lblMargenNumber').append(localStorage.getItem("valuePercent_report4"));
     }
 }
-
 
 function focusToactiveStore() {
     var list = $('.list_store');

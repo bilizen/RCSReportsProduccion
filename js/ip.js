@@ -3,7 +3,6 @@ $(document).ready(function () {
 
     function onDeviceReady() {
         //document.addEventListener("backbutton", onBackKeyDown, true);
-        
         if(checkNetConnection()==true){
             var variablEE = obtenerVariables("variable");
             //-1 si si ingresa por primera vez o mata aplicacion
@@ -23,9 +22,9 @@ $(document).ready(function () {
                 $('.textNoConnection').text('No hay conexion de red');
                 $('.btnok').text('Aceptar');
             }else{
-               //modal para no conexcion
+               //modal para no conexion
             }
-        }
+        }  
     }
 });
 
@@ -190,11 +189,9 @@ function validIP(ip, port, _url, alias, use, site, variable) {
             console.log('url ' + _url + " - xurl: " + xurl);
             console.log("COMPLETADO ... COMPLETADO");
             //entra al ejecutar el APP
-            if (variable == -1) {
-                
+            if (variable == -1) {   
                 firstServer(ip, port, xurl, alias, use, site, variable);
             } else {
-                
                 newServer(ip, port, xurl, alias, use, site, variable);
             }
 
@@ -216,7 +213,6 @@ function validIP(ip, port, _url, alias, use, site, variable) {
 
 
 function newServer(ip, port, urlbase, alias, activo, site, variable) {
-    
     try {
         window.location.href = "login.html?" +
                                     "ip=" + ip +
@@ -229,7 +225,6 @@ function newServer(ip, port, urlbase, alias, activo, site, variable) {
     } catch (e) {
         console.log("Error updateState " + e + ".");
     }
-
 }
 
 
