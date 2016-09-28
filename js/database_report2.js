@@ -463,9 +463,9 @@ function downloadStoreClasification(_valueSelected) {
                     dateStart = results.rows.item(0).dateStart.toString();
                     dateEnd = results.rows.item(0).dateEnd.toString();
                     dateUntil = results.rows.item(0).dateChoosed.toString();
-                    var employeeCode=localStorage.RCSReportsEmployeeCode;
+
                     //array = {DateStart:"2015-08-01",DateEnd:"2015-09-11",DateUntil:"2015-09-11",RegionCode:""};
-                    array = {DateStart: dateStart, DateEnd: dateEnd, DateUntil: dateUntil, RegionCode: "",Tax: impuesto,EmployeeCode:employeeCode};
+                    array = {DateStart: dateStart, DateEnd: dateEnd, DateUntil: dateUntil, RegionCode: "",Tax: impuesto};
 
                     $.ajax({
                         url: xurl,

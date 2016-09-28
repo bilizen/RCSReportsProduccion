@@ -45,8 +45,7 @@ function downloadByCompany(actual_, global_) {
             var principal = $(".select-general div:first-child()").attr("data-value");
             var option = $(".select-dateP .init").attr("data-value");
             var day=todayreport1();
-            var employeeCode=localStorage.RCSReportsEmployeeCode;
-            var array = {Day:day, Option: option, Tax:impuesto,EmployeeCode:employeeCode};
+            var array = {Day:day, Option: option, Tax:impuesto};
 
             var actual = actual_;
             var global = global_;
@@ -274,9 +273,7 @@ function downloadByRegion(actual_, global_) {
             var byRegion = $(".select-general div:first-child()").attr("data-value");
             var option = $(".select-dateP .init").attr("data-value");
             var day=todayreport1();
-            var employeeCode=localStorage.RCSReportsEmployeeCode;
-            
-            var array= {Day:day, Option: option,Tax: impuesto,EmployeeCode:employeeCode};
+            var array = {Day:day, Option: option,Tax: impuesto};
             var actual = actual_;
             var global = global_;
 
@@ -361,14 +358,13 @@ function downloadByRegion(actual_, global_) {
                         $(data.report).each(function (index, value) {
 
                             var regionName = value.region;
-                            var regionCode=value.regioncode;
                             var goalAmount = value.goalamount;
                             var goalAmountGlobal = value.goalamountglobal;
                             var payTotal = value.paytotal;
                             var payTotalGlobal = value.paytotalglobal;
                             var percent = 0.00;
                             var percentGlobal = 0.00;
-                            var cont=index;
+
 
                             goalAmount = goalAmount.replace(",", ".");
                             goalAmountGlobal = goalAmountGlobal.replace(",", ".");
@@ -440,7 +436,7 @@ function downloadByRegion(actual_, global_) {
                             percent = parseFloat(percent).toFixed(2);
                             percentGlobal = parseFloat(percentGlobal).toFixed(2);
 
-                            mostrar += "<div class='store waves-effect waves-light' onclick=storeWitdhGraphic2("+cont+",'"+regionCode+"') >";
+                            mostrar += "<div class='store waves-effect waves-light'>";
                             mostrar += "<h1>" + regionName + "</h1>";
                             if (actual == 1) {
                                 mostrar += "<div class='actual'>";
@@ -464,17 +460,8 @@ function downloadByRegion(actual_, global_) {
 
                                 mostrar += "</div>";
                             }
-                            
-
-                            //new
-                            mostrar += "<div class='region_store regionList' id='graph_region"+cont+"' >"
-                           
-                            mostrar += "</div>";
-
-                            //
                             mostrar += "</div>";
                             mostrar += "</div><hr>";
-
                             $("#items").append(mostrar);
 
                             mostrar = "";
@@ -608,8 +595,8 @@ function downloadByStore(actual_, global_) {
     }
 
     var day=todayreport1();
-    var employeeCode=localStorage.RCSReportsEmployeeCode;
-    var array = {Option: option, RegionCode: regionCode,Tax: impuesto,Day:day,EmployeeCode:employeeCode};
+
+    var array = {Option: option, RegionCode: regionCode,Tax: impuesto,Day:day};
 
     var actual = actual_;
     var global = global_;
@@ -707,7 +694,6 @@ function downloadByStore(actual_, global_) {
                             var goalAmountGlobal = value.goalAmountGlobal;
                             var payTotal = value.payTotal;
                             var payTotalGlobal = value.payTotalGlobal;
-                            var storeNo=value.storeNo;
                             var lastConexion = value.lastConexion;
                             var percent = 0.00;
                             var percentGlobal = 0.00;
@@ -785,10 +771,10 @@ function downloadByStore(actual_, global_) {
                             percentGlobal = parseFloat(percentGlobal).toFixed();
 
 
-                            mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light'>";
+                            mostrar += "<div onclick=\"storeWitdhGraphic('-" + indice + "')\" class='store waves-effect waves-light'>";
                             mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
                             mostrar += "<div class='lastConexion'><div class='lblLastConexion'>Last sale: </div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
-
+                            // mostrar += "<div>";
 
                             if (actual == 1) {
                                 mostrar += "<div class='actual'>";
@@ -813,18 +799,41 @@ function downloadByStore(actual_, global_) {
                             }
 
 
-                            mostrar +="<div id='graph" + indice + "' class='graphic showGraphic'>";
+                            var j = 0;
+                            var array_description = [];
+                            var array_total = [];
+                            $(value.info).each(function (index, value) {
+                                var info = value.info;
+                                var total = value.total;
+
+                                array_description[j] = info;
+                                array_total[j] = total;
+
+                                j++;
+                            });
+                            mostrar += "<div id='graph-" + indice + "' class='graphic-" + indice + "'><div id='chartdiv-" + indice + "' class='chartdiv-" + indice + "'></div>";
+
+                            mostrar += "<div class='detalle-" + indice + "'>";
+
+                            mostrar += "<div class='year'>Año</div><div class='quantity'>Cantidad</div>";
+                            mostrar += "<i>" + array_description[0] + "</i><span>" + parseFloat(array_total[0]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
+                            mostrar += "<i>" + array_description[1] + "</i><span>" + parseFloat(array_total[1]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
+                            mostrar += "<i>" + array_description[2] + "</i><span>" + parseFloat(array_total[2]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
+
+                            mostrar += "</div></div>";
                             mostrar += "</div>";
                             mostrar += "</div><hr>";
 
                             $("#items").append(mostrar);
-                            
+                            drawGraphic(array_description[0], array_description[1], array_description[2],
+                                    array_total[0], array_total[1], array_total[2], indice);
 
                             mostrar = "";
                             indice++;
 
                         });
                         hideComboRegion();
+                        mostrarIndice(indice);
                         deteclenguage();
                     }
                     //hideLoading();
@@ -863,4 +872,3 @@ function hideComboRegion() {
         $('.list').height(windowh - headerh - selectdateP - selectGeneral - 68);
     }
 }
-

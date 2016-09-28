@@ -142,15 +142,14 @@ function downloadStore6(){
     var port = "";
     var alias = "";
     var site = "";
+    var array = "";
     localDB.transaction(function (tx) {
         tx.executeSql('SELECT * FROM ' + TABLE_URL + ' WHERE ' + KEY_USE + ' = 1', [], function (tx, results) {
             ip = results.rows.item(0).ip;
             port = results.rows.item(0).port;
             alias = results.rows.item(0).alias;
             site = results.rows.item(0).site;
-            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/POST";
-            var employeeCode=localStorage.RCSReportsEmployeeCode;
-            var array = {EmployeeCode: employeeCode};
+            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/";
 
             var query1 = "SELECT * FROM " + TABLE_STORE + " WHERE UsedStore= '1'";
             var StoreNoT = "";
@@ -159,8 +158,7 @@ function downloadStore6(){
                     StoreNoT = results.rows.item(0).StoreNo;
                     $.ajax({
                         url: xurl,
-                        type: 'POST',
-                        data: JSON.stringify(array),
+                        type: 'get',
                         contentType: 'application/json; charset=utf-8',
                         dataType: 'json',
                         timeout: 15000,

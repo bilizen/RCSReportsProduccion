@@ -111,8 +111,7 @@ function refresh_report3(regionCode) {
                     dateStart = results.rows.item(0).dateStart;
                     dateEnd = results.rows.item(0).dateEnd;
                     dateUntil = results.rows.item(0).dateChoosed;
-                    var employeeCode=localStorage.RCSReportsEmployeeCode;
-                    array = {DateStart: dateStart, DateEnd: dateEnd, DateUntil: dateUntil, RegionCode: regionCode,Tax: impuesto,EmployeeCode:employeeCode};
+                    array = {DateStart: dateStart, DateEnd: dateEnd, DateUntil: dateUntil, RegionCode: regionCode,Tax: impuesto};
                     $.ajax({
                         url: xurl,
                         type: 'POST',
@@ -250,9 +249,8 @@ function existDataDate_report3() {
                                     var sumTotalGoal = 0;
                                     var sumPercentGoal = 0;
                                     var sumPercentSale = 0;
-                                    //var xurl="http://190.12.74.148:8000/WCFSERVICE/ReportClasification/POST";
-                                    var employeeCode=localStorage.RCSReportsEmployeeCode;
-                                    var array = {DateStart: dateStart, DateEnd: dateEnd, DateUntil: dateUntil, RegionCode: "",Tax: impuesto,EmployeeCode:employeeCode};
+                                    //var xurl="http://190.12.74.148:8000/WCFSERVICE/ReportClasification/POST"; 
+                                    var array = {DateStart: dateStart, DateEnd: dateEnd, DateUntil: dateUntil, RegionCode: "",Tax: impuesto};
                                     $.ajax({
                                         url: xurl,
                                         type: 'POST',
@@ -359,8 +357,7 @@ function existDataDate_report3() {
                             var sumPercentGoal = 0;
                             var sumPercentSale = 0;
                             //var xurl="http://190.12.74.148:8000/WCFSERVICE/ReportClasification/POST";
-                            var employeeCode=localStorage.RCSReportsEmployeeCode;
-                            var array = {DateStart: dateStartMonth, DateEnd: dateOfToday, DateUntil: dateOfToday, RegionCode: "",EmployeeCode:employeeCode};
+                            var array = {DateStart: dateStartMonth, DateEnd: dateOfToday, DateUntil: dateOfToday, RegionCode: ""};
                             $.ajax({
                                 url: xurl,
                                 type: 'POST',
