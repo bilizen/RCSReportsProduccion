@@ -94,7 +94,7 @@ function updateHideReports() {
                 var c_ip = results.rows.item(0).ip;
                 var c_port = results.rows.item(0).port;
                 var c_site = results.rows.item(0).site;
-                //var c_pin= results.rows.item(0).pin;
+
 
                 var query2 = "SELECT " + KEY_PIN + " FROM " + TABLE_CONFIGURATION;
                 localDB.transaction(function (transaction) {
@@ -126,7 +126,7 @@ function updateHideReports() {
                                         if (data.successful == 1) {
                                             var arrReport = data.report;
                                             $("#txtUser").text(data.employeeName);
-                                            
+                                            localStorage.RCSReportsEmployeeCode=data.employeeCode;
                                             
                                             var igual = 0;
                                             //copmprueba que son iguales los reportes
@@ -166,9 +166,6 @@ function updateHideReports() {
                                                         }
                                                     }
                                                 }
-                                                
-                                                
-                                                
                                             }
 
 
@@ -634,7 +631,6 @@ function downloadStore4() {
     var port = "";
     var alias = "";
     var site = "";
-    var array = "";
 
     localDB.transaction(function (tx) {
         tx.executeSql('SELECT * FROM ' + TABLE_URL + ' WHERE ' + KEY_USE + ' = 1', [], function (tx, results) {
@@ -643,17 +639,19 @@ function downloadStore4() {
             alias = results.rows.item(0).alias;
             site = results.rows.item(0).site;
 
-            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/";
-            //xurl = "http://190.12.74.148:8000/WCFSERVICE/ReportStore/";
-
+            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/POST";
+            
+            var employeeCode=localStorage.RCSReportsEmployeeCode;
             var query1 = "SELECT * FROM " + TABLE_STORE + " WHERE UsedStore= '1'";
             var StoreNoT = "";
+            var array = {EmployeeCode: employeeCode};
             localDB.transaction(function (tx) {
                 tx.executeSql(query1, [], function (tx, results) {
                     StoreNoT = results.rows.item(0).StoreNo;
                     $.ajax({
                         url: xurl,
-                        type: 'get',
+                        type: 'POST',
+                        data: JSON.stringify(array),
                         contentType: 'application/json; charset=utf-8',
                         dataType: 'json',
                         timeout: 15000,
@@ -712,12 +710,13 @@ function downloadAllStore4() {
             port = results.rows.item(0).port;
             alias = results.rows.item(0).alias;
             site = results.rows.item(0).site;
-            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/";
-
-            //xurl="http://190.12.74.148:8000/WCFSERVICE/ReportStore/";
+            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/POST";
+            var employeeCode=localStorage.RCSReportsEmployeeCode;
+            var array = {EmployeeCode: employeeCode};
             $.ajax({
                 url: xurl,
-                type: 'get',
+                type: 'POST',
+                data: JSON.stringify(array),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 timeout: 15000,
@@ -804,16 +803,15 @@ function downloadStore5() {
     var port = "";
     var alias = "";
     var site = "";
-    var array = "";
     localDB.transaction(function (tx) {
         tx.executeSql('SELECT * FROM ' + TABLE_URL + ' WHERE ' + KEY_USE + ' = 1', [], function (tx, results) {
             ip = results.rows.item(0).ip;
             port = results.rows.item(0).port;
             alias = results.rows.item(0).alias;
             site = results.rows.item(0).site;
-            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/";
-            //xurl = "http://190.12.74.148:8000/WCFSERVICE/ReportStore/";
-
+            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/POST";
+            var employeeCode=localStorage.RCSReportsEmployeeCode;
+            var array = {EmployeeCode: employeeCode};
             var query1 = "SELECT * FROM " + TABLE_STORE + " WHERE UsedStore= '1'";
             var StoreNoT = "";
             localDB.transaction(function (tx) {
@@ -821,7 +819,8 @@ function downloadStore5() {
                     StoreNoT = results.rows.item(0).StoreNo;
                     $.ajax({
                         url: xurl,
-                        type: 'get',
+                        type: 'POST',
+                        data: JSON.stringify(array),
                         contentType: 'application/json; charset=utf-8',
                         dataType: 'json',
                         timeout: 15000,
@@ -880,18 +879,19 @@ function downloadAllStore5() {
     var port = "";
     var alias = "";
     var site = "";
-    var array = "";
     localDB.transaction(function (tx) {
         tx.executeSql('SELECT * FROM ' + TABLE_URL + ' WHERE ' + KEY_USE + ' = 1', [], function (tx, results) {
             ip = results.rows.item(0).ip;
             port = results.rows.item(0).port;
             alias = results.rows.item(0).alias;
             site = results.rows.item(0).site;
-            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/";
-            //xurl = "http://190.12.74.148:8000/WCFSERVICE/ReportStore/";
+            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/POST";
+            var employeeCode=localStorage.RCSReportsEmployeeCode;
+            var array = {EmployeeCode: employeeCode};
             $.ajax({
                 url: xurl,
-                type: 'get',
+                type: 'POST',
+                data: JSON.stringify(array),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 timeout: 15000,
@@ -972,15 +972,15 @@ function downloadStore6() {
     var port = "";
     var alias = "";
     var site = "";
-    var array = "";
     localDB.transaction(function (tx) {
         tx.executeSql('SELECT * FROM ' + TABLE_URL + ' WHERE ' + KEY_USE + ' = 1', [], function (tx, results) {
             ip = results.rows.item(0).ip;
             port = results.rows.item(0).port;
             alias = results.rows.item(0).alias;
             site = results.rows.item(0).site;
-            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/";
-            //xurl = "http://190.12.74.148:8000/WCFSERVICE/ReportStore/";
+            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/POST";
+            var employeeCode=localStorage.RCSReportsEmployeeCode;
+            var array = {EmployeeCode: employeeCode};
 
             var query1 = "SELECT * FROM " + TABLE_STORE + " WHERE UsedStore= '1'";
             var StoreNoT = "";
@@ -989,7 +989,8 @@ function downloadStore6() {
                     StoreNoT = results.rows.item(0).StoreNo;
                     $.ajax({
                         url: xurl,
-                        type: 'get',
+                        type: 'POST',
+                        data: JSON.stringify(array),
                         contentType: 'application/json; charset=utf-8',
                         dataType: 'json',
                         timeout: 15000,
@@ -1047,18 +1048,20 @@ function downloadAllStore6() {
     var port = "";
     var alias = "";
     var site = "";
-    var array = "";
     localDB.transaction(function (tx) {
         tx.executeSql('SELECT * FROM ' + TABLE_URL + ' WHERE ' + KEY_USE + ' = 1', [], function (tx, results) {
             ip = results.rows.item(0).ip;
             port = results.rows.item(0).port;
             alias = results.rows.item(0).alias;
             site = results.rows.item(0).site;
-            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/";
-            //xurl = "http://190.12.74.148:8000/WCFSERVICE/ReportStore/";
+            xurl = "http://" + ip + ":" + port + "/" + site + "/ReportStore/POST";
+            var employeeCode=localStorage.RCSReportsEmployeeCode;
+            var array = {EmployeeCode: employeeCode};
+
             $.ajax({
                 url: xurl,
-                type: 'get',
+                type: 'POST',
+                data: JSON.stringify(array),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 timeout: 15000,
