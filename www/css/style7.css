@@ -806,10 +806,10 @@ hr {
 }
 .lblLastConexion{
     padding-right: 3pt;
-    width: 42%;
+    width: 53%;
 }
 .dataLastConexion{
-    width: 63%;
+    width: 47%;
 }
 .lblLastConexion,.dataLastConexion{
     line-height: 24pt;
@@ -874,7 +874,22 @@ div[class^="region_store"]
     height: auto !important;
     
 }
+/*nuevo report 8*/
 
+div[class^="region_disctrict"]
+{
+    height: 0;
+    width: 80%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    opacity: 0;
+    margin: auto;
+    -webkit-transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+    transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+}
+
+
+/**/
 
 
 div[class^="graphic"]
@@ -895,7 +910,7 @@ div[class^="graphic"]
 }
 div[class^="chartdiv"]{
     width: 70%;
-    height: 130px;
+    height: 150px;
     display: inline-block;
     float: left;
     
@@ -1606,6 +1621,9 @@ text{
     animation-timing-function: ease-in-out;
 }
 
+.noimg{
+    background-image: none;
+}
 
 @-webkit-keyframes rotationIcon {
     0% {
