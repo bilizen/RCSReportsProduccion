@@ -4,32 +4,7 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
         
-        // if(checkNetConnection()==true){
-        // onInit();
-        // updateHideReports();
-        // checktaxDefault();
-        // deteclenguage();
-        // }else{
-        //     $('#no_connection').modal('show');
-        //     if (current_lang=='es'){
-        //         $('.titleMessage').text('Mensaje');
-        //         $('.textNoConnection').text('No hay conexion de red');
-        //         $('.btnok').text('Aceptar');
-        //     }else{
-        //        //modal para no conexion
-        //     }
-        // }
-        
-    }
-
-    function onBackKeyDown() {
-        navigator.app.exitApp();     
-    }
-});
-
-
-$(window).load(function(){
-    if(checkNetConnection()==true){
+        if(checkNetConnection()==true){
         onInit();
         updateHideReports();
         checktaxDefault();
@@ -44,6 +19,16 @@ $(window).load(function(){
                //modal para no conexion
             }
         }
+        
+    }
+
+    function onBackKeyDown() {
+        navigator.app.exitApp();     
+    }
+});
+
+
+$(window).load(function(){
   
 });
 
@@ -98,8 +83,6 @@ var titleReport3 = "";
 var titleReport4 = "";
 var titleReport5 = "";
 var titleReport6 = "";
-var titleReport7 = "";
-var titleReport8 = "";
 
 //Actualizar vistas de reportes
 function updateHideReports() {
@@ -181,14 +164,6 @@ function updateHideReports() {
                                                             titleReport6 = arrReport[a].functionName;
 
                                                         }
-                                                        if (arrReport[a].functionCode === 2408) {
-                                                            titleReport7 = arrReport[a].functionName;
-                                                            localStorage.setItem("titleReport7",titleReport7);
-                                                        }
-                                                        if (arrReport[a].functionCode === 2409) {                                   
-                                                            titleReport8 = arrReport[a].functionName;
-                                                            localStorage.setItem("titleReport8",titleReport8);
-                                                        }
                                                     }
                                                 }
                                             }
@@ -232,14 +207,6 @@ function updateHideReports() {
                                                     if (arrReport[a].functionCode === 2407) {
                                                         titleReport6 = arrReport[a].functionName;
 
-                                                    }
-                                                    if (arrReport[a].functionCode === 2408) {
-                                                        titleReport7 = arrReport[a].functionName;
-                                                        localStorage.setItem("titleReport7",titleReport7);
-                                                    }
-                                                    if (arrReport[a].functionCode === 2409) {
-                                                        titleReport8 = arrReport[a].functionName;
-                                                        localStorage.setItem("titleReport8",titleReport8);
                                                     }
                                                     
                                                 }
@@ -377,28 +344,6 @@ function selectReports() {
                                 "</button>"
                                 );
                         }
-                        if (report == 2408) {
-                            $('.menu').append(
-                                "<button class ='waves-effect waves-light  item report7 " + save + "' onclick ='openReport7();' data-value='report7'>" +
-                                "<span class ='box' >" +
-                                "<span class ='iconReport'> </span>" +
-                                "<span id ='lblgvst' class ='item_title'>" + titleReport7 + "</span>" +
-                                "<span id ='lblgvsd'  class ='item_subtitle'>La Compañia y nuevas tiendas</span>" +
-                                "</span>" +
-                                "</button>"
-                                );
-                        }
-                        if (report == 2409) {
-                            $('.menu').append(
-                                "<button class ='waves-effect waves-light  item report8 " + save + "' onclick ='openReport8();' data-value='report8'>" +
-                                "<span class ='box' >" +
-                                "<span class ='iconReport'> </span>" +
-                                "<span id ='lblgvst' class ='item_title'>" + titleReport8 + "</span>" +
-                                "<span id ='lblgvsd'  class ='item_subtitle'>Los distritos y nuevas tiendas</span>" +
-                                "</span>" +
-                                "</button>"
-                                );
-                        }
                     } else {
 
                         if (report == 2402) {
@@ -463,28 +408,6 @@ function selectReports() {
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport6 + "</span>" +
                                 "<span id ='lblgvsd'  class ='item_subtitle'>Compare retail of Last Year vs This Year</span>" +
-                                "</span>" +
-                                "</button>"
-                                );
-                        }
-                        if (report == 2408) {
-                            $('.menu').append(
-                                "<button class ='waves-effect waves-light  item report7 " + save + "' onclick ='openReport7();' data-value='report7'>" +
-                                "<span class ='box' >" +
-                                "<span class ='iconReport'> </span>" +
-                                "<span id ='lblgvst' class ='item_title'>" + titleReport7 + "</span>" +
-                                "<span id ='lblgvsd'  class ='item_subtitle'>Company stores new store sales</span>" +
-                                "</span>" +
-                                "</button>"
-                                );
-                        }
-                        if (report == 2409) {
-                            $('.menu').append(
-                                "<button class ='waves-effect waves-light  item report8 " + save + "' onclick ='openReport8();' data-value='report8'>" +
-                                "<span class ='box' >" +
-                                "<span class ='iconReport'> </span>" +
-                                "<span id ='lblgvst' class ='item_title'>" + titleReport8 + "</span>" +
-                                "<span id ='lblgvsd'  class ='item_subtitle'>District comp and new stores</span>" +
                                 "</span>" +
                                 "</button>"
                                 );
@@ -580,22 +503,6 @@ function writeHideShowModal(){
                             "<div class='hideShowOpt'>"+
                             "<input type='checkbox' id='chkr6' class='filled-in check_report6' " + check + ">" +
                             "<label for='chkr6' class='text-report'>" + titleReport6 + "</label>"+
-                            "</div>"+
-                            "<hr>");
-                    }
-                    if (report == 2408) {
-                        $('#list_reports').append(
-                            "<div class='hideShowOpt'>"+
-                            "<input type='checkbox' id='chkr7' class='filled-in check_report7' " + check + ">" +
-                            "<label for='chkr7' class='text-report'>" + titleReport7 + "</label>"+
-                            "</div>"+
-                            "<hr>");
-                    }
-                    if (report == 2409) {
-                        $('#list_reports').append(
-                            "<div class='hideShowOpt'>"+
-                            "<input type='checkbox' id='chkr8' class='filled-in check_report8' " + check + ">" +
-                            "<label for='chkr8' class='text-report'>" + titleReport8 + "</label>"+
                             "</div>"
                             );
                     }
@@ -642,16 +549,6 @@ function buttonOkReports() {
     } else {
         updateCheckModalReports("2407", "0");
     }
-    if ($('.check_report7').is(':checked')) {
-        updateCheckModalReports("2408", "1");
-    } else {
-        updateCheckModalReports("2408", "0");
-    }
-    if ($('.check_report8').is(':checked')) {
-        updateCheckModalReports("2409", "1");
-    } else {
-        updateCheckModalReports("2409", "0");
-    }
     selectReports();
 }
 
@@ -694,17 +591,6 @@ function passReport6(){
     window.location.href = "report6.html";
     return false;
 }
-
-function openReport7(){
-  window.location.href = "report7.html";
-  return false;        
-}
-
-function openReport8(){
-  window.location.href = "report8.html";
-  return false;        
-}
-
 
 
 

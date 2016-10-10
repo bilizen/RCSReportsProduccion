@@ -235,6 +235,20 @@ nullDataHandler = function (transaction, results) {//THIS VARIABLE IS FOR OUR TR
 
 
 
+$(window).resize(function () {
+	var windowh = $(window).height();
+	var headerh = $('header').height();
+	var regionh = $('#divRegion').height();
+	var selectdateP = $('.select-dateP').height();
+	var selectGeneral = $('.select-general').height();
+	if ($('#divRegion').css('display') == 'none') {
+		$('.list').height(windowh - headerh - selectdateP - selectGeneral - 20);
+	} else {
+		$('.list').height(windowh - headerh - selectdateP - selectGeneral - 68);
+	}
+});
+//**********************************************//
+
 
 
 
@@ -583,6 +597,20 @@ function valDate(dateStar, dateEnd) {
 	}
 }
 
+/*******ocultar y mostrar lineas principal y global*******/
+function refresh() {
+	var principal = $(".select-general div:first-child()").attr("data-value");
+	var chActual = get_chActual();
+	var chGlobal = get_chGlobal();
+	if (principal == 1) {
+		downloadByCompany(chActual, chGlobal);
+	} else if (principal == 2) {
+		downloadByRegion(chActual, chGlobal);
+	} else if (principal == 3) {
+		downloadByStore(chActual, chGlobal);
+	}
+
+}
 
 
 /*****************************function for capture and show parameters*********************************/

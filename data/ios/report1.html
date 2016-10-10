@@ -2,11 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Report 8</title>
+  <title>Report 1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
   
   <link href="../../css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../css/style8.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
   <link rel="shortcut icon" href="">
 
   <!-- Fav and touch icons -->
@@ -15,7 +15,7 @@
   <script type="text/javascript" src="../../js/jquery-ui.js"></script>
   <script type="text/javascript" src="../../js/database.js"></script>
   
-  <script type="text/javascript" src="../../js/database_report8.js"></script>
+  <script type="text/javascript" src="../../js/database_report1.js"></script>
   
   <!-- AmCharts-->
   <script type="text/javascript" src="../../js/amcharts.js"></script>
@@ -32,7 +32,7 @@
             <div class="top_bar_space"></div>
             <div class="options_bar_space">
                 <div id="btn_left" class="arrow"><button onclick="menu();" id="txtpreferences">Return</button></div>
-                <div id="txt_title" class="titleTopBar" onclick="">Goals vs Sales</div>
+                <div id="txt_title" class="titleTopBar" onclick="refresh();">Goals vs Sales</div>
                 <div id="btn_right" class="config" ><button onclick="moveToLeft(3);"></button></div>
                 
                 <!--
@@ -46,7 +46,7 @@
         <div class="section">
             <div class="section_content"> 
                 <div class="select-general">
-                    <div data-value="3" class="init item innerLi noimg" onclick="" id="lbl_By_region">By Region</div>
+                    <div data-value="3" class="init item innerLi" onclick="moveToLeft(1);" id="lbl_By_Store">By Store</div>
                 </div>
             </div>                
         </div>
@@ -55,7 +55,7 @@
             <span></span>
             <div class="section_content">
                 <div class="select-dateP">
-                    <div data-value="1" class="init item innerLi " onclick="moveToLeft(2);" >
+                    <div data-value="1" class="init item innerLi" onclick="moveToLeft(2);" >
                         <span id="lblTodayP">Today</span>
                         <div id="time"></div>
                     </div>
@@ -65,6 +65,12 @@
 
         <div class="section">
             <span></span>
+            <div class="section_content" id="divRegion">
+                <div class="select-region" id="selectRegion">
+                    
+                    <!--<div data-value="R-1" class="init item innerLi" onclick="moveToLeft(4);">Select a Region</div>-->
+                </div>
+            </div>
         </div>
 
         <div class="section list">
@@ -83,7 +89,7 @@
     <header>
         <div class="top_bar_space"></div>
         <div class="options_bar_space">
-            <div id="btn_left" class="arrow"><button onclick="moveToRight();downloadByRegion()" id="txtBack">Back</button></div>
+            <div id="btn_left" class="arrow"><button onclick="moveToRight(); refresh();" id="txtBack">Back</button></div>
             <div id="top_txt_title" class="titleTopBar">Options</div>
             <div id="btn_right"></div>
         </div>      
@@ -93,7 +99,7 @@
         <div class="section">
             <span id="lblVisualization">Visualization</span>
             <div class="section_content">
-                <div class="checkbox_wrapper checked check_actual" onclick ="Report8UpdateActual();">   
+                <div class="checkbox_wrapper checked check_actual" onclick ="updateActual();">   
                     <div class="switch"></div>
                     <div class="input-checkbox"></div>
                     <label id="checktext" class="txtCurrent">Show Current</label>            
@@ -102,7 +108,7 @@
                 <!-- <input type="checkbox" name="check_actual" id="check_actual" onclick = "updateActual()" checked>
                 <label class="text-checkbox current">Show Current</label> -->
                 <hr>
-                <div class="checkbox_wrapper checked check_global" onclick ="Report8UpdateGlobal();">   
+                <div class="checkbox_wrapper checked check_global" onclick ="updateGlobal();">   
                     <div class="switch"></div>
                     <div class="input-checkbox"></div>
                     <label id="checktext" class="txtGlobal">Show Global</label>            
@@ -142,27 +148,27 @@
             <span id="lblChooseDate">Choose Date</span>
             <div class="section_content">
                 <div class="select-date">
-                    <div data-value="1" class="item selected" onclick="rangeOfToday()" >
+                    <div data-value="1" class="item selected"  >
                         <div id="lblToday">Today</div>
                         <div id="today" class="date"></div>
                     </div>
                     <hr>
-                    <div data-value="2" class="item" onclick="rangeOfYesterday()">
+                    <div data-value="2" class="item">
                         <div id="lblYesterday">Yesterday</div>
                         <div id="yesterday" class="date"></div>
                     </div>
                     <hr>
-                    <div data-value="3" class="item" onclick="rangeOfWeek()">
+                    <div data-value="3" class="item">
                         <div id="lblWeek">Week to Date</div>
                         <div id="week" class="date"></div>
                     </div>
                     <hr>
-                    <div data-value="4" class="item" onclick="rangeOfMonth()">
+                    <div data-value="4" class="item">
                         <div id="lblMonth">Month to Date</div>
                         <div id="month" class="date"></div>
                     </div>
                     <hr>
-                    <div data-value="5" class="item" onclick="rangeOfYear()">
+                    <div data-value="5" class="item">
                         <div id="lblYear">Year to Date</div>
                         <div id="year" class="date"></div>
                     </div>
