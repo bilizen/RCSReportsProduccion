@@ -4,32 +4,7 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
         
-        // if(checkNetConnection()==true){
-        // onInit();
-        // updateHideReports();
-        // checktaxDefault();
-        // deteclenguage();
-        // }else{
-        //     $('#no_connection').modal('show');
-        //     if (current_lang=='es'){
-        //         $('.titleMessage').text('Mensaje');
-        //         $('.textNoConnection').text('No hay conexion de red');
-        //         $('.btnok').text('Aceptar');
-        //     }else{
-        //        //modal para no conexion
-        //     }
-        // }
-        
-    }
-
-    function onBackKeyDown() {
-        navigator.app.exitApp();     
-    }
-});
-
-
-$(window).load(function(){
-    if(checkNetConnection()==true){
+        if(checkNetConnection()==true){
         onInit();
         updateHideReports();
         checktaxDefault();
@@ -44,6 +19,31 @@ $(window).load(function(){
                //modal para no conexion
             }
         }
+        
+    }
+
+    function onBackKeyDown() {
+        navigator.app.exitApp();     
+    }
+});
+
+
+$(window).load(function(){
+    // if(checkNetConnection()==true){
+    // onInit();
+    // updateHideReports();
+    // checktaxDefault();
+    // deteclenguage();
+    // }else{
+    //     $('#no_connection').modal('show');
+    //     if (current_lang=='es'){
+    //         $('.titleMessage').text('Mensaje');
+    //         $('.textNoConnection').text('No hay conexion de red');
+    //         $('.btnok').text('Aceptar');
+    //     }else{
+    //        //modal para no conexion
+    //     }
+    // }
   
 });
 

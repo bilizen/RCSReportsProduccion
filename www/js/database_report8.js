@@ -523,7 +523,7 @@ function detailsNewCompStore(indice,typecode,regionCode){
             var lblGlobalSale = "";
             var lblGlobalGoal = "";
 
-            var option = localStorage.RCSReports_valuesRangeDates;
+            var option = localStorage.RCSReports_report8_valuesRangeDates;
             var regioncode=regionCode;
             var impuesto=localStorage.getItem("check_tax");
 
