@@ -813,10 +813,10 @@ hr {
 }
 .lblLastConexion{
     padding-right: 3pt;
-    width: 47%;
+    width: 42%;
 }
 .dataLastConexion{
-    width: 52%;
+    width: 63%;
 }
 .lblLastConexion,.dataLastConexion{
     line-height: 24pt;
@@ -1611,7 +1611,9 @@ text{
     animation-timing-function: ease-in-out;
 }
 
-
+.noimg{
+    background-image: none;
+}
 @-webkit-keyframes rotationIcon {
     0% {
         -webkit-transform:  rotateZ(0deg);
@@ -1820,7 +1822,7 @@ text{
         width: 80%;
     }
     .lastConexion {
-        width: 24%;
+        width: 20%;
         font-size: 13pt;
         line-height: 15pt;
         height: 40px;
