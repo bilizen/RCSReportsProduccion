@@ -27,6 +27,9 @@ $(document).ready(function () {
             }
         }
     }
+    function onBackKeyDown() {
+        navigator.app.exitApp();     
+    }
 });
 
 $(window).load(function(){
