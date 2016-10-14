@@ -229,7 +229,7 @@ function downloadByCompany() {
                             mostrar += "</div>";
                             mostrar += "<hr>";
                         $("#items").append(mostrar);
-                        responsiveListStore();
+                        hideComboRegion();
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -485,7 +485,7 @@ function downloadByRegion() {
                         $("#items").append(mostrar);
                         
                     }
-                    responsiveListStore();
+                    hideComboRegion();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
@@ -543,7 +543,6 @@ function loadComboRegions() {
                     $('.region .section_content .select-region').empty();
                     
                     if (data.quantity ==1) { //este objeto data es el object que devuelve el webservice(2 atributos (1jsonarray y el otro un entero))
-                        
                         if (current_lang == 'es'){
                             selectRegion = "TODAS LAS REGIONES";
                         }
@@ -565,7 +564,7 @@ function loadComboRegions() {
                         showCombo();
                         downloadByStore("");
                     } else {
-                        hideCombo();
+                        //$('#divRegion').remove();
                         downloadByStore("");
                     }
                 },
@@ -787,11 +786,7 @@ function downloadByStore(regionCode) {
 
                             mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light'>";
                             mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
-                            // if (current_lang == 'es'){
-                            //     mostrar += "<div class='lastConexion'><div class='dataLastConexion'>" + lastConexion + "</div></div>";
-                            // }else{
-                            mostrar += "<div class='lastConexion'><div class='dataLastConexion'>" + lastConexion + "</div></div>";
-                            // }
+                            mostrar += "<div class='lastConexion'><div class='lblLastConexion'>Last sale: </div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
 
 
                             if (actual == 1) {
@@ -828,16 +823,16 @@ function downloadByStore(regionCode) {
                             indice++;
 
                         });
-                        responsiveListStore();
+                        hideComboRegion();
                         deteclenguage();
                     }
-                 
+                    //hideLoading();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
                     console.log(xhr.statusText);
                     console.log(xhr.responseText);
-                    
+                    ///hideLoading();
                     if (current_lang == 'es'){
                         mostrarModalGeneral("Error de Conexión");
                     }else{
@@ -1116,9 +1111,15 @@ function storeWitdhGraphic2(indice,regionCode) {
 
 
                                 mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
+                                if (current_lang == 'es'){
+                                    //mostrar += "<div class='lastConexion'><div class='lblLastConexion'>Ult. Vta.: </div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
+                                    mostrar += "<div class='lastConexion'><div class='lblLastConexion'></div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
                                 
-                                mostrar += "<div class='lastConexion'><div class='lblLastConexion'></div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
+                                }else{
+                                    //mostrar += "<div class='lastConexion'><div class='lblLastConexion'>Last sale: </div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
+                                    mostrar += "<div class='lastConexion'><div class='lblLastConexion'></div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
                                 
+                                }
                                
 
                                 if (actual == 1) {
@@ -1261,27 +1262,21 @@ function selectRangeGroup(){
 
 
 //***************************************//
-//rotation screem
-$(window).resize(function () {
-    responsiveListStore();
-});
-function responsiveListStore() {
+function hideComboRegion() {
     
     var windowh = $(window).height();
     var headerh = $('header').height();
     var regionh = $('#divRegion').height();
     var selectdateP = $('.select-dateP').height();
     var selectGeneral = $('.select-general').height();
-    if ($('#divRegion').css('display') == 'none') {//no hay region
-        $('.list').height(windowh - headerh - selectdateP - selectGeneral -20);
+    if ($('#divRegion').css('display') == 'none') {
+        $('.list').height(windowh - headerh - selectdateP - selectGeneral - 20);
         
     } else {
-        $('.list').height(windowh - headerh - selectdateP - selectGeneral - 70);
+        $('.list').height(windowh - headerh - selectdateP - selectGeneral );
         
     }
 }
-
-
 
 ///////////////////
 //verifica los los switch si estan activos

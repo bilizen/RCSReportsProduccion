@@ -36,8 +36,8 @@
 
 .iconRange{
     background-image: url(../img/iconRange.svg);
-    background-position: 0px 2px;
-    background-size: 34px 34px;
+    background-position: center;
+    background-size: 36px;
     background-repeat: no-repeat;
 }
 

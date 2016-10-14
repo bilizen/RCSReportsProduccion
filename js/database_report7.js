@@ -343,17 +343,17 @@ function Report7UpdateGlobal() {
     }
 }
 
-$(window).resize(function () {
-    hideComboRegion();
-});
+
 
 function hideComboRegion() {
+    
     var windowh = $(window).height();
     var headerh = $('header').height();
     var regionh = $('#divRegion').height();
     var selectdateP = $('.select-dateP').height();
     var selectGeneral = $('.select-general').height();
-    $('.list').height(windowh - headerh - selectdateP - selectGeneral-20 );
+
+        $('.list').height(windowh - headerh - selectdateP - selectGeneral );
 }
 
 
