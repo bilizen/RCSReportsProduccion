@@ -705,7 +705,6 @@ function detailsNewCompStore(indice,typecode,regionCode){
 
 
                                     mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
-                                    //mostrar += "<div class='lastConexion'><div class='lblLastConexion'>Last sale: </div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
                                     mostrar += "<div class='lastConexion'><div class='dataLastConexion'>" + lastConexion + "</div></div>";
     
 
@@ -854,6 +853,11 @@ function Report8UpdateGlobal() {
     }
 }
 
+
+//rotation screem
+$(window).resize(function () {
+    hideComboRegion();
+});
 function hideComboRegion() {
     
     var windowh = $(window).height();
@@ -861,8 +865,7 @@ function hideComboRegion() {
     var regionh = $('#divRegion').height();
     var selectdateP = $('.select-dateP').height();
     var selectGeneral = $('.select-general').height();
-
-        $('.list').height(windowh - headerh - selectdateP - selectGeneral );
+    $('.list').height(windowh - headerh - selectdateP - selectGeneral -20);
 }
 
 
