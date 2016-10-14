@@ -20,6 +20,9 @@ $(window).load(function () {
 
 
 
+
+
+
 function addDataClasificationFirstTime() {//aqui se hace uin insert
     var query = "INSERT INTO " + TABLE_CLASIFICATION + "("
             + KEY_MUY_BUENA + " ,"
@@ -43,13 +46,15 @@ function addDataClasificationFirstTime() {//aqui se hace uin insert
     }
 }
 
+//rotation screem
+$(window).resize(function () {
+    design_report2();
+});
+
 
 function design_report2() {
-    $('.list').height($(window).height() - $('header').height() - $('.select-clasification').height() + 19);
+    $('.list').height($(window).height() - $('header').height() - $('.select-clasification').height());
 }
-$(window).resize(function () {
-    $('.list').height($(window).height() - $('header').height() - $('.select-clasification').height() + 19);
-});
 
 
 //Check if exists data , but yes or yes this function fills the table clasification

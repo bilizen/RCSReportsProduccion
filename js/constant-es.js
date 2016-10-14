@@ -191,32 +191,7 @@ function MSGS_ORDER() {
 function MSG_DICT_TITLE() {
     $('#lblmodaldicc').html("Diccionario");
 }
-function MSG_SHORTCUTS() {
-    $('#show_info .modal-body div:nth-child(1) div').html("MH:");
-    $('#show_info .modal-body div:nth-child(2) div').html("VH:");
-    $('#show_info .modal-body div:nth-child(3) div').html("MA:");
-    $('#show_info .modal-body div:nth-child(4) div').html("VA:");
-    $('#show_info .modal-body div:nth-child(5) div').html("MS:");
-    $('#show_info .modal-body div:nth-child(6) div').html("VS:");
-    $('#show_info .modal-body div:nth-child(7) div').html("MM:");
-    $('#show_info .modal-body div:nth-child(8) div').html("VM:");
-    $('#show_info .modal-body div:nth-child(9) div').html("MA:");
-    $('#show_info .modal-body div:nth-child(10) div').html("VA:");
-    $('#show_info .modal-body div:nth-child(11) div').html("MAC:");
-    $('#show_info .modal-body div:nth-child(12) div').html("VAH:");
-    $('#show_info .modal-body div:nth-child(1) span').html("Meta de Hoy");
-    $('#show_info .modal-body div:nth-child(2) span').html("Venta de Hoy");
-    $('#show_info .modal-body div:nth-child(3) span').html("Meta de Ayer");
-    $('#show_info .modal-body div:nth-child(4) span').html("Venta de Ayer");
-    $('#show_info .modal-body div:nth-child(5) span').html("Meta Semana a Hoy");
-    $('#show_info .modal-body div:nth-child(6) span').html("Venta Semana a Hoy");
-    $('#show_info .modal-body div:nth-child(7) span').html("Meta Mes a Hoy");
-    $('#show_info .modal-body div:nth-child(8) span').html("Venta Mes a Hoy");
-    $('#show_info .modal-body div:nth-child(9) span').html("Meta Año a Hoy");
-    $('#show_info .modal-body div:nth-child(10) span').html("Venta Año a Hoy");
-    $('#show_info .modal-body div:nth-child(11) span').html("Meta Año Completo");
-    $('#show_info .modal-body div:nth-child(12) span').html("Venta Año a Hoy");
-}
+
 function BTN_OK() {
     $('.btnok').html("Aceptar");
 }
@@ -271,44 +246,23 @@ function MSG_LBL_DET_DIC_1(){
     $('#AnnualSale').text("VA:");
     $('#CompleteYearGoal').text("MAC:");
     $('#CompleteYerSale').text("VAH:");
+    $('#report1TG').text("Meta de Hoy");
+    $('#report1TS').text("Venta de Hoy");
+    $('#report1YG').text("Meta de Ayer");
+    $('#report1YS').text("Venta de Ayer");
+    $('#report1WG').text("Meta Semana a Hoy");
+    $('#report1WS').text("Venta Semana a Hoy");
+    $('#report1MG').text("Meta Mes a Hoy");
+    $('#report1MS').text("Venta Mes a Hoy");
+    $('#report1AG').text("Meta Año a Hoy");
+    $('#report1AS').text("Venta Año a Hoy");
+    $('#report1CG').text("Meta Año Completo");
+    $('#report1CS').text("Venta Año Completo");
+
+    $('#lblChooseRegion').text('Elegir Región');
 }
 
-function MSG_RPT_TG_1() {
-    $('#report1TG').text("Meta de Hoy");
-}
-function MSG_RPT_TS_1() {
-    $('#report1TS').text("Venta de Hoy");
-}
-function MSG_RPT_YG_1() {
-    $('#report1YG').text("Meta de Ayer");
-}
-function MSG_RPT_YS_1() {
-    $('#report1YS').text("Venta de Ayer");
-}
-function MSG_RPT_WG_1() {
-    $('#report1WG').text("Meta Semana a Hoy");
-}
-function MSG_RPT_WS_1() {
-    $('#report1WS').text("Venta Semana a Hoy");
-}
-function MSG_RPT_MG_1() {
-    $('#report1MG').text("Meta Mes a Hoy");
-}
-function MSG_RPT_MS_1() {
-    $('#report1MS').text("Venta Mes a Hoy");
-}
-function MSG_RPT_AG_1() {
-    $('#report1AG').text("Meta Año a Hoy");
-}
-function MSG_RPT_AS_1() {
-    $('#report1AS').text("Venta Año a Hoy");
-}
-function MSG_RPT_CG_1() {
-    $('#report1CG').text("Meta Año Completo");
-}
-function MSG_RPT_CS_1() {
-    $('#report1CS').text("Venta Año Completo");
-}
+
 function MSG_MODAL_OK_1() {
     $('#btnok').text("Aceptar");
 }
@@ -696,10 +650,6 @@ function MSG_ALL_REGION(){
     $(".filterRegion").text("Todas las Regiones");
 }
 
-// last connection
-function LBL_LAST_CONNECTION(){
-    $(".lblLastConexion").text("Ult. Vta.: ");
-}
 
 //Sign out
 function MSGS_SIGNOUT(){
@@ -765,25 +715,14 @@ function changeLanguage6(){
 //Language7
 function changeLanguage7(){
     $('#txtpreferences').text('Atrás');
+    $(".close").html("Cerrar");
     MSG_COMPANY_1();
     MSG_LBL_COMPANY_1();
     MSG_LBL_REGION_1();
     MSG_LBL_STORE_1();
     MSG_TXT_TITLE_1();
     MSG_SPN_HEADER_1();
-   
-    MSG_RPT_TG_1();
-    MSG_RPT_TS_1();
-    MSG_RPT_YG_1();
-    MSG_RPT_YS_1();
-    MSG_RPT_WG_1();
-    MSG_RPT_WS_1();
-    MSG_RPT_MG_1();
-    MSG_RPT_MS_1();
-    MSG_RPT_AG_1();
-    MSG_RPT_AS_1();
-    MSG_RPT_CG_1();
-    MSG_RPT_CS_1();
+
     MSG_MODAL_OK_1();
     MSG_BACK_1();
     MSG_CHOOSEDATE_1();
@@ -800,14 +739,13 @@ function changeLanguage7(){
     MSG_DICTIONARY();
     /***************************************/
     MSGS_TEXT_OPTIONS();
-    // Last Connection
-    LBL_LAST_CONNECTION();
    
 }
 
 //Language7
 function changeLanguage8(){
     $('#txtpreferences').text('Atrás');
+    $(".close").html("Cerrar");
     MSG_COMPANY_1();
     MSG_LBL_COMPANY_1();
     MSG_LBL_REGION_1();
@@ -815,18 +753,7 @@ function changeLanguage8(){
     MSG_TXT_TITLE_1();
     MSG_SPN_HEADER_1();
    
-    MSG_RPT_TG_1();
-    MSG_RPT_TS_1();
-    MSG_RPT_YG_1();
-    MSG_RPT_YS_1();
-    MSG_RPT_WG_1();
-    MSG_RPT_WS_1();
-    MSG_RPT_MG_1();
-    MSG_RPT_MS_1();
-    MSG_RPT_AG_1();
-    MSG_RPT_AS_1();
-    MSG_RPT_CG_1();
-    MSG_RPT_CS_1();
+    
     MSG_MODAL_OK_1();
     MSG_BACK_1();
     MSG_CHOOSEDATE_1();
@@ -843,7 +770,5 @@ function changeLanguage8(){
     MSG_DICTIONARY();
     /***************************************/
     MSGS_TEXT_OPTIONS();
-    // Last Connection
-    LBL_LAST_CONNECTION();
    
 }

@@ -1016,7 +1016,6 @@ function deteclenguage() {
 
 		//Modal Stores
 		MSG_DICT_TITLE();
-		MSG_SHORTCUTS();
 		BTN_OK();
 		TITLE_MESSAGE();
 
@@ -1043,18 +1042,6 @@ function deteclenguage() {
 		MSG_TXT_TITLE_1();
 		MSG_SPN_HEADER_1();
 	   
-		MSG_RPT_TG_1();
-		MSG_RPT_TS_1();
-		MSG_RPT_YG_1();
-		MSG_RPT_YS_1();
-		MSG_RPT_WG_1();
-		MSG_RPT_WS_1();
-		MSG_RPT_MG_1();
-		MSG_RPT_MS_1();
-		MSG_RPT_AG_1();
-		MSG_RPT_AS_1();
-		MSG_RPT_CG_1();
-		MSG_RPT_CS_1();
 		MSG_MODAL_OK_1();
 		MSG_BACK_1();
 		MSG_CHOOSEDATE_1();
@@ -1071,7 +1058,5 @@ function deteclenguage() {
 		MSG_DICTIONARY();
 		/***************************************/
 		MSGS_TEXT_OPTIONS();
-		// Last Connection
-		LBL_LAST_CONNECTION();
 	}
 }
