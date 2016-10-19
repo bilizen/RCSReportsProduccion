@@ -198,8 +198,8 @@ function downloadByCompany() {
                             if (goalAmountGlobal == 0.00 && payTotalGlobal > 0.00) {
                                 colorGlobal = "green";
                             }
-                            percent = Math.trunc(parseFloat(percent));
-                            percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                            percent = parseFloat(percent).toFixed(0);
+                            percentGlobal =parseFloat(percentGlobal).toFixed(0);
 
                             if (actual == 1) {
                                 mostrar += "<div class='actual'>";
@@ -434,8 +434,8 @@ function downloadByRegion() {
                                 colorGlobal = "green";
                             }
 
-                            percent = Math.trunc(parseFloat(percent));
-                            percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                            percent = parseFloat(percent).toFixed(0);
+                            percentGlobal =parseFloat(percentGlobal).toFixed(0);
 
                             mostrar += "<div class='store waves-effect waves-light' onclick=storeWitdhGraphic2("+cont+",'"+regionCode+"') >";
                             mostrar += "<h1>" + regionName + "</h1>";
@@ -710,7 +710,6 @@ function downloadByStore(regionCode) {
                             goalAmountGlobal = parseFloat(goalAmountGlobal.replace(",", ".")).toFixed(0);
                             payTotal = parseFloat(payTotal.replace(",", ".")).toFixed(0);
                             payTotalGlobal = parseFloat(payTotalGlobal.replace(",", ".")).toFixed(0);
-
                             var color = "";
                             var colorGlobal = "";
 
@@ -774,8 +773,8 @@ function downloadByStore(regionCode) {
                                 colorGlobal = "green";
                             }
 
-                            percent = Math.trunc(parseFloat(percent));
-                            percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                            percent = parseFloat(percent).toFixed(0);
+                            percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
 
                             mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light'>";
@@ -1104,8 +1103,8 @@ function storeWitdhGraphic2(indice,regionCode) {
                                     colorGlobal = "green";
                                 }
 
-                                percent = Math.trunc(parseFloat(percent));
-                                percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                                percent = parseFloat(percent).toFixed(0);
+                                percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
 
                                 mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";

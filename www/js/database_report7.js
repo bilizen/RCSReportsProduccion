@@ -201,8 +201,8 @@ function downloadByCompany() {
                             if (goalAmountGlobal == 0.00 && payTotalGlobal > 0.00) {
                                 colorGlobal = "green";
                             }
-                            percent = Math.trunc(parseFloat(percent));
-                            percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                            percent = parseFloat(percent).toFixed(0);
+                            percentGlobal = parseFloat(percentGlobal).toFixed(0);
                             
                             mostrar += "<div class='store waves-effect waves-light'>";
                             mostrar +="<div onclick=detailsNewCompStore("+index+",'"+typecode+"','')> ";
@@ -450,8 +450,8 @@ function detailsNewCompStore(indice,typecode,regionCode){
                                         colorGlobal = "green";
                                     }
 
-                                    percent = Math.trunc(parseFloat(percent));
-                                    percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                                    percent = parseFloat(percent).toFixed(0);
+                                    percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
 
                                     mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";

@@ -209,8 +209,8 @@ function downloadByRegion() {
                                 colorGlobal = "green";
                             }
 
-                            percent = Math.trunc(parseFloat(percent));
-                            percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                            percent = parseFloat(percent).toFixed(0);
+                            percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
                             mostrar += "<div class='store waves-effect waves-light'>";
                             mostrar +="<div onclick=districtRegion("+index+",'"+regionCode+"')> ";
@@ -449,8 +449,8 @@ function districtRegion(indice,regionCode) {
                                     colorGlobal = "green";
                                 }
 
-                                percent = Math.trunc(parseFloat(percent));
-                                percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                                percent = parseFloat(percent).toFixed(0);
+                                percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
                                 mostrar+="<div onclick=detailsNewCompStore('"+cont+"','"+typecode+"','"+regionCode+"') >";
                                 mostrar += "<h1 class='storeNameR1'>" + typeDesc + "</h1>";
@@ -695,8 +695,8 @@ function detailsNewCompStore(indice,typecode,regionCode){
                                     colorGlobal = "green";
                                 }
 
-                                percent = Math.trunc(parseFloat(percent));
-                                percentGlobal = Math.trunc(parseFloat(percentGlobal));
+                                percent = parseFloat(percent).toFixed(0);
+                                percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
 
                                 mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
