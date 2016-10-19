@@ -41,10 +41,7 @@ function downloadByCompany() {
             c_site = results.rows.item(0).site;
             c_alias = results.rows.item(0).alias;
             xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportCompany/POST';
-            //******************* captura los datos del report1.html *************************//
-            //var principal = $(".select-general div:first-child()").attr("data-value");
             
-            //var option = $(".select-dateP .init").attr("data-value");
             var option = localStorage.RCSReports_valuesRangeDates;
             var day=todayreport1();
             var employeeCode=localStorage.RCSReportsEmployeeCode;
@@ -137,10 +134,10 @@ function downloadByCompany() {
                             var payTotalGlobal = value.payTotalGlobal;
                             var percent = 0.00;
                             var percentGlobal = 0.00;
-                            goalAmount = goalAmount.replace(",", ".");
-                            goalAmountGlobal = goalAmountGlobal.replace(",", ".");
-                            payTotal = payTotal.replace(",", ".");
-                            payTotalGlobal = payTotalGlobal.replace(",", ".");
+                            goalAmount = parseFloat(goalAmount.replace(",", ".")).toFixed(0);
+                            goalAmountGlobal = parseFloat(goalAmountGlobal.replace(",", ".")).toFixed(0);
+                            payTotal = parseFloat(payTotal.replace(",", ".")).toFixed(0);
+                            payTotalGlobal = parseFloat(payTotalGlobal.replace(",", ".")).toFixed(0);
 
 
                             var color = "";
@@ -201,8 +198,8 @@ function downloadByCompany() {
                             if (goalAmountGlobal == 0.00 && payTotalGlobal > 0.00) {
                                 colorGlobal = "green";
                             }
-                            percent = parseFloat(percent).toFixed(2);
-                            percentGlobal = parseFloat(percentGlobal).toFixed(2);
+                            percent = parseFloat(percent).toFixed(0);
+                            percentGlobal =parseFloat(percentGlobal).toFixed(0);
 
                             if (actual == 1) {
                                 mostrar += "<div class='actual'>";
@@ -243,9 +240,6 @@ function downloadByCompany() {
                         mostrarModalGeneral("No Connection");
                 }
             });
-
-            /*************************************/
-
         }, null);
     });
 }
@@ -276,7 +270,6 @@ function downloadByRegion() {
 
             xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportByRegion/POST';
 
-            //var byRegion = $(".select-general div:first-child()").attr("data-value");
             var option = localStorage.RCSReports_valuesRangeDates;
             var day=todayreport1();
             var employeeCode=localStorage.RCSReportsEmployeeCode;
@@ -374,10 +367,10 @@ function downloadByRegion() {
                             var percentGlobal = 0.00;
                             var cont=index;
 
-                            goalAmount = goalAmount.replace(",", ".");
-                            goalAmountGlobal = goalAmountGlobal.replace(",", ".");
-                            payTotal = payTotal.replace(",", ".");
-                            payTotalGlobal = payTotalGlobal.replace(",", ".");
+                            goalAmount = parseFloat(goalAmount.replace(",", ".")).toFixed(0);
+                            goalAmountGlobal = parseFloat(goalAmountGlobal.replace(",", ".")).toFixed(0);
+                            payTotal = parseFloat(payTotal.replace(",", ".")).toFixed(0);
+                            payTotalGlobal = parseFloat(payTotalGlobal.replace(",", ".")).toFixed(0);
 
 
                             var color = "";
@@ -441,8 +434,8 @@ function downloadByRegion() {
                                 colorGlobal = "green";
                             }
 
-                            percent = parseFloat(percent).toFixed(2);
-                            percentGlobal = parseFloat(percentGlobal).toFixed(2);
+                            percent = parseFloat(percent).toFixed(0);
+                            percentGlobal =parseFloat(percentGlobal).toFixed(0);
 
                             mostrar += "<div class='store waves-effect waves-light' onclick=storeWitdhGraphic2("+cont+",'"+regionCode+"') >";
                             mostrar += "<h1>" + regionName + "</h1>";
@@ -601,7 +594,7 @@ function downloadByStore(regionCode) {
     var lblGlobalGoal = "";
 
     var option = localStorage.RCSReports_valuesRangeDates;
-    //var regionCode = $(".select-region div:first-child()").attr("data-value");
+    
     var regioncode=regionCode;
     localStorage.RCSReports_regioncode=regionCode;
     //verifica si esta con impuestos
@@ -713,11 +706,10 @@ function downloadByStore(regionCode) {
                             var percentGlobal = 0.00;
 
 
-                            goalAmount = goalAmount.replace(",", ".");
-                            goalAmountGlobal = goalAmountGlobal.replace(",", ".");
-                            payTotal = payTotal.replace(",", ".");
-                            payTotalGlobal = payTotalGlobal.replace(",", ".");
-
+                            goalAmount = parseFloat(goalAmount.replace(",", ".")).toFixed(0);
+                            goalAmountGlobal = parseFloat(goalAmountGlobal.replace(",", ".")).toFixed(0);
+                            payTotal = parseFloat(payTotal.replace(",", ".")).toFixed(0);
+                            payTotalGlobal = parseFloat(payTotalGlobal.replace(",", ".")).toFixed(0);
                             var color = "";
                             var colorGlobal = "";
 
@@ -781,8 +773,8 @@ function downloadByStore(regionCode) {
                                 colorGlobal = "green";
                             }
 
-                            percent = parseFloat(percent).toFixed();
-                            percentGlobal = parseFloat(percentGlobal).toFixed();
+                            percent = parseFloat(percent).toFixed(0);
+                            percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
 
                             mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light'>";
@@ -1043,10 +1035,10 @@ function storeWitdhGraphic2(indice,regionCode) {
                                 var percentGlobal = 0.00;
 
 
-                                goalAmount = goalAmount.replace(",", ".");
-                                goalAmountGlobal = goalAmountGlobal.replace(",", ".");
-                                payTotal = payTotal.replace(",", ".");
-                                payTotalGlobal = payTotalGlobal.replace(",", ".");
+                                goalAmount = parseFloat(goalAmount.replace(",", ".")).toFixed(0);
+                                goalAmountGlobal = parseFloat(goalAmountGlobal.replace(",", ".")).toFixed(0);
+                                payTotal = parseFloat(payTotal.replace(",", ".")).toFixed(0);
+                                payTotalGlobal = parseFloat(payTotalGlobal.replace(",", ".")).toFixed(0);
 
                                 var color = "";
                                 var colorGlobal = "";
@@ -1111,8 +1103,8 @@ function storeWitdhGraphic2(indice,regionCode) {
                                     colorGlobal = "green";
                                 }
 
-                                percent = parseFloat(percent).toFixed();
-                                percentGlobal = parseFloat(percentGlobal).toFixed();
+                                percent = parseFloat(percent).toFixed(0);
+                                percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
 
                                 mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
