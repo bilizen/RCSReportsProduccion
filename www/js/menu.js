@@ -30,10 +30,10 @@ $(document).ready(function () {
 
 $(window).load(function(){
     // if(checkNetConnection()==true){
-    //     onInit();
-    //     updateHideReports();
-    //     checktaxDefault();
-    //     deteclenguage();
+    // onInit();
+    // updateHideReports();
+    // checktaxDefault();
+    // deteclenguage();
     // }else{
     //     $('#no_connection').modal('show');
     //     if (current_lang=='es'){
