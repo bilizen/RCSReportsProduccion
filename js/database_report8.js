@@ -246,13 +246,6 @@ function downloadByRegion() {
                         });
                         mostrar += "</div>";
                         $("#items").append(mostrar);   
-                    }else{
-                        if (current_lang == 'es'){
-                            mostrarModalGeneral("No hay datos");
-                        }     
-                        else{
-                            mostrarModalGeneral("No data");
-                        }
                     }
                     hideComboRegion();
                 },
@@ -489,18 +482,13 @@ function districtRegion(indice,regionCode) {
                                 mostrar += "</div><hr>";
                                 $("#graph_region"+indice).append(mostrar);
                             });
-                        }else{
-                            if (current_lang == 'es'){
-                                mostrarModalGeneral("No hay datos");
-                            }else{
-                                mostrarModalGeneral("No data");
-                            }
                         }
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         console.log(xhr.status);
                         console.log(xhr.statusText);
                         console.log(xhr.responseText);
+                        ///hideLoading();
                         if (current_lang == 'es'){
                             mostrarModalGeneral("Error de Conexión");
                         }else{
@@ -744,13 +732,8 @@ function detailsNewCompStore(indice,typecode,regionCode){
 
                             });
                        
-                        }else{
-                            if (current_lang == 'es'){
-                                mostrarModalGeneral("No hay datos");
-                            }else{
-                                mostrarModalGeneral("No data");
-                            }
-                        }   
+                        }
+                        
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         console.log(xhr.status);

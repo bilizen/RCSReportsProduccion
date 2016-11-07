@@ -742,7 +742,7 @@ function changeLanguage7(){
    
 }
 
-//Language8
+//Language7
 function changeLanguage8(){
     $('#txtpreferences').text('Atrás');
     $(".close").html("Cerrar");
@@ -770,63 +770,5 @@ function changeLanguage8(){
     MSG_DICTIONARY();
     /***************************************/
     MSGS_TEXT_OPTIONS();
-   
-}
-
-//Language9
-function changeLanguage9(){
-    $('#txtpreferences').text('Atrás');
-    $('#txtBack').text("Atrás");
-    $('#lblChooseDate').text('Elegir Fecha');
-    $('.titleTopBar').text("Opciones");
-    $('.title_rotateScreen_R9').text('Mensaje');
-    $('.textRotateScreen').text("Por favor, Gire a la Posición Horizontal");
-    $('.btnok').text('Aceptar');
-    $('.titleMessage').html("Mensaje");
-    $('#lblToday').text("Hoy");
-    $('#lblYesterday').text("Ayer");
-    $('#lblWeek').text("Inicio de Semana");
-    $('#lblMonth').text("Inicio de Mes");
-    $('#lblYear').text("Inicio de Año");
-    $('#lblTodayP').text("Hoy");
-    
-}
-
-//Language10
-function changeLanguage10(){
-    $('#txtpreferences').text('Atrás');
-    $('#txtBack').text("Atrás");
-    $('#lblChooseDate').text('Elegir Fecha');
-    $('.titleTopBar').text("Opciones");
-    $('.title_rotateScreen_R10').text('Mensaje');
-    $('.textRotateScreen').text("Por favor, Gire a la Posición Horizontal");
-    $('.btnok').text('Aceptar');
-    $('.titleMessage').html("Mensaje");
-    $('#lblToday').text("Hoy");
-    $('#lblYesterday').text("Ayer");
-    $('#lblWeek').text("Inicio de Semana");
-    $('#lblMonth').text("Inicio de Mes");
-    $('#lblYear').text("Inicio de Año");
-    $('#lblTodayP').text("Hoy");
-   
-}
-
-
-//Language11
-function changeLanguage11(){
-    $('#txtpreferences').text('Atrás');
-    $('#txtBack').text("Atrás");
-    $('.titleTopBar').text("Opciones");
-    $('.title_rotateScreen_R11').text('Mensaje');
-    $('.textRotateScreen').text("Por favor, Gire a la Posición Horizontal");
-    $('#lblChooseDate').text('Elegir Fecha');
-    $('.btnok').text('Aceptar');
-    $('.titleMessage').html("Mensaje");
-    $('#lblToday').text("Hoy");
-    $('#lblYesterday').text("Ayer");
-    $('#lblWeek').text("Inicio de Semana");
-    $('#lblMonth').text("Inicio de Mes");
-    $('#lblYear').text("Inicio de Año");
-    $('#lblTodayP').text("Hoy");
    
 }
