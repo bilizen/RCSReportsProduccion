@@ -4,21 +4,21 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
         
-        // if(checkNetConnection()==true){
-        // onInit();
-        // updateHideReports();
-        // checktaxDefault();
-        // deteclenguage();
-        // }else{
-        //     $('#no_connection').modal('show');
-        //     if (current_lang=='es'){
-        //         $('.titleMessage').text('Mensaje');
-        //         $('.textNoConnection').text('No hay conexion de red');
-        //         $('.btnok').text('Aceptar');
-        //     }else{
-        //        //modal para no conexion
-        //     }
-        // }
+        if(checkNetConnection()==true){
+        onInit();
+        updateHideReports();
+        checktaxDefault();
+        deteclenguage();
+        }else{
+            $('#no_connection').modal('show');
+            if (current_lang=='es'){
+                $('.titleMessage').text('Mensaje');
+                $('.textNoConnection').text('No hay conexion de red');
+                $('.btnok').text('Aceptar');
+            }else{
+               //modal para no conexion
+            }
+        }
         
     }
 
@@ -29,21 +29,21 @@ $(document).ready(function () {
 
 
 $(window).load(function(){
-    if(checkNetConnection()==true){
-    onInit();
-    updateHideReports();
-    checktaxDefault();
-    deteclenguage();
-    }else{
-        $('#no_connection').modal('show');
-        if (current_lang=='es'){
-            $('.titleMessage').text('Mensaje');
-            $('.textNoConnection').text('No hay conexion de red');
-            $('.btnok').text('Aceptar');
-        }else{
-           //modal para no conexion
-        }
-    }
+    // if(checkNetConnection()==true){
+    // onInit();
+    // updateHideReports();
+    // checktaxDefault();
+    // deteclenguage();
+    // }else{
+    //     $('#no_connection').modal('show');
+    //     if (current_lang=='es'){
+    //         $('.titleMessage').text('Mensaje');
+    //         $('.textNoConnection').text('No hay conexion de red');
+    //         $('.btnok').text('Aceptar');
+    //     }else{
+    //        //modal para no conexion
+    //     }
+    // }
   
 });
 
