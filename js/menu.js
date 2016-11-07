@@ -4,21 +4,21 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
         
-        if(checkNetConnection()==true){
-        onInit();
-        updateHideReports();
-        checktaxDefault();
-        deteclenguage();
-        }else{
-            $('#no_connection').modal('show');
-            if (current_lang=='es'){
-                $('.titleMessage').text('Mensaje');
-                $('.textNoConnection').text('No hay conexion de red');
-                $('.btnok').text('Aceptar');
-            }else{
-               //modal para no conexion
-            }
-        }
+        // if(checkNetConnection()==true){
+        // onInit();
+        // updateHideReports();
+        // checktaxDefault();
+        // deteclenguage();
+        // }else{
+        //     $('#no_connection').modal('show');
+        //     if (current_lang=='es'){
+        //         $('.titleMessage').text('Mensaje');
+        //         $('.textNoConnection').text('No hay conexion de red');
+        //         $('.btnok').text('Aceptar');
+        //     }else{
+        //        //modal para no conexion
+        //     }
+        // }
         
     }
 
@@ -29,21 +29,21 @@ $(document).ready(function () {
 
 
 $(window).load(function(){
-    // if(checkNetConnection()==true){
-    //     onInit();
-    //     updateHideReports();
-    //     checktaxDefault();
-    //     deteclenguage();
-    // }else{
-    //     $('#no_connection').modal('show');
-    //     if (current_lang=='es'){
-    //         $('.titleMessage').text('Mensaje');
-    //         $('.textNoConnection').text('No hay conexion de red');
-    //         $('.btnok').text('Aceptar');
-    //     }else{
-    //        //modal para no conexion
-    //     }
-    // }
+    if(checkNetConnection()==true){
+    onInit();
+    updateHideReports();
+    checktaxDefault();
+    deteclenguage();
+    }else{
+        $('#no_connection').modal('show');
+        if (current_lang=='es'){
+            $('.titleMessage').text('Mensaje');
+            $('.textNoConnection').text('No hay conexion de red');
+            $('.btnok').text('Aceptar');
+        }else{
+           //modal para no conexion
+        }
+    }
   
 });
 
@@ -100,6 +100,9 @@ var titleReport5 = "";
 var titleReport6 = "";
 var titleReport7 = "";
 var titleReport8 = "";
+var titleReport9 = "";
+var titleReport10 = "";
+var titleReport11 = "";
 
 //Actualizar vistas de reportes
 function updateHideReports() {
@@ -189,6 +192,18 @@ function updateHideReports() {
                                                             titleReport8 = arrReport[a].functionName;
                                                             localStorage.setItem("titleReport8",titleReport8);
                                                         }
+                                                        if (arrReport[a].functionCode === 2410) {                                   
+                                                            titleReport9 = arrReport[a].functionName;
+                                                            localStorage.setItem("titleReport9",titleReport9);
+                                                        }
+                                                        if (arrReport[a].functionCode === 2411) {                                   
+                                                            titleReport10 = arrReport[a].functionName;
+                                                            localStorage.setItem("titleReport10",titleReport10);
+                                                        }
+                                                        if (arrReport[a].functionCode === 2412) {                                   
+                                                            titleReport11 = arrReport[a].functionName;
+                                                            localStorage.setItem("titleReport11",titleReport11);
+                                                        }
                                                     }
                                                 }
                                             }
@@ -241,7 +256,18 @@ function updateHideReports() {
                                                         titleReport8 = arrReport[a].functionName;
                                                         localStorage.setItem("titleReport8",titleReport8);
                                                     }
-                                                    
+                                                    if (arrReport[a].functionCode === 2410) {
+                                                        titleReport9 = arrReport[a].functionName;
+                                                        localStorage.setItem("titleReport9",titleReport9);
+                                                    }
+                                                    if (arrReport[a].functionCode === 2411) {
+                                                        titleReport10 = arrReport[a].functionName;
+                                                        localStorage.setItem("titleReport10",titleReport10);
+                                                    }
+                                                    if (arrReport[a].functionCode === 2412) {
+                                                        titleReport11 = arrReport[a].functionName;
+                                                        localStorage.setItem("titleReport11",titleReport11);
+                                                    }         
                                                 }
                                                 
                                                 
@@ -399,6 +425,39 @@ function selectReports() {
                                 "</button>"
                                 );
                         }
+                        if (report == 2410) {
+                            $('.menu').append(
+                                "<button class ='waves-effect waves-light  item report9 " + save + "' onclick ='openReport9();' data-value='report9'>" +
+                                "<span class ='box' >" +
+                                "<span class ='iconReport'> </span>" +
+                                "<span id ='lblgvst' class ='item_title'>" + titleReport9 + "</span>" +
+                                "<span id ='lblgvsd'  class ='item_subtitle'>Indicadores de la compañia</span>" +
+                                "</span>" +
+                                "</button>"
+                                );
+                        }
+                        if (report == 2411) {
+                            $('.menu').append(
+                                "<button class ='waves-effect waves-light  item report10 " + save + "' onclick ='openReport10();' data-value='report10'>" +
+                                "<span class ='box' >" +
+                                "<span class ='iconReport'> </span>" +
+                                "<span id ='lblgvst' class ='item_title'>" + titleReport10 + "</span>" +
+                                "<span id ='lblgvsd'  class ='item_subtitle'>Indicadores de los distritos</span>" +
+                                "</span>" +
+                                "</button>"
+                                );
+                        }
+                        if (report == 2412) {
+                            $('.menu').append(
+                                "<button class ='waves-effect waves-light  item report11 " + save + "' onclick ='openReport11();' data-value='report11'>" +
+                                "<span class ='box' >" +
+                                "<span class ='iconReport'> </span>" +
+                                "<span id ='lblgvst' class ='item_title'>" + titleReport11 + "</span>" +
+                                "<span id ='lblgvsd'  class ='item_subtitle'>Indicadores de las tiendas</span>" +
+                                "</span>" +
+                                "</button>"
+                                );
+                        }
                     } else {
 
                         if (report == 2402) {
@@ -485,6 +544,39 @@ function selectReports() {
                                 "<span class ='iconReport'> </span>" +
                                 "<span id ='lblgvst' class ='item_title'>" + titleReport8 + "</span>" +
                                 "<span id ='lblgvsd'  class ='item_subtitle'>District comp and new stores</span>" +
+                                "</span>" +
+                                "</button>"
+                                );
+                        }
+                        if (report == 2410) {
+                            $('.menu').append(
+                                "<button class ='waves-effect waves-light  item report9 " + save + "' onclick ='openReport9();' data-value='report9'>" +
+                                "<span class ='box' >" +
+                                "<span class ='iconReport'> </span>" +
+                                "<span id ='lblgvst' class ='item_title'>" + titleReport9 + "</span>" +
+                                "<span id ='lblgvsd'  class ='item_subtitle'>Key indicators by company</span>" +
+                                "</span>" +
+                                "</button>"
+                                );
+                        }
+                        if (report == 2411) {
+                            $('.menu').append(
+                                "<button class ='waves-effect waves-light  item report10 " + save + "' onclick ='openReport10();' data-value='report10'>" +
+                                "<span class ='box' >" +
+                                "<span class ='iconReport'> </span>" +
+                                "<span id ='lblgvst' class ='item_title'>" + titleReport10 + "</span>" +
+                                "<span id ='lblgvsd'  class ='item_subtitle'>Key indicators by district</span>" +
+                                "</span>" +
+                                "</button>"
+                                );
+                        }
+                        if (report == 2412) {
+                            $('.menu').append(
+                                "<button class ='waves-effect waves-light  item report11 " + save + "' onclick ='openReport11();' data-value='report11'>" +
+                                "<span class ='box' >" +
+                                "<span class ='iconReport'> </span>" +
+                                "<span id ='lblgvst' class ='item_title'>" + titleReport11 + "</span>" +
+                                "<span id ='lblgvsd'  class ='item_subtitle'>Key indicators by store</span>" +
                                 "</span>" +
                                 "</button>"
                                 );
@@ -596,6 +688,30 @@ function writeHideShowModal(){
                             "<div class='hideShowOpt'>"+
                             "<input type='checkbox' id='chkr8' class='filled-in check_report8' " + check + ">" +
                             "<label for='chkr8' class='text-report'>" + titleReport8 + "</label>"+
+                            "</div>"+
+                            "<hr>");
+                    }
+                    if (report == 2410) {
+                        $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
+                            "<input type='checkbox' id='chkr9' class='filled-in check_report9' " + check + ">" +
+                            "<label for='chkr9' class='text-report'>" + titleReport9 + "</label>"+
+                            "</div>"+
+                            "<hr>");
+                    }
+                    if (report == 2411) {
+                        $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
+                            "<input type='checkbox' id='chkr10' class='filled-in check_report10' " + check + ">" +
+                            "<label for='chkr10' class='text-report'>" + titleReport10 + "</label>"+
+                            "</div>"+
+                            "<hr>");
+                    }
+                    if (report == 2412) {
+                        $('#list_reports').append(
+                            "<div class='hideShowOpt'>"+
+                            "<input type='checkbox' id='chkr11' class='filled-in check_report11' " + check + ">" +
+                            "<label for='chkr11' class='text-report'>" + titleReport11 + "</label>"+
                             "</div>"
                             );
                     }
@@ -652,6 +768,21 @@ function buttonOkReports() {
     } else {
         updateCheckModalReports("2409", "0");
     }
+    if ($('.check_report9').is(':checked')) {
+        updateCheckModalReports("2410", "1");
+    } else {
+        updateCheckModalReports("2410", "0");
+    }
+    if ($('.check_report10').is(':checked')) {
+        updateCheckModalReports("2411", "1");
+    } else {
+        updateCheckModalReports("2411", "0");
+    }
+    if ($('.check_report11').is(':checked')) {
+        updateCheckModalReports("2412", "1");
+    } else {
+        updateCheckModalReports("2412", "0");
+    }
     selectReports();
 }
 
@@ -696,12 +827,24 @@ function passReport6(){
 }
 
 function openReport7(){
-  window.location.href = "report7.html";
-  return false;        
+    window.location.href = "report7.html";
+    return false;        
 }
 
 function openReport8(){
   window.location.href = "report8.html";
+  return false;        
+}
+function openReport9(){
+  window.location.href = "report9.html";
+  return false;        
+}
+function openReport10(){
+  window.location.href = "report10.html";
+  return false;        
+}
+function openReport11(){
+  window.location.href = "report11.html";
   return false;        
 }
 

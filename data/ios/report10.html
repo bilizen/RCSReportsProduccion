@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Report 10</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
+  <link href="../../css/style10.css" rel="stylesheet">
+  <link rel="shortcut icon" href="">
+
+  <!-- Fav and touch icons -->
+  <script type="text/javascript" src="../../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+  <script type="text/javascript" src="../../js/database.js"></script>
+  
+  <script type="text/javascript" src="../../js/database_report10.js"></script>
+  
+  <!-- AmCharts-->
+  <script type="text/javascript" src="../../js/amcharts.js"></script>
+  <script type="text/javascript" src="../../js/serial.js"></script>
+  <!-- TAG LENGUAGES -->
+  <script type="text/javascript" src="../../js/constant-es.js"></script>
+
+</head>
+
+<body data-role="page" id="pageone">
+    <div class="hybrid_container">
+
+    <header>
+    <div class="top_bar_space"></div>
+      <div class="options_bar_space">
+        <div id="btn_left" class="arrow"><button onclick="menu();" id="txtpreferences">Return</button></div>
+        <div id="txt_title" class="titleTopBar" onclick=""></div>
+      </div>      
+    </header>
+
+    <div id="content">
+        <div class="section">
+            <span></span>
+            <div class="section_content">
+                <div class="select-dateP">
+                    <div data-value="1" class="init item innerLi " onclick="moveToLeft(2);" >
+                        <span id="lblTodayP">Today</span>
+                        <div id="time"></div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+
+        <div class="section">
+            <span></span>
+        </div>
+
+        <div class="section list">
+            <div class="section_content">
+                <div class="stores" id="items">
+                </div>              
+            </div>
+        </div>
+
+    </div>        
+
+</div>
+
+<div id="floatWindow">
+
+    <header>
+        <div class="top_bar_space"></div>
+        <div class="options_bar_space">
+            <div id="btn_left" class="arrow"><button onclick="moveToRight();DistrictProductivity()" id="txtBack">Back</button></div>
+            <div id="top_txt_title" class="titleTopBar">Options</div>
+            <div id="btn_right"></div>
+        </div>      
+    </header>
+
+    <div class="wrapper date">
+        <div class="section">
+            <span id="lblChooseDate">Choose Date</span>
+            <div class="section_content">
+                <div class="select-date">
+                    <div data-value="1" class="item selected" onclick="rangeOfToday()" >
+                        <div id="lblToday">Today</div>
+                        <div id="today" class="date"></div>
+                    </div>
+                    <hr>
+                    <div data-value="2" class="item" onclick="rangeOfYesterday()">
+                        <div id="lblYesterday">Yesterday</div>
+                        <div id="yesterday" class="date"></div>
+                    </div>
+                    <hr>
+                    <div data-value="3" class="item" onclick="rangeOfWeek()">
+                        <div id="lblWeek">Week to Date</div>
+                        <div id="week" class="date"></div>
+                    </div>
+                    <hr>
+                    <div data-value="4" class="item" onclick="rangeOfMonth()">
+                        <div id="lblMonth">Month to Date</div>
+                        <div id="month" class="date"></div>
+                    </div>
+                    <hr>
+                    <div data-value="5" class="item" onclick="rangeOfYear()">
+                        <div id="lblYear">Year to Date</div>
+                        <div id="year" class="date"></div>
+                    </div>
+                </div> 
+            </div>                
+        </div>
+    </div>
+
+</div>  
+
+<!-- Modal -->
+
+<div class="modal fade" id="show_loading" >
+    <div class="modal-dialog">
+        <div class="text-center loading">
+            <div></div>
+            <div></div>
+        </div>
+        <!-- <div class="text-center"><p name="txtloading" id="txtloading"></p></div> -->
+        <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
+    </div>
+</div>
+
+
+
+
+<!-- rotate screen -->
+    <div class="modal-rotate" id="miModal10">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div  class="modal-header text-center title_rotateScreen_R10">Message</div>
+                <div class="textRotateScreen">Please Rotate to Landscape Position</div>
+                <div class="iconRotate"><img src="../../img/iconRotate.svg"></div>
+            </div>
+        </div>
+        <div class="bg-rotate"></div>
+    </div>    
+
+
+<!--Modal of CONECTION -->
+<div class="modal fade" id="show_alias" data-backdrop="static">
+  <div class="modal-dialog">
+      <div class="modal-content">                              
+          <div class="modal-body text-center">     
+              <p class="title-alert titleMessage">Message</p>                 
+              <p class="text-center textgeneral"></p>              
+          </div>
+          <div class="modal-footer info">
+              <button type="button" class="btn btn-modal btnok" name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript" src="../../js/scripts.js"></script>
+<script type="text/javascript" src="../../js/design.js"></script>
+
+</body>
+</html>

@@ -234,6 +234,12 @@ function downloadByCompany() {
                         });
                         mostrar += "</div>";
                         $("#items").append(mostrar);
+                    }else{
+                        if (current_lang == 'es'){
+                            mostrarModalGeneral("No hay datos");
+                        }else{
+                            mostrarModalGeneral("No data");
+                        }
                     }
                     hideComboRegion();
                 },
@@ -241,11 +247,11 @@ function downloadByCompany() {
                     console.log(xhr.status);
                     console.log(xhr.statusText);
                     console.log(xhr.responseText);
-                    //hideLoading();
-                    if (current_lang == 'es')
+                    if (current_lang == 'es'){
                         mostrarModalGeneral("Error de Conexión");
-                    else
+                    }else{
                         mostrarModalGeneral("No Connection");
+                    }
                 }
             });
 
@@ -292,8 +298,6 @@ function detailsNewCompStore(indice,typecode,regionCode){
                     c_site = results.rows.item(0).site;
                     xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/Report8NewOrCompStore/POST';
 
-
-                   
                     $.ajax({
                         url: xurl,
                         type: 'POST',
@@ -486,6 +490,12 @@ function detailsNewCompStore(indice,typecode,regionCode){
                                     $("#graph_region"+indice).append(mostrar);
 
                                 });
+                            }else{
+                                if (current_lang == 'es'){
+                                    mostrarModalGeneral("No hay datos");
+                                }else{
+                                    mostrarModalGeneral("No data");
+                                }
                             }
                             
                         },
