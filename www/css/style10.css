@@ -769,9 +769,8 @@ hr {
     font-size: 14pt;
 }
 .store{
-    padding: 4pt 1%;
-    overflow-x: auto;
-    font-size: 64%;
+    padding: 4pt 6%;
+    line-height: 0.8em;
 }
 .store:nth-of-type(2n){
     background-color: rgba(234,234,235,0.85);

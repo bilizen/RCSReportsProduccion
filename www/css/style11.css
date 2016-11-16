@@ -146,9 +146,9 @@ header button,
     padding-left: 4px;
     font-weight: 300;
     text-overflow: ellipsis !important;
-    max-width: 88px;
-    min-width: 44px;
-    height: 44px;
+    max-width: 64px;
+    min-width: 34px;
+    height: 34px;
 }
 header button:active{
     opacity: 0.3;
@@ -156,7 +156,7 @@ header button:active{
 .item button{
     background-color: transparent;
     float: right;
-    padding-right: 4pt;
+    padding-right: 15pt;
 }
 .buttonItem{
     display: inline-block;
@@ -192,7 +192,7 @@ header button:active{
     text-align: center;
     width: 160px;
     margin: 0 auto;
-    padding-top: 18px;
+    padding-top: 20px;
     line-height: 44px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -225,7 +225,7 @@ header button:active{
 #btn_right.config{
     background-image: url(../img/iconItems.svg);
     background-position: center;
-    background-size: 38px;
+    background-size: 36px;
     background-repeat: no-repeat;
 }
 #btn_right.configuration{
@@ -338,7 +338,7 @@ header button:active{
 }
 .btn_only1{
     display: block;
-    width: 90%;
+    width: 88%;
     margin: auto auto;
     background-color: #456CD8;
     color: white;
@@ -364,17 +364,14 @@ header button:active{
 }
 .checkbox_wrapper{
     position: relative;
-    height: 44px;
-    line-height: 44px;
-    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    width: 88%;
     margin: auto;
-    padding: 0 5%;
-}
-.checkbox_wrapper label{
-    width: 100%;
 }
 .text-checkbox{
     display: inline-block;
+    position: absolute;
     z-index: 10;
     width: initial;
     left: 0;
@@ -383,8 +380,8 @@ header button:active{
     display: inline-block;
     position: absolute;
     z-index: 20;
-    right: 40px;
-    top: 5px;
+    right: 0;
+    top: 0px;
     width: 54px;
     height: 34px;
     border-radius: 20px;
@@ -400,8 +397,8 @@ header button:active{
     position: absolute;
     z-index: 30;
     display: block;
-    right: 43px;
-    top: 7px;
+    right: 3px;
+    top: 2px;
     width: 29px;
     height: 29px;
     border-radius: 50%;
@@ -759,9 +756,6 @@ hr {
     line-height: 3.3em;
     color: rgb(88,88,88);
 }
-.item>.date{
-    padding-right: 0;
-}
 .item.selected>div{
     color: #f1f1f1;
 }
@@ -784,13 +778,12 @@ hr {
 .store h1{
     width: 100%;
     height: 32px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;    
     line-height: 1.6em;
     white-space: pre-line;
     color: #111;
 }
-
 .store h1.storeNameR1{
     width: 77%;
     display: inline-block;
@@ -798,7 +791,7 @@ hr {
 }
 
 .region_store .storeNameR1{
-    width: 67% !important;
+        width: 67% !important;
 }
 .lastConexion {
     display: inline-block;
@@ -813,10 +806,10 @@ hr {
 }
 .lblLastConexion{
     padding-right: 3pt;
-    width: 42%;
+    width: 53%;
 }
 .dataLastConexion{
-    width: 63%;
+    width: 47%;
 }
 .lblLastConexion,.dataLastConexion{
     line-height: 24pt;
@@ -863,10 +856,11 @@ hr {
     border-radius: 8pt;
 }
 
+
 div[class^="region_store"]
 {
     height: 0;
-    width: 90%;
+    width: 95%;
     overflow-y: hidden;
     overflow-x: hidden;
     opacity: 0;
@@ -880,6 +874,22 @@ div[class^="region_store"]
     height: auto !important;
     
 }
+/*nuevo report 8*/
+
+div[class^="region_disctrict"]
+{
+    height: 0;
+    width: 90%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    opacity: 0;
+    margin: auto;
+    -webkit-transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+    transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+}
+
+
+/**/
 
 
 div[class^="graphic"]
@@ -900,7 +910,7 @@ div[class^="graphic"]
 }
 div[class^="chartdiv"]{
     width: 70%;
-    height: 130px;
+    height: 150px;
     display: inline-block;
     float: left;
     
@@ -1272,7 +1282,7 @@ button.delete{
     opacity: .35;
     filter: alpha(opacity=5k);
 }
-.info {
+.modal-footer.info {
     line-height: 32px;
 }
 .chkTax label{
@@ -1377,8 +1387,8 @@ button.delete{
 }
 
 .list_store .loader-ios{
-    text-align: center;
-    margin-top: 112px;
+  text-align: center;
+  margin-top: 112px;
 }
 
 .loader-ios {
@@ -1610,9 +1620,7 @@ text{
     -webkit-animation-timing-function: ease-in-out; 
     animation-timing-function: ease-in-out;
 }
-.noimg{
-    background-image: none;
-}
+
 
 @-webkit-keyframes rotationIcon {
     0% {
@@ -1650,7 +1658,9 @@ text{
     }
 }
 
-
+.noimg{
+    background-image: none;
+}
 
 /* iPad in portrait & landscape */
 @media only screen and (min-width : 768px) and (max-width : 1024px)  {
@@ -1689,7 +1699,7 @@ text{
         height: 72px;
     }
     .item .box, .menu .box{
-        padding-left: 98px;
+        padding-left: 82px;
     }
     .add_server {
         padding-right: 44px;
@@ -1820,9 +1830,9 @@ text{
     }
     .store h1.storeNameR1 {
         width: 80%;
-    }
+    }    
     .lastConexion {
-        width: 46%;
+        width: 20%;
         font-size: 13pt;
         line-height: 15pt;
         height: 40px;
@@ -1856,7 +1866,9 @@ text{
         width: 31%;
     }
     .store{
-        padding: 4pt 6%;
+        padding: 4pt 1%;
+        overflow-x: auto;
+        font-size: 64%;
     }
     .actual i, .global i {
         width: 11%;
@@ -1910,7 +1922,7 @@ text{
         height: 90px;
     }
     .item .box, .menu .box{
-        padding-left: 88px;
+        padding-left: 80px;
     }
     .actual i, .global i {
         width: 13%;
@@ -1934,7 +1946,7 @@ text{
     }
     header button {
         font-size: 12pt;
-        max-width: 82px;
+        max-width: 76px;
         min-width: 38px;
         padding-left: 2px;
     }
@@ -1947,7 +1959,7 @@ text{
         font-size: 13pt;
     }
     #txt_login, #txt_maintitle, #txt_title, #top_txt_title, #txt_Options{
-        width: 145px;
+        width: 250px;
     }
     .store h1 {
         height: 26px;
@@ -1973,7 +1985,7 @@ text{
         width: 72%;
     }
     .lastConexion {
-        width: 43%;
+        width: 44%;
         font-size: 9pt;
         line-height: 11pt;
         height: 26px;
@@ -2017,4 +2029,15 @@ text{
         text-overflow: ellipsis;
     }
     
+}
+
+@media only screen and (orientation: portrait) { 
+  #miModal11{
+    visibility: visible;
+  }
+}
+@media only screen and (orientation: landscape) { 
+  #miModal11{
+    visibility: hidden;
+  }
 }

@@ -190,7 +190,7 @@ header button:active{
 }
 #txt_login,#txt_maintitle,#txt_title, #top_txt_title,#txt_Options,#txt_title2{
     text-align: center;
-    width: 250px;
+    width: 160px;
     margin: 0 auto;
     padding-top: 20px;
     line-height: 44px;
@@ -769,9 +769,8 @@ hr {
     font-size: 14pt;
 }
 .store{
-    padding: 4pt 1%;
-    overflow-x: auto;
-    font-size: 64%;
+    padding: 4pt 6%;
+    line-height: 0.8em;
 }
 .store:nth-of-type(2n){
     background-color: rgba(234,234,235,0.85);
@@ -779,7 +778,7 @@ hr {
 .store h1{
     width: 100%;
     height: 32px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;    
     line-height: 1.6em;
     white-space: pre-line;
@@ -1388,8 +1387,8 @@ button.delete{
 }
 
 .list_store .loader-ios{
-  text-align: center;
-  margin-top: 112px;
+	text-align: center;
+	margin-top: 112px;
 }
 
 .loader-ios {
@@ -1867,9 +1866,7 @@ text{
         width: 31%;
     }
     .store{
-        padding: 4pt 1%;
-        overflow-x: auto;
-        font-size: 64%;
+        padding: 4pt 6%;
     }
     .actual i, .global i {
         width: 11%;
@@ -1960,7 +1957,7 @@ text{
         font-size: 13pt;
     }
     #txt_login, #txt_maintitle, #txt_title, #top_txt_title, #txt_Options{
-        width: 250px;
+        width: 145px;
     }
     .store h1 {
         height: 26px;
@@ -2030,17 +2027,4 @@ text{
         text-overflow: ellipsis;
     }
     
-}
-
-
-
-@media only screen and (orientation: portrait) { 
-  #miModal9{
-    visibility: visible;
-  }
-}
-@media only screen and (orientation: landscape) { 
-  #miModal9{
-    visibility: hidden;
-  }
 }
