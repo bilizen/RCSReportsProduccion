@@ -1,10 +1,38 @@
 $(document).ready(function(){
- document.addEventListener("deviceready", onDeviceReady, false);
- function onDeviceReady() {
-    document.addEventListener("backbutton", onBackKeyDown, true);
-}
-function onBackKeyDown() {
-}
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        document.addEventListener("backbutton", onBackKeyDown, true);
+    }
+
+    function onBackKeyDown() {
+    }
+
+    $('.list').scroll(function (){
+        console.log("list");
+        // $(".thead").offset({ left: -1*this.scrollLeft });
+    });
+    $('.items').scroll(function (){
+        console.log("items");
+        // $(".thead").offset({ left: -1*this.scrollLeft });
+    });
+    $('.store').scroll(function (){
+        console.log("store");
+        // $(".thead").offset({ left: -1*this.scrollLeft });
+    });
+    $('.table').scroll(function (){
+        console.log("table");
+        // $(".thead").offset({ left: -1*this.scrollLeft });
+    });
+    $('#list-empleados').scroll(function (){
+        console.log("list empleadods");
+        // $(".thead").offset({ left: -1*this.scrollLeft });
+    });
+
+    setTableBody();
+    $(".table-body").scroll(function ()
+    {
+        $(".table-header").offset({ left: -1*this.scrollLeft });
+    });
 });
 
 $(window).load(function(){
@@ -16,16 +44,16 @@ $(window).load(function(){
 
 //rotation screem
 $(window).resize(function () {
-    hideComboRegion();
+    responsiveTable11();
 });
 
-function hideComboRegion() {
+function responsiveTable11() {
     var windowh = $(window).height();
     var headerh = $('header').height();
     var regionh = $('#divRegion').height();
     var selectdateP = $('.select-dateP').height();
     var selectGeneral = $('.select-general').height();
-    $('.list').height(windowh - headerh - selectdateP - selectGeneral -20);
+    $('.items').height(windowh - headerh - selectdateP - selectGeneral -20);
 }
 
 var RCSReports_report11_valuesRangeDates;
@@ -68,11 +96,10 @@ function StoreProductivity() {
                     hideLoading();
                 },
                 success: function (data) {
-                    $("#items").empty();
+                    $(".items").empty();
                     if (data.quantity > 0) {
                         var StoreNo;
                         var StoreName;
-                        var District;
                         var Trans;
                         var Units;
                         var LYSales;
@@ -86,35 +113,13 @@ function StoreProductivity() {
                         var UMD;
                         var MDS;
                         var PMD;
-
+                        
                         var mostrar="";
-                        mostrar += "<div class='store waves-effect waves-light'>";
-                        //mostrar += "<h1></h1>";
-                        mostrar += "<table class='table'>"+
-                        "<thead>"+
-                        "<tr>"+
-                        "<th>STORENAME</th>"+
-                        "<th>DISTRICT</th>"+
-                        "<th>TRANS</th>"+
-                        "<th>UNITS</th>"+
-                        "<th>LYSALES</th>"+
-                        "<th>TYSALES</th>"+
-                        "<th>%VAR</th>"+
-                        "<th>DISC$</th>"+
-                        "<th>DISC%</th>"+
-                        "<th>UPT</th>"+
-                        "<th>ADS</th>"+
-                        "<th>GM%</th>"+
-                        "<th>UMD</th>"+
-                        "<th>MD$</th>"+
-                        "<th>MD%</th>"+
-                        "</tr>"+
-                        "</thead>"+
-                        "<tbody id='list-empleados'>";                       
+                        mostrar += "<table class='table bodytable'>"+
+                        "<tbody>";                       
                         $(data.report).each(function (index, value) {
                             StoreNo=value.StoreNo;
                             StoreName=value.StoreName;
-                            District=value.District;
                             Trans=value.Trans;
                             Units=value.Units;
                             LYSales=value.LYSales;
@@ -129,28 +134,25 @@ function StoreProductivity() {
                             MDS= value.MDS;
                             PMD=value.PMD;
 
-                            // mostrar +="<tr><td>"+StoreNo+"</td>";
-                            mostrar +="<tr><td>"+StoreName.toString()+"</td>";
-                            mostrar +="<td>"+District.toString()+"</td>";
-                            mostrar +="<td>"+Trans.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>";  
-                            mostrar +="<td>"+Units.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
-                            mostrar +="<td>$"+LYSales.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
-                            mostrar +="<td>$"+TYSales.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
-                            mostrar +="<td>"+PVar.toString()+"%</td>"; 
-                            mostrar +="<td>$"+Disc.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
-                            mostrar +="<td>"+PDisc.toString()+"%</td>";
-                            mostrar +="<td>"+UPT.toString()+"</td>"; 
-                            mostrar +="<td>$"+ADS.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
-                            mostrar +="<td>"+PGM.toString()+"%</td>";
-                            mostrar +="<td>"+UMD.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>";
-                            mostrar +="<td>$"+MDS.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>";
-                            mostrar +="<td>"+PMD.toString()+"%</td></tr>";     
+                            mostrar +="<tr><td class='body-cell col1'>"+StoreName.toString()+"</td>";
+                            mostrar +="<td class='body-cell col2'>"+Trans.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>";  
+                            mostrar +="<td class='body-cell col3'>"+Units.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
+                            mostrar +="<td class='body-cell col4'>$"+LYSales.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
+                            mostrar +="<td class='body-cell col5'>$"+TYSales.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
+                            mostrar +="<td class='body-cell col6'>"+PVar.toString()+"%</td>"; 
+                            mostrar +="<td class='body-cell col7'>$"+Disc.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
+                            mostrar +="<td class='body-cell col8'>"+PDisc.toString()+"%</td>";
+                            mostrar +="<td class='body-cell col9'>"+UPT.toString()+"</td>"; 
+                            mostrar +="<td class='body-cell col10'>$"+ADS.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>"; 
+                            mostrar +="<td class='body-cell col11'>"+PGM.toString()+"%</td>";
+                            mostrar +="<td class='body-cell col12'>"+UMD.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>";
+                            mostrar +="<td class='body-cell col13'>$"+MDS.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</td>";
+                            mostrar +="<td class='body-cell col14'>"+PMD.toString()+"%</td></tr>";     
 
                         });
                         mostrar +="</tbody>";
                         mostrar +="</table>";
-                        mostrar += "</div>";
-                        $("#items").append(mostrar);   
+                        $(".items").append(mostrar);   
                     }else{
                         if (current_lang == 'es'){
                             mostrarModalGeneral("No hay datos");
@@ -159,7 +161,7 @@ function StoreProductivity() {
                             mostrarModalGeneral("No data");
                         }
                     }
-                    hideComboRegion();
+                    responsiveTable11();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
@@ -214,4 +216,13 @@ function  deteclenguage11(){
     if (current_lang == 'es') {
         changeLanguage11();
     }
+}
+
+$(document).ready(function () {
+
+});
+
+function setTableBody()
+{
+    $(".table-body").height($(".inner-container").height() - $(".table-header").height());
 }

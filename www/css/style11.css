@@ -532,11 +532,13 @@ input[type="checkbox"]:checked + label:before {
 
 .list{
     width: 100%;
-    overflow-y: auto;
     background-image: url('../img/Bottom-Waves-1024.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat; 
+}
+.items{
+    overflow: auto;
 }
 /*.menu button:nth-child(2n){
     background-color: rgba(241, 241, 241, 0.92);
@@ -2040,4 +2042,121 @@ text{
   #miModal11{
     visibility: hidden;
   }
+}
+
+
+
+thead {
+    border-bottom: 1px solid rgb(200, 199, 204);
+    border-top: 1px solid rgb(200, 199, 204);
+    background-color: rgba(254, 254, 254, 0.9);
+}
+
+.outer-container
+{
+    background-color: #ccc;
+
+}
+
+.inner-container
+{
+    height: 100%;
+    overflow: hidden;
+}
+
+.table-header
+{
+    position: relative;
+}
+.table-body
+{
+    overflow: auto;
+}
+
+.header-cell
+{
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 8px;
+    font-weight: bold;
+}
+.body-cell 
+{
+    background-color: rgba(255,255,255,.8);
+    text-align: left;
+}
+.col1{
+    width:180px;
+    min-width: 180px;
+    max-width: 181px;
+}
+.col2{
+    width:60px;
+    min-width: 60px;
+    max-width: 61px;
+}
+.col3{
+    width:60px;
+    min-width: 60px;
+    max-width: 61px;
+}
+.col4{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+.col5{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+.col6{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+.col7{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+.col8{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+.col9{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+.col10{
+    width:60px;
+    min-width: 60px;
+    max-width: 61px;
+}
+.col11{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+.col12{
+    width:60px;
+    min-width: 60px;
+    max-width: 61px;
+}
+.col13{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+.col14{
+    width:80px;
+    min-width: 80px;
+    max-width: 81px;
+}
+
+.headertable, .bodytable {
+    font-size: 68%;
 }
