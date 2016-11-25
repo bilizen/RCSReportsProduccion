@@ -1,10 +1,10 @@
 $(document).ready(function(){
- document.addEventListener("deviceready", onDeviceReady, false);
- function onDeviceReady() {
-    document.addEventListener("backbutton", onBackKeyDown, true);
-}
-function onBackKeyDown() {
-}
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        document.addEventListener("backbutton", onBackKeyDown, true);
+    }
+    function onBackKeyDown() {
+    }
 });
 
 $(window).load(function(){
@@ -12,9 +12,89 @@ $(window).load(function(){
    deteclenguage8();
    valuesGroupDate();
    checkDefaultActualGlobal_report8();
+   GetDatesDatabase();
    downloadByRegion();
 });
 
+
+//rotation screem
+$(window).resize(function () {
+    responsiveReport8();
+});
+
+var RCSReports_report8_valuesRangeDates;
+
+function responsiveReport8() {
+    
+    var windowh = $(window).height();
+    var headerh = $('header').height();
+    var regionh = $('#divRegion').height();
+    var selectdateP = $('.select-dateP').height();
+    var selectGeneral = $('.select-general').height();
+    $('.list').height(windowh - headerh - selectdateP - selectGeneral -20);
+}
+
+
+function GetDatesDatabase(){
+    var c_ip = "";
+    var c_port = "";
+    var c_site = "";
+    var xurl="";
+    var RCSReports_SetDate=localStorage.RCSReports_SetDate;
+    if(RCSReports_SetDate=="1"){
+        var query ="SELECT * FROM " + TABLE_URL + " WHERE "  + KEY_USE + " = '1'";
+        localDB.transaction(function (tx) {
+            tx.executeSql(query, [], function (tx, results) {
+                c_ip = results.rows.item(0).ip;
+                c_port = results.rows.item(0).port;
+                c_site = results.rows.item(0).site;
+                xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportGetDates/GET';
+                $.ajax({
+                    url: xurl,
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    async: true,
+                    crossdomain: true,
+                    beforeSend: function () {
+                        //showLoading();
+                    },
+                    complete: function () {
+                        //hideLoading();
+                    },
+                    success: function (data) {
+                        if(data.quantity==1){
+                            $('#time').text(data.report.Today);
+                            $('#today').text(data.report.Today);
+                            $('#yesterday').text(data.report.Yesterday);
+                            $('#week').text(data.report.WeekToDate);
+                            $('#month').text(data.report.MonthToDate);
+                            $('#year').text(data.report.YearToDate);
+                        }else{
+                            if (current_lang == 'es'){
+                                mostrarModalGeneral("No hay fechas para mostrar, establecer fechas del móvil");
+                            }else{
+                                mostrarModalGeneral("No dates for show, set mobile dates");
+                            }
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(xhr.status);
+                        console.log(xhr.statusText);
+                        console.log(xhr.responseText);
+                        if (current_lang == 'es'){
+                            mostrarModalGeneral("No hay fechas para mostrar, establecer fechas del móvil");
+                        }else{
+                            mostrarModalGeneral("No dates for show, set mobile dates");
+                        }
+                    }
+                });
+            });
+        });   
+    }else{
+        comboWriteDates();
+    }
+}
 
 
 //************** Descargar data por Region, en el array en el indice byRegion:2*********//
@@ -44,8 +124,8 @@ function downloadByRegion() {
 
             xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportByRegion/POST';
 
-            var option =localStorage.RCSReports_report8_valuesRangeDates;
-            var day=todayreport1();
+            var option =RCSReports_report8_valuesRangeDates;
+            var day=todayreport();
             var employeeCode=localStorage.RCSReportsEmployeeCode;
             
             var array= {Day:day, Option: option,Tax: impuesto,EmployeeCode:employeeCode};
@@ -254,7 +334,7 @@ function downloadByRegion() {
                             mostrarModalGeneral("No data");
                         }
                     }
-                    hideComboRegion();
+                    responsiveReport8();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
@@ -281,9 +361,9 @@ function districtRegion(indice,regionCode) {
         $('.region_store').empty();
     } else {    
         $('.region_store').empty();
-        var option =localStorage.RCSReports_report8_valuesRangeDates;
+        var option =RCSReports_report8_valuesRangeDates;
         var impuesto=localStorage.getItem("check_tax");
-        var day=todayreport1();
+        var day=todayreport();
         var regionCode=regionCode;
         var array = {Day: day, Option: option,Tax: impuesto,RegionCode:regionCode};
 
@@ -530,11 +610,11 @@ function detailsNewCompStore(indice,typecode,regionCode){
         var lblGlobalSale = "";
         var lblGlobalGoal = "";
 
-        var option = localStorage.RCSReports_report8_valuesRangeDates;
+        var option = RCSReports_report8_valuesRangeDates;
         var regioncode=regionCode;
         var impuesto=localStorage.getItem("check_tax");
 
-        var day=todayreport1();
+        var day=todayreport();
         var employeeCode=localStorage.RCSReportsEmployeeCode;
         var typecode=typecode;
         var array = {Option: option, RegionCode: regionCode,Tax: impuesto,Day:day,EmployeeCode:employeeCode,Typecode:typecode};
@@ -774,35 +854,31 @@ function detailsNewCompStore(indice,typecode,regionCode){
 
 //verifica los los switch si estan activos
 function valuesGroupDate(){
-    if(null==localStorage.getItem("RCSReports_report8_valuesRangeDates")){
-        localStorage.setItem("RCSReports_report8_valuesRangeDates",1);
-    }else{
-        localStorage.setItem("RCSReports_report8_valuesRangeDates",1);
-    }
+    RCSReports_report8_valuesRangeDates=1;
 }
 
 
 function rangeOfToday(){
-    localStorage.RCSReports_report8_valuesRangeDates=1;
+    RCSReports_report8_valuesRangeDates=1;
     downloadByRegion();
 }
 function rangeOfYesterday(){
-    localStorage.RCSReports_report8_valuesRangeDates=2;
+    RCSReports_report8_valuesRangeDates=2;
     downloadByRegion(); 
 }
 
 function rangeOfWeek(){
-    localStorage.RCSReports_report8_valuesRangeDates=3;
+    RCSReports_report8_valuesRangeDates=3;
     downloadByRegion();
 }
 
 function rangeOfMonth(){
-    localStorage.RCSReports_report8_valuesRangeDates=4;
+    RCSReports_report8_valuesRangeDates=4;
     downloadByRegion();
 }
 
 function rangeOfYear(){
-    localStorage.RCSReports_report8_valuesRangeDates=5;
+    RCSReports_report8_valuesRangeDates=5;
     downloadByRegion();
 }
 
@@ -859,20 +935,6 @@ function Report8UpdateGlobal() {
     }
 }
 
-
-//rotation screem
-$(window).resize(function () {
-    hideComboRegion();
-});
-function hideComboRegion() {
-    
-    var windowh = $(window).height();
-    var headerh = $('header').height();
-    var regionh = $('#divRegion').height();
-    var selectdateP = $('.select-dateP').height();
-    var selectGeneral = $('.select-general').height();
-    $('.list').height(windowh - headerh - selectdateP - selectGeneral -20);
-}
 
 
 

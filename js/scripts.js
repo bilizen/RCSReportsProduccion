@@ -7,67 +7,6 @@ var ch_order_payTotal = "";
 var ch_order_goalAmount = "";
 
 $(document).ready(function () {
-    /* Today */
-    var d1 = new Date();
-    var month1 = d1.getMonth() + 1;
-    var day1 = d1.getDate();
-    var o_today = (('' + day1).length < 2 ? '0' : '') + day1 + '/' +
-            (('' + month1).length < 2 ? '0' : '') + month1 + '/' +
-            d1.getFullYear();
-
-    /* Yesterday */
-    var d2 = new Date((new Date().valueOf()-(24*60*60*1000)));
-    var month2 = d2.getMonth() + 1;
-    var day2 = d2.getDate();
-    var o_yesterday = (('' + day2).length < 2 ? '0' : '') + day2 + '/' +
-            (('' + month2).length < 2 ? '0' : '') + month2 + '/' +
-            d2.getFullYear();
-
-
-
-    /* STAR WEEKEND*/
-    var starWeek= weekToDay();
-
-
-    /* Week to Date */
-    var d3 = new Date();
-    var o_month = ('01' + '/' +
-            ((((d3.getMonth() + 1).toString()).length) < 2 ? '0' : '') + (d3.getMonth() + 1).toString() + '/' + d3.getFullYear());
-
-    /* Year */
-    var o_year = '01/' + '01/' + d1.getFullYear();
-    
-    //change of date ES->EN
-    var lang = navigator.language.split("-");
-    current_lang = (lang[0]);
-    
-    if (current_lang == 'en') {
-        var today=o_today.split("/");
-        $('#time').text(today[1]+"/"+today[0]+"/"+today[2]);
-        $('#today').text(today[1]+"/"+today[0]+"/"+today[2]);
-        
-        var yesterday=o_yesterday.split("/");
-        $('#yesterday').text(yesterday[1]+"/"+yesterday[0]+"/"+yesterday[2]);
-        
-        var por_fin=starWeek.split("/");
-        $('#week').text(por_fin[1]+"/"+por_fin[0]+"/"+por_fin[2]);
-        
-        var month=o_month.split("/");
-        $('#month').text(month[1]+"/"+month[0]+"/"+month[2]);
-        
-        var year=o_year.split("/");
-        $('#year').text(year[1]+"/"+year[0]+"/"+year[2]);   
-        
-    }else{
-        $('#time').text(o_today);
-        $('#today').text(o_today);
-        $('#yesterday').text(o_yesterday);
-        $('#week').text(starWeek);
-        $('#month').text(o_month);
-        $('#year').text(o_year);
-    }
-
-
     //modal to confirm Sign out
     $('#btnSignOut').click(function(){
         $('#ModalConfirmSignOut').modal('show');
@@ -236,47 +175,6 @@ function mostrarModalGeneral(contenido) {
 }
 
 
-
-
-
-
-
-
-
-function checktaxDefaultActualGlobal_report8(){
-    if(null==localStorage.getItem("check_tax_actual_report8")){
-        $('.check_actual').addClass("checked");
-        localStorage.setItem("check_tax_actual_report8","1");
-        ch_actual=localStorage.getItem("check_tax_actual_report8");
-
-    }else{
-        if(localStorage.getItem("check_tax_actual_report8")=="1"){
-            $('.check_actual').addClass("checked");
-            ch_actual = localStorage.getItem("check_tax_actual_report8");
-        }else{
-            $('.check_actual').removeClass("checked");
-            ch_actual = localStorage.getItem("check_tax_actual_report8");
-        }
-    }
-
-    if(null==localStorage.getItem("check_tax_global_report8")){
-        $('.check_global').addClass("checked");
-        localStorage.setItem("check_tax_global_report8","1");
-        ch_global =localStorage.getItem("check_tax_global_report8");
-    }else{
-        if(localStorage.getItem("check_tax_global_report8")=="1"){
-            $('.check_global').addClass("checked");
-            ch_global = localStorage.getItem("check_tax_global_report8");
-        }else{
-            $('.check_global').removeClass("checked");
-            ch_global = localStorage.getItem("check_tax_global_report8");
-        }
-    }
-
-}
-
-
-
 //AQUI
 function retornarStores(principal) {
 
@@ -403,7 +301,71 @@ function weekToDay(){
     return date_n;
 }
 
-function todayreport1(){
+//write combo de fechas
+function comboWriteDates(){
+    /* Today */
+    var d1 = new Date();
+    var month1 = d1.getMonth() + 1;
+    var day1 = d1.getDate();
+    var o_today = (('' + day1).length < 2 ? '0' : '') + day1 + '/' +
+            (('' + month1).length < 2 ? '0' : '') + month1 + '/' +
+            d1.getFullYear();
+
+    /* Yesterday */
+    var d2 = new Date((new Date().valueOf()-(24*60*60*1000)));
+    var month2 = d2.getMonth() + 1;
+    var day2 = d2.getDate();
+    var o_yesterday = (('' + day2).length < 2 ? '0' : '') + day2 + '/' +
+            (('' + month2).length < 2 ? '0' : '') + month2 + '/' +
+            d2.getFullYear();
+
+
+
+    /* STAR WEEKEND*/
+    var starWeek= weekToDay();
+
+
+    /* Week to Date */
+    var d3 = new Date();
+    var o_month = ('01' + '/' +
+            ((((d3.getMonth() + 1).toString()).length) < 2 ? '0' : '') + (d3.getMonth() + 1).toString() + '/' + d3.getFullYear());
+
+    /* Year */
+    var o_year = '01/' + '01/' + d1.getFullYear();
+    
+    //change of date ES->EN
+    var lang = navigator.language.split("-");
+    current_lang = (lang[0]);
+    
+    if (current_lang == 'en') {
+        var today=o_today.split("/");
+        $('#time').text(today[1]+"/"+today[0]+"/"+today[2]);
+        $('#today').text(today[1]+"/"+today[0]+"/"+today[2]);
+        
+        var yesterday=o_yesterday.split("/");
+        $('#yesterday').text(yesterday[1]+"/"+yesterday[0]+"/"+yesterday[2]);
+        
+        var por_fin=starWeek.split("/");
+        $('#week').text(por_fin[1]+"/"+por_fin[0]+"/"+por_fin[2]);
+        
+        var month=o_month.split("/");
+        $('#month').text(month[1]+"/"+month[0]+"/"+month[2]);
+        
+        var year=o_year.split("/");
+        $('#year').text(year[1]+"/"+year[0]+"/"+year[2]);   
+        
+    }else{
+        $('#time').text(o_today);
+        $('#today').text(o_today);
+        $('#yesterday').text(o_yesterday);
+        $('#week').text(starWeek);
+        $('#month').text(o_month);
+        $('#year').text(o_year);
+    }
+}
+
+
+function todayreport(){
     var d1 = new Date();
     var month1 = d1.getMonth() + 1;
     var day1 = d1.getDate();

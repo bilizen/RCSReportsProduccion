@@ -1,25 +1,28 @@
 $(document).ready(function(){
- document.addEventListener("deviceready", onDeviceReady, false);
- function onDeviceReady() {
-    document.addEventListener("backbutton", onBackKeyDown, true);
-}
-function onBackKeyDown() {
-}
+     document.addEventListener("deviceready", onDeviceReady, false);
+     function onDeviceReady() {
+        document.addEventListener("backbutton", onBackKeyDown, true);
+    }
+    function onBackKeyDown() {
+    }
 });
 
 $(window).load(function(){
    onInit();    
    deteclenguage9();
    valuesGroupDate();
+   GetDatesDatabase();
    CompanyProductivity();
 });
 
 //rotation screem
 $(window).resize(function () {
-    hideComboRegion();
+    responsiveReport9();
 });
 
-function hideComboRegion() {
+var RCSReports_report9_valuesRangeDates;
+
+function responsiveReport9() {
     var windowh = $(window).height();
     var headerh = $('header').height();
     var regionh = $('#divRegion').height();
@@ -28,7 +31,68 @@ function hideComboRegion() {
     $('.list').height(windowh - headerh - selectdateP - selectGeneral -20);
 }
 
-var RCSReports_report9_valuesRangeDates;
+
+function GetDatesDatabase(){
+    var c_ip = "";
+    var c_port = "";
+    var c_site = "";
+    var xurl="";
+    var RCSReports_SetDate=localStorage.RCSReports_SetDate;
+    if(RCSReports_SetDate=="1"){
+        var query ="SELECT * FROM " + TABLE_URL + " WHERE "  + KEY_USE + " = '1'";
+        localDB.transaction(function (tx) {
+            tx.executeSql(query, [], function (tx, results) {
+                c_ip = results.rows.item(0).ip;
+                c_port = results.rows.item(0).port;
+                c_site = results.rows.item(0).site;
+                xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportGetDates/GET';
+                $.ajax({
+                    url: xurl,
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    async: true,
+                    crossdomain: true,
+                    beforeSend: function () {
+                        //showLoading();
+                    },
+                    complete: function () {
+                        //hideLoading();
+                    },
+                    success: function (data) {
+                        if(data.quantity==1){
+                            $('#time').text(data.report.Today);
+                            $('#today').text(data.report.Today);
+                            $('#yesterday').text(data.report.Yesterday);
+                            $('#week').text(data.report.WeekToDate);
+                            $('#month').text(data.report.MonthToDate);
+                            $('#year').text(data.report.YearToDate);
+                        }else{
+                            if (current_lang == 'es'){
+                                mostrarModalGeneral("No hay fechas para mostrar, establecer fechas del móvil");
+                            }else{
+                                mostrarModalGeneral("No dates for show, set mobile dates");
+                            }
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(xhr.status);
+                        console.log(xhr.statusText);
+                        console.log(xhr.responseText);
+                        if (current_lang == 'es'){
+                            mostrarModalGeneral("No hay fechas para mostrar, establecer fechas del móvil");
+                        }else{
+                            mostrarModalGeneral("No dates for show, set mobile dates");
+                        }
+                    }
+                });
+            });
+        });   
+    }else{
+        comboWriteDates();
+    }
+}
+
 
 //************** Descargar data por Region, en el array en el indice byRegion:2*********//
 function CompanyProductivity() {
@@ -49,7 +113,7 @@ function CompanyProductivity() {
             xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/Report9CompanyPerformance/POST';
 
             var option =RCSReports_report9_valuesRangeDates;
-            var day=todayreport1();
+            var day=todayreport();
             var employeeCode=localStorage.RCSReportsEmployeeCode;
             var array= {Option: option,Day:day,EmployeeCode:employeeCode};
             $.ajax({
@@ -151,7 +215,7 @@ function CompanyProductivity() {
                             mostrarModalGeneral("No data");
                         }
                     }
-                    hideComboRegion();
+                    responsiveReport9();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);

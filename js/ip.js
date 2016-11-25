@@ -3,12 +3,11 @@ $(document).ready(function () {
 
     function onDeviceReady() {
         //document.addEventListener("backbutton", onBackKeyDown, true);
-        
+        onInit();
+        deteclenguage();
         if(checkNetConnection()==true){
             var variablEE = obtenerVariables("variable");
             //-1 si si ingresa por primera vez o mata aplicacion
-            onInit();
-            deteclenguage();
             if(variablEE == -1){
                 existsData();
             }else{   
@@ -34,11 +33,11 @@ $(document).ready(function () {
 });
 
 $(window).load(function(){
+    // onInit();
+    // deteclenguage();
     // if(checkNetConnection()==true){
     //         var variablEE = obtenerVariables("variable");
     //         //-1 si si ingresa por primera vez o mata aplicacion
-    //         onInit();
-    //         deteclenguage();
     //         if(variablEE == -1){
     //             existsData();
     //         }else{   
@@ -46,16 +45,16 @@ $(window).load(function(){
     //             MSG_GO_ADD();
     //             $("#btn_left").removeAttr("hidden");
     //         }
+    // }else{
+    //     $('#no_connection').modal('show');
+    //     if (current_lang == 'es'){
+    //         $('.titleMessage').text('Mensaje');
+    //         $('.textNoConnection').text('No hay conexion de red');
+    //         $('.btnok').text('Aceptar');
     //     }else{
-    //         $('#no_connection').modal('show');
-    //         if (current_lang == 'es'){
-    //             $('.titleMessage').text('Mensaje');
-    //             $('.textNoConnection').text('No hay conexion de red');
-    //             $('.btnok').text('Aceptar');
-    //         }else{
-    //            //modal para no conexcion
-    //         }
+    //        //modal para no conexcion
     //     }
+    // }
     /*esta funcion ocurre despues de que ya cargo toda la pagina*/
     var lang = navigator.language.split("-");
     var current_lang = (lang[0]);
