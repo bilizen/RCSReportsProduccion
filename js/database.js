@@ -989,7 +989,6 @@ function deteclenguage() {
 		MSG_LBL_TITLE_MENU_DETAIL_R4();
 		MSG_LBL_TITLE_MENU_R5();
 		MSG_LBL_TITLE_MENU_DETAIL_R5();
-		MSG_LBL_SETDATE();
 
 		MSGS_SIGNOUT();
 

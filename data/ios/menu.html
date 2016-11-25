@@ -93,8 +93,6 @@
 
                 <button class="btn btn-modal" data-dismiss="modal" id="hide_reports" onclick="showReports()">Hide/Show Reports</button>
 
-                <button class="btn btn-modal" data-dismiss="modal" id="Set_date" onclick="showModalSetDate()">Set Date</button>
-
                 <div class="btn-modal chkTax">
 
                   <div class="checkbox_wrapper checked small_item check_tax" onclick ="checkTax();">   
@@ -102,7 +100,9 @@
                     <div class="input-checkbox"></div>
                     <label class="tax">V.A.T.</label>            
                   </div>                     
-                </div>
+
+                </div>  
+
                 <button class="btn btn-modal danger" data-dismiss="modal" id="btnSignOut">Sign out</button>             
             </div>
         </div>
@@ -123,7 +123,7 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <div class="modal-footer info">
+                <div class="info">
                   <div class="text-center twoCols landLblLeft" id="server" >
                     <div id="txtServerT">Server:</div>
                     <div id="txtServer"></div>
@@ -188,38 +188,6 @@
     </div>
 </div>
 </div>
-
-<!-- modal Set Date -->
-<div class="modal fade" id="ModalSetDate" data-backdrop="static">
-    <div class="modal-dialog">
-        <div class="modal-content"> 
-            <div class="modal-header text-center">       
-            <button type="button" class="close back" data-dismiss="modal" aria-hidden="true" onclick="showOptions();">Back</button>   
-                <h4 class="modal-title lblSetDate">
-                    Set Date
-                </h4>                
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose" onclick="">Close</button>
-            </div>                              
-            <div class="modal-body text-center">     
-                <div class="section">
-                    <div class="section_content">
-                        <div class="radio_wrapper mobile" data-value="0" onclick="" >
-                            <div class="input-radio"><span></span></div>
-                            <label class="lblMobile">Mobile</label>   
-                        </div> 
-                        <hr>
-                        <div class="radio_wrapper database" data-value="1" >   
-                            <div class="input-radio"><span></span></div>
-                            <label class="lblDatabase">Calendar</label>            
-                        </div>
-                    </div>  
-                </div>                 
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 <!-- Modal Confirm change Server-->
 <div class="modal fade zIndex3" id="ModalConfirm" >
@@ -334,10 +302,10 @@
         <p class="title-alert titleMessage">Message</p>                 
         <p class="text-center textNoConnection">No network connection</p>              
       </div>
-      <div class="modal-footer info">
+      <!-- <div class="modal-footer info">
           <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true"
           onclick="buttonExitApp();">Ok</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

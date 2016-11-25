@@ -770,7 +770,7 @@ hr {
 }
 .store{
     padding: 4pt 1%;
-    overflow: auto;
+    overflow-x: auto;
     font-size: 64%;
 }
 .store:nth-of-type(2n){

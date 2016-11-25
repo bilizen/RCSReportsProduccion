@@ -43,7 +43,7 @@ function MSG_GO() {
 // Errores Index
 function MSG_CONNECTION_FAILURE() {
     if (current_lang == 'es')
-        return $("#").html("Fallo de Conexión");
+        return $("#").html("Fallo de Conexion");
     else
         return $("#").html("Error Conection");
 }
@@ -102,16 +102,6 @@ function MSG_LBL_GVS_D() {
 function MSG_LBL_WORKING() {
     $("#lblworkd").html("Más Reportes Proximamente...");
 }
-
-function MSG_LBL_SETDATE(){
-    $("#Set_date").html("Establecer fecha");
-    $(".lblSetDate").html("Establecer fecha");
-    $(".lblMobile").html("Móvil");
-    $(".lblDatabase").html("Calendario");
-
-}
-
-
 //Modal Menu
 function MSG_LBL_CHANGE_CURRENT_SERVER(){
     $('.actual_server').text('Servidor Actual');

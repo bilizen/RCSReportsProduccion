@@ -3,22 +3,23 @@ $(document).ready(function () {
 
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
-        onInit();
-        deteclenguage();
+        
         if(checkNetConnection()==true){
-            updateHideReports();
-            checktaxDefault();
-            verificateSetDate();
+        onInit();
+        updateHideReports();
+        checktaxDefault();
+        deteclenguage();
         }else{
             $('#no_connection').modal('show');
             if (current_lang=='es'){
                 $('.titleMessage').text('Mensaje');
-                $('.textNoConnection').text('No hay conexión de red');
+                $('.textNoConnection').text('No hay conexion de red');
                 $('.btnok').text('Aceptar');
             }else{
-               //modal para no conexión
+               //modal para no conexion
             }
-        }  
+        }
+        
     }
 
     function onBackKeyDown() {
@@ -28,50 +29,24 @@ $(document).ready(function () {
 
 
 $(window).load(function(){
-    // onInit();
-    // deteclenguage();
     // if(checkNetConnection()==true){
-    //     updateHideReports();
-    //     checktaxDefault();
-    //     verificateSetDate();
+    // onInit();
+    // updateHideReports();
+    // checktaxDefault();
+    // deteclenguage();
     // }else{
     //     $('#no_connection').modal('show');
     //     if (current_lang=='es'){
     //         $('.titleMessage').text('Mensaje');
-    //         $('.textNoConnection').text('No hay conexión de red');
+    //         $('.textNoConnection').text('No hay conexion de red');
     //         $('.btnok').text('Aceptar');
     //     }else{
-    //        //modal para no conexión
+    //        //modal para no conexion
     //     }
     // }
-
-    $('.radio_wrapper').click(function(){
-        $('.radio_wrapper').removeClass('checked');
-        $(this).addClass('checked');
-        var a=$(this).attr('data-value');
-        localStorage.RCSReports_SetDate=a;
-    });
-
+  
 });
 
-function verificateSetDate(){
-    $('.radio_wrapper').removeClass('checked');
-    var setDate=localStorage.RCSReports_SetDate;
-    if(setDate==null){
-        $('.mobile').addClass('checked');
-        localStorage.RCSReports_SetDate="0";
-    }else{
-        if(setDate=="0"){
-            $('.mobile').addClass('checked');
-        }else{
-            $('.database').addClass('checked');
-        }
-    }
-}
-
-function showModalSetDate(){
-    $('#ModalSetDate').modal('show');
-}
 
 
 function showOptions(){

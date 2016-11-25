@@ -51,7 +51,7 @@ function graphicReport6(option) {
                     $('.nameStore').text(StoreName);
                     $('.titleTopBar').text(StoreName);
                     
-                    var day=todayreport();
+                    var day=todayreport1();
                     array = {Option: option,StoreNo: StoreNoT,Tax:impuesto,Day:day};
                     $.ajax({
                         url: xurl,

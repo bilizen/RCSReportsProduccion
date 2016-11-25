@@ -1,102 +1,21 @@
 $(document).ready(function(){
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        document.addEventListener("backbutton", onBackKeyDown, true);
-    }
-    function onBackKeyDown() {
-    }
+ document.addEventListener("deviceready", onDeviceReady, false);
+ function onDeviceReady() {
+    document.addEventListener("backbutton", onBackKeyDown, true);
+}
+function onBackKeyDown() {
+}
 });
 
 $(window).load(function(){
-    onInit();    
-    deteclenguage();
-    checkDefaultActualGlobal();
-    valuesGroupDate();
-    GetDatesDatabase();
-    loadComboRegions();
+   onInit();    
+   deteclenguage();
+   checkDefaultActualGlobal();
+   valuesGroupDate();
+   loadComboRegions();
 });
 
 
-
-//rotation screem
-$(window).resize(function () {
-    responsiveReport1();
-});
-
-function responsiveReport1() {
-    var windowh = $(window).height();
-    var headerh = $('header').height();
-    var regionh = $('#divRegion').height();
-    var selectdateP = $('.select-dateP').height();
-    var selectGeneral = $('.select-general').height();
-    if ($('#divRegion').css('display') == 'none') {//no hay region
-        $('.list').height(windowh - headerh - selectdateP - selectGeneral -20); 
-    } else {
-        $('.list').height(windowh - headerh - selectdateP - selectGeneral - 70);
-    }
-}
-
-
-function GetDatesDatabase(){
-    var c_ip = "";
-    var c_port = "";
-    var c_site = "";
-    var xurl="";
-    var RCSReports_SetDate=localStorage.RCSReports_SetDate;
-    if(RCSReports_SetDate=="1"){
-        var query ="SELECT * FROM " + TABLE_URL + " WHERE "  + KEY_USE + " = '1'";
-        localDB.transaction(function (tx) {
-            tx.executeSql(query, [], function (tx, results) {
-                c_ip = results.rows.item(0).ip;
-                c_port = results.rows.item(0).port;
-                c_site = results.rows.item(0).site;
-                xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportGetDates/GET';
-                $.ajax({
-                    url: xurl,
-                    type: 'GET',
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    async: true,
-                    crossdomain: true,
-                    beforeSend: function () {
-                        //showLoading();
-                    },
-                    complete: function () {
-                        //hideLoading();
-                    },
-                    success: function (data) {
-                        if(data.quantity==1){
-                            $('#time').text(data.report.Today);
-                            $('#today').text(data.report.Today);
-                            $('#yesterday').text(data.report.Yesterday);
-                            $('#week').text(data.report.WeekToDate);
-                            $('#month').text(data.report.MonthToDate);
-                            $('#year').text(data.report.YearToDate);
-                        }else{
-                            if (current_lang == 'es'){
-                                mostrarModalGeneral("No hay fechas para mostrar, establecer fechas del móvil");
-                            }else{
-                                mostrarModalGeneral("No dates for show, set mobile dates");
-                            }
-                        }
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        console.log(xhr.status);
-                        console.log(xhr.statusText);
-                        console.log(xhr.responseText);
-                        if (current_lang == 'es'){
-                            mostrarModalGeneral("No hay fechas para mostrar, establecer fechas del móvil");
-                        }else{
-                            mostrarModalGeneral("No dates for show, set mobile dates");
-                        }
-                    }
-                });
-            });
-        });   
-    }else{
-        comboWriteDates();
-    }
-}
 
 
 //************** descargar data por compañia, en el array en el indice principal:1 ************//
@@ -124,7 +43,7 @@ function downloadByCompany() {
             xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportCompany/POST';
             
             var option = localStorage.RCSReports_valuesRangeDates;
-            var day=todayreport();
+            var day=todayreport1();
             var employeeCode=localStorage.RCSReportsEmployeeCode;
             var array = {Day:day, Option: option, Tax:impuesto,EmployeeCode:employeeCode};
 
@@ -307,7 +226,7 @@ function downloadByCompany() {
                             mostrar += "</div>";
                             mostrar += "<hr>";
                         $("#items").append(mostrar);
-                        responsiveReport1();
+                        responsiveListStore();
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -352,7 +271,7 @@ function downloadByRegion() {
             xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportByRegion/POST';
 
             var option = localStorage.RCSReports_valuesRangeDates;
-            var day=todayreport();
+            var day=todayreport1();
             var employeeCode=localStorage.RCSReportsEmployeeCode;
             
             var array= {Day:day, Option: option,Tax: impuesto,EmployeeCode:employeeCode};
@@ -559,7 +478,7 @@ function downloadByRegion() {
                         $("#items").append(mostrar);
                         
                     }
-                    responsiveReport1();
+                    responsiveListStore();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
@@ -681,7 +600,7 @@ function downloadByStore(regionCode) {
     //verifica si esta con impuestos
     var impuesto=localStorage.getItem("check_tax");
 
-    var day=todayreport();
+    var day=todayreport1();
     var employeeCode=localStorage.RCSReportsEmployeeCode;
     var array = {Option: option, RegionCode: regionCode,Tax: impuesto,Day:day,EmployeeCode:employeeCode};
     var actual = localStorage.check_actual_report1;
@@ -901,7 +820,7 @@ function downloadByStore(regionCode) {
                             indice++;
 
                         });
-                        responsiveReport1();
+                        responsiveListStore();
                         deteclenguage();
                     }
                  
@@ -941,7 +860,7 @@ function storeWitdhGraphic(indice,storeno) {
                 var xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportgoalDetails/post';
                 var option = $(".select-dateP .init").attr("data-value");
                 var impuesto=localStorage.getItem("check_tax");
-                var day=todayreport();
+                var day=todayreport1();
 
                 var array = {Option: option, StoreNo: storeno,Tax: impuesto,Day:day};
                 /*********************/
@@ -1013,7 +932,7 @@ function storeWitdhGraphic2(indice,regionCode) {
         $('.region_store').empty();
         var option = $(".select-dateP .init").attr("data-value");
         var impuesto=localStorage.getItem("check_tax");
-        var day=todayreport();
+        var day=todayreport1();
         var employeeCode=localStorage.RCSReportsEmployeeCode;
 
         var array = {Option: option, RegionCode: regionCode,Tax: impuesto,Day:day,EmployeeCode:employeeCode};
@@ -1333,7 +1252,26 @@ function selectRangeGroup(){
 
 
 
-
+//***************************************//
+//rotation screem
+$(window).resize(function () {
+    responsiveListStore();
+});
+function responsiveListStore() {
+    
+    var windowh = $(window).height();
+    var headerh = $('header').height();
+    var regionh = $('#divRegion').height();
+    var selectdateP = $('.select-dateP').height();
+    var selectGeneral = $('.select-general').height();
+    if ($('#divRegion').css('display') == 'none') {//no hay region
+        $('.list').height(windowh - headerh - selectdateP - selectGeneral -20);
+        
+    } else {
+        $('.list').height(windowh - headerh - selectdateP - selectGeneral - 70);
+        
+    }
+}
 
 
 
