@@ -7,9 +7,6 @@
 #txt_title {
     width: inherit;
 }
-.list_store.list_date{
-  height: initial;
-}
 
 @media only screen and (orientation: portrait) { 
 

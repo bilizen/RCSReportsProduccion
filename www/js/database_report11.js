@@ -54,7 +54,7 @@ function responsiveTable11() {
     var regionh = $('#divRegion').height();
     var selectdateP = $('.select-dateP').height();
     var selectGeneral = $('.select-general').height();
-    $('.items').height(windowh - headerh - selectdateP - selectGeneral -40);
+    $('.items').height(windowh - headerh - selectdateP - selectGeneral -20);
 }
 
 var RCSReports_report11_valuesRangeDates;

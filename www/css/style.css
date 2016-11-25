@@ -146,9 +146,9 @@ header button,
     padding-left: 4px;
     font-weight: 300;
     text-overflow: ellipsis !important;
-    max-width: 88px;
-    min-width: 44px;
-    height: 44px;
+    max-width: 64px;
+    min-width: 34px;
+    height: 34px;
 }
 header button:active{
     opacity: 0.3;
@@ -156,7 +156,7 @@ header button:active{
 .item button{
     background-color: transparent;
     float: right;
-    padding-right: 4pt;
+    padding-right: 15pt;
 }
 .buttonItem{
     display: inline-block;
@@ -192,7 +192,7 @@ header button:active{
     text-align: center;
     width: 160px;
     margin: 0 auto;
-    padding-top: 18px;
+    padding-top: 20px;
     line-height: 44px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -225,7 +225,7 @@ header button:active{
 #btn_right.config{
     background-image: url(../img/iconItems.svg);
     background-position: center;
-    background-size: 38px;
+    background-size: 36px;
     background-repeat: no-repeat;
 }
 #btn_right.configuration{
@@ -338,7 +338,7 @@ header button:active{
 }
 .btn_only1{
     display: block;
-    width: 90%;
+    width: 88%;
     margin: auto auto;
     background-color: #456CD8;
     color: white;
@@ -364,17 +364,14 @@ header button:active{
 }
 .checkbox_wrapper{
     position: relative;
-    height: 44px;
-    line-height: 44px;
-    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    width: 88%;
     margin: auto;
-    padding: 0 5%;
-}
-.checkbox_wrapper label{
-    width: 100%;
 }
 .text-checkbox{
     display: inline-block;
+    position: absolute;
     z-index: 10;
     width: initial;
     left: 0;
@@ -383,8 +380,8 @@ header button:active{
     display: inline-block;
     position: absolute;
     z-index: 20;
-    right: 40px;
-    top: 5px;
+    right: 0;
+    top: 0px;
     width: 54px;
     height: 34px;
     border-radius: 20px;
@@ -400,8 +397,8 @@ header button:active{
     position: absolute;
     z-index: 30;
     display: block;
-    right: 43px;
-    top: 7px;
+    right: 3px;
+    top: 2px;
     width: 29px;
     height: 29px;
     border-radius: 50%;
@@ -748,6 +745,7 @@ input[type="checkbox"]:checked + label:before {
     background: url('../img/iconReport3.svg') center center no-repeat;
     background-size: 100%, cover;
 }
+
 .list_store{
     position: relative;
     width: 100%;
@@ -809,9 +807,6 @@ hr {
     line-height: 3.3em;
     color: rgb(88,88,88);
 }
-.item>.date{
-    padding-right: 0;
-}
 .item.selected>div{
     color: #f1f1f1;
 }
@@ -840,7 +835,6 @@ hr {
     white-space: pre-line;
     color: #111;
 }
-
 .store h1.storeNameR1{
     width: 77%;
     display: inline-block;
@@ -848,7 +842,7 @@ hr {
 }
 
 .region_store .storeNameR1{
-    width: 67% !important;
+        width: 67% !important;
 }
 .lastConexion {
     display: inline-block;
@@ -866,7 +860,7 @@ hr {
     width: 37%;
 }
 .dataLastConexion{
-    width: 52%;
+    width: 63%;
 }
 .lblLastConexion,.dataLastConexion{
     line-height: 24pt;
@@ -913,6 +907,7 @@ hr {
     border-radius: 8pt;
 }
 
+
 div[class^="region_store"]
 {
     height: 0;
@@ -930,6 +925,7 @@ div[class^="region_store"]
     height: auto !important;
     
 }
+
 
 
 div[class^="graphic"]
@@ -1322,7 +1318,7 @@ button.delete{
     opacity: .35;
     filter: alpha(opacity=5k);
 }
-.info {
+.modal-footer.info {
     line-height: 32px;
 }
 .chkTax label{
@@ -1737,7 +1733,7 @@ text{
         height: 72px;
     }
     .item .box, .menu .box{
-        padding-left: 98px;
+        padding-left: 82px;
     }
     .add_server {
         padding-right: 44px;
@@ -1868,9 +1864,9 @@ text{
     }
     .store h1.storeNameR1 {
         width: 80%;
-    }
+    }    
     .lastConexion {
-        width: 24%;
+        width: 20%;
         font-size: 13pt;
         line-height: 15pt;
         height: 40px;
@@ -1958,7 +1954,7 @@ text{
         height: 90px;
     }
     .item .box, .menu .box{
-        padding-left: 88px;
+        padding-left: 80px;
     }
     .actual i, .global i {
         width: 13%;
@@ -1982,7 +1978,7 @@ text{
     }
     header button {
         font-size: 12pt;
-        max-width: 82px;
+        max-width: 76px;
         min-width: 38px;
         padding-left: 2px;
     }
