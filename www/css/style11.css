@@ -2087,9 +2087,9 @@ thead {
     text-align: left;
 }
 .col1{
-    width:180px;
-    min-width: 180px;
-    max-width: 181px;
+    width:170px;
+    min-width: 170px;
+    max-width: 171px;
 }
 .col2{
     width:60px;
@@ -2158,5 +2158,5 @@ thead {
 }
 
 .headertable, .bodytable {
-    font-size: 68%;
+    font-size: 65%;
 }
