@@ -55,6 +55,7 @@ $(window).load(function(){
     //        //modal para no conexcion
     //     }
     // }
+    
     /*esta funcion ocurre despues de que ya cargo toda la pagina*/
     var lang = navigator.language.split("-");
     var current_lang = (lang[0]);
