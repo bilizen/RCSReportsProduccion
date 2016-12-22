@@ -146,9 +146,9 @@ header button,
     padding-left: 4px;
     font-weight: 300;
     text-overflow: ellipsis !important;
-    max-width: 64px;
-    min-width: 34px;
-    height: 34px;
+    max-width: 88px;
+    min-width: 44px;
+    height: 44px;
 }
 header button:active{
     opacity: 0.3;
@@ -156,7 +156,7 @@ header button:active{
 .item button{
     background-color: transparent;
     float: right;
-    padding-right: 15pt;
+    padding-right: 4pt;
 }
 .buttonItem{
     display: inline-block;
@@ -192,7 +192,7 @@ header button:active{
     text-align: center;
     width: 160px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 18px;
     line-height: 44px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -225,7 +225,7 @@ header button:active{
 #btn_right.config{
     background-image: url(../img/iconItems.svg);
     background-position: center;
-    background-size: 36px;
+    background-size: 38px;
     background-repeat: no-repeat;
 }
 #btn_right.configuration{
@@ -338,7 +338,7 @@ header button:active{
 }
 .btn_only1{
     display: block;
-    width: 88%;
+    width: 90%;
     margin: auto auto;
     background-color: #456CD8;
     color: white;
@@ -364,14 +364,17 @@ header button:active{
 }
 .checkbox_wrapper{
     position: relative;
-    height: 34px;
-    line-height: 34px;
-    width: 88%;
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
     margin: auto;
+    padding: 0 5%;
+}
+.checkbox_wrapper label{
+    width: 100%;
 }
 .text-checkbox{
     display: inline-block;
-    position: absolute;
     z-index: 10;
     width: initial;
     left: 0;
@@ -380,8 +383,8 @@ header button:active{
     display: inline-block;
     position: absolute;
     z-index: 20;
-    right: 0;
-    top: 0px;
+    right: 40px;
+    top: 5px;
     width: 54px;
     height: 34px;
     border-radius: 20px;
@@ -397,8 +400,8 @@ header button:active{
     position: absolute;
     z-index: 30;
     display: block;
-    right: 3px;
-    top: 2px;
+    right: 43px;
+    top: 7px;
     width: 29px;
     height: 29px;
     border-radius: 50%;
@@ -493,27 +496,6 @@ input[type="checkbox"]:checked + label:after {
 }
 input[type="checkbox"]:checked + label:before {
     background: #4BD863;
-}
-
-.input-radio + label {
-    height: 44px;
-    line-height: 55px;
-}
-.input-radio {
-    display: inline-block;
-    position: absolute;
-    z-index: 20;
-    left: 20px;
-    bottom: 0;
-    top: 10px;
-    margin: auto;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid rgb(21, 125, 251);
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
 }
 
 /*Menu */
@@ -715,36 +697,6 @@ input[type="checkbox"]:checked + label:before {
     background: url('../img/iconReport1.svg') center center no-repeat;
     background-size: 100%, cover;
 }
-.report9 .iconReport{
-    background: rgba(0,183,255,1);
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background-size: 100%, cover;
-}
-.report10 .iconReport{
-    background: rgba(0,183,255,1);
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background-size: 100%, cover;
-}
-.report11 .iconReport{
-    background: rgba(0,183,255,1);
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background: url('../img/iconReport3.svg') center center no-repeat;
-    background-size: 100%, cover;
-}
 
 .list_store{
     position: relative;
@@ -807,6 +759,9 @@ hr {
     line-height: 3.3em;
     color: rgb(88,88,88);
 }
+.item>.date{
+    padding-right: 0;
+}
 .item.selected>div{
     color: #f1f1f1;
 }
@@ -835,6 +790,7 @@ hr {
     white-space: pre-line;
     color: #111;
 }
+
 .store h1.storeNameR1{
     width: 77%;
     display: inline-block;
@@ -842,7 +798,7 @@ hr {
 }
 
 .region_store .storeNameR1{
-        width: 67% !important;
+    width: 67% !important;
 }
 .lastConexion {
     display: inline-block;
@@ -857,7 +813,7 @@ hr {
 }
 .lblLastConexion{
     padding-right: 3pt;
-    width: 37%;
+    width: 42%;
 }
 .dataLastConexion{
     width: 63%;
@@ -907,7 +863,6 @@ hr {
     border-radius: 8pt;
 }
 
-
 div[class^="region_store"]
 {
     height: 0;
@@ -925,7 +880,6 @@ div[class^="region_store"]
     height: auto !important;
     
 }
-
 
 
 div[class^="graphic"]
@@ -1318,7 +1272,7 @@ button.delete{
     opacity: .35;
     filter: alpha(opacity=5k);
 }
-.modal-footer.info {
+.info {
     line-height: 32px;
 }
 .chkTax label{
@@ -1403,38 +1357,6 @@ button.delete{
     background-color: rgba(0,0,0,.3);    
 }
 
-.dropdown-toggle .lblFilter{
-    font-size: 13pt;
-    font-weight: bold;
-    color: #000;
-    line-height: 40px;
-    padding: 0 20px;
-}
-.filterGoal{
-    position: absolute;
-    right: 20px;
-    top: 0;
-    height: 44px;
-    font-size: 14px;
-    font-weight: bold;
-    padding-right: 4%;
-    line-height: 3.3em;
-    color: rgb(88,88,88);
-}
-.filterCaret {
-    position: absolute;
-    right: 15px;
-    top: 20px;
-}
-.open>.dropdown-menu {
-    display: block;
-    right: 0;
-    left: inherit;
-}
-.opt.active{
-    color: white;
-}
-
 @media only screen and (min-width : 320px) and (max-width : 568px) { 
     .list_store{
         height: 180px;
@@ -1455,8 +1377,8 @@ button.delete{
 }
 
 .list_store .loader-ios{
-	text-align: center;
-	margin-top: 112px;
+    text-align: center;
+    margin-top: 112px;
 }
 
 .loader-ios {
@@ -1688,7 +1610,9 @@ text{
     -webkit-animation-timing-function: ease-in-out; 
     animation-timing-function: ease-in-out;
 }
-
+.noimg{
+    background-image: none;
+}
 
 @-webkit-keyframes rotationIcon {
     0% {
@@ -1765,7 +1689,7 @@ text{
         height: 72px;
     }
     .item .box, .menu .box{
-        padding-left: 82px;
+        padding-left: 98px;
     }
     .add_server {
         padding-right: 44px;
@@ -1896,9 +1820,9 @@ text{
     }
     .store h1.storeNameR1 {
         width: 80%;
-    }    
+    }
     .lastConexion {
-        width: 20%;
+        width: 46%;
         font-size: 13pt;
         line-height: 15pt;
         height: 40px;
@@ -1911,9 +1835,6 @@ text{
     }
     div[class^="chartdiv"]{
     height: 180px;
-    }
-    .dropdown-toggle .lblFilter {
-        padding: 0 48px;
     }
 }
 
@@ -1989,7 +1910,7 @@ text{
         height: 90px;
     }
     .item .box, .menu .box{
-        padding-left: 80px;
+        padding-left: 88px;
     }
     .actual i, .global i {
         width: 13%;
@@ -2013,7 +1934,7 @@ text{
     }
     header button {
         font-size: 12pt;
-        max-width: 76px;
+        max-width: 82px;
         min-width: 38px;
         padding-left: 2px;
     }
@@ -2052,7 +1973,7 @@ text{
         width: 72%;
     }
     .lastConexion {
-        width: 33%;
+        width: 43%;
         font-size: 9pt;
         line-height: 11pt;
         height: 26px;
@@ -2096,30 +2017,4 @@ text{
         text-overflow: ellipsis;
     }
     
-}
-
-.radio_wrapper input, .radio_wrapper label{
-    padding-left: 22px;
-    text-align: left;
-}
-.radio_wrapper input{
-    margin-bottom: -9px;
-}
-.radio_wrapper{
-    position: relative;
-    height: 44px;
-    line-height: 34px;
-    width: 100%;
-    margin: auto;
-    padding: 0 5%;
-}
-.radio_wrapper.checked span{
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    padding: 0;
-    border-radius: 50%;
-    top: 0; left: 0; right: 0; bottom: 0;
-    margin: auto;
-    background-color: rgb(21, 125, 251);
 }
