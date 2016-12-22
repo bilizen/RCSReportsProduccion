@@ -1407,6 +1407,38 @@ button.delete{
     background-color: rgba(0,0,0,.3);    
 }
 
+.dropdown-toggle .lblFilter{
+    font-size: 13pt;
+    font-weight: bold;
+    color: #000;
+    line-height: 40px;
+    padding: 0 20px;
+}
+.filterGoal{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    height: 44px;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 4%;
+    line-height: 3.3em;
+    color: rgb(88,88,88);
+}
+.filterCaret {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+}
+.open>.dropdown-menu {
+    display: block;
+    right: 0;
+    left: inherit;
+}
+.opt.active{
+    color: white;
+}
+
 @media only screen and (min-width : 320px) and (max-width : 568px) { 
     .list_store{
         height: 180px;
@@ -1883,6 +1915,9 @@ text{
     }
     div[class^="chartdiv"]{
     height: 180px;
+    }
+    .dropdown-toggle .lblFilter {
+        padding: 0 48px;
     }
 }
 

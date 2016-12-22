@@ -14,7 +14,43 @@ $(window).load(function(){
    checkDefaultActualGlobal_report7();
    GetDatesDatabase();
    downloadByCompany();
+
+   $('.opt').click(function(){
+        $('.opt').removeClass('active');
+        $(this).addClass('active');
+        var a=$(this).attr('data-value');
+        if(a=="1"){
+            GlobalFilterStores="1";
+            if (current_lang == 'es'){
+                $('.filterStoresSales').text("Todos");
+            }else{
+                $('.filterStoresSales').text("All");
+            }
+            $('.goalStore').removeClass('hide');
+            $('.saleStore').removeClass('hide');
+        }else if(a=="2"){
+            GlobalFilterStores="2";
+            if (current_lang == 'es'){
+                $('.filterStoresSales').text("↑Arriba");
+            }else{
+                $('.filterStoresSales').text("↑Above");
+            }
+            $('.goalStore').addClass('hide');
+            $('.saleStore').removeClass('hide');
+        }else if(a=="3"){
+            GlobalFilterStores="3";
+            if (current_lang == 'es'){
+                $('.filterStoresSales').text("↓Abajo");
+            }else{
+                $('.filterStoresSales').text("↓Below");
+            }
+            $('.saleStore').addClass('hide');            
+            $('.goalStore').removeClass('hide');  
+        }
+    }); 
 });
+
+var GlobalFilterStores="1";
 
 $(window).resize(function () {
     responsiveReport7();
@@ -28,7 +64,7 @@ function responsiveReport7() {
     var regionh = $('#divRegion').height();
     var selectdateP = $('.select-dateP').height();
     var selectGeneral = $('.select-general').height();
-    $('.list').height(windowh - headerh - selectdateP - selectGeneral-20 );
+    $('.list').height(windowh - headerh - selectdateP - selectGeneral-60 );
 }
 
 
@@ -387,7 +423,6 @@ function detailsNewCompStore(indice,typecode,regionCode){
 
                         if (data.quantity > 0) {
                             
-
                             if (current_lang == 'es') {
                                 if (option == 1) {
                                     lblCurrentGoal = "MH:";
@@ -528,6 +563,23 @@ function detailsNewCompStore(indice,typecode,regionCode){
                                 percent = parseFloat(percent).toFixed(0);
                                 percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
+                                if(goalAmount-payTotal>0){
+                                    if(GlobalFilterStores=="1"){
+                                        mostrar += "<div class='goalStore'>";
+                                    }else if(GlobalFilterStores=="2"){
+                                        mostrar += "<div class='goalStore hide'>";
+                                    }else if(GlobalFilterStores=="3"){
+                                        mostrar += "<div class='goalStore'>";
+                                    }
+                                }else{
+                                    if(GlobalFilterStores=="1"){
+                                        mostrar += "<div class='saleStore'>";
+                                    }else if(GlobalFilterStores=="2"){
+                                        mostrar += "<div class='saleStore'>";
+                                    }else if(GlobalFilterStores=="3"){
+                                        mostrar += "<div class='saleStore hide'>";
+                                    }   
+                                }
 
                                 mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
                                 mostrar += "<div class='lastConexion'><div class='dataLastConexion'>" + lastConexion + "</div></div>";
@@ -556,7 +608,8 @@ function detailsNewCompStore(indice,typecode,regionCode){
                                 }
 
 
-                                mostrar += "</div><hr>";
+                                mostrar += "<hr></div>";
+                                //mostrar += "</div>";
 
                                 $("#graph_region"+indice).append(mostrar);
 

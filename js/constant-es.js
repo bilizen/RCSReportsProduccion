@@ -241,7 +241,13 @@ function MSG_TXT_TITLE_1() {
 function MSG_SPN_HEADER_1() {
     $('#section_header').text("Elegir Filtros");
 }
-
+function MSG_COMBO_FILTER_STORE(){
+    $('.lblFilter').text("Filtrar Tiendas");
+    $('.filterStoresSales').text("Todos");
+    $('.optionAll').text("Todos");
+    $('.optionSale').text("↑Arriba");
+    $('.optionGoal').text("↓Abajo");
+}
 
 function MSG_LBL_DET_DIC_1(){
     $('#TodayGoal').text("MH:");
@@ -747,6 +753,7 @@ function changeLanguage7(){
     MSG_TODAYP_1();
     MSG_LBL_DET_DIC_1();
     MSG_DICTIONARY();
+    MSG_COMBO_FILTER_STORE();
     /***************************************/
     MSGS_TEXT_OPTIONS();
    
@@ -778,6 +785,7 @@ function changeLanguage8(){
     MSG_TODAYP_1();
     MSG_LBL_DET_DIC_1();
     MSG_DICTIONARY();
+    MSG_COMBO_FILTER_STORE();
     /***************************************/
     MSGS_TEXT_OPTIONS();
    

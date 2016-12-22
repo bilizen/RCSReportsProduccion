@@ -13,9 +13,46 @@ $(window).load(function(){
     checkDefaultActualGlobal();
     valuesGroupDate();
     GetDatesDatabase();
-    loadComboRegions();
+    downloadByStore("");
+    //loadComboRegions();
+
+    $('.opt').click(function(){
+        $('.opt').removeClass('active');
+        $(this).addClass('active');
+        var a=$(this).attr('data-value');
+        if(a=="1"){
+            GlobalFilterStores="1";
+            if (current_lang == 'es'){
+                $('.filterStoresSales').text("Todos");
+            }else{
+                $('.filterStoresSales').text("All");
+            }
+            $('.goalStore').removeClass('hide');
+            $('.saleStore').removeClass('hide');
+        }else if(a=="2"){
+            GlobalFilterStores="2";
+            if (current_lang == 'es'){
+                $('.filterStoresSales').text("↑Arriba");
+            }else{
+                $('.filterStoresSales').text("↑Above");
+            }
+            $('.saleStore').removeClass('hide');
+            $('.goalStore').addClass('hide');
+        }else if(a=="3"){
+            GlobalFilterStores="3";
+            if (current_lang == 'es'){
+                $('.filterStoresSales').text("↓Abajo");
+            }else{
+                $('.filterStoresSales').text("↓Below");
+            }
+            $('.saleStore').addClass('hide');
+            $('.goalStore').removeClass('hide');  
+        }
+    }); 
+
 });
 
+var GlobalFilterStores="1";
 
 
 //rotation screem
@@ -30,7 +67,11 @@ function responsiveReport1() {
     var selectdateP = $('.select-dateP').height();
     var selectGeneral = $('.select-general').height();
     if ($('#divRegion').css('display') == 'none') {//no hay region
-        $('.list').height(windowh - headerh - selectdateP - selectGeneral -20); 
+        if($('#divFilter').css('display') == 'none'){
+            $('.list').height(windowh - headerh - selectdateP - selectGeneral -20);
+        }else{
+            $('.list').height(windowh - headerh - selectdateP - selectGeneral -60);
+        } 
     } else {
         $('.list').height(windowh - headerh - selectdateP - selectGeneral - 70);
     }
@@ -101,6 +142,7 @@ function GetDatesDatabase(){
 
 //************** descargar data por compañia, en el array en el indice principal:1 ************//
 function downloadByCompany() {
+    filterStoreHideCombo();
     var xurl = "";
     var c_ip = "";
     var c_port = "";
@@ -328,6 +370,8 @@ function downloadByCompany() {
 
 //************** Descargar data por Region, en el array en el indice byRegion:2*********//
 function downloadByRegion() {
+    filterStoreShowCombo();
+
     var xurl = "";
     var c_ip = "";
     var c_port = "";
@@ -377,7 +421,7 @@ function downloadByRegion() {
 
                     if (data.quantity > 0) {
                         var mostrar = "";
-                        mostrar += "<div id='divByRegion'>";
+                        //mostrar += "<div id='divByRegion'>";
 
                         if (current_lang == 'es') {
                             if (option == 1) {
@@ -555,7 +599,7 @@ function downloadByRegion() {
                            
 
                         });
-                        mostrar += "</div>";
+                        //mostrar += "</div>";
                         $("#items").append(mostrar);
                         
                     }
@@ -660,10 +704,12 @@ function loadComboRegions() {
 }
 
 
-
-
 //************ Descargar data por Store, en el arrary su indice vale***********//
 function downloadByStore(regionCode) {
+    hideCombo();
+    filterStoreShowCombo();
+    $('#txt_title').text(localStorage.getItem("titleReport1"));
+
     var xurl = "";
     var c_ip = "";
     var c_port = "";
@@ -858,7 +904,26 @@ function downloadByStore(regionCode) {
                             percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
 
-                            mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light'>";
+                            if(goalAmount-payTotal>0){
+                                if(GlobalFilterStores=="1"){
+                                    mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light goalStore'>";
+                                }else if(GlobalFilterStores=="2"){
+                                    mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light goalStore hide'>";
+                                }else if(GlobalFilterStores=="3"){
+                                    mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light goalStore'>";
+                                }
+                            }else{
+                                if(GlobalFilterStores=="1"){
+                                    mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light saleStore'>";
+                                }else if(GlobalFilterStores=="2"){
+                                    mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light saleStore'>";
+                                }else if(GlobalFilterStores=="3"){
+                                    mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light saleStore hide'>";
+                                }
+                                
+                            }
+
+                            // mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light'>";
                             mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
                             // if (current_lang == 'es'){
                             //     mostrar += "<div class='lastConexion'><div class='dataLastConexion'>" + lastConexion + "</div></div>";
@@ -892,8 +957,8 @@ function downloadByStore(regionCode) {
 
                             mostrar +="<div id='graph" + indice + "' class='graphic showGraphic'>";
                             mostrar += "</div>";
-                            mostrar += "</div><hr>";
-
+                            // mostrar += "</div><hr>";
+                            mostrar += "</div>";
                             $("#items").append(mostrar);
                             
 
@@ -922,10 +987,6 @@ function downloadByStore(regionCode) {
         });
     });
 }
-
-
-
-
 
 function storeWitdhGraphic(indice,storeno) {
     var altura = $('#graph' + indice).height();
@@ -1003,10 +1064,8 @@ function storeWitdhGraphic(indice,storeno) {
     }
 }
 
-
 function storeWitdhGraphic2(indice,regionCode) {
     var altura = $('#graph_region'+indice).height();
-    
     if (altura > 0) { // esta mostrandose ; se debe ocultar
         $('.region_store').empty();
     } else {    
@@ -1187,7 +1246,24 @@ function storeWitdhGraphic2(indice,regionCode) {
                                 percent = parseFloat(percent).toFixed(0);
                                 percentGlobal = parseFloat(percentGlobal).toFixed(0);
 
-
+                                
+                                if(goalAmount-payTotal>0){
+                                    if(GlobalFilterStores=="1"){
+                                        mostrar += "<div class='goalStore'>";
+                                    }else if(GlobalFilterStores=="2"){
+                                        mostrar += "<div class='goalStore hide'>";
+                                    }else if(GlobalFilterStores=="3"){
+                                        mostrar += "<div class='goalStore'>";
+                                    }
+                                }else{
+                                    if(GlobalFilterStores=="1"){
+                                        mostrar += "<div class='saleStore'>";
+                                    }else if(GlobalFilterStores=="2"){
+                                        mostrar += "<div class='saleStore'>";
+                                    }else if(GlobalFilterStores=="3"){
+                                        mostrar += "<div class='saleStore hide'>";
+                                    }   
+                                }
                                 mostrar += "<h1 class='storeNameR1'>" + storeName + "</h1>";
                                 
                                 mostrar += "<div class='lastConexion'><div class='lblLastConexion'></div><div class='dataLastConexion'>" + lastConexion + "</div></div>";
@@ -1217,7 +1293,8 @@ function storeWitdhGraphic2(indice,regionCode) {
                                 }
 
                                 mostrar += "</div>";
-                                mostrar += "</div><hr>";
+                                mostrar += "</div>";
+                                mostrar += "</div>"
                                 $("#graph_region"+indice).append(mostrar);
                                 
                             });
@@ -1332,12 +1409,15 @@ function selectRangeGroup(){
 }
 
 
+function filterStoreHideCombo() {
+    $("#divFilter").hide();
+}
+function filterStoreShowCombo() {
+    $("#divFilter").show();
+}
 
 
 
-
-
-///////////////////
 //verifica los los switch si estan activos
 function valuesGroupDate(){
     if(null==localStorage.getItem("RCSReports_valuesGroupStore")){

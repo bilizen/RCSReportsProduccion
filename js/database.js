@@ -1057,6 +1057,7 @@ function deteclenguage() {
 		MSG_TODAYP_1();
 		MSG_LBL_DET_DIC_1();
 		MSG_DICTIONARY();
+		MSG_COMBO_FILTER_STORE();
 		/***************************************/
 		MSGS_TEXT_OPTIONS();
 	}
