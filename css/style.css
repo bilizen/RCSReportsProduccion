@@ -1909,6 +1909,7 @@ text{
     }
     .lblLastConexion,.dataLastConexion{
         line-height: 32pt;
+        width: 65%;
     }
     .close,.close.back {
         font-size: 16px;
