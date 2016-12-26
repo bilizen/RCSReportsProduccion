@@ -1406,7 +1406,9 @@ button.delete{
     z-index: 1040;    
     background-color: rgba(0,0,0,.3);    
 }
-
+.dropdown-backdrop{
+    position: static;
+}
 .dropdown-toggle .lblFilter{
     font-size: 13pt;
     font-weight: bold;
