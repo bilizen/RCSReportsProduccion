@@ -866,7 +866,7 @@ hr {
 div[class^="region_store"]
 {
     height: 0;
-    width: 90%;
+    width: 95%;
     overflow-y: hidden;
     overflow-x: hidden;
     opacity: 0;
@@ -878,9 +878,19 @@ div[class^="region_store"]
 .regionList {
     opacity: 1 !important;
     height: auto !important;
-    
 }
 
+div[class^="region_disctrict"]
+{
+    height: 0;
+    width: 90%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    opacity: 0;
+    margin: auto;
+    -webkit-transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+    transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+}
 
 div[class^="graphic"]
 {
