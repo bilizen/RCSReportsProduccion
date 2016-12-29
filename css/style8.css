@@ -1357,6 +1357,11 @@ button.delete{
     line-height: 40px;
     padding: 0 20px;
 }
+
+.dropdown-toggle{
+    background-color: #fbfcfc;
+}
+
 .filterGoal{
     position: absolute;
     right: 20px;
