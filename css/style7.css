@@ -1399,12 +1399,14 @@ button.delete{
     li, input, textarea {
         background-image: none;
         border-bottom: 1px solid rgb(142, 142, 146);
+        border: 0;
     }
 }
 @media (max-device-pixel-ratio: 1) {
     li, input, textarea {
         background-image: none;
         border-bottom: 1px solid rgb(142, 142, 146);
+        border: 0;
     }
 }
 
@@ -1867,6 +1869,9 @@ text{
     }
     div[class^="chartdiv"]{
     height: 180px;
+    }
+    .dropdown-toggle .lblFilter {
+        padding: 0 48px;
     }
 }
 
