@@ -190,7 +190,7 @@ header button:active{
 }
 #txt_login,#txt_maintitle,#txt_title, #top_txt_title,#txt_Options,#txt_title2{
     text-align: center;
-    width: 160px;
+    width: 180px;
     margin: 0 auto;
     padding-top: 18px;
     line-height: 44px;
@@ -866,7 +866,7 @@ hr {
     width: 37%;
 }
 .dataLastConexion{
-    width: 52%;
+    width: 56%;
 }
 .lblLastConexion,.dataLastConexion{
     line-height: 24pt;
@@ -2038,7 +2038,7 @@ text{
         font-size: 13pt;
     }
     #txt_login, #txt_maintitle, #txt_title, #top_txt_title, #txt_Options{
-        width: 145px;
+        width: 170px;
     }
     .store h1 {
         height: 26px;

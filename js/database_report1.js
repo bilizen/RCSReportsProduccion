@@ -709,6 +709,7 @@ function downloadByStore(regionCode) {
     hideCombo();
     filterStoreShowCombo();
     $('#txt_title').text(localStorage.getItem("titleReport1"));
+    localStorage.RCSReports_valuesGroupStore=3;
 
     var xurl = "";
     var c_ip = "";
