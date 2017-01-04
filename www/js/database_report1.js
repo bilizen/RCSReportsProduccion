@@ -709,7 +709,6 @@ function downloadByStore(regionCode) {
     hideCombo();
     filterStoreShowCombo();
     $('#txt_title').text(localStorage.getItem("titleReport1"));
-    localStorage.RCSReports_valuesGroupStore=3;
 
     var xurl = "";
     var c_ip = "";
@@ -724,7 +723,7 @@ function downloadByStore(regionCode) {
     var option = localStorage.RCSReports_valuesRangeDates;
     
     var regioncode=regionCode;
-    // localStorage.RCSReports_regioncode=regionCode;
+    localStorage.RCSReports_regioncode=regionCode;
     //verifica si esta con impuestos
     var impuesto=localStorage.getItem("check_tax");
 
@@ -920,7 +919,8 @@ function downloadByStore(regionCode) {
                                     mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light saleStore'>";
                                 }else if(GlobalFilterStores=="3"){
                                     mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light saleStore hide'>";
-                                }                                
+                                }
+                                
                             }
 
                             // mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light'>";
@@ -961,12 +961,13 @@ function downloadByStore(regionCode) {
                             mostrar += "</div>";
                             $("#items").append(mostrar);
                             
+
                             mostrar = "";
                             indice++;
 
                         });
                         responsiveReport1();
-                        //deteclenguage();
+                        deteclenguage();
                     }
                  
                 },
@@ -1402,8 +1403,8 @@ function selectRangeGroup(){
         downloadByRegion();
     }
     if(localStorage.RCSReports_valuesGroupStore==3){
-        // var regionCode=localStorage.RCSReports_regioncode;
-        downloadByStore('');
+        var regionCode=localStorage.RCSReports_regioncode;
+        downloadByStore(regionCode);
     }
 }
 
