@@ -710,6 +710,7 @@ function downloadByStore(regionCode) {
     filterStoreShowCombo();
     $('#txt_title').text(localStorage.getItem("titleReport1"));
     localStorage.RCSReports_valuesGroupStore=3;
+
     var xurl = "";
     var c_ip = "";
     var c_port = "";
@@ -919,8 +920,7 @@ function downloadByStore(regionCode) {
                                     mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light saleStore'>";
                                 }else if(GlobalFilterStores=="3"){
                                     mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light saleStore hide'>";
-                                }
-                                
+                                }                                
                             }
 
                             // mostrar += "<div onclick=\"storeWitdhGraphic(" + indice + ","+storeNo+")\" class='store waves-effect waves-light'>";
@@ -961,7 +961,6 @@ function downloadByStore(regionCode) {
                             mostrar += "</div>";
                             $("#items").append(mostrar);
                             
-
                             mostrar = "";
                             indice++;
 
@@ -1403,7 +1402,7 @@ function selectRangeGroup(){
         downloadByRegion();
     }
     if(localStorage.RCSReports_valuesGroupStore==3){
-        //var regionCode=localStorage.RCSReports_regioncode;
+        // var regionCode=localStorage.RCSReports_regioncode;
         downloadByStore('');
     }
 }

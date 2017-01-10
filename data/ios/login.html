@@ -30,9 +30,7 @@
       <div class="options_bar_space">
         <div id="btn_left" class="arrow white"><button onclick="goIp();" id="txtback_login" class="white">Back</button></div>
         <div id="txt_maintitle" class="titleTopBar">&nbsp;</div>
-        <div id="btn_right" class="config">
-          <button onclick="showListOptions()"></button>
-        </div>
+        <div id="btn_right"><button></button></div>
       </div>      
     </header>
 
@@ -104,59 +102,5 @@
     </div>
   </div>
 
-  <!-- Modal Options-->
-  <div class="modal fade zIndex1" id="show_options">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header text-center">                    
-                  <h4 class="modal-title" id="lblToolsTitle">
-                      Settings
-                  </h4>
-                  
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">Close</button>
-              </div>                
-              <div class="modal-footer add">  
-                  <button class="btn btn-modal landBtnLeft" data-dismiss="modal" id="servers_list" onclick="showOptionServers();">Servers</button> 
-                  <button class="btn btn-modal landBtnRight" data-dismiss="modal" id="add_alias" onclick="delTables();newInfoServer();">Add Server</button>            
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <!-- Modal Servers List-->
-  <div class="modal fade zIndex2" id="ServersList" data-keyboard="true" >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">Close</button>
-          <h4 class="modal-title" id="lblchangealit">
-            Servers
-          </h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-control select-alias" id="divlistado">
-          </div>
-        </div>                
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Confirm change Server-->
-  <div class="modal fade zIndex3" id="ModalConfirm" >
-    <input type="hidden" name="txtvalue" id="txtvalue" value="0">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="lblchangealic">
-              Want to change Server?
-          </h4>
-        </div>
-        <div class="modal-footer add">
-          <button type="button" class="btn btn-modal left" id="btnsi" name="btnsi" data-dismiss="modal" aria-hidden="true" onclick="delTables();updateStateServer();">Yes</button>
-          <button type="button" class="btn btn-modal right nostrong" id="btnno" name="btnno" data-dismiss="modal" aria-hidden="true" onclick="showListOptions()">No</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
