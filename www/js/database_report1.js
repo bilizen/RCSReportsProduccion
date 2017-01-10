@@ -709,7 +709,7 @@ function downloadByStore(regionCode) {
     hideCombo();
     filterStoreShowCombo();
     $('#txt_title').text(localStorage.getItem("titleReport1"));
-
+    localStorage.RCSReports_valuesGroupStore=3;
     var xurl = "";
     var c_ip = "";
     var c_port = "";
@@ -723,7 +723,7 @@ function downloadByStore(regionCode) {
     var option = localStorage.RCSReports_valuesRangeDates;
     
     var regioncode=regionCode;
-    localStorage.RCSReports_regioncode=regionCode;
+    // localStorage.RCSReports_regioncode=regionCode;
     //verifica si esta con impuestos
     var impuesto=localStorage.getItem("check_tax");
 
@@ -967,7 +967,7 @@ function downloadByStore(regionCode) {
 
                         });
                         responsiveReport1();
-                        deteclenguage();
+                        //deteclenguage();
                     }
                  
                 },
@@ -1403,8 +1403,8 @@ function selectRangeGroup(){
         downloadByRegion();
     }
     if(localStorage.RCSReports_valuesGroupStore==3){
-        var regionCode=localStorage.RCSReports_regioncode;
-        downloadByStore(regionCode);
+        //var regionCode=localStorage.RCSReports_regioncode;
+        downloadByStore('');
     }
 }
 

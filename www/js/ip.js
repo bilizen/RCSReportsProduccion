@@ -10,6 +10,8 @@ $(document).ready(function () {
             //-1 si si ingresa por primera vez o mata aplicacion
             if(variablEE == -1){
                 existsData();
+            }else if(variablEE==2){
+                MSG_GO_ADD();
             }else{   
                 //camibar el nombre del boton de ingresar --> agregar
                 MSG_GO_ADD();
@@ -40,6 +42,8 @@ $(window).load(function(){
     //         //-1 si si ingresa por primera vez o mata aplicacion
     //         if(variablEE == -1){
     //             existsData();
+    //         }else if(variablEE==2){
+    //             MSG_GO_ADD();
     //         }else{   
     //             //camibar el nombre del boton de ingresar --> agregar
     //             MSG_GO_ADD();
@@ -149,7 +153,7 @@ $(window).load(function(){
                         } else {
                             //entra al agregar un servidor
                             capture_variable(variablEE);
-                            validIP(ip, port, urlBase, alias, "1", site, variablEE);
+                            validIP(ip, port, urlBase, alias, "1", site, "1");
                         }
                     } else {
                         if (current_lang == 'es'){
@@ -217,10 +221,8 @@ function validIP(ip, port, _url, alias, use, site, variable) {
             console.log("COMPLETADO ... COMPLETADO");
             //entra al ejecutar el APP
             if (variable == -1) {
-                
                 firstServer(ip, port, xurl, alias, use, site, variable);
-            } else {
-                
+            } else { 
                 newServer(ip, port, xurl, alias, use, site, variable);
             }
 
