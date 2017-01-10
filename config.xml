@@ -2,8 +2,8 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
                 xmlns:gap = "http://phonegap.com/ns/1.0"
                 id        = "com.retailcustomsolutions.reports"
-                versionCode="32"
-                version   ="3.1.17">
+                versionCode="33"
+                version   ="3.1.18">
     <name>RCS Reports</name>
     <description>RCS Reports</description>
     <author href="http://retailcs.com/" email="devmobile@realcs.com">

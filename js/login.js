@@ -295,3 +295,93 @@ function validData(pin, check) {
 function goIp() {
     window.location.href = "ip.html";
 }
+
+function showListOptions(){
+    $("#show_options").modal("show");
+}
+
+function newInfoServer(){
+    window.location.href = "ip.html?variable=2";
+}
+
+
+function showOptionServers(){
+    $("#ServersList").modal("show");
+    getListServers();
+}
+
+function getListServers() {
+    var query = "SELECT " + KEY_ID + ", " + KEY_URLBASE + "," + KEY_ALIAS +" , "+KEY_USE+ " FROM " + TABLE_URL;
+    try {
+        localDB.transaction(function (transaction) {
+            transaction.executeSql(query, [], function (transaction, results) {
+
+                var mostrar = "";
+                $("#divlistado").empty();
+
+                for (var i = 0; i < results.rows.length; i++) {
+
+                    var row = results.rows.item(i);
+                    var _id = row['id'];
+                    var _alias = row['alias'];
+                    var _url = row['urlBase'];
+                    var active=row['use'];
+                    if(active=="1"){
+                        mostrar += "<div class='collection-item active'> ";
+                    }else{
+                        mostrar += "<div class='collection-item'> ";
+                    }
+                    mostrar += "<span data-toggle='modal' data-dismiss='modal' onclick=\"addID(" + _id + ")\">" + _alias + "</span> ";//data-target ???
+                    mostrar += "<i class='material-icons right'></i></div>";
+                }
+                $("#divlistado").append(mostrar);
+
+
+            }, function (transaction, error) {
+                console.log("Error: " + error.code + "<br>Mensage: " + error.message);
+            });
+        });
+    } catch (e) {
+        console.log("Error getAllData " + e + ".");
+    }
+}
+
+function addID(abc){
+    $("#txtvalue").val(abc);
+    $('#ModalConfirm').modal("show");
+}        
+
+function updateStateServer(){
+    var id = $("#txtvalue").val();
+    try {  
+        var query = "UPDATE " + TABLE_URL + " SET " + KEY_USE + " = '0'";
+        localDB.transaction(function (transaction) {
+            transaction.executeSql(query, [], function (transaction, results) {
+                var query2 = "UPDATE " + TABLE_URL + " SET " + KEY_USE + " = '1' WHERE " + KEY_ID + " = ? ";
+                localDB.transaction(function (transaction) {
+                    transaction.executeSql(query2, [id], function (transaction, results) {
+                        var query3 = "SELECT * FROM  " +TABLE_URL + " WHERE " + KEY_USE + "='1'";
+                        localDB.transaction(function (transaction) {
+                            transaction.executeSql(query3,[], function (transaction, results) {
+                                var pin=results.rows.item(0).pin; 
+                                var query4="DELETE FROM  "+TABLE_CONFIGURATION+";";
+                                localDB.transaction(function (transaction) {  
+                                    transaction.executeSql(query4, [], function (transaction, results) {
+                                        localDB.transaction(function (transaction) {
+                                           var query5="INSERT INTO " + TABLE_CONFIGURATION + " ( " + KEY_PIN + " , " + KEY_REMEMBER + " ) VALUES('"+pin+"','1');";
+                                            transaction.executeSql(query5, [], function (transaction, results) {
+                                            window.location.href = "ip.html";
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    } catch (e) {
+        console.log("Error updateState " + e + ".");
+    }
+}
