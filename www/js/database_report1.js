@@ -75,6 +75,7 @@ function responsiveReport1() {
     } else {
         $('.list').height(windowh - headerh - selectdateP - selectGeneral - 70);
     }
+    $('.graphic').empty();
 }
 
 
@@ -248,7 +249,7 @@ function downloadByCompany() {
                         }
 
                         mostrar += "<div id='divByCompany'>";
-                        mostrar += "<div class='store waves-effect waves-light'>";
+                        mostrar += "<div class='store waves-effect waves-light' onclick='grapihcCompanyDetails()'>";
                         mostrar += "<h1>" + c_alias + '</h1>';
                         $(data.report).each(function (index, value) {
                             var goalAmount = value.goalAmount;
@@ -345,6 +346,8 @@ function downloadByCompany() {
                             
                             
                         });
+                            mostrar +="<div id='graphCompanyDetails' class='graphic showGraphic'>";
+                            mostrar += "</div>";
                             mostrar += "</div>";
                             mostrar += "</div>";
                             mostrar += "<hr>";
@@ -356,17 +359,87 @@ function downloadByCompany() {
                     console.log(xhr.status);
                     console.log(xhr.statusText);
                     console.log(xhr.responseText);
-                    //hideLoading();
-                    if (current_lang == 'es')
+                    if (current_lang == 'es'){
                         mostrarModalGeneral("Error de Conexión");
-                    else
+                    }else{
                         mostrarModalGeneral("No Connection");
+                    }
                 }
             });
         }, null);
     });
 }
 
+function  grapihcCompanyDetails(){
+    var altura = $('#graphCompanyDetails').height();
+    if (altura > 0) { // esta mostrandose ; se debe ocultar
+        $('.graphic').empty();
+    } else { //  para toda la lista, remover el showing
+        $('.graphic').empty();
+        localDB.transaction(function (tx) {
+            tx.executeSql('SELECT * FROM ' + TABLE_URL + ' WHERE  ' + KEY_USE + ' = 1', [], function (tx, results) {
+                var c_ip = results.rows.item(0).ip;
+                var c_port = results.rows.item(0).port;
+                var c_site = results.rows.item(0).site;
+                var xurl = 'http://' + c_ip + ':' + c_port + '/' + c_site + '/reportCompanyDetails/POST';
+                var option = localStorage.RCSReports_valuesRangeDates;
+                var tax=localStorage.getItem("check_tax");
+                var day=todayreport();
+                var employeeCode=localStorage.RCSReportsEmployeeCode;
+                var array = {Day:day, Option: option, Tax: tax, EmployeeCode: employeeCode};
+                /*********************/
+                $.ajax({
+                    url: xurl,
+                    type: 'POST',
+                    data: JSON.stringify(array),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    async: true,
+                    crossdomain: true,
+                    beforeSend: function () {
+                        showLoading();
+                    },
+                    complete: function () {
+                        hideLoading();
+                    },
+                    success: function (data) {
+
+                        if(data.quantity>0){
+                            $("#graphCompanyDetails").empty();
+                            var array_description = [];
+                            var array_total = [];
+                            var mostrar="";
+                            $(data.data).each(function (index, value) {
+                            array_description[index] = value.Info;
+                            array_total[index] = value.Total;
+                            });
+                            mostrar +="<div id='chartdiv' class='chartdiv'></div>";
+                            mostrar += "<div class='detalle-0'>";
+                            if (current_lang == 'es'){
+                                mostrar += "<div class='year'>Año</div><div class='quantity'>Cantidad</div>";
+                            }else{
+                                mostrar += "<div class='year'>Year</div><div class='quantity'>Quantity</div>";
+                            }
+                            mostrar += "<i>" + array_description[0] + "</i><span>" + parseFloat(array_total[0]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
+                            mostrar += "<i>" + array_description[1] + "</i><span>" + parseFloat(array_total[1]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
+                            mostrar += "<i>" + array_description[2] + "</i><span>" + parseFloat(array_total[2]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
+
+                            mostrar += "</div>";
+                            $("#graphCompanyDetails").append(mostrar);
+                            drawGraphic(array_description[0], array_description[1], array_description[2],
+                            array_total[0], array_total[1], array_total[2]);
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(xhr.status);
+                        console.log(xhr.statusText);
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    }
+}
 
 //************** Descargar data por Region, en el array en el indice byRegion:2*********//
 function downloadByRegion() {
@@ -622,8 +695,6 @@ function downloadByRegion() {
     });
 }
 
-
-
 //muestra el combo de regiones
 function loadComboRegions() {
     var yurl = "";
@@ -702,7 +773,6 @@ function loadComboRegions() {
         });
     });
 }
-
 
 //************ Descargar data por Store, en el arrary su indice vale***********//
 function downloadByStore(regionCode) {
@@ -1035,7 +1105,11 @@ function storeWitdhGraphic(indice,storeno) {
                             });
                             mostrar +="<div id='chartdiv' class='chartdiv'></div>";
                             mostrar += "<div class='detalle-" + indice + "'>";
-                            mostrar += "<div class='year'>Año</div><div class='quantity'>Cantidad</div>";
+                            if (current_lang == 'es'){
+                                mostrar += "<div class='year'>Año</div><div class='quantity'>Cantidad</div>";
+                            }else{
+                                mostrar += "<div class='year'>Year</div><div class='quantity'>Quantity</div>";
+                            }
                             mostrar += "<i>" + array_description[0] + "</i><span>" + parseFloat(array_total[0]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
                             mostrar += "<i>" + array_description[1] + "</i><span>" + parseFloat(array_total[1]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
                             mostrar += "<i>" + array_description[2] + "</i><span>" + parseFloat(array_total[2]).toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</span>";
@@ -1317,8 +1391,6 @@ function storeWitdhGraphic2(indice,regionCode) {
     }
 }
 
-
-
 //verifica los los switch si estan activos
 function checkDefaultActualGlobal(){
     if(null==localStorage.getItem("check_actual_report1")){
@@ -1344,7 +1416,6 @@ function checkDefaultActualGlobal(){
     }
 }
 
-
 function updateActual() {
     var principal = $(".select-general div:first-child()").attr("data-value");
     ch_principal = principal;
@@ -1368,8 +1439,6 @@ function updateGlobal() {
         localStorage.setItem("check_global_report1",1);;
     }
 }
-
-
 
 function rangeOfToday(){
     localStorage.RCSReports_valuesRangeDates=1;
