@@ -59,6 +59,7 @@ $(window).load(function(){
     //        //modal para no conexcion
     //     }
     // }
+    
     /*esta funcion ocurre despues de que ya cargo toda la pagina*/
     var lang = navigator.language.split("-");
     var current_lang = (lang[0]);
@@ -221,7 +222,7 @@ function validIP(ip, port, _url, alias, use, site, variable) {
             //entra al ejecutar el APP
             if (variable == -1) {
                 firstServer(ip, port, xurl, alias, use, site, variable);
-            } else {
+            } else { 
                 newServer(ip, port, xurl, alias, use, site, variable);
             }
 
