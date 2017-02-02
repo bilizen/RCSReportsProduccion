@@ -1,87 +1,61 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget xmlns = "http://www.w3.org/ns/widgets"
-                xmlns:gap = "http://phonegap.com/ns/1.0"
-                id        = "com.retailcustomsolutions.reports"
-                versionCode="34"
-                version   ="3.1.19">
+<widget id="com.realcs.report"
+    versionCode="34" 
+    version="3.1.19" 
+    xmlns="http://www.w3.org/ns/widgets" 
+    xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>RCS Reports</name>
     <description>RCS Reports</description>
     <author href="http://retailcs.com/" email="devmobile@realcs.com">
         Retail Custom Solutions
     </author>
+    <!--
+        <content src="data/android/ip.html"/>
+        <content src="index.html" />
+        <content src="data/ios/ip.html"/>
+    -->
     <content src="data/ios/ip.html"/>
 
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="AutoHideSplashScreen"  value= "true"  />
+    <preference name="SplashScreenDelay"  value= "2000"  />
+    <preference name="FadeSplashScreen"  value= "true" />
+    <preference name="FadeSplashScreenDuration"  value= "1000" />
+    <preference name="ShowSplashScreenSpinner"  value= "false" />
+    <preference name="SplashShowOnlyFirstTime"  value= "false"  />
+    
+
+    <preference name="Fullscreen" value="false"/>
+    <preference name="StatusBarBackgroundColor" value="#2196F3"/>
     <preference name="StatusBarStyle" value="lightcontent" />
-    <preference name="phonegap-version" value="3.7.0"/>
-    <preference name="fullscreen" value="false" />
-    <preference name="target-device" value="universal" />
-    <preference name="webviewbounce" value="true" />
-    <preference name="prerendered-icon" value="true" />
-    <preference name="stay-in-webview" value="true" />
-    <preference name="android-hardwareAccelerated" value="true" />
-    <!--<preference name="ios-statusbarstyle" value="white-transparent" />-->
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="true" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="true" />
-    <!-- <preference name="EnableViewportScale" value="true" /> -->
-    <preference name="MediaPlaybackRequiresUserAction" value="true" />
-    <preference name="AllowInlineMediaPlayback" value="true" />
-    <preference name="BackupWebStorage" value="cloud" />
-    <preference name="TopActivityIndicator" value="gray" />
-    <!-- <preference name="KeyboardDisplayRequiresUserAction" value="true" /> -->
-    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
-    <preference name="HideKeyboardFormAccessoryBar" value="true" />
-    <preference name="SuppressesIncrementalRendering" value="true" />
-    <preference name="android-minSdkVersion" value="8" />
-    <preference name="android-targetSdkVersion" value="19" />
-    <preference name="android-installLocation" value="preferExternal" />
-    <preference name="SplashScreenDelay" value="2000" />
-    <preference name="ErrorUrl" value=""/>
-    <preference name="BackgroundColor" value="0x000000"/>
-    <preference name="KeepRunning" value="true"/>
-    <preference name="DisallowOverscroll" value="true"/>
-    <!-- <preference name="LoadingDialog" value=","/>  -->
-    <preference name="LoadUrlTimeoutValue" value="20000" />
-    <preference name="disable-cursor" value="true" />
-    <gap:platform name="ios" />
-    <gap:platform name="android" />
-    <gap:platform name="winphone" />
-    <feature name="http://api.phonegap.com/1.0/network"/>
-    <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
-    <gap:plugin name="org.apache.cordova.splashscreen" source="npm" />
 
-    <icon src="res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
-    <icon src="res/icon/ios/icon-57-2x.png" gap:platform="ios" width="114" height="114" />
-    <icon src="res/icon/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
-    <icon src="res/icon/ios/icon-72-2x.png" gap:platform="ios" width="144" height="144" />
-    <icon src="res/icon/ios/icon-76.png" gap:platform="ios" width="76" height="76" />
-    <icon src="res/icon/ios/icon-120.png" gap:platform="ios" width="120" height="120" />
-    <icon src="res/icon/ios/icon-152.png" gap:platform="ios" width="152" height="152" />    
 
-    <icon src="res/icon/android/ldpi.png" gap:platform="android" qualifier="ldpi" />
-    <icon src="res/icon/android/mdpi.png" gap:platform="android" qualifier="mdpi" />
-    <icon src="res/icon/android/hdpi.png" gap:platform="android" qualifier="hdpi" />
-    <icon src="res/icon/android/xhdpi.png" gap:platform="android" qualifier="xhdpi" />
-    <icon src="res/icon/android/xxhdpi.png" gap:platform="android" qualifier="xxhdpi" />
-
-    <gap:splash src="res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="748" />
-    <gap:splash src="res/screen/ios/screen-ipad-landscape-2x.png" gap:platform="ios" width="2048" height="1496" />
-    <gap:splash src="res/screen/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1004" />
-    <gap:splash src="res/screen/ios/screen-ipad-portrait-2x.png" gap:platform="ios" width="1536" height="2008" />
-    <gap:splash src="res/screen/ios/screen-iphone-landscape.png" gap:platform="ios" width="480" height="320" />
-    <gap:splash src="res/screen/ios/screen-iphone-landscape-2x.png" gap:platform="ios" width="960" height="640" />
-    <gap:splash src="res/screen/ios/screen-iphone-portrait.png" gap:platform="ios" width="320" height="480" />
-    <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios" width="640" height="960" />
-    <gap:splash src="res/screen/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios" width="640" height="1136" />
-
-    <gap:splash src="res/screen/android/ldpi.png" gap:platform="android" gap:density="ldpi"/>
-    <gap:splash src="res/screen/android/mdpi.png" gap:platform="android" gap:density="mdpi"/>
-    <gap:splash src="res/screen/android/hdpi.png" gap:platform="android" gap:density="hdpi"/>
-    <gap:splash src="res/screen/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="res/screen/android/xxhdpi.png" gap:platform="android" gap:density="xxhdpi"/>
-
+    <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <icon src="www/res/icon/android/ldpi.png"  qualifier="ldpi" />
+        <icon src="www/res/icon/android/mdpi.png" qualifier="mdpi" />
+        <icon src="www/res/icon/android/hdpi.png" qualifier="hdpi" />
+        <icon src="www/res/icon/android/xhdpi.png" qualifier="xhdpi" />
+        <icon src="www/res/icon/android/xxhdpi.png"  qualifier="xxhdpi" />
+
+        <splash src="www/res/screen/android/ldpi.png"  density="ldpi"/>
+        <splash src="www/res/screen/android/mdpi.png"  density="mdpi"/>
+        <splash src="www/res/screen/android/hdpi.png"  density="hdpi"/>
+        <splash src="www/res/screen/android/xhdpi.png"  density="xhdpi" />
+        <splash src="www/res/screen/android/xxhdpi.png" density="xxhdpi"/>
+    </platform>
+
+
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
 </widget>
