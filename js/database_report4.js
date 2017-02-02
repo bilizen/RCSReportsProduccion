@@ -3,17 +3,16 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
     }
-
-    onInit();
-    existDataDate();
-  
 });
 
 
 $(window).load(function () {
+    onInit();
+    deteclenguage_R4();
+    existDataDate();
     defaultValuePercent();
     downloadReportGraphic();
-    deteclenguage_R4();
+   
 });
 
 

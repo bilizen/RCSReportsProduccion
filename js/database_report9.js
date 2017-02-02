@@ -265,8 +265,8 @@ function rangeOfYear(){
 }
 
 function  deteclenguage9(){
-    var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    lang = navigator.language.split("-");
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage9();
     }

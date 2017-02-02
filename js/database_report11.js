@@ -54,7 +54,7 @@ function responsiveTable11() {
     var regionh = $('#divRegion').height();
     var selectdateP = $('.select-dateP').height();
     var selectGeneral = $('.select-general').height();
-    $('.items').height(windowh - headerh - selectdateP - selectGeneral -40);
+    $('.items').height(windowh - headerh - selectdateP - selectGeneral -50);
 }
 
 var RCSReports_report11_valuesRangeDates;
@@ -275,8 +275,8 @@ function rangeOfYear(){
 }
 
 function  deteclenguage11(){
-    var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    lang = navigator.language.split("-");
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage11();
     }

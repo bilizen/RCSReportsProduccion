@@ -3,15 +3,15 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
     }
-
-    onInit();
-    //por defecto que salga la semana de ventas
-    graphicReport6(3);
-  
 });
 
 $(window).load(function () {
+    onInit();
     deteclenguage6();
+    //por defecto que salga la semana de ventas
+    graphicReport6(3);
+  
+
 });
 
 function refresh6() {
@@ -237,8 +237,8 @@ function updateStore(storeNo, StoreName) {
 
 
 function  deteclenguage6(){
-    var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    lang = navigator.language.split("-");
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage6();
     }

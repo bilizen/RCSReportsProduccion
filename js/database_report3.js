@@ -4,13 +4,14 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
     }
-    onInit();/**verificamos la base de datos**/
-    existDataDate_report3();/**lleanmos tabla CustomRangeDate**/
-    sizeSpaceStores3();
+    
 });
 
 $(window).load(function () {
+    onInit();/**verificamos la base de datos**/
     deteclenguage3();
+    existDataDate_report3();/**lleanmos tabla CustomRangeDate**/
+    sizeSpaceStores3();
 });
 
 

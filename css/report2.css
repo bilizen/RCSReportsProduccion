@@ -1,3 +1,5 @@
+@import url('style.css');
+
 .clasification p,
 .clasification i,
 .clasification span{
@@ -150,8 +152,7 @@
         font-size: 14pt;
     }
 }
-/*iPhone 6 in portrait & landscape*/
-@media only screen and (min-width : 375px) and (max-width : 667px) { 
+@media only screen and (min-width : 375px) and (max-width : 767px) { 
     .clasification span{
         width: 27%;
         border-radius: 4pt;
@@ -165,7 +166,7 @@
         width: 51%;
     }
 }
-@media only screen and (min-width : 320px) and (max-width : 568px) { 
+@media only screen and (min-width : 320px) and (max-width : 374px) { 
     .clasification span{
         border-radius: 4pt;
     }

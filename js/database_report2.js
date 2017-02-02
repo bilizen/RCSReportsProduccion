@@ -4,18 +4,18 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
     }
-    onInit();/**verificamos la base de datos**/
-    existDataClasification();/***llenamos tabla clasificaciones**/
-    existDataDate();/**lleanmos tabla CustomRangeDate**/
-    design_report2();
 });
 
 $(window).load(function () {
+    onInit();/**verificamos la base de datos**/
+    deteclenguage2();
+    existDataClasification();/***llenamos tabla clasificaciones**/
+    existDataDate();/**lleanmos tabla CustomRangeDate**/
+    design_report2();
     /**This download method only happend the first time**/
     var value = "";/**antes de descargar verificamos que opcion esta seleccionada en el combo clasificacion**/
     value = $(".select-clasification .init").attr('data-value');
     downloadStoreClasification(value);
-    deteclenguage2();
 });
 
 
@@ -639,7 +639,7 @@ function downloadStoreClasification(_valueSelected) {
     /*******************************/
 }
 function deteclenguage2() {
-    var lang = navigator.language.split("-");
+    lang = navigator.language.split("-");
     current_lang = (lang[0]);
     if (current_lang == 'es') {
 

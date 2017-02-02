@@ -1,0 +1,350 @@
+@import url('style.css');
+
+.list{
+    width: 100%;
+    overflow-y: auto;
+    background-image: url('../img/Bottom-Waves-1024.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+}
+.section{
+    background-color: #E6E7EB;
+}
+.item.selected>div{
+    color: #f1f1f1;
+}
+.store:nth-of-type(2n){
+    background-color: rgba(234,234,235,0.85);
+}
+.store h1{
+    width: 100%;
+    font-weight: bold;    
+    line-height: 1.6em;
+    white-space: pre-line;
+    color: #111;
+}
+.store h1.storeNameR1{
+    width: 77%;
+    display: inline-block;
+    padding-right: 10pt;
+}
+.region_store .storeNameR1{
+    width: 67% !important;
+}
+.lastConexion {
+    display: inline-block;
+    width: 23%;
+    font-size: 10pt;
+    text-align: center;
+    line-height: 14pt;
+    height: 32px;
+    position: relative;
+    vertical-align: top;
+    color: #CE291E;
+}
+.dataLastConexion{
+    width: 63%;
+}
+.dataLastConexion{
+    line-height: 24pt;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.actual p,.global p,
+.actual i,.global i,
+.actual span,.global span{
+    display: inline-block;
+}
+.actual i,.global i{
+    width: 12%;
+    font-size: 16px;
+    font-style: normal;
+    color: #0000CD;
+}
+.actual p,.global p{
+    width: 26.5%;
+    font-size: 16px;
+    text-align: left;
+}
+.actual span,.global span{
+    width: 23%;
+    padding-right: 0;
+    padding-top: 4pt;
+    padding-bottom: 4pt;
+    text-align: right;
+    font-size: 16px;
+    text-align: center;
+    color: white !important;
+}
+.actual span.red, .global span.red{
+    background-color: #CE291E;
+} 
+.actual span.green, .global span.green {
+    background-color: #55982E;
+}
+.actual span.ambar, .global span.ambar {
+    background-color: #FF8C00;
+}
+
+div[class^="region_store"]
+{
+    height: 0;
+    width: 95%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    opacity: 0;
+    margin: auto;
+    -webkit-transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+    transition: all 0.12s cubic-bezier(.18, .06, .19, .80); 
+}
+.regionList {
+    opacity: 1 !important;
+    height: auto !important;
+    
+}
+
+.region_district {
+    width: 90%;
+    margin: auto;
+}
+
+.red{ color: rgb(255, 28, 23) !important;}
+.green{ color: rgb(104, 163, 87) !important;}
+.ambar{ color: rgb(201, 148, 18) !important;}
+
+
+#lblToday,#lblYesterday,#lblWeek,#lblMonth,#lblYear{
+    display: inline-block;
+}
+.innerLi #lblToday, .innerLi #lblYesterday, .innerLi #lblWeek, .innerLi #lblMonth, .innerLi #lblYear{
+    float: left;
+    font-size: 18px;
+    color: black;
+    line-height: 44px;
+}
+.selected+hr{
+    opacity: 0;
+}
+.infoReport8{display: block; width: 100%; margin-bottom: 11px;}
+.infoReport8 i,
+.infoReport8 span{
+    width: 25%;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+}
+.infoReport8 i{width: 15%; color: #0000CD;}
+.infoReport8 span{
+    width: 28%;
+    vertical-align: -webkit-baseline-middle;
+}
+.modal{
+    overflow-y:hidden;
+}
+.modal-header{
+    padding: 9pt;
+    font-weight: bold;
+}
+.info {
+    line-height: 32px;
+}
+.title-alert{
+    
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+.modal-title{
+    font-weight: bold;
+    text-align: center;
+}
+
+.dropdown-toggle .lblFilter{
+    font-size: 13pt;
+    font-weight: bold;
+    color: #000;
+    line-height: 40px;
+    padding: 0 20px;
+}
+.dropdown-toggle{
+    background-color: #fbfcfc;
+}
+.opt.active{
+    color: white;
+}
+.noimg{
+    background-image: none;
+}
+
+
+/* iPad in portrait & landscape */
+@media only screen and (min-width : 768px) and (max-width : 1024px)  {
+    #txt_login, #txt_maintitle, #txt_title, #top_txt_title, #txt_Options{
+        width: 255px;
+    }
+    .store h1 {
+        height: 40px;
+        font-size: 21pt;
+    }
+    .actual i, .global i,
+    .actual p, .global p,
+    .actual span, .global span {
+        font-size: 18pt;
+    }
+    .actual p, .global p{
+        width: 31.5%;
+    }
+    .actual i, .global i {
+        width: 9%;
+    }
+    .actual span, .global span {
+        width: 19%;
+        border-radius: 8pt;
+    }
+    .actual span, .global span{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .item,.innerLi>span{
+        font-size: 18pt;
+    }
+    .item.innerLi>div, .item>.date{
+        font-size: 14pt;
+        line-height: 2.3em;
+    }
+    #txt_maintitle, #txt_title, #top_txt_title, #txt_Options,
+    header button,.btn-modal, .btn-modal:hover{
+        font-size: 16pt;
+    }
+
+    .modal-dialog{
+        width: 525px;
+    }
+    .infoReport8 i, .infoReport8 span,
+    .modal-title{
+        font-size: 15pt;
+    }
+    .infoReport8 span{
+        width: 38%;
+        vertical-align: inherit; 
+    }
+    .infoReport8 i{
+        width: 11%;
+    }
+    .infoReport8 {
+        margin-bottom: 14pt;
+    }
+    .modal-header {
+        font-size: 14pt;
+    }
+    label,#ip_1, #ip_2, #ip_3, #ip_4{
+        font-size: 16pt;
+    }
+    .store h1.storeNameR1 {
+        width: 80%;
+    }
+    .lastConexion {
+        width: 45%;
+        font-size: 13pt;
+        line-height: 15pt;
+        height: 40px;
+    }
+    .dataLastConexion{
+        line-height: 32pt;
+    }
+    .close,.close.back {
+        font-size: 16px;
+    }
+    .dropdown-toggle .lblFilter {
+        padding: 0 48px;
+        font-size: 18pt;
+    }
+}
+
+/*iPhone 6 in portrait & landscape*/
+@media only screen and (min-width : 375px) and (max-width : 767px) { 
+    .actual span, .global span{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 4pt;
+        width: 31%;
+    }
+    .store{
+        padding: 4pt 6%;
+    }
+    .actual i, .global i {
+        width: 11%;
+    }
+    .actual p, .global p {
+        width: 23.5%;
+    }
+    .innerLi {
+        font-size: 12pt;
+    }
+    .innerLi>span{
+        font-size: 12pt;
+    }
+    .store h1.storeNameR1 {
+        width: 68%;
+    }
+    .lastConexion {
+        width: 34%;
+        font-size: 11pt;
+        line-height: 14pt;
+        height: 32px;
+    }
+    .close,.close.back {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width : 320px) and (max-width : 374px) { 
+    .actual i, .global i {
+        width: 13%;
+        font-size: 11pt;
+    }
+    .actual p, .global p {
+        width: 26.5%;
+        font-size: 10pt;
+    }
+    .actual span, .global span {
+        width: 21%;
+        padding:0 4pt;
+        padding-top: 6pt;
+        padding-bottom: 6pt;
+        font-size: 11pt;
+        text-align: center;
+        border-radius: 4pt !important;
+    }
+    #txt_login, #txt_maintitle, #txt_title, #top_txt_title, #txt_Options{
+        width: 145px;
+    }
+    .store h1 {
+        height: 26px;
+    }
+    .store h1.storeNameR1 {
+        width: 72%;
+    }
+    .lastConexion {
+        width: 45%;
+        font-size: 9pt;
+        line-height: 11pt;
+        height: 26px;
+    }
+    .close,.close.back {
+        font-size: 12px;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-width: 375px) and (max-width: 767px) and (orientation: landscape) {
+    .dropdown-toggle .lblFilter{
+        padding: 0 44px;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 374px) and (orientation: landscape) {
+    .dropdown-toggle .lblFilter{
+        padding: 0 34px;
+    }
+} 

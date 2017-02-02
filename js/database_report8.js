@@ -598,7 +598,7 @@ function districtRegion(indice,regionCode) {
 
                                     mostrar += "</div>";
                                 }
-                                mostrar += "<div class='region_disctrict regionList' id='storeforDistric"+cont+"'>"
+                                mostrar += "<div class='region_district regionList' id='storeforDistric"+cont+"'>"
                                 mostrar += "</div>";
 
                                 //mostrar += "</div>";
@@ -633,9 +633,9 @@ function detailsNewCompStore(indice,typecode,regionCode){
     var altura = $('#storeforDistric'+indice).height();
     
     if (altura > 0) { // esta mostrandose ; se debe ocultar
-        $('.region_disctrict').empty();
+        $('.region_district').empty();
     } else {    
-        $('.region_disctrict').empty();
+        $('.region_district').empty();
         var xurl = "";
         var c_ip = "";
         var c_port = "";
@@ -991,8 +991,8 @@ function Report8UpdateGlobal() {
 
 
 function  deteclenguage8(){
-    var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    lang = navigator.language.split("-");
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage8();
     }

@@ -1,3 +1,4 @@
+@import url('style.css');
 .progressByStore i, .progressByStore p, .progressByStore span{
 	display: inline-block;
 }
@@ -12,7 +13,6 @@
     width: 7%;
 }
 .progressByStore p{
-	width: 17%;
     font-size: 16px;
     text-align: left;
 }
@@ -22,8 +22,6 @@ p.clasification:first-of-type{
 }
 .progressByStore span{
 	width: 17%;
-    padding: 0;
-    text-align: right;
     font-size: 16px;
 }
 
@@ -31,6 +29,13 @@ p.clasification:first-of-type{
     display: inline-block;
 }
 
+.wrapper.general .section_content{
+    background-color: transparent;
+    border-bottom: none;
+}
+#select-region{
+    background-color: rgba(254, 254, 254, 0.9);
+}
 
 nav {
     position: absolute;
@@ -75,8 +80,6 @@ nav .navBtn3{ width: 28%; text-align: right;}
 #PercentGoal,#totalGoalPercentage{
 	color: #fff;
     background-color: #0073FF;
-    border-radius: 8pt;
-    padding: 5px 4pt;
     text-align: center;
 }
 .colorAcumulateGoal{
@@ -86,8 +89,6 @@ nav .navBtn3{ width: 28%; text-align: right;}
 #PercentSale,#totalSalePercentage{
 	color: #fff;
     background-color: #4C9850;
-    border-radius: 8pt;
-    padding: 5px 4pt;
     text-align: center;
 }
 .infoReport3 {
@@ -117,11 +118,19 @@ nav .navBtn3{ width: 28%; text-align: right;}
 
 /* iPad in portrait & landscape */
 @media only screen and (min-width : 768px) and (max-width : 1024px)  {
+    .clasification,#totalGoalPercentage,
+    span.percentage,#totalSalePercentage{
+        border-radius: 8pt;
+        padding: 5px 5pt;
+    }
     .progressByStore i,
     #PercentGoal, #totalGoalPercentage,
     #PercentSale, #totalSalePercentage,
     .progressByStore p{
         font-size: 18pt;
+    }
+    p.clasification:first-of-type{
+        width: 45%;
     }
     .infoReport3{
         margin-bottom: 11pt;
@@ -137,17 +146,19 @@ nav .navBtn3{ width: 28%; text-align: right;}
     }
     nav{
         height: 55px;
-    }
+    }    
 }
 /*iPhone 6 in portrait & landscape*/
-@media only screen and (min-width : 375px) and (max-width : 667px) { 
-    #PercentGoal,#totalGoalPercentage{
+@media only screen and (min-width : 375px) and (max-width : 767px) { 
+    .clasification,#totalGoalPercentage,
+    span.percentage,#totalSalePercentage{
         border-radius: 4pt;
         padding: 5px 5pt;
     }
-    #PercentSale,#totalSalePercentage{
+    .clasification,
+    .percentage{
+        width: 27%;
         border-radius: 4pt;
-        padding: 5px 5pt;
     }
     p.clasification:first-of-type{
         width: 31%;
@@ -157,9 +168,9 @@ nav .navBtn3{ width: 28%; text-align: right;}
     }
     .progressByStore span{
         width: 22%;
-    }
+    }    
 }
-@media only screen and (min-width : 280px) and (max-device-width : 568px) { 
+@media only screen and (min-width : 320px) and (max-device-width : 374px) { 
     .progressByStore i.T {
         width: 7%;
     }
@@ -180,7 +191,7 @@ nav .navBtn3{ width: 28%; text-align: right;}
     #PercentGoal, #totalGoalPercentage,
     #PercentSale, #totalSalePercentage {
         border-radius: 4pt;
-        padding: 5pt 4pt;
+        padding: 6pt 4pt;
     }
     #lblTotalAll,
     #totalpromedio,
