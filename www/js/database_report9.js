@@ -8,11 +8,11 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-   onInit();    
-   deteclenguage9();
-   valuesGroupDate();
-   GetDatesDatabase();
-   CompanyProductivity();
+    deteclenguage9();
+    onInit();    
+    valuesGroupDate();
+    GetDatesDatabase();
+    CompanyProductivity();
 });
 
 //rotation screem
@@ -266,7 +266,7 @@ function rangeOfYear(){
 
 function  deteclenguage9(){
     var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage9();
     }

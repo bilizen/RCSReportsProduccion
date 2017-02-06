@@ -4,13 +4,14 @@ $(document).ready(function () {
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
     }
-    onInit();/**verificamos la base de datos**/
-    existDataDate_report3();/**lleanmos tabla CustomRangeDate**/
-    sizeSpaceStores3();
+    
 });
 
 $(window).load(function () {
     deteclenguage3();
+    onInit();/**verificamos la base de datos**/
+    existDataDate_report3();/**lleanmos tabla CustomRangeDate**/
+    sizeSpaceStores3();
 });
 
 
@@ -151,7 +152,7 @@ function refresh_report3(regionCode) {
                                     can = index;
                                 });
                                 show += "</div>";
-                                sumTotalGoal = sumTotalGoal;
+                                sumTotalGoal = sumTotalGoal.toFixed(0);
                                 sumPercentGoal = (sumPercentGoal / (can + 1)).toFixed(2);
                                 sumPercentSale = (sumPercentSale / (can + 1)).toFixed(2);
                             }
@@ -291,7 +292,7 @@ function existDataDate_report3() {
                                                     can = index;
                                                 });
                                                 show += "</div>";
-                                                sumTotalGoal = sumTotalGoal;
+                                                sumTotalGoal = sumTotalGoal.toFixed(0);
                                                 sumPercentGoal = (sumPercentGoal / (can + 1)).toFixed(2);
                                                 sumPercentSale = (sumPercentSale / (can + 1)).toFixed(2);
                                             }
@@ -400,7 +401,7 @@ function existDataDate_report3() {
                                             can = index;
                                         });
                                         show += "</div>";
-                                        sumTotalGoal = sumTotalGoal;
+                                        sumTotalGoal = sumTotalGoal.toFixed(0);
                                         sumPercentGoal = (sumPercentGoal / (can + 1)).toFixed(2);
                                         sumPercentSale = (sumPercentSale / (can + 1)).toFixed(2);
                                     }

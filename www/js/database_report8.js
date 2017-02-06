@@ -8,12 +8,12 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-   onInit();    
-   deteclenguage8();
-   valuesGroupDate();
-   checkDefaultActualGlobal_report8();
-   GetDatesDatabase();
-   downloadByRegion();
+    deteclenguage8();
+    onInit();    
+    valuesGroupDate();
+    checkDefaultActualGlobal_report8();
+    GetDatesDatabase();
+    downloadByRegion();
 
    $('.opt').click(function(){
         $('.opt').removeClass('active');
@@ -992,7 +992,7 @@ function Report8UpdateGlobal() {
 
 function  deteclenguage8(){
     var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage8();
     }

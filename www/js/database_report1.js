@@ -8,8 +8,8 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-    onInit();    
     deteclenguage();
+    onInit();    
     checkDefaultActualGlobal();
     valuesGroupDate();
     GetDatesDatabase();
@@ -114,6 +114,7 @@ function GetDatesDatabase(){
                             $('#week').text(data.report.WeekToDate);
                             $('#month').text(data.report.MonthToDate);
                             $('#year').text(data.report.YearToDate);
+                            $('#lastYear').text(data.report.LastYear);
                         }else{
                             if (current_lang == 'es'){
                                 mostrarModalGeneral("No hay fechas para mostrar, establecer fechas del móvil");
@@ -211,13 +212,16 @@ function downloadByCompany() {
                             } else if (option == 4) {
                                 lblCurrentGoal = "MM:";
                                 lblCurrentSale = "VM:";
-                                lblGlobalGoal = "MA:";
-                                lblGlobalSale = "VA:";
-                            } else if (option == 5) {
-                                lblCurrentGoal = "MA:";
-                                lblCurrentSale = "VA:";
-                                lblGlobalGoal = "MAC:";
+                                lblGlobalGoal = "MAH:";
                                 lblGlobalSale = "VAH:";
+                            } else if (option == 5) {
+                                lblCurrentGoal = "MAH:";
+                                lblCurrentSale = "VAH:";
+                                lblGlobalGoal = "MAC:";
+                                lblGlobalSale = "VAC:";
+                            }else if (option == 6) {
+                                lblCurrentGoal = "MAP:";
+                                lblCurrentSale = "VAP:";
                             }
                         } else {
                             if (option == 1) {
@@ -245,6 +249,9 @@ function downloadByCompany() {
                                 lblCurrentSale = "AS:";
                                 lblGlobalGoal = "CG:";
                                 lblGlobalSale = "CS:";
+                            }else if (option == 6) {
+                                lblCurrentGoal = "LYG:";
+                                lblCurrentSale = "LYS:";
                             }
                         }
 
@@ -334,7 +341,7 @@ function downloadByCompany() {
                                 mostrar += "<span class='" + color + "'>" + percent + " %</span>";
                                 mostrar += "</div>";
                             }
-                            if (global == 1) {
+                            if (global == 1 && option!=6) {
                                 mostrar += "<div class='global'>";
                                 mostrar += "<i>" + lblGlobalGoal + "</i>";
                                 mostrar += "<p>" + parseFloat(goalAmountGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</p>";
@@ -352,7 +359,6 @@ function downloadByCompany() {
                             mostrar += "</div>";
                             mostrar += "<hr>";
                         $("#items").append(mostrar);
-                        responsiveReport1();
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -366,6 +372,7 @@ function downloadByCompany() {
                     }
                 }
             });
+            responsiveReport1();
         }, null);
     });
 }
@@ -515,13 +522,16 @@ function downloadByRegion() {
                             } else if (option == 4) {
                                 lblCurrentGoal = "MM:";
                                 lblCurrentSale = "VM:";
-                                lblGlobalGoal = "MA:";
-                                lblGlobalSale = "VA:";
-                            } else if (option == 5) {
-                                lblCurrentGoal = "MA:";
-                                lblCurrentSale = "VA:";
-                                lblGlobalGoal = "MAC:";
+                                lblGlobalGoal = "MAH:";
                                 lblGlobalSale = "VAH:";
+                            } else if (option == 5) {
+                                lblCurrentGoal = "MAH:";
+                                lblCurrentSale = "VAH:";
+                                lblGlobalGoal = "MAC:";
+                                lblGlobalSale = "VAC:";
+                            }else if (option == 6) {
+                                lblCurrentGoal = "MAP:";
+                                lblCurrentSale = "VAP:";
                             }
                         } else {
                             if (option == 1) {
@@ -549,6 +559,9 @@ function downloadByRegion() {
                                 lblCurrentSale = "AS:";
                                 lblGlobalGoal = "CG:";
                                 lblGlobalSale = "CS:";
+                            }else if (option == 6) {
+                                lblCurrentGoal = "LYG:";
+                                lblCurrentSale = "LYS:";
                             }
                         }
 
@@ -648,7 +661,7 @@ function downloadByRegion() {
 
                                 mostrar += "</div>";
                             }
-                            if (global == 1) {
+                            if (global == 1 && option!=6) {
                                 mostrar += "<div class='global'>";
 
                                 mostrar += "<i class='type'>" + lblGlobalGoal + "</i>";
@@ -853,13 +866,16 @@ function downloadByStore(regionCode) {
                             } else if (option == 4) {
                                 lblCurrentGoal = "MM:";
                                 lblCurrentSale = "VM:";
-                                lblGlobalGoal = "MA:";
-                                lblGlobalSale = "VA:";
-                            } else if (option == 5) {
-                                lblCurrentGoal = "MA:";
-                                lblCurrentSale = "VA:";
-                                lblGlobalGoal = "MAC:";
+                                lblGlobalGoal = "MAH:";
                                 lblGlobalSale = "VAH:";
+                            } else if (option == 5) {
+                                lblCurrentGoal = "MAH:";
+                                lblCurrentSale = "VAH:";
+                                lblGlobalGoal = "MAC:";
+                                lblGlobalSale = "VAC:";
+                            }else if(option==6){
+                                lblCurrentGoal = "MAP:";
+                                lblCurrentSale = "VAP:";
                             }
                         } else {
                             if (option == 1) {
@@ -887,6 +903,9 @@ function downloadByStore(regionCode) {
                                 lblCurrentSale = "AS:";
                                 lblGlobalGoal = "CG:";
                                 lblGlobalSale = "CS:";
+                            }else if(option == 6){
+                                lblCurrentGoal = "LYG:";
+                                lblCurrentSale = "LYS:";
                             }
                         }
 
@@ -1013,7 +1032,7 @@ function downloadByStore(regionCode) {
                                 mostrar += "</div>";
                             }
 
-                            if (global == 1) {
+                            if (global == 1 && option!=6) {
                                 mostrar += "<div class='global'>";
                                 mostrar += "<i>" + lblGlobalGoal + "</i>";
                                 mostrar += "<p>" + parseFloat(goalAmountGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</p>";
@@ -1036,9 +1055,10 @@ function downloadByStore(regionCode) {
                             indice++;
 
                         });
-                        responsiveReport1();
+                        
                         //deteclenguage();
                     }
+                    responsiveReport1();
                  
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -1200,13 +1220,16 @@ function storeWitdhGraphic2(indice,regionCode) {
                                 } else if (option == 4) {
                                     lblCurrentGoal = "MM:";
                                     lblCurrentSale = "VM:";
-                                    lblGlobalGoal = "MA:";
-                                    lblGlobalSale = "VA:";
-                                } else if (option == 5) {
-                                    lblCurrentGoal = "MA:";
-                                    lblCurrentSale = "VA:";
-                                    lblGlobalGoal = "MAC:";
+                                    lblGlobalGoal = "MAH:";
                                     lblGlobalSale = "VAH:";
+                                } else if (option == 5) {
+                                    lblCurrentGoal = "MAH:";
+                                    lblCurrentSale = "VAH:";
+                                    lblGlobalGoal = "MAC:";
+                                    lblGlobalSale = "VAC:";
+                                }else if(option==6){
+                                    lblCurrentGoal = "MAP:";
+                                    lblCurrentSale = "VAP:";
                                 }
                             } else {
                                 if (option == 1) {
@@ -1234,6 +1257,9 @@ function storeWitdhGraphic2(indice,regionCode) {
                                     lblCurrentSale = "AS:";
                                     lblGlobalGoal = "CG:";
                                     lblGlobalSale = "CS:";
+                                }else if(option == 6){
+                                    lblCurrentGoal = "LYG:";
+                                    lblCurrentSale = "LYS:";
                                 }
                             }
 
@@ -1355,7 +1381,7 @@ function storeWitdhGraphic2(indice,regionCode) {
                                     mostrar += "</div>";
                                 }
 
-                                if (global == 1) {
+                                if (global == 1 && option!=6) {
                                     mostrar += "<div class='global'>";
                                     mostrar += "<i>" + lblGlobalGoal + "</i>";
                                     mostrar += "<p>" + parseFloat(goalAmountGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "</p>";
@@ -1464,6 +1490,11 @@ function rangeOfYear(){
     selectRangeGroup();
 }
 
+function rangeOfLastYear(){
+    localStorage.RCSReports_valuesRangeDates=6;
+    selectRangeGroup();
+}
+
 function selectRangeGroup(){
     if(localStorage.RCSReports_valuesGroupStore==1){
         downloadByCompany();
@@ -1472,7 +1503,6 @@ function selectRangeGroup(){
         downloadByRegion();
     }
     if(localStorage.RCSReports_valuesGroupStore==3){
-        //var regionCode=localStorage.RCSReports_regioncode;
         downloadByStore('');
     }
 }

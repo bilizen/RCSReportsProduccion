@@ -3,8 +3,8 @@ $(document).ready(function () {
 
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
-        onInit();
         deteclenguage();
+        onInit();
         if(checkNetConnection()==true){
             updateHideReports();
             checktaxDefault();
@@ -28,8 +28,8 @@ $(document).ready(function () {
 
 
 $(window).load(function(){
-    // onInit();
     // deteclenguage();
+    // onInit();
     // if(checkNetConnection()==true){
     //     updateHideReports();
     //     checktaxDefault();

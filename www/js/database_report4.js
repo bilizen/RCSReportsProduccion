@@ -4,16 +4,17 @@ $(document).ready(function () {
         document.addEventListener("backbutton", onBackKeyDown, true);
     }
 
-    onInit();
-    existDataDate();
+   
   
 });
 
 
 $(window).load(function () {
+    deteclenguage_R4();
+    onInit();
+    existDataDate();
     defaultValuePercent();
     downloadReportGraphic();
-    deteclenguage_R4();
 });
 
 

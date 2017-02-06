@@ -258,10 +258,12 @@ function MSG_LBL_DET_DIC_1(){
     $('#WeekSale').text("VS:");
     $('#MonthGoal').text("MM:");
     $('#MonthSale').text("VM:");
-    $('#AnnualGoal').text("MA:");
-    $('#AnnualSale').text("VA:");
+    $('#AnnualGoal').text("MAH:");
+    $('#AnnualSale').text("VAH:");
     $('#CompleteYearGoal').text("MAC:");
-    $('#CompleteYerSale').text("VAH:");
+    $('#CompleteYerSale').text("VAC:");
+    $('#LastYearGoal').text("MAP:");
+    $('#LastYearSale').text("VAP:");
     $('#report1TG').text("Meta de Hoy");
     $('#report1TS').text("Venta de Hoy");
     $('#report1YG').text("Meta de Ayer");
@@ -274,6 +276,8 @@ function MSG_LBL_DET_DIC_1(){
     $('#report1AS').text("Venta Año a Hoy");
     $('#report1CG').text("Meta Año Completo");
     $('#report1CS').text("Venta Año Completo");
+    $('#report1LYG').text("Meta Año Pasado");
+    $('#report1LYS').text("Venta Año Pasado");
 
     $('#lblChooseRegion').text('Elegir Región');
 }
@@ -302,6 +306,7 @@ function MSG_MONTH_1() {
 }
 function MSG_YEAR_1() {
     $('#lblYear').text("Inicio de Año");
+    $('#lblLastYear').text('Año Pasado');
 }
 function MSG_VISUALIZATION_1() {
     $('#lblVisualization').text("Visualización");

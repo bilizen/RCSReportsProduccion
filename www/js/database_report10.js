@@ -8,11 +8,11 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-   onInit();    
-   deteclenguage10();
-   valuesGroupDate();
-   GetDatesDatabase();
-   DistrictProductivity();
+    deteclenguage10();
+    onInit();    
+    valuesGroupDate();
+    GetDatesDatabase();
+    DistrictProductivity();
 });
 
 //rotation screem
@@ -295,7 +295,7 @@ function rangeOfYear(){
 
 function  deteclenguage10(){
     var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage10();
     }

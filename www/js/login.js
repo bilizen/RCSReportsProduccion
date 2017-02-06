@@ -4,19 +4,15 @@ $(document).ready(function(){
 		document.addEventListener("backbutton", onBackKeyDown, false);
 	}
 	function onBackKeyDown() {
-		
 	//navigator.app.exitApp();   
 	}
-
-	
-
 });
 
 
 $(window).load(function(){
-	onInit();
-	verific();
 	deteclenguage();
+    onInit();
+	verific();
     $("#btnlogin").click(function(){
         /******Borramos la informacion de la tabla Store porque es un nuevo servidor******/
         var queryDelete= "DELETE FROM " +TABLE_STORE;

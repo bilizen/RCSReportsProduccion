@@ -3,15 +3,15 @@ $(document).ready(function () {/*** caraga elemento de la estructura html y esti
     function onDeviceReady() {
         document.addEventListener("backbutton", onBackKeyDown, true);
     }
-        
-    onInit();/**verificamos la base de datos**/
-    existDataDate_report5();/**lleanmos tabla CustomRangeDate**/
 
 });
 
 $(window).load(function () {/***asegura que la pagina ya esta cargada**/
-    downloadAllcustomers();
     deteclenguage5();
+    onInit();/**verificamos la base de datos**/
+    existDataDate_report5();/**lleanmos tabla CustomRangeDate**/
+    downloadAllcustomers();
+    
 });
 
 

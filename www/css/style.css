@@ -945,14 +945,14 @@ div[class^="graphic"]
     height: auto !important;
 }
 div[class^="chartdiv"]{
-    width: 70%;
+    width: 68%;
     height: 130px;
     display: inline-block;
     float: left;
     
 }
 div[class^="detalle-"]{
-    width: 30%;
+    width: 32%;
     height: 100%;
     display: inline-block;
     float: right;
@@ -994,11 +994,11 @@ div[class^="detalle-"] span{
     left: 2px;
 }
 
-#lblToday,#lblYesterday,#lblWeek,#lblMonth,#lblYear{
+#lblToday,#lblYesterday,#lblWeek,#lblMonth,#lblYear,#lblLastYear{
     display: inline-block;
 }
 
-.innerLi #lblToday, .innerLi #lblYesterday, .innerLi #lblWeek, .innerLi #lblMonth, .innerLi #lblYear{
+.innerLi #lblToday, .innerLi #lblYesterday, .innerLi #lblWeek, .innerLi #lblMonth, .innerLi #lblYear, .innerLi #lblLastYear{
     float: left;
     font-size: 18px;
     color: black;

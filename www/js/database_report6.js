@@ -4,14 +4,14 @@ $(document).ready(function () {
         document.addEventListener("backbutton", onBackKeyDown, true);
     }
 
-    onInit();
-    //por defecto que salga la semana de ventas
-    graphicReport6(3);
-  
 });
 
 $(window).load(function () {
     deteclenguage6();
+    onInit();
+    //por defecto que salga la semana de ventas
+    graphicReport6(3);
+    
 });
 
 function refresh6() {
@@ -195,10 +195,12 @@ function downloadStore6(){
                             console.log(xhr.statusText);
                             console.log(xhr.responseText);
                             hideLoading6();
-                            if (current_lang == 'es')
+                            if (current_lang == 'es'){
                                 mostrarModalGeneral("Error de Conexión");
-                            else
+                            }
+                            else{
                                 mostrarModalGeneral("No Connection");
+                            }
                         }
                     });
                 });
@@ -238,7 +240,7 @@ function updateStore(storeNo, StoreName) {
 
 function  deteclenguage6(){
     var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage6();
     }

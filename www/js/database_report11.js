@@ -36,11 +36,11 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-   onInit();    
-   deteclenguage11();
-   valuesGroupDate();
-   GetDatesDatabase();
-   StoreProductivity();
+    deteclenguage11();
+    onInit();    
+    valuesGroupDate();
+    GetDatesDatabase();
+    StoreProductivity();
 });
 
 //rotation screem
@@ -276,7 +276,7 @@ function rangeOfYear(){
 
 function  deteclenguage11(){
     var lang = navigator.language.split("-");
-    var current_lang = (lang[0]);
+    current_lang = (lang[0]);
     if (current_lang == 'es') {
         changeLanguage11();
     }
