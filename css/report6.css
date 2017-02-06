@@ -1,0 +1,29 @@
+@import url('style.css');
+
+#btn_right.storeIcon{
+    background-image: url(../img/iconStore.svg);
+    background-position: center;
+    background-size: 34px 34px;
+    background-repeat: no-repeat;
+}
+#txt_title {
+    width: inherit;
+}
+.list_store.list_date{
+  height: initial;
+}
+
+@media only screen and (orientation: portrait) { 
+
+  #miModal6{
+    visibility: visible;
+  }
+
+}
+@media only screen and (orientation: landscape) { 
+
+  #miModal6{
+    visibility: hidden;
+  }
+  
+}

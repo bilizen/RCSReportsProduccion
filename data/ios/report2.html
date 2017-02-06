@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Report 2</title>        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--import CSS-->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/report2.css">
+    <link rel="stylesheet" href="../../css/datepicker.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <link rel="shortcut icon" href="">
+
+    <!--import javascript-->
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="../../js/database.js"></script>
+    <script type="text/javascript" src="../../js/database_report2.js"></script>
+    <!-- TAG LENGUAGES -->
+    <script type="text/javascript" src="../../js/constant-es.js"></script>
+
+</head>
+<body>
+    
+    <div class="hybrid_container">
+
+        <header>
+            <div class="top_bar_space"></div>
+            <div class="options_bar_space">
+                <div id="btn_left" class="arrow"><button onclick="menu();" id="txtReturn">Return</button></div>                    
+                <div id="txt_title" class="titleTopBar"><span id="refresh">Store Clasification</span></div>
+                <div id="btn_right" class="config" ><button onclick="moveToLeft(2);
+                    existDataDate();"></button></div>
+                    <!--
+                    <div id="btn_right" class="configuration" ><button onclick="addDataClasification();"></button></div>
+                -->
+                
+            </div>      
+        </header>
+
+        <div class="content">
+
+            <div class="section">
+                <div class="section_content"> 
+                    <div class="select-clasification">
+                        <div data-value="1" class="init item innerLi" onclick="moveToLeft(1)" id="filterClasification">All Clasifications</div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="section list" >
+                <span></span>
+                <div class="section_content">
+
+                    <div id="contentReport" >
+                        <!-- llenado de tiendas por clasification -->
+                    </div>            
+                </div>
+            </div>
+
+        </div>        
+
+    </div>
+
+
+    <div id="floatWindow" >
+
+        <header>
+            <div class="top_bar_space"></div>
+            <div class="options_bar_space">
+                <div id="btn_left" class="arrow"><button onclick="moveToRight();downloadRefresh();" id="txtback">Back</button></div>
+                <div id="txt_title2" class="titleTopBar">Options</div>
+                <div id="btn_right"></div>
+            </div>      
+        </header>
+
+        <div class="wrapper visualization">
+            <div class="section">
+                <span>Exit to menu</span>
+                <div class="section_content">
+                    Section para salir al menu
+                </div>                
+            </div>
+        </div> 
+
+        <div class="wrapper general">
+            <div class="section">
+                <span id="lblChooseClasification">Choose Clasification</span>
+                <div class="section_content">
+                    <div class="select-clasification">
+                        <div data-value="1" class="item selected" id="lblAllClasification">All Clasifications</div>
+                        <hr>
+                        <div data-value="2" class="item" id="lblVeryGood">Very Good</div>
+                        <hr>
+                        <div data-value="3" class="item" id="lblGood">Good</div>
+                        <hr>
+                        <div data-value="4" class="item" id="lblAcceptable">Acceptable</div>
+                        <hr>
+                        <div data-value="5" class="item" id="lblDeficient">Deficient</div>
+                        <hr>
+                        <div data-value="6" class="item" id="lblCritical">Critical</div>
+                        <hr>
+                        <div data-value="7" class="item" id="lblVeryCritical">Very Critical</div>
+
+                    </div> 
+                </div>                
+            </div>
+        </div>
+        <!-- date -->
+        <div class="wrapper date">
+            <div class="section">
+                <span id="lblChooseRange">Choose Date Range</span>
+                <div class="section_content">
+                    <div class="select-calendar">
+                        <div class="item" onclick="showCalendar(1);
+                        mostrarCalendar();"><div id="lbldateStart" >Date Start</div><div id="dateStart" class="date"></div></div>
+                        <hr>
+                        <div class="item" onclick="showCalendar(2);
+                        mostrarCalendar();"><div id="lbldateEnd" >Date End</div><div id="dateEnd" class="date"></div></div>
+                    </div> 
+                </div>                
+            </div>
+            <div class="section">
+                <span id="lblChooseCompare">Choose Date to Compare</span>
+                <div class="section_content">
+                    <div class="select-calendar">
+                        <div class="item" onclick="showCalendar(3);
+                        mostrarCalendar();"><div id="lbldateToCompare" >Date to Compare</div><div id="dateToCompare" class="date"></div></div>
+                    </div> 
+                </div>                
+            </div>
+            
+            <!-- Information-->
+            <div class="section">
+                <span class="lblChangeRange">Change Range</span>
+                <div class="section_content item" onclick="addDataClasification();">
+                    <div class="buttonItem configuration lblClasificationRange">Classification Range</div>
+                    <button class="iconRange"></button>
+                </div>                
+            </div>             
+            
+        </div>            
+
+    </div> 
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="show_loading" >
+        <div class="modal-dialog">
+            <div class="text-center loading">
+                <div></div>
+                <div></div>
+            </div>
+            <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
+        </div>
+    </div>
+
+
+
+
+    
+    
+    
+    <!--Configuration Modal-->
+    <div class="modal fade" id="show_info" >
+        <!-- <input type="hidden" name="txtvalue" id="txtvalue" value="0"> -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center lblClasificationRange" >
+                        Classification Range
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="clasificationRow">
+                        <div class="clasName" id="clblVeryGood">Very Good</div>
+                        <div class="rangeMin"></div>                     
+                        <div class="rangeMax">&nbsp;>&nbsp;&nbsp;&nbsp;<input type="number"  class="clasRange1" readonly/>%</div>
+                    </div> 
+                    <div class="clasificationRow">
+                        <div class="clasName" id="clblGood">Good</div>
+                        <div class="rangeMin">><input type="number"  class="clasRange2" readonly/>%,&nbsp;</div>
+                        <div class="rangeMax">&nbsp;<=&nbsp;<input type="number"  id="clasRange1"/>%</div>
+                    </div>
+                    <div class="clasificationRow">
+                        <div class="clasName" id="clblAcceptable">Acceptable</div>
+                        <div class="rangeMin">>&nbsp;<input type="number"  class="clasRange3" readonly/>%,&nbsp;</div>
+                        <div class="rangeMax">&nbsp;<=&nbsp;<input type="number" id="clasRange2"/>%</div>
+                    </div>
+                    <div class="clasificationRow">
+                        <div class="clasName" id="clblDeficient">Deficient</div>
+                        <div class="rangeMin">>&nbsp;<input type="number"  class="clasRange4" readonly/>%,&nbsp;</div>
+                        <div class="rangeMax">&nbsp;<=&nbsp;<input type="number"  id="clasRange3"/>%</div>
+                    </div>
+                    <div class="clasificationRow">
+                        <div class="clasName" id="clblCritical">Critital</div>
+                        <div class="rangeMin">>&nbsp;<input type="number"  class="clasRange5" readonly/>%,&nbsp;</div>
+                        <div class="rangeMax">&nbsp;<=&nbsp;<input type="number"  id="clasRange4"/>%</div>
+                    </div>
+                    <div class="clasificationRow">
+                        <div class="clasName" id="clblVeryCritical">Very Critical</div>
+                        <div class="rangeMin"></div>
+                        <div class="rangeMax">&nbsp;<=&nbsp;<input type="number" id="clasRange5"/>%</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-modal left" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                    <button type="button" class="btn btn-modal right" onclick="updateClasification()">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Calendar-->
+    <div class="modal fade" id="show_calendar" >
+        <input type="hidden" name="txtvalue" id="txtvalue" value="0">
+        <div class="modal-dialog">
+            <div class="modal-content" id="dinamicContent">   
+                <div class="modal-body">      
+
+                </div>
+                <div class="modal-footer">                
+                    <button type="button" class="btn btn-modal left" data-dismiss="modal" aria-hidden="true" onclick="BtnCancel2();">Cancel</button>
+                    <button type="button" class="btn btn-modal right" data-dismiss="modal" aria-hidden="true" onclick="updaTableCustomDate2();">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <!--Modal of CONECTION -->
+    <div class="modal fade" id="show_alias">
+      <div class="modal-dialog">
+          <div class="modal-content">                              
+              <div class="modal-body text-center">     
+                  <p class="title-alert titleMessage">Message</p>                 
+                  <p class="text-center textgeneral"></p>              
+              </div>
+              <div class="modal-footer info">
+                  <button type="button" class="btn btn-modal btnok" name="btngeneral"  data-dismiss="modal" aria-hidden="true"></button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- no connection -->
+  <div class="modal fade" id="no_connection" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">                              
+        <div class="modal-body text-center">     
+          <p class="title-alert titleMessage">Message</p>                 
+          <p class="text-center textNoConnection">No Connection</p>              
+        </div>
+        <div class="modal-footer info">
+            <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+  <script type="text/javascript" src="../../js/scripts.js"></script>
+  <script type="text/javascript" src="../../js/design.js"></script>  
+  
+</body>
+</html>

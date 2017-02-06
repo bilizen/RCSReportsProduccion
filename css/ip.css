@@ -1,0 +1,48 @@
+@import url('style.css');
+
+#btn_left.arrow.white{
+    background-image: url(../img/backBtnWhite.svg);
+}
+.welcome{
+    text-align: center;
+    margin: 5px 0 10px;
+    -webkit-animation: menuEffect 0.6s cubic-bezier(0, .50, .80, 1);
+    -webkit-animation-fill-mode: forwards;
+}
+@-webkit-keyframes menuEffect
+{
+    0% {
+        opacity:0;
+        -webkit-transform: translate3d(0,20px,0);
+    }
+    100% {
+        opacity:1;
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+.ip{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.ip span{
+    vertical-align: bottom;
+}
+#ip_1,#ip_2,#ip_3,#ip_4{
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+}
+.btn_only1{
+    display: block;
+    width: 90%;
+    margin: auto auto;
+    background-color: #456CD8;
+    color: white;
+}
+.btn_only1:hover{
+    color:white;
+}
+.btn_only1:active{
+    background-color: #456CD8;
+    color:white;
+}

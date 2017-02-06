@@ -1,0 +1,64 @@
+@import url('style.css');
+
+#lblToday,#lblYesterday,#lblWeek,#lblMonth,#lblYear{
+    display: inline-block;
+}
+.innerLi #lblToday, .innerLi #lblYesterday, .innerLi #lblWeek, .innerLi #lblMonth, .innerLi #lblYear{
+    float: left;
+    font-size: 18px;
+    color: black;
+    line-height: 44px;
+}
+.table{
+    margin-bottom: 10px;
+}
+.table thead th{
+    font-weight: bold;
+}
+.store{
+    overflow-x: auto;
+}
+/*iPhone 6 in portrait & landscape*/
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+    .store{
+        padding: 4pt 1%;
+        font-size: 64%;
+    }
+    .table th,
+    .table td{
+        font-size: 125%;
+    }
+}
+
+@media only screen and (min-width : 375px) and (max-width : 767px) { 
+    .store{
+        padding: 4pt 1%;
+        font-size: 64%;
+    }
+    .table th,
+    .table td{
+        font-size: 120%;
+    }
+}
+
+@media only screen and (min-width : 320px) and (max-width : 374px) { 
+    .store{
+        padding: 4pt 1%;
+        font-size: 64%;
+    }
+    .table th,
+    .table td{
+        font-size: 100%;
+    }
+}
+
+@media only screen and (orientation: portrait) { 
+  #miModal10{
+    visibility: visible;
+  }
+}
+@media only screen and (orientation: landscape) { 
+  #miModal10{
+    visibility: hidden;
+  }
+}

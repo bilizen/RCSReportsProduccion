@@ -1,0 +1,12 @@
+@import url('style.css');
+
+#btn_right.config.white{
+    background-image: url(../img/iconItemsWhite.svg);
+    background-position: center;
+    background-size: 38px;
+    background-repeat: no-repeat;
+}
+
+#btn_left.arrow.white{
+    background-image: url(../img/backBtnWhite.svg);
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Report 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../css/report1.css">
+  <link rel="stylesheet" type="text/css" href="../../css/colors.css">
+  <link rel="shortcut icon" href="">
+
+  <!-- Fav and touch icons -->
+  <script type="text/javascript" src="../../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+  <script type="text/javascript" src="../../js/database.js"></script>
+  
+  <script type="text/javascript" src="../../js/database_report1.js"></script>
+  
+  <!-- AmCharts-->
+  <script type="text/javascript" src="../../js/amcharts.js"></script>
+  <script type="text/javascript" src="../../js/serial.js"></script>
+  <!-- TAG LENGUAGES -->
+  <script type="text/javascript" src="../../js/constant-es.js"></script>
+
+</head>
+
+<body data-role="page" id="pageone">
+    <div class="hybrid_container">
+
+        <header>
+            <div class="top_bar_space"></div>
+            <div class="options_bar_space">
+                <div id="btn_left" class="arrow"><button onclick="menu();" id="txtpreferences">Return</button></div>
+                <div id="txt_title" class="titleTopBar" onclick="">Goals vs Sales</div>
+                <div id="btn_right" class="config" ><button onclick="moveToLeft(3);"></button></div>
+                
+                <!--
+                <div id="btn_right" onclick="mostrarInfo();"><button>Aa</button></div>
+            -->
+        </div>      
+    </header>
+
+    <div id="content">
+
+        <div class="section">
+            <div class="section_content"> 
+                <div class="select-general">
+                    <div data-value="3" class="init item innerLi" onclick="moveToLeft(1);" id="lbl_By_Store">By Store</div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="section">
+            <span></span>
+            <div class="section_content">
+                <div class="select-dateP">
+                    <div data-value="1" class="init item innerLi" onclick="moveToLeft(2);" >
+                        <span id="lblTodayP">Today</span>
+                        <div id="time"></div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+
+        <div class="section">
+            <!-- <span></span> -->
+            <div class="section_content" id="divRegion">
+                <div class="select-region" id="selectRegion">
+                    
+                    <!--<div data-value="R-1" class="init item innerLi" onclick="moveToLeft(4);">Select a Region</div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="section filterStore">
+            <span></span>
+            <!-- dropdown -->
+            <div class="section_content dropdown" id="divFilter">
+                <button class="select-goalfilter dropdown-toggle" id="selectFilter" data-toggle="dropdown" >
+                    <div class="lblFilter">Filter Stores</div>
+                    <div class="filterGoal filterStoresSales" data-value=1>All</div>
+                    <div class="filterCaret caret"></div>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="opt optionAll active" data-value=1>All</a></li>
+                    <li><a href="#" class="opt optionSale" data-value=2>↑Above</a></li>
+                    <li><a href="#" class="opt optionGoal" data-value=3>↓Below</a></li>
+                </ul>
+            </div>
+        </div>      
+
+        <div class="section list">
+            <span></span>
+            <div class="section_content">
+                <div class="stores" id="items">
+                </div>              
+            </div>
+        </div>
+
+    </div>        
+
+</div>
+
+<div id="floatWindow">
+
+    <header>
+        <div class="top_bar_space"></div>
+        <div class="options_bar_space">
+            <div id="btn_left" class="arrow"><button onclick="moveToRight();selectRangeGroup()" id="txtBack">Back</button></div>
+            <div id="top_txt_title" class="titleTopBar">Options</div>
+            <div id="btn_right"></div>
+        </div>      
+    </header>
+
+    <div class="wrapper visualization">
+        <div class="section">
+            <span id="lblVisualization">Visualization</span>
+            <div class="section_content">
+                <div class="checkbox_wrapper checked check_actual" onclick ="updateActual();">   
+                    <div class="switch"></div>
+                    <div class="input-checkbox"></div>
+                    <label id="checktext" class="txtCurrent">Show Current</label>            
+                </div> 
+
+                <!-- <input type="checkbox" name="check_actual" id="check_actual" onclick = "updateActual()" checked>
+                <label class="text-checkbox current">Show Current</label> -->
+                <hr>
+                <div class="checkbox_wrapper checked check_global" onclick ="updateGlobal();">   
+                    <div class="switch"></div>
+                    <div class="input-checkbox"></div>
+                    <label id="checktext" class="txtGlobal">Show Global</label>            
+                </div>
+
+               <!--  <input type="checkbox" name="check_global" id="check_global" onclick="updateGlobal()" checked>
+                <label class="text-checkbox global">Show Global</label> -->
+            </div>  
+        </div>
+
+        <div class="section">
+            <span class="lblmodaldicc">Dictionary</span>
+            <div class="section_content item" onclick="mostrarInfo();">                    
+                <div class="buttonItem dictionary">Show Dictionary</div>
+                <button>Aa</button>
+            </div>  
+        </div>
+    </div> 
+
+    <div class="wrapper general">
+        <div class="section">
+            <span id="section_header">Choose Filter</span>
+            <div class="section_content">
+                <div class="select-general">
+                    <div data-value="1" class="item " id="lbl_By_company" onclick="downloadByCompany()">By Company</div>
+                    <hr>
+                    <div data-value="2" class="item" id="lbl_By_region" onclick="downloadByRegion()">By Region</div>
+                    <hr>
+                    <div data-value="3" class="item selected lbl_By_Store"  id="lbl_By_Store" onclick="downloadByStore('')">By Store</div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper date">
+        <div class="section">
+            <span id="lblChooseDate">Choose Date</span>
+            <div class="section_content">
+                <div class="select-date">
+                    <div data-value="1" class="item selected" onclick="rangeOfToday()">
+                        <div id="lblToday">Today</div>
+                        <div id="today" class="date"></div>
+                    </div>
+                    <hr>
+                    <div data-value="2" class="item" onclick="rangeOfYesterday()">
+                        <div id="lblYesterday">Yesterday</div>
+                        <div id="yesterday" class="date"></div>
+                    </div>
+                    <hr>
+                    <div data-value="3" class="item" onclick="rangeOfWeek()">
+                        <div id="lblWeek">Week to Date</div>
+                        <div id="week" class="date"></div>
+                    </div>
+                    <hr>
+                    <div data-value="4" class="item" onclick="rangeOfMonth()">
+                        <div id="lblMonth">Month to Date</div>
+                        <div id="month" class="date"></div>
+                    </div>
+                    <hr>
+                    <div data-value="5" class="item" onclick="rangeOfYear()">
+                        <div id="lblYear">Year to Date</div>
+                        <div id="year" class="date"></div>
+                    </div>
+                </div> 
+            </div>                
+        </div>
+    </div>
+    <div class="wrapper region">
+        <div class="section">
+            <span id="lblChooseRegion">Choose Region</span>
+            <div class="section_content">
+                <div class="select-region">
+                    <!-- combo -->
+                </div> 
+            </div>                
+        </div>
+    </div>
+
+</div>  
+
+<!-- Modal -->
+
+<div class="modal fade" id="show_loading" >
+    <div class="modal-dialog">
+        <div class="text-center loading">
+            <div></div>
+            <div></div>
+        </div>
+        <!-- <div class="text-center"><p name="txtloading" id="txtloading"></p></div> -->
+        <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
+    </div>
+</div>
+
+<!-- Information -->
+<div class="modal fade" id="show_info" >
+    <input type="hidden" name="txtvalue" id="txtvalue" value="0">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">Close</button>
+                <h4 class="modal-title lblmodaldicc">
+                    Dictionary
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="infoReport1">
+                    <i id="TodayGoal">TG:</i><span id="report1TG" >Today Goal</span>
+                    <i id="TodaySale">TS:</i><span id="report1TS">Today Sale</span>
+                </div>
+
+                <div class="infoReport1">
+                    <i id="YesterdayGoal">YG:</i><span id="report1YG">Yesterday Goal</span>
+                    <i id="YesterdaySale">YS:</i><span id="report1YS">Yesterday Sale</span>
+                </div>
+
+                <div class="infoReport1">
+                    <i id="WeekGoal">WG:</i><span id="report1WG">Week Goal</span>
+                    <i id="WeekSale">WS:</i><span id="report1WS">Week Sale</span>
+                </div>
+
+                <div class="infoReport1">
+                    <i id="MonthGoal">MG:</i><span id="report1MG">Month Goal</span>
+                    <i id="MonthSale">MS:</i><span id="report1MS">Month Sale</span>
+                </div>
+
+                <div class="infoReport1">
+                    <i id="AnnualGoal">AG:</i><span id="report1AG">Annual Goal</span>
+                    <i id="AnnualSale">AS:</i><span id="report1AS">Annual Sale</span>
+                </div>
+
+                <div class="infoReport1">
+                    <i id="CompleteYearGoal">CG:</i><span id="report1CG">Complete Year Goal</span>
+                    <i id="CompleteYerSale">CS:</i><span id="report1CS">Complete Year Sale</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<!--Modal of CONECTION -->
+<div class="modal fade" id="show_alias">
+  <div class="modal-dialog">
+      <div class="modal-content">                              
+          <div class="modal-body text-center">     
+              <p class="title-alert titleMessage">Message</p>                 
+              <p class="text-center textgeneral"></p>              
+          </div>
+          <div class="modal-footer info">
+              <button type="button" class="btn btn-modal btnok" name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- no connection -->
+<div class="modal fade" id="no_connection" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">                              
+      <div class="modal-body text-center">     
+        <p class="title-alert titleMessage">Message</p>                 
+        <p class="text-center textNoConnection">No Connection</p>              
+      </div>
+      <div class="modal-footer info">
+          <button type="button" class="btn btn-modal btnok"  name="btngeneral"  data-dismiss="modal" aria-hidden="true">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="../../js/scripts.js"></script>
+<script type="text/javascript" src="../../js/design.js"></script>
+
+</body>
+</html>
