@@ -41,7 +41,7 @@
 }
 .actual i,.global i{
     width: 12%;
-    font-size: 16px;
+    font-size: 15px;
     font-style: normal;
     color: #0000CD;
 }
@@ -73,7 +73,7 @@
 div[class^="region_store"]
 {
     height: 0;
-    width: 90%;
+    width: 95%;
     overflow-y: hidden;
     overflow-x: hidden;
     opacity: 0;
@@ -107,14 +107,14 @@ div[class^="graphic"]
     height: auto !important;
 }
 div[class^="chartdiv"]{
-    width: 70%;
+    width: 65%;
     height: 130px;
     display: inline-block;
     float: left;
     
 }
 div[class^="detalle-"]{
-    width: 30%;
+    width: 35%;
     height: 100%;
     display: inline-block;
     float: right;
@@ -143,10 +143,10 @@ div[class^="detalle-"] span{
 .ambar{ color: rgb(201, 148, 18) !important;}
 
 
-#lblToday,#lblYesterday,#lblWeek,#lblMonth,#lblYear{
+#lblToday,#lblYesterday,#lblWeek,#lblMonth,#lblYear,#lblLastYear{
     display: inline-block;
 }
-.innerLi #lblToday, .innerLi #lblYesterday, .innerLi #lblWeek, .innerLi #lblMonth, .innerLi #lblYear{
+.innerLi #lblToday, .innerLi #lblYesterday, .innerLi #lblWeek, .innerLi #lblMonth, .innerLi #lblYear, .innerLi #lblLastYear{
     float: left;
     font-size: 18px;
     color: black;
@@ -207,7 +207,7 @@ div[class^="detalle-"] span{
 /*iPhone 6 in portrait & landscape*/
 @media only screen and (min-width : 375px) and (max-width : 767px) { 
     .lastConexion {
-        width: 35%;
+        width: 37%;
         font-size: 11pt;
         line-height: 14pt;
         height: 32px;
@@ -226,13 +226,13 @@ div[class^="detalle-"] span{
         padding-top: 8px;
         padding-bottom: 8px;
         border-radius: 4pt;
-        width: 21%;
+        width: 19%;
     }
     .store{
         padding: 4pt 6%;
     }
     .actual i, .global i {
-        width: 11%;
+        width: 12%;
     }
     .actual p, .global p {
         width: 28.5%;

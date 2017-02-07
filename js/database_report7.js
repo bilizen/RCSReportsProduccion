@@ -201,13 +201,13 @@ function downloadByCompany() {
                             } else if (option == 4) {
                                 lblCurrentGoal = "MM:";
                                 lblCurrentSale = "VM:";
-                                lblGlobalGoal = "MA:";
-                                lblGlobalSale = "VA:";
-                            } else if (option == 5) {
-                                lblCurrentGoal = "MA:";
-                                lblCurrentSale = "VA:";
-                                lblGlobalGoal = "MAC:";
+                                lblGlobalGoal = "MAH:";
                                 lblGlobalSale = "VAH:";
+                            } else if (option == 5) {
+                                lblCurrentGoal = "MAH:";
+                                lblCurrentSale = "VAH:";
+                                lblGlobalGoal = "MAC:";
+                                lblGlobalSale = "VAC:";
                             }
                         } else {
                             if (option == 1) {
@@ -442,13 +442,13 @@ function detailsNewCompStore(indice,typecode,regionCode){
                                 } else if (option == 4) {
                                     lblCurrentGoal = "MM:";
                                     lblCurrentSale = "VM:";
-                                    lblGlobalGoal = "MA:";
-                                    lblGlobalSale = "VA:";
-                                } else if (option == 5) {
-                                    lblCurrentGoal = "MA:";
-                                    lblCurrentSale = "VA:";
-                                    lblGlobalGoal = "MAC:";
+                                    lblGlobalGoal = "MAH:";
                                     lblGlobalSale = "VAH:";
+                                } else if (option == 5) {
+                                    lblCurrentGoal = "MAH:";
+                                    lblCurrentSale = "VAH:";
+                                    lblGlobalGoal = "MAC:";
+                                    lblGlobalSale = "VAC:";
                                 }
                             } else {
                                 if (option == 1) {

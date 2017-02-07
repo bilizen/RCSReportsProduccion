@@ -28,22 +28,22 @@ $(document).ready(function () {
 
 
 $(window).load(function(){
-    // onInit();
-    // deteclenguage();
-    // if(checkNetConnection()==true){
-    //     updateHideReports();
-    //     checktaxDefault();
-    //     verificateSetDate();
-    // }else{
-    //     $('#no_connection').modal('show');
-    //     if (current_lang=='es'){
-    //         $('.titleMessage').text('Mensaje');
-    //         $('.textNoConnection').text('No hay conexión de red');
-    //         $('.btnok').text('Aceptar');
-    //     }else{
-    //        //modal para no conexión
-    //     }
-    // }
+    onInit();
+    deteclenguage();
+    if(checkNetConnection()==true){
+        updateHideReports();
+        checktaxDefault();
+        verificateSetDate();
+    }else{
+        $('#no_connection').modal('show');
+        if (current_lang=='es'){
+            $('.titleMessage').text('Mensaje');
+            $('.textNoConnection').text('No hay conexión de red');
+            $('.btnok').text('Aceptar');
+        }else{
+           //modal para no conexión
+        }
+    }
 
     $('.radio_wrapper').click(function(){
         $('.radio_wrapper').removeClass('checked');

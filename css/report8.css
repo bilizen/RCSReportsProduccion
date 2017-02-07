@@ -59,13 +59,13 @@
 }
 .actual i,.global i{
     width: 12%;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     color: #0000CD;
 }
 .actual p,.global p{
     width: 26.5%;
-    font-size: 16px;
+    font-size: 15px;
     text-align: left;
 }
 .actual span,.global span{
@@ -190,7 +190,7 @@ div[class^="region_store"]
     .actual i, .global i,
     .actual p, .global p,
     .actual span, .global span {
-        font-size: 18pt;
+        font-size: 15pt;
     }
     .actual p, .global p{
         width: 31.5%;
@@ -268,7 +268,7 @@ div[class^="region_store"]
         padding-top: 8px;
         padding-bottom: 8px;
         border-radius: 4pt;
-        width: 31%;
+        width: 23%;
     }
     .store{
         padding: 4pt 6%;
@@ -277,7 +277,7 @@ div[class^="region_store"]
         width: 11%;
     }
     .actual p, .global p {
-        width: 23.5%;
+        width: 27.5%;
     }
     .innerLi {
         font-size: 12pt;
@@ -289,7 +289,7 @@ div[class^="region_store"]
         width: 68%;
     }
     .lastConexion {
-        width: 34%;
+        width: 41%;
         font-size: 11pt;
         line-height: 14pt;
         height: 32px;

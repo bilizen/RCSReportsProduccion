@@ -332,6 +332,9 @@ function comboWriteDates(){
 
     /* Year */
     var o_year = '01/' + '01/' + d1.getFullYear();
+
+    /* last Year*/
+    var o_lastYear = '01/' + '01/' + (d1.getFullYear()-1).toString();
     
     //change of date ES->EN
     var lang = navigator.language.split("-");
@@ -354,6 +357,8 @@ function comboWriteDates(){
         var year=o_year.split("/");
         $('#year').text(year[1]+"/"+year[0]+"/"+year[2]);   
         
+        var lastYear=o_lastYear.split("/");
+        $('#lastYear').text(lastYear[1]+"/"+lastYear[0]+"/"+lastYear[2])
     }else{
         $('#time').text(o_today);
         $('#today').text(o_today);
@@ -361,6 +366,7 @@ function comboWriteDates(){
         $('#week').text(starWeek);
         $('#month').text(o_month);
         $('#year').text(o_year);
+        $('#lastYear').text(o_lastYear);
     }
 }
 
